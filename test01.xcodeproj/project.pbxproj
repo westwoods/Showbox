@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8027014B1F29786B00A26F3B /* VideoWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8027014A1F29786B00A26F3B /* VideoWriter.swift */; };
+		802701591F2A31D700A26F3B /* TLPhotoPicker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 808476A11F26D5A700A0AD0E /* TLPhotoPicker.framework */; };
 		808476971F26D3B800A0AD0E /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 808476961F26D3B800A0AD0E /* Podfile */; };
 		809D23C21F25DF8C00116FBA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809D23C11F25DF8C00116FBA /* AppDelegate.swift */; };
 		809D23C41F25DF8C00116FBA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809D23C31F25DF8C00116FBA /* ViewController.swift */; };
@@ -16,7 +17,6 @@
 		809D23CC1F25DF8C00116FBA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 809D23CA1F25DF8C00116FBA /* LaunchScreen.storyboard */; };
 		809D23D71F25DF8C00116FBA /* test01Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809D23D61F25DF8C00116FBA /* test01Tests.swift */; };
 		809D23E21F25DF8C00116FBA /* test01UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809D23E11F25DF8C00116FBA /* test01UITests.swift */; };
-		D9A8FDE9C170CC059DD234DB /* Pods_test01.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D1F03D1242BA1CA44693989 /* Pods_test01.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,7 +84,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D9A8FDE9C170CC059DD234DB /* Pods_test01.framework in Frameworks */,
+				802701591F2A31D700A26F3B /* TLPhotoPicker.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

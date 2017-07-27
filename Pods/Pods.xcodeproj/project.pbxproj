@@ -48,7 +48,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		00275F96EED86FEF9DDFC55E8271BE8D /* TLPhotoPicker.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = TLPhotoPicker.bundle; path = TLPhotoPicker.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		00275F96EED86FEF9DDFC55E8271BE8D /* TLPhotoPicker.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TLPhotoPicker.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		075E080D7C0648A52D47E10CCDA9D86D /* Pods-test01-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-test01-dummy.m"; sourceTree = "<group>"; };
 		0FE5DE12C02137D1833AC91E4C642FFB /* Pods-test01-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-test01-acknowledgements.plist"; sourceTree = "<group>"; };
 		16841230658E5E4D841768D57E3B50B3 /* Pods-test01-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-test01-resources.sh"; sourceTree = "<group>"; };
@@ -63,21 +63,21 @@
 		61C472D1B6E13DC6746B88BB5C0599B2 /* TLPhotoPickerController.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = TLPhotoPickerController.bundle; path = TLPhotoPicker/TLPhotoPickerController.bundle; sourceTree = "<group>"; };
 		6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		6FB8C9A5DAE04E2E06960A333DF9E8B8 /* TLPhotoCollectionViewCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TLPhotoCollectionViewCell.swift; path = TLPhotoPicker/Classes/TLPhotoCollectionViewCell.swift; sourceTree = "<group>"; };
-		7200D8B6DAFFACE55E7D27122A6F2549 /* TLPhotoPicker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = TLPhotoPicker.framework; path = TLPhotoPicker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7200D8B6DAFFACE55E7D27122A6F2549 /* TLPhotoPicker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TLPhotoPicker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A52BD050EBC3D68765B6072B9E22162 /* Pods-test01-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-test01-frameworks.sh"; sourceTree = "<group>"; };
 		7BBF2018F051F2053FB25DBF832D45C4 /* TLPhotoPicker-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "TLPhotoPicker-umbrella.h"; sourceTree = "<group>"; };
 		84AA3FCAF8F79EB18A36DB7072CE9834 /* TLAssetsCollection.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TLAssetsCollection.swift; path = TLPhotoPicker/Classes/TLAssetsCollection.swift; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9BE82006128B19F75F719F695934D149 /* Pods-test01.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-test01.release.xcconfig"; sourceTree = "<group>"; };
 		AB98D2D1FBEDB73BBB9F3A17CF1D9962 /* TLAlbumPopView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TLAlbumPopView.swift; path = TLPhotoPicker/Classes/TLAlbumPopView.swift; sourceTree = "<group>"; };
 		B06186B27642C427B2791FAF15EDC0F0 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE21DF0898FC78254F06CF89BBD363EA /* TLPhotosPickerViewController.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = TLPhotosPickerViewController.xib; path = TLPhotoPicker/Classes/TLPhotosPickerViewController.xib; sourceTree = "<group>"; };
 		CEAC67CB7D1A127EF642680A025C9738 /* TLBundle.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TLBundle.swift; path = TLPhotoPicker/Classes/TLBundle.swift; sourceTree = "<group>"; };
 		D00960DCB1C856FDD28C6B9ABD4EFDB7 /* TLCollectionTableViewCell.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = TLCollectionTableViewCell.xib; path = TLPhotoPicker/Classes/TLCollectionTableViewCell.xib; sourceTree = "<group>"; };
-		DBF48C1AA406BDBCFA86FFF7E9703B8E /* Pods_test01.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_test01.framework; path = "Pods-test01.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		DF0ECB093660285C4FDBB5EA8524BE78 /* Pods-test01.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-test01.modulemap"; sourceTree = "<group>"; };
+		DBF48C1AA406BDBCFA86FFF7E9703B8E /* Pods_test01.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_test01.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DF0ECB093660285C4FDBB5EA8524BE78 /* Pods-test01.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-test01.modulemap"; sourceTree = "<group>"; };
 		E185EB5BD6166E71763B5C4D7F4DCC18 /* TLPhotoPicker.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = TLPhotoPicker.xcconfig; sourceTree = "<group>"; };
-		E43A1E5DCB06E8042561DF12E39F9E96 /* TLPhotoPicker.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = TLPhotoPicker.modulemap; sourceTree = "<group>"; };
+		E43A1E5DCB06E8042561DF12E39F9E96 /* TLPhotoPicker.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = TLPhotoPicker.modulemap; sourceTree = "<group>"; };
 		EB1607B168E49BA9CAA287C5B7A5BF6F /* Pods-test01-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-test01-acknowledgements.markdown"; sourceTree = "<group>"; };
 		ED252C5A784A7BD713C2D296846F5B54 /* Pods-test01.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-test01.debug.xcconfig"; sourceTree = "<group>"; };
 		EE38E71CFAD446A667D93523AD9F9583 /* ResourceBundle-TLPhotoPicker-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-TLPhotoPicker-Info.plist"; sourceTree = "<group>"; };
@@ -126,7 +126,6 @@
 				AFAE1C29670E527946D8DAC97801DAC7 /* Resources */,
 				FFC7C9A8AD93C40BF7D6600CAB27210F /* Support Files */,
 			);
-			name = TLPhotoPicker;
 			path = TLPhotoPicker;
 			sourceTree = "<group>";
 		};
@@ -308,6 +307,12 @@
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
 				LastUpgradeCheck = 0700;
+				TargetAttributes = {
+					7A9AD5177F0E63345745EE817841FC5C = {
+						DevelopmentTeam = 4FQ4R6GQY8;
+						ProvisioningStyle = Automatic;
+					};
+				};
 			};
 			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -469,11 +474,12 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 4FQ4R6GQY8;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -491,6 +497,7 @@
 				PODS_ROOT = "$(SRCROOT)";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = Pods_test01;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
@@ -577,11 +584,12 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 4FQ4R6GQY8;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -599,6 +607,7 @@
 				PODS_ROOT = "$(SRCROOT)";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = Pods_test01;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
