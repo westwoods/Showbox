@@ -58,7 +58,7 @@ class ViewController: UIViewController, TLPhotosPickerViewControllerDelegate{
                     {
                         semaphore.wait()
                         VideoWriter.mergeVideo(myVideoAsset: self.myVideoAsset,myPhotoAsset: self.myPhotoAsset)
-                  //      VideoWriter.exportAsset(asset: self.myVideoAsset[0])
+                  //  VideoWriter.exportAsset(asset: self.myVideoAsset[0])
                         self.myVideoAsset.removeAll()
                         self.myPhotoAsset.removeAll()
                         self.videoCount = 0
@@ -69,16 +69,12 @@ class ViewController: UIViewController, TLPhotosPickerViewControllerDelegate{
             else  if  (self.selectedAssets[i].type == TLPHAsset.AssetType.photo){
                 print(self.selectedAssets[i].fullResolutionImage?.size.width ?? "이미지가 없다")
                 self.myPhotoAsset.append(self.selectedAssets[i].fullResolutionImage!)
-                if(self.myPhotoAsset.count == self.selectedAssets.count - self.videoCount)
-                {
-                    semaphore.signal()
-                }
+
             }
-            if (0 == self.selectedAssets.count - self.videoCount)
+            if(self.myPhotoAsset.count == self.selectedAssets.count - self.videoCount)
             {
                 semaphore.signal()
             }
-            
         }
     }
     

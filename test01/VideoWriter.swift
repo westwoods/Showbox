@@ -85,7 +85,7 @@ class VideoWriter {
         else {
             renderHeight = naturalSizeSecond.height;
         }
-     VideoWriter.over(size: CGSize(width: renderWidth, height: renderHeight), layercomposition: mutableVideoCompositon,  photosToOverlay: myPhotoAsset)
+        VideoWriter.over(size: CGSize(width: renderWidth, height: renderHeight), layercomposition: mutableVideoCompositon,  photosToOverlay: myPhotoAsset)
         
         mutableVideoCompositon.renderSize = CGSize(width: renderWidth, height: renderHeight)
         // Set the frame duration to an appropriate value (i.e. 30 frames per second for video).
@@ -127,13 +127,11 @@ class VideoWriter {
                         }
                     }
                 }
-                else if session.status == AVAssetExportSessionStatus.failed
-                {
+                else if session.status == AVAssetExportSessionStatus.failed{
                     print("Export Error: \(session.error ?? "ERR" as! Error)")
                     print("Export Failed")
                 }
-                else
-                {
+                else{
                     print("Export Cancelled")
                 }
             })
@@ -178,50 +176,49 @@ class VideoWriter {
     class func over(size:CGSize,layercomposition:AVMutableVideoComposition,photosToOverlay:[UIImage]){
         let size = size
         print(photosToOverlay.count)
-            let imglogo:UIImage? = photosToOverlay[0]
-            let imglayer = CALayer()
-            imglayer.contents = imglogo?.cgImage
-            imglayer.frame = CGRect(x:0, y:0, width:size.width, height:size.height)
-            imglayer.opacity = 1
-         //   imglayer.backgroundColor = UIColor.blue.cgColor
-            
-            // create text Layer
-            let titleLayer = CATextLayer()
-            titleLayer.backgroundColor = UIColor.white.cgColor
-            titleLayer.string = "한글 텍스트도 되나 확인을 하자"
-            titleLayer.font = UIFont(name: "Helvetica", size: 288)
-            titleLayer.foregroundColor = UIColor.blue.cgColor
-            titleLayer.shadowOpacity = 0.5
-            titleLayer.alignmentMode = kCAAlignmentCenter
-            titleLayer.frame = CGRect(x:0, y:50, width:size.width, height:size.height / 6)
-            
-            let videolayer = CALayer()
-            videolayer.frame = CGRect(x:0, y:0, width:size.width, height:size.height )
-            let parentlayer = CALayer()
-            parentlayer.frame = CGRect(x:0, y:0, width:size.width, height:size.height )
-            parentlayer.addSublayer(videolayer)
-            parentlayer.addSublayer(imglayer)
-            parentlayer.addSublayer(titleLayer)
-            let myanimation:CABasicAnimation = CABasicAnimation(keyPath: "opacity")
-            
-            myanimation.fromValue = imglayer.opacity
-            
-            myanimation.toValue = 0
-            
-        //    myanimation.autoreverses=true
-            myanimation.duration = 2.0
-            myanimation.beginTime = AVCoreAnimationBeginTimeAtZero
-            
-            parentlayer.add(myanimation, forKey: "opacity")
-            let layercomposition = layercomposition
-            layercomposition.animationTool = AVVideoCompositionCoreAnimationTool(postProcessingAsVideoLayer: videolayer, in: parentlayer)
-            
-
+        let imglogo:UIImage? = photosToOverlay[0]
+        let imglayer = CALayer()
+        imglayer.contents = imglogo?.cgImage
+        imglayer.frame = CGRect(x:0, y:0, width:size.width, height:size.height)
+        imglayer.opacity = 1
+        //   imglayer.backgroundColor = UIColor.blue.cgColor
         
-
-}
+        // create text Layer
+        let titleLayer = CATextLayer()
+        titleLayer.backgroundColor = UIColor.white.cgColor
+        titleLayer.string = "한글 텍스트도 되나 확인을 하자"
+        titleLayer.font = UIFont(name: "Helvetica", size: 288)
+        titleLayer.foregroundColor = UIColor.blue.cgColor
+        titleLayer.shadowOpacity = 0.5
+        titleLayer.alignmentMode = kCAAlignmentCenter
+        titleLayer.frame = CGRect(x:0, y:50, width:size.width, height:size.height / 6)
+        
+        let videolayer = CALayer()
+        videolayer.frame = CGRect(x:0, y:0, width:size.width, height:size.height )
+        let parentlayer = CALayer()
+        parentlayer.frame = CGRect(x:0, y:0, width:size.width, height:size.height )
+        parentlayer.addSublayer(videolayer)
+        parentlayer.addSublayer(imglayer)
+        parentlayer.addSublayer(titleLayer)
+        let myanimation:CABasicAnimation = CABasicAnimation(keyPath: "opacity")
+        
+        myanimation.fromValue = imglayer.opacity
+        
+        myanimation.toValue = 0
+        myanimation.duration = 2.0
+        myanimation.beginTime = AVCoreAnimationBeginTimeAtZero
+        myanimation.isRemovedOnCompletion = false //애니메이션이 종료되어도 애니메이션을 지우지않는다.
+        myanimation.fillMode = kCAFillModeForwards //애니메이션이 종료된뒤 계속해서 상태를 유지한다.
+        imglayer.add(myanimation, forKey: "opacity")
+        let layercomposition = layercomposition
+        layercomposition.animationTool = AVVideoCompositionCoreAnimationTool(postProcessingAsVideoLayer: videolayer, in: parentlayer)
+        
+        
+        
+        
+    }
     
-class func deleteExistingFile(destinationURL: URL) throws {
+    class func deleteExistingFile(destinationURL: URL) throws {
         let fileManager = FileManager()
         
         let destinationPath = destinationURL.path
