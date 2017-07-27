@@ -23,71 +23,52 @@ class VideoWriter {
             = myMutableComposition.addMutableTrack(withMediaType: AVMediaTypeVideo, preferredTrackID:  kCMPersistentTrackID_Invalid)
         //        let audioCompositionTrack:AVMutableCompositionTrack =
         //            myMutableComposition.addMutableTrack(withMediaType: AVMediaTypeAudio, preferredTrackID:  kCMPersistentTrackID_Invalid)
-        //
-        let videoAssetTrack0:AVAssetTrack = myVideoAsset[0].tracks(withMediaType: AVMediaTypeVideo)[0]
-        print ("myvideo count",videoAssetTrack0.asset?.duration ?? "골로간다" ,videoAssetTrack0.timeRange.duration)
+        let nextDelayTime:TimeInterval = 5
+        var startTime:CMTime = kCMTimeZero
+        let nextDelay:CMTime = CMTimeMakeWithSeconds(nextDelayTime, 1000000);
         
-        let videoAssetTrack1:AVAssetTrack = myVideoAsset[1].tracks(withMediaType: AVMediaTypeVideo)[0]
-        
-        do{
-            
-            try videoCompositionTrack.insertTimeRange(CMTimeRangeMake(kCMTimeZero, videoAssetTrack0.timeRange.duration),of:videoAssetTrack0, at:kCMTimeZero)
-            
-            
-            try  videoCompositionTrack.insertTimeRange(CMTimeRangeMake(kCMTimeZero, videoAssetTrack1.timeRange.duration),of:videoAssetTrack1, at:videoAssetTrack0.timeRange.duration)
-            //
-            //    try audioCompositionTrack.insertTimeRange(
-            //            CMTimeRangeMake(kCMTimeZero,CMTimeAdd( videoAssetTrack0.timeRange.duration,  videoAssetTrack1.timeRange.duration)),of:myAudioAsset[0].,at:kCMTimeZero)
-            
-        }
-        catch{
-            print ("errooo\n")
-        }
-        
-        let firstVideoCompositionInsturction = AVMutableVideoCompositionInstruction.init()
-        firstVideoCompositionInsturction.timeRange = CMTimeRangeMake(kCMTimeZero,videoAssetTrack0.timeRange.duration)
-        
-        let secondVideoCompositionInsturction = AVMutableVideoCompositionInstruction.init()
-        secondVideoCompositionInsturction.timeRange = CMTimeRangeMake(videoAssetTrack0.timeRange.duration,CMTimeAdd( videoAssetTrack0.timeRange.duration,  videoAssetTrack1.timeRange.duration) )
-        
-        
-        
-        let firstVideoLayerInstruction =
-            AVMutableVideoCompositionLayerInstruction(assetTrack: videoCompositionTrack)
-        
-        firstVideoLayerInstruction.setTransform(videoAssetTrack0.preferredTransform, at: kCMTimeZero)
-        
-        let secondVideoLayerInstruction =
-            AVMutableVideoCompositionLayerInstruction(assetTrack: videoCompositionTrack)
-        secondVideoLayerInstruction.setTransform(videoAssetTrack1.preferredTransform, at: videoAssetTrack0.timeRange.duration)
-        
-        
-        firstVideoCompositionInsturction.layerInstructions = [firstVideoLayerInstruction]
-        secondVideoCompositionInsturction.layerInstructions = [secondVideoLayerInstruction]
+        startTime = CMTimeAdd(startTime,nextDelay)
+        var renderSize:CGSize = CGSize.init(width: 0, height: 0)
         let mutableVideoCompositon = AVMutableVideoComposition.init()
-        mutableVideoCompositon.instructions = [firstVideoCompositionInsturction,secondVideoCompositionInsturction]
+    
+        for Index in 0..<myVideoAsset.count{
+            
+            let assetDuration = myVideoAsset[Index].duration
+            let assetDurationWithNextDelay = CMTimeAdd(assetDuration, nextDelay)
+            let videoAssetTrack:AVAssetTrack = myVideoAsset[Index].tracks(withMediaType: AVMediaTypeVideo)[0]
+            //렌더링 사이즈 결정
+            if renderSize.width < videoAssetTrack.naturalSize.width{
+                renderSize.width = videoAssetTrack.naturalSize.width
+            }
+            if renderSize.height < videoAssetTrack.naturalSize.height{
+                renderSize.height = videoAssetTrack.naturalSize.height
+            }
+            
+            do{
+                try videoCompositionTrack.insertTimeRange(CMTimeRangeMake(kCMTimeZero,assetDurationWithNextDelay),of:videoAssetTrack, at:startTime)
+            }
+            catch{
+            }
+            //인스트럭션 결정
+//            let firstVideoCompositionInsturction = AVMutableVideoCompositionInstruction.init()
+//            firstVideoCompositionInsturction.timeRange = CMTimeRangeMake(startTime,assetDurationWithNextDelay)
+//            
+//            let firstVideoLayerInstruction =
+//                AVMutableVideoCompositionLayerInstruction(assetTrack: videoCompositionTrack)
+//            
+//            firstVideoLayerInstruction.setTransform(videoAssetTrack.preferredTransform, at: startTime)
+//            
+//            firstVideoCompositionInsturction.layerInstructions = [firstVideoLayerInstruction]
+//            mutableVideoCompositon.instructions.append(firstVideoCompositionInsturction)
+//            
+          //  startTime = CMTimeAdd(startTime, assetDurationWithNextDelay)
+            
+            startTime = CMTimeAdd(startTime, assetDurationWithNextDelay)
+        }
+
+        VideoWriter.over(size: renderSize, layercomposition: mutableVideoCompositon,  photosToOverlay: myPhotoAsset)
         
-        //5 랜더링 사이즈 결정
-        var naturalSizeFirst, naturalSizeSecond:CGSize
-        naturalSizeFirst = videoAssetTrack0.naturalSize;
-        naturalSizeSecond = videoAssetTrack1.naturalSize;
-        var renderWidth, renderHeight:CGFloat
-        // Set the renderWidth and renderHeight to the max of the two videos widths and heights.
-        if (naturalSizeFirst.width > naturalSizeSecond.width) {
-            renderWidth = naturalSizeFirst.width;
-        }
-        else {
-            renderWidth = naturalSizeSecond.width;
-        }
-        if (naturalSizeFirst.height > naturalSizeSecond.height) {
-            renderHeight = naturalSizeFirst.height;
-        }
-        else {
-            renderHeight = naturalSizeSecond.height;
-        }
-        VideoWriter.over(size: CGSize(width: renderWidth, height: renderHeight), layercomposition: mutableVideoCompositon,  photosToOverlay: myPhotoAsset)
-        
-        mutableVideoCompositon.renderSize = CGSize(width: renderWidth, height: renderHeight)
+        mutableVideoCompositon.renderSize = renderSize
         // Set the frame duration to an appropriate value (i.e. 30 frames per second for video).
         mutableVideoCompositon.frameDuration = CMTimeMake(1,30);
         
@@ -107,7 +88,7 @@ class VideoWriter {
             session.outputURL = exportURL
             session.outputFileType = AVFileTypeQuickTimeMovie
             //session.shouldOptimizeForNetworkUse = true
-            session.videoComposition = mutableVideoCompositon
+         //   session.videoComposition = mutableVideoCompositon
             session.exportAsynchronously(completionHandler: {
                 print("Output File Type: \(session.outputFileType ?? "FILE TYPE MIA")")
                 print("Output URL: \(session.outputURL?.absoluteString ?? "URL MIA")")
@@ -181,13 +162,18 @@ class VideoWriter {
         imglayer.contents = imglogo?.cgImage
         imglayer.frame = CGRect(x:0, y:0, width:size.width, height:size.height)
         imglayer.opacity = 1
-        //   imglayer.backgroundColor = UIColor.blue.cgColor
+        imglayer.backgroundColor = UIColor.blue.cgColor
         
+        let today = NSDate() //현재 시각 구하기
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yy_M_d_hh:mm:ss"
+        let dateString = dateFormatter.string(from: today as Date)
+
         // create text Layer
         let titleLayer = CATextLayer()
         titleLayer.backgroundColor = UIColor.white.cgColor
-        titleLayer.string = "한글 텍스트도 되나 확인을 하자"
-        titleLayer.font = UIFont(name: "Helvetica", size: 288)
+        titleLayer.string = "한글 텍스트도 되나 확인을 하자"+dateString
+        titleLayer.font = UIFont(name: "Helvetica", size: 188)
         titleLayer.foregroundColor = UIColor.blue.cgColor
         titleLayer.shadowOpacity = 0.5
         titleLayer.alignmentMode = kCAAlignmentCenter
@@ -204,8 +190,8 @@ class VideoWriter {
         
         myanimation.fromValue = imglayer.opacity
         
-        myanimation.toValue = 0
-        myanimation.duration = 2.0
+        myanimation.toValue = 1
+        myanimation.duration = 10.0
         myanimation.beginTime = AVCoreAnimationBeginTimeAtZero
         myanimation.isRemovedOnCompletion = false //애니메이션이 종료되어도 애니메이션을 지우지않는다.
         myanimation.fillMode = kCAFillModeForwards //애니메이션이 종료된뒤 계속해서 상태를 유지한다.
