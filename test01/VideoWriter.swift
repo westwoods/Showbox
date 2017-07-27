@@ -15,8 +15,6 @@ class VideoWriter {
     
     class func mergeVideo(myVideoAsset:[AVAsset],myPhotoAsset:[UIImage])
     {
-        let myPhotoAsset = myPhotoAsset
-        print (myPhotoAsset.count)
         let myMutableComposition:AVMutableComposition = AVMutableComposition()
         
         let videoCompositionTrack:AVMutableCompositionTrack
@@ -30,9 +28,9 @@ class VideoWriter {
         startTime = CMTimeAdd(startTime,nextDelay)
         var renderSize:CGSize = CGSize.init(width: 0, height: 0)
         let mutableVideoCompositon = AVMutableVideoComposition.init()
-    
+        
+        var VideoCompositionInsturction:AVMutableVideoCompositionInstruction? = nil
         for Index in 0..<myVideoAsset.count{
-            
             let assetDuration = myVideoAsset[Index].duration
             let assetDurationWithNextDelay = CMTimeAdd(assetDuration, nextDelay)
             let videoAssetTrack:AVAssetTrack = myVideoAsset[Index].tracks(withMediaType: AVMediaTypeVideo)[0]
@@ -49,25 +47,28 @@ class VideoWriter {
             }
             catch{
             }
-            //인스트럭션 결정
-//            let firstVideoCompositionInsturction = AVMutableVideoCompositionInstruction.init()
-//            firstVideoCompositionInsturction.timeRange = CMTimeRangeMake(startTime,assetDurationWithNextDelay)
-//            
-//            let firstVideoLayerInstruction =
-//                AVMutableVideoCompositionLayerInstruction(assetTrack: videoCompositionTrack)
-//            
-//            firstVideoLayerInstruction.setTransform(videoAssetTrack.preferredTransform, at: startTime)
-//            
-//            firstVideoCompositionInsturction.layerInstructions = [firstVideoLayerInstruction]
-//            mutableVideoCompositon.instructions.append(firstVideoCompositionInsturction)
-//            
-          //  startTime = CMTimeAdd(startTime, assetDurationWithNextDelay)
+           //  인스트럭션 결정
+            if VideoCompositionInsturction == nil {
+                VideoCompositionInsturction = AVMutableVideoCompositionInstruction.init()
+                VideoCompositionInsturction!.timeRange = CMTimeRangeMake(kCMTimeZero,CMTimeAdd(assetDurationWithNextDelay,startTime))
+            }
+            else{
+                VideoCompositionInsturction = AVMutableVideoCompositionInstruction.init()
+                VideoCompositionInsturction!.timeRange = CMTimeRangeMake(startTime,CMTimeAdd(assetDurationWithNextDelay,startTime))
+            }
+            let VideoLayerInstruction =
+                AVMutableVideoCompositionLayerInstruction(assetTrack: videoCompositionTrack)
+           // VideoLayerInstruction.setTransform(videoAssetTrack.preferredTransform, at: startTime)
+            
+            VideoCompositionInsturction!.layerInstructions = [VideoLayerInstruction]
+            mutableVideoCompositon.instructions.append(VideoCompositionInsturction!)
+            
             
             startTime = CMTimeAdd(startTime, assetDurationWithNextDelay)
         }
-
+        if(myPhotoAsset.count > 0){
         VideoWriter.over(size: renderSize, layercomposition: mutableVideoCompositon,  photosToOverlay: myPhotoAsset)
-        
+        }
         mutableVideoCompositon.renderSize = renderSize
         // Set the frame duration to an appropriate value (i.e. 30 frames per second for video).
         mutableVideoCompositon.frameDuration = CMTimeMake(1,30);
@@ -88,7 +89,7 @@ class VideoWriter {
             session.outputURL = exportURL
             session.outputFileType = AVFileTypeQuickTimeMovie
             //session.shouldOptimizeForNetworkUse = true
-         //   session.videoComposition = mutableVideoCompositon
+           session.videoComposition = mutableVideoCompositon
             session.exportAsynchronously(completionHandler: {
                 print("Output File Type: \(session.outputFileType ?? "FILE TYPE MIA")")
                 print("Output URL: \(session.outputURL?.absoluteString ?? "URL MIA")")
@@ -158,6 +159,7 @@ class VideoWriter {
         let size = size
         print(photosToOverlay.count)
         let imglogo:UIImage? = photosToOverlay[0]
+        
         let imglayer = CALayer()
         imglayer.contents = imglogo?.cgImage
         imglayer.frame = CGRect(x:0, y:0, width:size.width, height:size.height)
@@ -187,20 +189,15 @@ class VideoWriter {
         parentlayer.addSublayer(imglayer)
         parentlayer.addSublayer(titleLayer)
         let myanimation:CABasicAnimation = CABasicAnimation(keyPath: "opacity")
-        
         myanimation.fromValue = imglayer.opacity
-        
-        myanimation.toValue = 1
-        myanimation.duration = 10.0
+        myanimation.toValue = 0
+        myanimation.duration = 2.0
         myanimation.beginTime = AVCoreAnimationBeginTimeAtZero
         myanimation.isRemovedOnCompletion = false //애니메이션이 종료되어도 애니메이션을 지우지않는다.
         myanimation.fillMode = kCAFillModeForwards //애니메이션이 종료된뒤 계속해서 상태를 유지한다.
         imglayer.add(myanimation, forKey: "opacity")
         let layercomposition = layercomposition
         layercomposition.animationTool = AVVideoCompositionCoreAnimationTool(postProcessingAsVideoLayer: videolayer, in: parentlayer)
-        
-        
-        
         
     }
     
