@@ -15,7 +15,8 @@ class VideoWriter {
     
     class func mergeVideo(myVideoAsset:[AVAsset],myPhotoAsset:[UIImage])
     {
-        
+        let myPhotoAsset = myPhotoAsset
+        print (myPhotoAsset.count)
         let myMutableComposition:AVMutableComposition = AVMutableComposition()
         
         let videoCompositionTrack:AVMutableCompositionTrack
@@ -95,7 +96,7 @@ class VideoWriter {
         
         let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first!
         
-        let exportURL = URL(fileURLWithPath: (paths + "/move.mov"))
+        let exportURL = URL(fileURLWithPath: (paths + "/move3.mov"))
         do{
             try VideoWriter.deleteExistingFile(destinationURL: exportURL)
         }catch {
@@ -121,6 +122,9 @@ class VideoWriter {
                         if saved {
                             print("Saved")
                         }
+                        else{
+                            print(error as Any)
+                        }
                     }
                 }
                 else if session.status == AVAssetExportSessionStatus.failed
@@ -136,11 +140,16 @@ class VideoWriter {
             
         }
     }
-    func exportAsset(asset: AVAsset) {
+    class func exportAsset(asset: AVAsset) {
+        let today = NSDate() //현재 시각 구하기
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yy_M_d_hh:mm:ss"
+        let dateString = dateFormatter.string(from: today as Date)
+        
         
         let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first!
         
-        let exportURL = URL(fileURLWithPath: (paths + "/move1.mov"))
+        let exportURL = URL(fileURLWithPath: (paths + "/"+dateString+".mov"))
         do{
             try VideoWriter.deleteExistingFile(destinationURL: exportURL)
         }catch {
@@ -149,7 +158,6 @@ class VideoWriter {
         
         let exporter = AVAssetExportSession(asset: asset, presetName: AVAssetExportPresetLowQuality)
         exporter?.outputURL = exportURL
-        // exporter?.
         exporter?.outputFileType = AVFileTypeQuickTimeMovie
         exporter?.exportAsynchronously(completionHandler: {
             
@@ -169,6 +177,7 @@ class VideoWriter {
     
     class func over(size:CGSize,layercomposition:AVMutableVideoComposition,photosToOverlay:[UIImage]){
         let size = size
+        print(photosToOverlay.count)
             let imglogo:UIImage? = photosToOverlay[0]
             let imglayer = CALayer()
             imglayer.contents = imglogo?.cgImage

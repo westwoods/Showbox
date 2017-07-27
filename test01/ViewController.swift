@@ -18,11 +18,7 @@ class ViewController: UIViewController, TLPhotosPickerViewControllerDelegate{
     var videoReady = false
     var imageReady = false
     var videoCount = 0
-    var imageCount = 0
     lazy var imageManager = {
-        return PHCachingImageManager()
-    }()
-    lazy var imageManager1 = {
         return PHCachingImageManager()
     }()
     override func viewDidLoad() {
@@ -39,42 +35,50 @@ class ViewController: UIViewController, TLPhotosPickerViewControllerDelegate{
         //var configure = TLPhotosPickerConfigure()
         //configure.nibSet = (nibName: "CustomCell_Instagram", bundle: Bundle.main) // If you want use your custom cell..
         self.present(viewController, animated: true, completion: nil)
+
+
     }
     //TLPhotosPickerViewControllerDelegate
     func dismissPhotoPicker(withTLPHAssets: [TLPHAsset]) {
+        let semaphore = DispatchSemaphore(value: 0)
+
         // use selected order, fullresolution image
         self.selectedAssets = withTLPHAssets
         for i in 0..<self.selectedAssets.count{
-            
             if (self.selectedAssets[i].type == TLPHAsset.AssetType.video){
                 self.videoCount += 1
-                self.imageCount += 1
             }
         }
         for i in 0..<self.selectedAssets.count{
             let options = PHVideoRequestOptions()
-            let ioptions = PHImageRequestOptions()
             if (self.selectedAssets[i].type == TLPHAsset.AssetType.video){
                 imageManager.requestAVAsset(forVideo: self.selectedAssets[i].phAsset!, options: options, resultHandler: { (AVAsset, AVAudioMix, info) in
                     self.myVideoAsset.append( AVAsset!) //비디오타입 PHAsset -> AVAsset 변환작업
-                    print( "video i=",i, self.selectedAssets[i].originalFileName!,self.selectedAssets[i].type,self.myVideoAsset.count , self.myPhotoAsset.count,self.selectedAssets.count,self.imageCount,self.videoCount)
                     if(self.myVideoAsset.count == self.videoCount )
                     {
+                        semaphore.wait()
+                        VideoWriter.mergeVideo(myVideoAsset: self.myVideoAsset,myPhotoAsset: self.myPhotoAsset)
+                  //      VideoWriter.exportAsset(asset: self.myVideoAsset[0])
+                        self.myVideoAsset.removeAll()
+                        self.myPhotoAsset.removeAll()
+                        self.videoCount = 0
                         
                     }
                 })
             }
-            if  (self.selectedAssets[i].type == TLPHAsset.AssetType.photo){
-                      print( "photo i=",i,self.selectedAssets[i].originalFileName!,self.selectedAssets[i].type, self.myVideoAsset.count , self.myPhotoAsset.count,self.selectedAssets.count,self.imageCount,self.videoCount)
-                    imageManager.requestImage(for:self.selectedAssets[i].phAsset!, targetSize: CGSize(width: 300.0, height: 300.0), contentMode: .aspectFill, options: ioptions , resultHandler:  { (UIImage, info) in
-                      print("왜 두번이 불리는지 모르겠네 아아", UIImage?.size)
-                    self.myPhotoAsset.append(UIImage!) //포토타입 PHAsset -> UIImage 변환작업
-                   // print( "photo i=",i,self.selectedAssets[i].originalFileName!,self.selectedAssets[i].type, self.myVideoAsset.count , self.myPhotoAsset.count,self.selectedAssets.count,self.imageCount,self.videoCount)
-                    if( self.imageCount == self.myPhotoAsset.count)
-                    {
-                    }
-                })
+            else  if  (self.selectedAssets[i].type == TLPHAsset.AssetType.photo){
+                print(self.selectedAssets[i].fullResolutionImage?.size.width ?? "이미지가 없다")
+                self.myPhotoAsset.append(self.selectedAssets[i].fullResolutionImage!)
+                if(self.myPhotoAsset.count == self.selectedAssets.count - self.videoCount)
+                {
+                    semaphore.signal()
+                }
             }
+            if (0 == self.selectedAssets.count - self.videoCount)
+            {
+                semaphore.signal()
+            }
+            
         }
     }
     
