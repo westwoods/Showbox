@@ -26,18 +26,16 @@ class ViewController: UIViewController, TLPhotosPickerViewControllerDelegate{
         // Do any additional setup after loading the view, typically from a nib.
     }
     let dateFormatter = DateFormatter()
-    
-    
-    var selectedAssets = [TLPHAsset]()
-    @IBAction func pickerButtonTap() {
-        let viewController = TLPhotosPickerViewController()
-        viewController.delegate = self
-        //var configure = TLPhotosPickerConfigure()
-        //configure.nibSet = (nibName: "CustomCell_Instagram", bundle: Bundle.main) // If you want use your custom cell..
-        self.present(viewController, animated: true, completion: nil)
-
-
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "EmbedSegue" {
+            print ("세그웨이 발생!")
+            let destinationVC = segue.destination as! TLPhotosPickerViewController
+            destinationVC.delegate = self
+            destinationVC.configure.numberOfColumn = 6
+            
     }
+    }
+    var selectedAssets = [TLPHAsset]()
     //TLPhotosPickerViewControllerDelegate
     func dismissPhotoPicker(withTLPHAssets: [TLPHAsset]) {
         let semaphore = DispatchSemaphore(value: 0)
