@@ -31,9 +31,8 @@ class ViewController: UIViewController, TLPhotosPickerViewControllerDelegate{
             print ("세그웨이 발생!")
             let destinationVC = segue.destination as! TLPhotosPickerViewController
             destinationVC.delegate = self
-            destinationVC.configure.numberOfColumn = 6
-            
-    }
+            destinationVC.configure.numberOfColumn = 5
+        }
     }
     var selectedAssets = [TLPHAsset]()
     //TLPhotosPickerViewControllerDelegate
