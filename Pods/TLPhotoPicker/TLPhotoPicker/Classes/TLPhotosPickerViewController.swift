@@ -124,7 +124,13 @@ open class TLPhotosPickerViewController: UIViewController {
     }
     
     required public init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        super.init(nibName: "TLPhotosPickerViewController", bundle: Bundle(for: TLPhotosPickerViewController.self))
+        if PHPhotoLibrary.authorizationStatus() != .authorized {
+            PHPhotoLibrary.requestAuthorization { [weak self] status in
+                self?.initPhotoLibrary()
+            }
+        }
+
     }
     
     public init() {
@@ -164,16 +170,20 @@ open class TLPhotosPickerViewController: UIViewController {
     
     override open func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
+        print (isBeingPresented)
         if isBeingPresented {
             initItemSize()
         }
+        initItemSize()
     }
     
     override open func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        print(isBeingPresented )
         if isBeingPresented {
             initPhotoLibrary()
         }
+        initPhotoLibrary()
     }
 }
 

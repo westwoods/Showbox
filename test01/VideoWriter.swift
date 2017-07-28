@@ -54,7 +54,7 @@ class VideoWriter {
             }
             else{
                 VideoCompositionInsturction = AVMutableVideoCompositionInstruction.init()
-                VideoCompositionInsturction!.timeRange = CMTimeRangeMake(startTime,CMTimeAdd(assetDurationWithNextDelay,startTime))
+                VideoCompositionInsturction!.timeRange = CMTimeRangeMake(startTime,assetDurationWithNextDelay)
             }
             let VideoLayerInstruction =
                 AVMutableVideoCompositionLayerInstruction(assetTrack: videoCompositionTrack)
