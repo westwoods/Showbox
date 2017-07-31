@@ -59,18 +59,18 @@ public struct Platform {
 
 
 open class TLPhotosPickerViewController: UIViewController {
-    @IBOutlet open var titleView: UIView!
-    @IBOutlet open var titleLabel: UILabel!
-    @IBOutlet open var subTitleStackView: UIStackView!
-    @IBOutlet open var subTitleLabel: UILabel!
-    @IBOutlet open var subTitleArrowImageView: UIImageView!
+//    @IBOutlet open var titleView: UIView!
+//    @IBOutlet open var titleLabel: UILabel!
+//    @IBOutlet open var subTitleStackView: UIStackView!
+//    @IBOutlet open var subTitleLabel: UILabel!
+//    @IBOutlet open var subTitleArrowImageView: UIImageView!
     @IBOutlet open var albumPopView: TLAlbumPopView!
     @IBOutlet open var collectionView: UICollectionView!
     @IBOutlet open var indicator: UIActivityIndicatorView!
     @IBOutlet open var popArrowImageView: UIImageView!
-    @IBOutlet open var customNavItem: UINavigationItem!
-    @IBOutlet open var doneButton: UIBarButtonItem!
-    @IBOutlet open var cancelButton: UIBarButtonItem!
+//    @IBOutlet open var customNavItem: UINavigationItem!
+//    @IBOutlet open var doneButton: UIBarButtonItem!
+//    @IBOutlet open var cancelButton: UIBarButtonItem!
 
     public weak var delegate: TLPhotosPickerViewControllerDelegate? = nil
     public var selectedAssets = [TLPHAsset]()
@@ -222,17 +222,17 @@ extension TLPhotosPickerViewController {
             registerNib(nibName: nibSet.nibName, bundle: nibSet.bundle)
         }
         self.indicator.startAnimating()
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(titleTap))
-        self.titleView.addGestureRecognizer(tapGesture)
-        self.titleLabel.text = self.configure.defaultCameraRollTitle
-        self.subTitleLabel.text = self.configure.tapHereToChange
-        self.cancelButton.title = self.configure.cancelTitle
-        self.doneButton.title = self.configure.doneTitle
-        self.doneButton.setTitleTextAttributes([NSFontAttributeName: UIFont.boldSystemFont(ofSize: UIFont.labelFontSize)], for: .normal)
+//      let tapGesture = UITapGestureRecognizer(target: self, action: #selector(titleTap))
+//        self.titleView.addGestureRecognizer(tapGesture)
+//        self.titleLabel.text = self.configure.defaultCameraRollTitle
+//        self.subTitleLabel.text = self.configure.tapHereToChange
+//        self.cancelButton.title = self.configure.cancelTitle
+//        self.doneButton.title = self.configure.doneTitle
+//        self.doneButton.setTitleTextAttributes([NSFontAttributeName: UIFont.boldSystemFont(ofSize: UIFont.labelFontSize)], for: .normal)
         self.albumPopView.tableView.delegate = self
         self.albumPopView.tableView.dataSource = self
         self.popArrowImageView.image = TLBundle.podBundleImage(named: "pop_arrow")
-        self.subTitleArrowImageView.image = TLBundle.podBundleImage(named: "arrow")
+//        self.subTitleArrowImageView.image = TLBundle.podBundleImage(named: "arrow")
         if #available(iOS 10.0, *), self.usedPrefetch {
             self.collectionView.isPrefetchingEnabled = true
             self.collectionView.prefetchDataSource = self
@@ -247,7 +247,7 @@ extension TLPhotosPickerViewController {
     
     fileprivate func updateTitle() {
         guard self.focusedCollection != nil else { return }
-        self.titleLabel.text = self.focusedCollection?.title
+//        self.titleLabel.text = self.focusedCollection?.title
     }
     
     fileprivate func reloadCollectionView() {
@@ -360,15 +360,15 @@ extension TLPhotosPickerViewController {
         self.albumPopView.show(self.albumPopView.isHidden)
     }
     
-    @IBAction func cancelButtonTap() {
+    @IBAction open func cancelButtonTap() {
         self.dismiss(done: false)
     }
     
-    @IBAction func doneButtonTap() {
+    @IBAction open func doneButtonTap() {
         self.dismiss(done: true)
     }
     
-    fileprivate func dismiss(done: Bool) {
+    open func dismiss(done: Bool) {
         if done {
             self.delegate?.dismissPhotoPicker(withPHAssets: self.selectedAssets.flatMap{ $0.phAsset })
             self.delegate?.dismissPhotoPicker(withTLPHAssets: self.selectedAssets)

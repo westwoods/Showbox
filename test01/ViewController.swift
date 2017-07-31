@@ -12,12 +12,15 @@ import Photos
 import AVFoundation
 
 class ViewController: UIViewController, TLPhotosPickerViewControllerDelegate{
+    @IBOutlet var fromDatePicker: UIDatePicker!
+    @IBOutlet var toDatePicker: UIDatePicker!
     var myVideoAsset:[AVAsset] = []
     var myPhotoAsset:[UIImage] = []
     var myAudioAsset:[AVAudioMix] = []
     var videoReady = false
     var imageReady = false
     var videoCount = 0
+    var destinationVC:TLPhotosPickerViewController? = nil
     lazy var imageManager = {
         return PHCachingImageManager()
     }()
@@ -25,13 +28,21 @@ class ViewController: UIViewController, TLPhotosPickerViewControllerDelegate{
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
+    @IBAction func CompletebuttonTapped(_ sender: Any) {
+         destinationVC?.dismiss(done: true)
+    }
+    @IBAction func MusicButtonTapped(_ sender: UIButton) {
+         destinationVC?.dismiss(done: false)
+    }
     let dateFormatter = DateFormatter()
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "EmbedSegue" {
             print ("세그웨이 발생!")
-            let destinationVC = segue.destination as! TLPhotosPickerViewController
+           destinationVC = (segue.destination as! TLPhotosPickerViewController)
+            if let destinationVC = destinationVC{
             destinationVC.delegate = self
             destinationVC.configure.numberOfColumn = 5
+            }
         }
     }
     var selectedAssets = [TLPHAsset]()
