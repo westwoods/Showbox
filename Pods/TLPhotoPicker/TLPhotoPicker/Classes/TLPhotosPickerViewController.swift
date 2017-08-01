@@ -590,7 +590,6 @@ extension TLPhotosPickerViewController: UICollectionViewDelegate,UICollectionVie
                 self.selectedAssets = self.selectedAssets.enumerated().flatMap({ (offset,asset) -> TLPHAsset? in
                     var asset = asset
                     asset.selectedOrder = offset + 1
-                    print( asset.selectedHighLight)
                     return asset
                 })
                 cell.selectedAsset = asset.selectedHighLight

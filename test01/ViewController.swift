@@ -55,6 +55,12 @@ class ViewController: UIViewController, TLPhotosPickerViewControllerDelegate{
     @IBAction func MusicButtonTapped(_ sender: UIButton) {
          destinationVC?.dismiss(done: false)
     }
+    
+    
+    @IBAction func exitFromViewController(segue: UIStoryboardSegue) {
+    
+        print ("welcome")
+    }
     let dateFormatter = DateFormatter()
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "EmbedSegue" {

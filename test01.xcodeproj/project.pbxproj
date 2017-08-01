@@ -7,16 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8027014B1F29786B00A26F3B /* VideoWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8027014A1F29786B00A26F3B /* VideoWriter.swift */; };
 		802701591F2A31D700A26F3B /* TLPhotoPicker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 808476A11F26D5A700A0AD0E /* TLPhotoPicker.framework */; };
 		808476971F26D3B800A0AD0E /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 808476961F26D3B800A0AD0E /* Podfile */; };
-		809D23C21F25DF8C00116FBA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809D23C11F25DF8C00116FBA /* AppDelegate.swift */; };
-		809D23C41F25DF8C00116FBA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809D23C31F25DF8C00116FBA /* ViewController.swift */; };
 		809D23C71F25DF8C00116FBA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 809D23C51F25DF8C00116FBA /* Main.storyboard */; };
 		809D23C91F25DF8C00116FBA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 809D23C81F25DF8C00116FBA /* Assets.xcassets */; };
 		809D23CC1F25DF8C00116FBA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 809D23CA1F25DF8C00116FBA /* LaunchScreen.storyboard */; };
 		809D23D71F25DF8C00116FBA /* test01Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809D23D61F25DF8C00116FBA /* test01Tests.swift */; };
 		809D23E21F25DF8C00116FBA /* test01UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809D23E11F25DF8C00116FBA /* test01UITests.swift */; };
+		80A2C1021F30ACA9003B3B6D /* FaceDetecter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C6FFB81F30AA70000401C1 /* FaceDetecter.swift */; };
+		80A2C1031F30ACAC003B3B6D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809D23C31F25DF8C00116FBA /* ViewController.swift */; };
+		80A2C1041F30ACB0003B3B6D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809D23C11F25DF8C00116FBA /* AppDelegate.swift */; };
+		80A2C1051F30ACB3003B3B6D /* VideoWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8027014A1F29786B00A26F3B /* VideoWriter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +76,7 @@
 		809D23DD1F25DF8C00116FBA /* test01UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = test01UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		809D23E11F25DF8C00116FBA /* test01UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = test01UITests.swift; sourceTree = "<group>"; };
 		809D23E31F25DF8C00116FBA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		80C6FFB81F30AA70000401C1 /* FaceDetecter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FaceDetecter.swift; sourceTree = "<group>"; };
 		CC3091D85E171F10DEB7FDFD /* Pods-test01.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-test01.debug.xcconfig"; path = "Pods/Target Support Files/Pods-test01/Pods-test01.debug.xcconfig"; sourceTree = "<group>"; };
 		FBDB1960D2AA53C827598567 /* Pods-test01.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-test01.release.xcconfig"; path = "Pods/Target Support Files/Pods-test01/Pods-test01.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -166,6 +168,7 @@
 				809D23CA1F25DF8C00116FBA /* LaunchScreen.storyboard */,
 				809D23CD1F25DF8C00116FBA /* Info.plist */,
 				8027014A1F29786B00A26F3B /* VideoWriter.swift */,
+				80C6FFB81F30AA70000401C1 /* FaceDetecter.swift */,
 			);
 			path = test01;
 			sourceTree = "<group>";
@@ -407,9 +410,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8027014B1F29786B00A26F3B /* VideoWriter.swift in Sources */,
-				809D23C41F25DF8C00116FBA /* ViewController.swift in Sources */,
-				809D23C21F25DF8C00116FBA /* AppDelegate.swift in Sources */,
+				80A2C1051F30ACB3003B3B6D /* VideoWriter.swift in Sources */,
+				80A2C1041F30ACB0003B3B6D /* AppDelegate.swift in Sources */,
+				80A2C1031F30ACAC003B3B6D /* ViewController.swift in Sources */,
+				80A2C1021F30ACA9003B3B6D /* FaceDetecter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

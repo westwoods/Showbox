@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina4_0" orientation="portrait">
+    <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -18,20 +18,21 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dju-Vw-I3i">
-                                <rect key="frame" x="239" y="501" width="57" height="48"/>
+                                <rect key="frame" x="357" y="688" width="57" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                 <state key="normal" title="완료"/>
                                 <connections>
                                     <action selector="CompletebuttonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Vct-Ch-oz7"/>
+                                    <segue destination="JkW-ln-7m5" kind="presentation" id="sme-Sk-tDx"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cbp-dz-2Vg">
-                                <rect key="frame" x="9" y="499" width="115" height="50"/>
+                                <rect key="frame" x="0.0" y="686" width="115" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                 <state key="normal" title="음악선택♪"/>
@@ -40,7 +41,7 @@
                                 </connections>
                             </button>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="ihY-zP-lUJ">
-                                <rect key="frame" x="0.0" y="15" width="230" height="80"/>
+                                <rect key="frame" x="0.0" y="24" width="230" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="cdO-TI-tAR"/>
                                     <constraint firstAttribute="width" constant="230" id="sHi-Xi-mVH"/>
@@ -53,21 +54,21 @@
                                     <action selector="fromDateChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="w2N-u9-1Qv"/>
                                 </connections>
                             </datePicker>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="의 추억" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="van-DN-fQS">
-                                <rect key="frame" x="200" y="100" width="68.5" height="29"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="일간의 추억" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="van-DN-fQS">
+                                <rect key="frame" x="200" y="106" width="110" height="29"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <color key="textColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Y6q-Dr-WSM">
-                                <rect key="frame" x="-55" y="126" width="375" height="354"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES" heightSizable="YES"/>
+                                <rect key="frame" x="0.0" y="215" width="414" height="469"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
                                 <connections>
                                     <segue destination="GBj-s0-ZCR" kind="embed" identifier="EmbedSegue" id="W4X-dt-8Tt"/>
                                 </connections>
                             </containerView>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" datePickerMode="date" minuteInterval="30" translatesAutoresizingMaskIntoConstraints="NO" id="ysk-Ht-Y14">
-                                <rect key="frame" x="0.0" y="74" width="230" height="80"/>
+                                <rect key="frame" x="0.0" y="80" width="230" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="JUg-ra-2nz"/>
                                     <constraint firstAttribute="width" constant="230" id="l7h-H3-h3Z"/>
@@ -75,8 +76,8 @@
                                 <date key="date" timeIntervalSinceReferenceDate="459775390.01939297">
                                     <!--2015-07-28 11:23:10 +0000-->
                                 </date>
-                                <date key="minimumDate" timeIntervalSinceReferenceDate="-978267600">
-                                    <!--1970-01-01 11:00:00 +0000-->
+                                <date key="minimumDate" timeIntervalSinceReferenceDate="-347115600">
+                                    <!--1990-01-01 11:00:00 +0000-->
                                 </date>
                                 <date key="maximumDate" timeIntervalSinceReferenceDate="1199098800">
                                     <!--2038-12-31 11:00:00 +0000-->
@@ -87,7 +88,7 @@
                                 </connections>
                             </datePicker>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" 출발한" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="30" translatesAutoresizingMaskIntoConstraints="NO" id="OIi-FZ-nJz">
-                                <rect key="frame" x="200" y="41" width="68.5" height="29"/>
+                                <rect key="frame" x="200" y="50" width="68.666666666666686" height="29"/>
                                 <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <color key="textColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -99,12 +100,12 @@
                         <constraints>
                             <constraint firstItem="ysk-Ht-Y14" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="0Oz-fR-gmA"/>
                             <constraint firstItem="ihY-zP-lUJ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="4ie-gI-eFB"/>
-                            <constraint firstItem="ihY-zP-lUJ" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="15" id="Dvq-S5-hHh"/>
+                            <constraint firstItem="ihY-zP-lUJ" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="24" id="Dvq-S5-hHh"/>
                             <constraint firstItem="van-DN-fQS" firstAttribute="top" secondItem="ysk-Ht-Y14" secondAttribute="bottom" constant="-54" id="MoH-YN-C7C"/>
                             <constraint firstItem="van-DN-fQS" firstAttribute="leading" secondItem="ysk-Ht-Y14" secondAttribute="trailing" constant="-30" id="UXw-oj-Bux"/>
                             <constraint firstItem="OIi-FZ-nJz" firstAttribute="top" secondItem="ihY-zP-lUJ" secondAttribute="bottom" constant="-54" id="gYU-3Q-DND"/>
                             <constraint firstItem="OIi-FZ-nJz" firstAttribute="leading" secondItem="ihY-zP-lUJ" secondAttribute="trailing" constant="-30" id="qz9-XU-cu9"/>
-                            <constraint firstItem="ysk-Ht-Y14" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="54" id="shd-lm-Jm3"/>
+                            <constraint firstItem="ysk-Ht-Y14" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="60" id="shd-lm-Jm3"/>
                             <constraint firstItem="ihY-zP-lUJ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="yva-MT-wQg"/>
                         </constraints>
                     </view>
@@ -115,7 +116,39 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="136.80000000000001" y="88.605697151424295"/>
+            <point key="canvasLocation" x="78.260869565217391" y="76.630434782608702"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="bqc-tW-mYY">
+            <objects>
+                <viewController id="JkW-ln-7m5" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="uuQ-ZV-Bqc"/>
+                        <viewControllerLayoutGuide type="bottom" id="q3o-ab-iYe"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="jgh-wq-EcA">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZoV-Ey-41B">
+                                <rect key="frame" x="0.0" y="20" width="34" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="back"/>
+                                <connections>
+                                    <segue destination="sWI-VS-pkC" kind="unwind" unwindAction="exitFromViewControllerWithSegue:" id="pI3-xP-kFI"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <segue destination="sWI-VS-pkC" kind="unwind" unwindAction="exitFromViewControllerWithSegue:" id="yaU-y0-KGa"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uCX-gj-63V" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="sWI-VS-pkC" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="1236" y="129"/>
         </scene>
         <!--Photos Picker View Controller-->
         <scene sceneID="nsH-b2-Bl3">
