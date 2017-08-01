@@ -108,18 +108,37 @@ class TLPhotoLibrary {
         return image
     }
 }
+func date( year:Int, month:Int,  day:Int) -> Date? {
+    /*  create NSDate with given year, month, day
+     year: the year
+     month: the month(1~12)
+     day: the day(1~31)
+     */
+    let cal = Calendar(identifier:Calendar.Identifier.gregorian)
+    
+    var comp = DateComponents()
+    comp.year = year
+    comp.month = month
+    comp.day = day
+    return cal.date(from: comp)
+}
 
 //MARK: - Load Collection
 extension TLPhotoLibrary {
     func fetchCollection(allowedVideo: Bool = true, useCameraButton: Bool = true, mediaType: PHAssetMediaType? = nil) {
-        
+        let fromDate = date(year: 2010, month: 01, day: 30)
+        let toDate = date(year: 2017, month: 07, day: 30)
         let options = PHFetchOptions()
-        let sortOrder = [NSSortDescriptor(key: "creationDate", ascending: false)]
+        let sortOrder = [NSSortDescriptor(key: "creationDate", ascending: false), ]
         options.sortDescriptors = sortOrder
-        
+        options.predicate = NSPredicate(format: "creationDate > %@ && creationDate < %@", fromDate! as NSDate , toDate! as NSDate)
         @discardableResult
         func getSmartAlbum(subType: PHAssetCollectionSubtype, result: inout [TLAssetsCollection]) -> TLAssetsCollection? {
             let fetchCollection = PHAssetCollection.fetchAssetCollections(with: .smartAlbum, subtype: subType, options: nil)
+          //  let fetchCollection = PHAssetCollection.fetchMoments(with: nil)
+            print (fetchCollection.firstObject?.startDate ?? "시작날짜가 없다")
+            print (fetchCollection.lastObject?.endDate ?? "종료날짜가 없다.")
+            print (fetchCollection.firstObject?.approximateLocation ?? "여기가어디오")
             if let collection = fetchCollection.firstObject, !result.contains(where: { $0.localIdentifier == collection.localIdentifier }) {
                 var assetsCollection = TLAssetsCollection(collection: collection)
                 assetsCollection.fetchResult = PHAsset.fetchAssets(in: collection, options: options)

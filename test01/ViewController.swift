@@ -28,9 +28,22 @@ class ViewController: UIViewController, TLPhotosPickerViewControllerDelegate{
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
-    @IBAction func CompletebuttonTapped(_ sender: Any) {
+    @IBAction func fromDateChanged(_ sender: UIDatePicker) {
+        print (sender.date)
+        if( sender.date > toDatePicker.date )
+        {
+            toDatePicker.date = sender.date //to date가 지금 시간보다 작지않도록 설정
+        }
+    }
+    @IBAction func toDateChanged(_ sender: UIDatePicker) {
+    }
+    @IBAction func CompletebuttonTapped(_ sender: UIButton) {
          destinationVC?.dismiss(done: true)
     }
+    @IBAction func reselectbuttonTapped(_ sender: UIButton) {
+        destinationVC?.dismiss(done: true)
+    }
+    
     @IBAction func MusicButtonTapped(_ sender: UIButton) {
          destinationVC?.dismiss(done: false)
     }

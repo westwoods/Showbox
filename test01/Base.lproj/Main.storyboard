@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina4_7" orientation="landscape">
+    <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -18,20 +18,20 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dju-Vw-I3i">
-                                <rect key="frame" x="586" y="308" width="57" height="48"/>
+                                <rect key="frame" x="294" y="600" width="57" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                 <state key="normal" title="완료"/>
                                 <connections>
-                                    <action selector="Completebutton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cDz-jk-9aj"/>
+                                    <action selector="CompletebuttonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Vct-Ch-oz7"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cbp-dz-2Vg">
-                                <rect key="frame" x="9" y="306" width="115" height="50"/>
+                                <rect key="frame" x="9" y="598" width="115" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                 <state key="normal" title="음악선택♪"/>
@@ -40,7 +40,7 @@
                                 </connections>
                             </button>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="ihY-zP-lUJ">
-                                <rect key="frame" x="0.0" y="0.0" width="220" height="80"/>
+                                <rect key="frame" x="0.0" y="15" width="220" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="cdO-TI-tAR"/>
                                     <constraint firstAttribute="width" constant="220" id="sHi-Xi-mVH"/>
@@ -49,7 +49,23 @@
                                     <!--2017-07-28 11:22:55 +0000-->
                                 </date>
                                 <locale key="locale" localeIdentifier="ko"/>
+                                <connections>
+                                    <action selector="fromDateChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="w2N-u9-1Qv"/>
+                                </connections>
                             </datePicker>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="까지" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="van-DN-fQS">
+                                <rect key="frame" x="237" y="104" width="30" height="20"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Y6q-Dr-WSM">
+                                <rect key="frame" x="0.0" y="152" width="375" height="427"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES" heightSizable="YES"/>
+                                <connections>
+                                    <segue destination="GBj-s0-ZCR" kind="embed" identifier="EmbedSegue" id="W4X-dt-8Tt"/>
+                                </connections>
+                            </containerView>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" datePickerMode="date" minuteInterval="30" translatesAutoresizingMaskIntoConstraints="NO" id="ysk-Ht-Y14">
                                 <rect key="frame" x="0.0" y="74" width="220" height="80"/>
                                 <constraints>
@@ -66,40 +82,29 @@
                                     <!--2038-12-31 11:00:00 +0000-->
                                 </date>
                                 <locale key="locale" localeIdentifier="ko"/>
+                                <connections>
+                                    <action selector="toDateChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="kUp-pU-Y3k"/>
+                                </connections>
                             </datePicker>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="까지" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="van-DN-fQS">
-                                <rect key="frame" x="237" y="104" width="30" height="20"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="부터" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="30" translatesAutoresizingMaskIntoConstraints="NO" id="OIi-FZ-nJz">
-                                <rect key="frame" x="237" y="28" width="30" height="29"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="부터" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="30" translatesAutoresizingMaskIntoConstraints="NO" id="OIi-FZ-nJz">
+                                <rect key="frame" x="237" y="45" width="30" height="20"/>
                                 <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Y6q-Dr-WSM">
-                                <rect key="frame" x="292" y="75" width="375" height="212"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES" heightSizable="YES"/>
-                                <connections>
-                                    <segue destination="GBj-s0-ZCR" kind="embed" identifier="EmbedSegue" id="W4X-dt-8Tt"/>
-                                </connections>
-                            </containerView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="ysk-Ht-Y14" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="0Oz-fR-gmA"/>
                             <constraint firstItem="ihY-zP-lUJ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="4ie-gI-eFB"/>
-                            <constraint firstItem="ihY-zP-lUJ" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Dvq-S5-hHh"/>
+                            <constraint firstItem="ihY-zP-lUJ" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="15" id="Dvq-S5-hHh"/>
                             <constraint firstItem="van-DN-fQS" firstAttribute="top" secondItem="ysk-Ht-Y14" secondAttribute="bottom" constant="-50" id="MoH-YN-C7C"/>
                             <constraint firstItem="van-DN-fQS" firstAttribute="leading" secondItem="ysk-Ht-Y14" secondAttribute="trailing" constant="17" id="UXw-oj-Bux"/>
                             <constraint firstItem="OIi-FZ-nJz" firstAttribute="top" secondItem="ihY-zP-lUJ" secondAttribute="bottom" constant="-50" id="gYU-3Q-DND"/>
                             <constraint firstItem="OIi-FZ-nJz" firstAttribute="leading" secondItem="ihY-zP-lUJ" secondAttribute="trailing" constant="17" id="qz9-XU-cu9"/>
                             <constraint firstItem="ysk-Ht-Y14" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="54" id="shd-lm-Jm3"/>
-                            <constraint firstItem="ihY-zP-lUJ" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="wwK-ml-HZc"/>
                             <constraint firstItem="ihY-zP-lUJ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="yva-MT-wQg"/>
                         </constraints>
                     </view>

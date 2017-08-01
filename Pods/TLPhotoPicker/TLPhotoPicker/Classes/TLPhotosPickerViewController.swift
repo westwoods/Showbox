@@ -170,7 +170,6 @@ open class TLPhotosPickerViewController: UIViewController {
     
     override open func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        print (isBeingPresented)
         if isBeingPresented {
             initItemSize()
         }
@@ -179,7 +178,6 @@ open class TLPhotosPickerViewController: UIViewController {
     
     override open func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        print(isBeingPresented )
         if isBeingPresented {
             initPhotoLibrary()
         }
@@ -403,6 +401,7 @@ extension TLPhotosPickerViewController: TLPhotoLibraryDelegate {
         self.indicator.stopAnimating()
         self.reloadCollectionView()
         self.reloadTableView()
+        
     }
     
     func loadCompleteAllCollection(collections: [TLAssetsCollection]) {
@@ -632,6 +631,9 @@ extension TLPhotosPickerViewController: UICollectionViewDelegate,UICollectionVie
             cell.indicator?.stopAnimating()
         }
         if let phAsset = asset.phAsset {
+            
+            print(phAsset.location , phAsset.creationDate , phAsset.modificationDate)
+
             if self.usedPrefetch {
                 let options = PHImageRequestOptions()
                 options.deliveryMode = .opportunistic

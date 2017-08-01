@@ -58,6 +58,8 @@ struct TLAssetsCollection {
     var recentPosition: CGPoint = CGPoint.zero
     var title: String
     var localIdentifier: String
+    var startDate: Date?
+    var endDate: Date?
     var count: Int {
         get {
             guard let count = self.fetchResult?.count, count > 0 else { return 0 }
@@ -68,6 +70,8 @@ struct TLAssetsCollection {
     init(collection: PHAssetCollection) {
         self.title = collection.localizedTitle ?? ""
         self.localIdentifier = collection.localIdentifier
+        self.startDate = collection.startDate
+        self.endDate = collection.endDate
     }
     
     func getAsset(at index: Int) -> PHAsset? {
