@@ -135,9 +135,9 @@ extension TLPhotoLibrary {
             let fetchCollection = PHAssetCollection.fetchAssetCollections(with: .smartAlbum, subtype: subType, options: nil)
             //  let fetchCollection = PHAssetCollection.fetchMoments(with: nil)
             /*
-             PHAssetCollection.fetchMoments 에서는 날자 추출이 가능함.
+             PHAssetCollection.fetchMoments 에서는 날짜 추출이 가능함.
              
-             PHAssetCollection.fetchAssetCollection 는 날자 추출이 불가능.
+             PHAssetCollection.fetchAssetCollection 는 날짜 추출이 불가능.
              
              moments / smart album / user album과 차이가 있는것같은데...
              
