@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -18,11 +18,11 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dju-Vw-I3i">
-                                <rect key="frame" x="294" y="600" width="57" height="48"/>
+                                <rect key="frame" x="239" y="501" width="57" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                 <state key="normal" title="완료"/>
@@ -31,7 +31,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cbp-dz-2Vg">
-                                <rect key="frame" x="9" y="598" width="115" height="50"/>
+                                <rect key="frame" x="9" y="499" width="115" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                 <state key="normal" title="음악선택♪"/>
@@ -54,13 +54,13 @@
                                 </connections>
                             </datePicker>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="의 추억" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="van-DN-fQS">
-                                <rect key="frame" x="200" y="99" width="68.5" height="29"/>
+                                <rect key="frame" x="200" y="100" width="68.5" height="29"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <color key="textColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Y6q-Dr-WSM">
-                                <rect key="frame" x="0.0" y="152" width="375" height="427"/>
+                                <rect key="frame" x="-55" y="126" width="375" height="354"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES" heightSizable="YES"/>
                                 <connections>
                                     <segue destination="GBj-s0-ZCR" kind="embed" identifier="EmbedSegue" id="W4X-dt-8Tt"/>
@@ -100,7 +100,7 @@
                             <constraint firstItem="ysk-Ht-Y14" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="0Oz-fR-gmA"/>
                             <constraint firstItem="ihY-zP-lUJ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="4ie-gI-eFB"/>
                             <constraint firstItem="ihY-zP-lUJ" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="15" id="Dvq-S5-hHh"/>
-                            <constraint firstItem="van-DN-fQS" firstAttribute="top" secondItem="ysk-Ht-Y14" secondAttribute="bottom" constant="-55" id="MoH-YN-C7C"/>
+                            <constraint firstItem="van-DN-fQS" firstAttribute="top" secondItem="ysk-Ht-Y14" secondAttribute="bottom" constant="-54" id="MoH-YN-C7C"/>
                             <constraint firstItem="van-DN-fQS" firstAttribute="leading" secondItem="ysk-Ht-Y14" secondAttribute="trailing" constant="-30" id="UXw-oj-Bux"/>
                             <constraint firstItem="OIi-FZ-nJz" firstAttribute="top" secondItem="ihY-zP-lUJ" secondAttribute="bottom" constant="-54" id="gYU-3Q-DND"/>
                             <constraint firstItem="OIi-FZ-nJz" firstAttribute="leading" secondItem="ihY-zP-lUJ" secondAttribute="trailing" constant="-30" id="qz9-XU-cu9"/>

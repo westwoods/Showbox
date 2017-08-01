@@ -79,12 +79,29 @@ open class TLPhotoCollectionViewCell: UICollectionViewCell {
         }
     }
     
-    open var selectedAsset: Bool = false {
+    open var selectedAsset: Int = 0 { //0 unselected 1 selected 2 highlight
         willSet(newValue) {
-            self.selectedView?.isHidden = !newValue
-            self.durationView?.backgroundColor = newValue ? self.configure.selectedColor : UIColor(red: 0, green: 0, blue: 0, alpha: 0.6)
-            if !newValue {
+            switch(newValue)
+            {
+            case 0:
+                self.selectedView?.isHidden = true
+                self.durationView?.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.6)
                 self.orderLabel?.text = ""
+            case 1:
+                self.durationView?.backgroundColor =  self.configure.selectedColor
+                self.selectedView?.layer.borderColor = self.configure.selectedColor.cgColor
+                self.orderBgView?.backgroundColor = self.configure.selectedColor
+                self.selectedView?.isHidden = false
+            case 2:
+                self.durationView?.backgroundColor = self.configure.hilightedColor
+                self.selectedView?.layer.borderColor = self.configure.hilightedColor.cgColor
+                self.selectedView?.isHidden = false
+                self.orderLabel?.text = "H"
+                self.orderBgView?.backgroundColor = self.configure.hilightedColor
+
+
+            default:
+                return
             }
         }
     }
@@ -123,7 +140,7 @@ open class TLPhotoCollectionViewCell: UICollectionViewCell {
     }
     
     deinit {
-//        print("deinit TLPhotoCollectionViewCell")
+        //        print("deinit TLPhotoCollectionViewCell")
     }
     
     override open func awakeFromNib() {
@@ -144,6 +161,6 @@ open class TLPhotoCollectionViewCell: UICollectionViewCell {
         self.durationView?.isHidden = true
         self.durationView?.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.6)
         self.selectedHeight?.constant = 10
-        self.selectedAsset = false
+        self.selectedAsset = 0
     }
 }

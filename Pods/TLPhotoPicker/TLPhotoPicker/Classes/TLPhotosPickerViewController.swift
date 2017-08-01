@@ -38,6 +38,7 @@ public struct TLPhotosPickerConfigure {
     public var numberOfColumn = 3
     public var maxSelectedAssets: Int? = nil
     public var selectedColor = UIColor(red: 88/255, green: 144/255, blue: 255/255, alpha: 1.0)
+    public var hilightedColor = UIColor(red: 255/255, green: 44/255, blue: 88/255, alpha: 1.0)
     public var cameraBgColor = UIColor(red: 221/255, green: 223/255, blue: 226/255, alpha: 1)
     public var cameraIcon = TLBundle.podBundleImage(named: "camera")
     public var videoIcon = TLBundle.podBundleImage(named: "video")
@@ -59,19 +60,19 @@ public struct Platform {
 
 
 open class TLPhotosPickerViewController: UIViewController {
-//    @IBOutlet open var titleView: UIView!
-//    @IBOutlet open var titleLabel: UILabel!
-//    @IBOutlet open var subTitleStackView: UIStackView!
-//    @IBOutlet open var subTitleLabel: UILabel!
-//    @IBOutlet open var subTitleArrowImageView: UIImageView!
+    //    @IBOutlet open var titleView: UIView!
+    //    @IBOutlet open var titleLabel: UILabel!
+    //    @IBOutlet open var subTitleStackView: UIStackView!
+    //    @IBOutlet open var subTitleLabel: UILabel!
+    //    @IBOutlet open var subTitleArrowImageView: UIImageView!
     @IBOutlet open var albumPopView: TLAlbumPopView!
     @IBOutlet open var collectionView: UICollectionView!
     @IBOutlet open var indicator: UIActivityIndicatorView!
     @IBOutlet open var popArrowImageView: UIImageView!
-//    @IBOutlet open var customNavItem: UINavigationItem!
-//    @IBOutlet open var doneButton: UIBarButtonItem!
-//    @IBOutlet open var cancelButton: UIBarButtonItem!
-
+    //    @IBOutlet open var customNavItem: UINavigationItem!
+    //    @IBOutlet open var doneButton: UIBarButtonItem!
+    //    @IBOutlet open var cancelButton: UIBarButtonItem!
+    
     public weak var delegate: TLPhotosPickerViewControllerDelegate? = nil
     public var selectedAssets = [TLPHAsset]()
     public var configure = TLPhotosPickerConfigure()
@@ -130,7 +131,7 @@ open class TLPhotosPickerViewController: UIViewController {
                 self?.initPhotoLibrary()
             }
         }
-
+        
     }
     
     public init() {
@@ -228,17 +229,17 @@ extension TLPhotosPickerViewController {
             registerNib(nibName: nibSet.nibName, bundle: nibSet.bundle)
         }
         self.indicator.startAnimating()
-//      let tapGesture = UITapGestureRecognizer(target: self, action: #selector(titleTap))
-//        self.titleView.addGestureRecognizer(tapGesture)
-//        self.titleLabel.text = self.configure.defaultCameraRollTitle
-//        self.subTitleLabel.text = self.configure.tapHereToChange
-//        self.cancelButton.title = self.configure.cancelTitle
-//        self.doneButton.title = self.configure.doneTitle
-//        self.doneButton.setTitleTextAttributes([NSFontAttributeName: UIFont.boldSystemFont(ofSize: UIFont.labelFontSize)], for: .normal)
+        //      let tapGesture = UITapGestureRecognizer(target: self, action: #selector(titleTap))
+        //        self.titleView.addGestureRecognizer(tapGesture)
+        //        self.titleLabel.text = self.configure.defaultCameraRollTitle
+        //        self.subTitleLabel.text = self.configure.tapHereToChange
+        //        self.cancelButton.title = self.configure.cancelTitle
+        //        self.doneButton.title = self.configure.doneTitle
+        //        self.doneButton.setTitleTextAttributes([NSFontAttributeName: UIFont.boldSystemFont(ofSize: UIFont.labelFontSize)], for: .normal)
         self.albumPopView.tableView.delegate = self
         self.albumPopView.tableView.dataSource = self
         self.popArrowImageView.image = TLBundle.podBundleImage(named: "pop_arrow")
-//        self.subTitleArrowImageView.image = TLBundle.podBundleImage(named: "arrow")
+        //        self.subTitleArrowImageView.image = TLBundle.podBundleImage(named: "arrow")
         if #available(iOS 10.0, *), self.usedPrefetch {
             self.collectionView.isPrefetchingEnabled = true
             self.collectionView.prefetchDataSource = self
@@ -253,7 +254,7 @@ extension TLPhotosPickerViewController {
     
     fileprivate func updateTitle() {
         guard self.focusedCollection != nil else { return }
-//        self.titleLabel.text = self.focusedCollection?.title
+        //        self.titleLabel.text = self.focusedCollection?.title
     }
     
     fileprivate func reloadCollectionView() {
@@ -285,7 +286,7 @@ extension TLPhotosPickerViewController {
             //self.dismiss(animated: true, completion: nil)
         }
     }
-
+    
     
     fileprivate func getfocusedIndex() -> Int {
         guard let focused = self.focusedCollection, let result = self.collections.index(where: { $0 == focused }) else { return 0 }
@@ -326,17 +327,17 @@ extension TLPhotosPickerViewController {
                     guard let cell = self.collectionView.cellForItem(at: indexPath) as? TLPhotoCollectionViewCell else { return }
                     cell.indicator?.startAnimating()
                 }
-            }, completionBlock: { [weak self] image in
-                guard let `self` = self else { return }
-                asset.state = .complete
-                if let index = self.selectedAssets.index(where: { $0.phAsset == phAsset }) {
-                    self.selectedAssets[index] = asset
-                }
-                self.cloudRequestIds.removeValue(forKey: indexPath)
-                guard self.collectionView.indexPathsForVisibleItems.contains(indexPath) else { return }
-                guard let cell = self.collectionView.cellForItem(at: indexPath) as? TLPhotoCollectionViewCell else { return }
-                cell.imageView?.image = image
-                cell.indicator?.stopAnimating()
+                }, completionBlock: { [weak self] image in
+                    guard let `self` = self else { return }
+                    asset.state = .complete
+                    if let index = self.selectedAssets.index(where: { $0.phAsset == phAsset }) {
+                        self.selectedAssets[index] = asset
+                    }
+                    self.cloudRequestIds.removeValue(forKey: indexPath)
+                    guard self.collectionView.indexPathsForVisibleItems.contains(indexPath) else { return }
+                    guard let cell = self.collectionView.cellForItem(at: indexPath) as? TLPhotoCollectionViewCell else { return }
+                    cell.imageView?.image = image
+                    cell.indicator?.stopAnimating()
             })
             if requestId > 0 {
                 self.cloudRequestIds[indexPath] = requestId
@@ -558,10 +559,10 @@ extension TLPhotosPickerViewController: UICollectionViewDelegate,UICollectionVie
             guard let cell = self.collectionView.cellForItem(at: indexPath) as? TLPhotoCollectionViewCell else { continue }
             guard let asset = self.focusedCollection?.getTLAsset(at: indexPath.row) else { continue }
             if let selectedAsset = getSelectedAssets(asset) {
-                cell.selectedAsset = true
-                cell.orderLabel?.text = "\(selectedAsset.selectedOrder)"
+                cell.orderLabel?.text = "\(selectedAsset.selectedOrder)"  //
+                cell.selectedAsset = selectedAsset.selectedHighLight           //두줄 순서가 중요함 willset에서 속성을 바꿈으로
             }else {
-                cell.selectedAsset = false
+                cell.selectedAsset = 0
             }
         }
     }
@@ -580,28 +581,39 @@ extension TLPhotosPickerViewController: UICollectionViewDelegate,UICollectionVie
         }
         guard var asset = collection.getTLAsset(at: indexPath.row), let cell = self.collectionView.cellForItem(at: indexPath) as? TLPhotoCollectionViewCell else { return }
         cell.popScaleAnim()
-        if let index = self.selectedAssets.index(where: { $0.phAsset == asset.phAsset }) {
-        //deselect
-            self.selectedAssets.remove(at: index)
-            self.selectedAssets = self.selectedAssets.enumerated().flatMap({ (offset,asset) -> TLPHAsset? in
-                var asset = asset
-                asset.selectedOrder = offset + 1
-                return asset
-            })
-            cell.selectedAsset = false
-            self.orderUpdateCells()
-            //cancelCloudRequest(indexPath: indexPath)
-            if self.playRequestId?.indexPath == indexPath {
-                stopPlay()
+        let index = self.selectedAssets.index(where: { $0.phAsset == asset.phAsset })
+        if (index != nil){
+            
+            if(cell.selectedAsset == 2) {
+                //deselect
+                self.selectedAssets.remove(at: index!)
+                self.selectedAssets = self.selectedAssets.enumerated().flatMap({ (offset,asset) -> TLPHAsset? in
+                    var asset = asset
+                    asset.selectedOrder = offset + 1
+                    print( asset.selectedHighLight)
+                    return asset
+                })
+                cell.selectedAsset = asset.selectedHighLight
+                self.orderUpdateCells()
+                //cancelCloudRequest(indexPath: indexPath)
+                if self.playRequestId?.indexPath == indexPath {
+                    stopPlay()
+                }
+            }
+            else{ // 더블 select 
+                cell.selectedAsset = 2
+                self.selectedAssets[index!].selectedHighLight = 2
             }
         }else {
-        //select
+            //select
             guard !maxCheck() else { return }
             asset.selectedOrder = self.selectedAssets.count + 1
-            self.selectedAssets.append(asset)
             //requestCloudDownload(asset: asset, indexPath: indexPath)
-            cell.selectedAsset = true
+            cell.selectedAsset = 1
             cell.orderLabel?.text = "\(asset.selectedOrder)"
+            asset.selectedHighLight = cell.selectedAsset
+            
+            self.selectedAssets.append(asset)
             if asset.type != .photo {
                 playVideo(asset: asset, indexPath: indexPath)
             }
@@ -632,10 +644,10 @@ extension TLPhotosPickerViewController: UICollectionViewDelegate,UICollectionVie
         }
         guard let asset = collection.getTLAsset(at: indexPath.row) else { return cell }
         if let selectedAsset = getSelectedAssets(asset) {
-            cell.selectedAsset = true
             cell.orderLabel?.text = "\(selectedAsset.selectedOrder)"
+            cell.selectedAsset = selectedAsset.selectedHighLight
         }else{
-            cell.selectedAsset = false
+            cell.selectedAsset = 0
         }
         if asset.state == .progress {
             cell.indicator?.startAnimating()
@@ -644,8 +656,8 @@ extension TLPhotosPickerViewController: UICollectionViewDelegate,UICollectionVie
         }
         if let phAsset = asset.phAsset {
             
-            print(phAsset.location , phAsset.creationDate , phAsset.modificationDate)
-
+            print(phAsset.location ?? " 로케이션 없음"  , phAsset.creationDate ??  "생성시간없음" , phAsset.modificationDate ?? "수정시간 없음" )
+            
             if self.usedPrefetch {
                 let options = PHImageRequestOptions()
                 options.deliveryMode = .opportunistic

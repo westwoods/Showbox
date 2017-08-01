@@ -58,7 +58,6 @@ class ViewController: UIViewController, TLPhotosPickerViewControllerDelegate{
     let dateFormatter = DateFormatter()
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "EmbedSegue" {
-            print ("세그웨이 발생!")
            destinationVC = (segue.destination as! TLPhotosPickerViewController)
             if let destinationVC = destinationVC{
             destinationVC.delegate = self
@@ -98,6 +97,7 @@ class ViewController: UIViewController, TLPhotosPickerViewControllerDelegate{
             }
             else  if  (self.selectedAssets[i].type == TLPHAsset.AssetType.photo){
                 print(self.selectedAssets[i].fullResolutionImage?.size.width ?? "이미지가 없다")
+                print (self.selectedAssets[i].phAsset?.creationDate, self.selectedAssets[i].phAsset?.location)
                 self.myPhotoAsset.append(self.selectedAssets[i].fullResolutionImage!)
 
             }
