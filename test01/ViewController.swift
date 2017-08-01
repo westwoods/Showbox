@@ -34,8 +34,16 @@ class ViewController: UIViewController, TLPhotosPickerViewControllerDelegate{
         {
             toDatePicker.date = sender.date //to date가 지금 시간보다 작지않도록 설정
         }
+        destinationVC?.refetchLibrary(fromDate: fromDatePicker.date, toDate: toDatePicker.date)
+
     }
     @IBAction func toDateChanged(_ sender: UIDatePicker) {
+        if( sender.date < fromDatePicker.date )
+        {
+            fromDatePicker.date = sender.date //from date가 지금 시간보다 크지않도록 설정
+        }
+        
+        destinationVC?.refetchLibrary(fromDate: fromDatePicker.date, toDate: toDatePicker.date)
     }
     @IBAction func CompletebuttonTapped(_ sender: UIButton) {
          destinationVC?.dismiss(done: true)
@@ -55,6 +63,7 @@ class ViewController: UIViewController, TLPhotosPickerViewControllerDelegate{
             if let destinationVC = destinationVC{
             destinationVC.delegate = self
             destinationVC.configure.numberOfColumn = 5
+            destinationVC.configure.usedCameraButton = false
             }
         }
     }

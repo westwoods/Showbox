@@ -187,7 +187,15 @@ open class TLPhotosPickerViewController: UIViewController {
 
 // MARK: - UI & UI Action
 extension TLPhotosPickerViewController {
-    
+    open func refetchLibrary(fromDate:Date,toDate:Date) {
+        
+        if PHPhotoLibrary.authorizationStatus() == .authorized {
+            let predicateOption = NSPredicate(format: "creationDate >= %@ && creationDate =< %@", fromDate as NSDate , toDate as NSDate)
+            self.photoLibrary.fetchCollection(allowedVideo: self.allowedVideo, useCameraButton: self.usedCameraButton, mediaType: self.configure.mediaType, predicateOption: predicateOption)
+        }else{
+            //self.dismiss(animated: true, completion: nil)
+        }
+    }
     public func registerNib(nibName: String, bundle: Bundle) {
         self.collectionView.register(UINib(nibName: nibName, bundle: bundle), forCellWithReuseIdentifier: nibName)
     }
@@ -269,11 +277,15 @@ extension TLPhotosPickerViewController {
     fileprivate func initPhotoLibrary() {
         if PHPhotoLibrary.authorizationStatus() == .authorized {
             self.photoLibrary.delegate = self
-            self.photoLibrary.fetchCollection(allowedVideo: self.allowedVideo, useCameraButton: self.usedCameraButton, mediaType: self.configure.mediaType)
+            let fromDate = Date()
+            let toDate = Date(timeIntervalSinceNow: -24*60*60*60)
+            let predicateOption = NSPredicate(format: "creationDate > %@ && creationDate < %@", fromDate as NSDate , toDate as NSDate)
+            self.photoLibrary.fetchCollection(allowedVideo: self.allowedVideo, useCameraButton: self.usedCameraButton, mediaType: self.configure.mediaType, predicateOption: predicateOption)
         }else{
             //self.dismiss(animated: true, completion: nil)
         }
     }
+
     
     fileprivate func getfocusedIndex() -> Int {
         guard let focused = self.focusedCollection, let result = self.collections.index(where: { $0 == focused }) else { return 0 }

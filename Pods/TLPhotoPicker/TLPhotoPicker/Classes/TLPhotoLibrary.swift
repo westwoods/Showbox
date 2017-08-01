@@ -52,7 +52,7 @@ class TLPhotoLibrary {
         })
         return requestId
     }
-
+    
     @discardableResult
     func imageAsset(asset: PHAsset, size: CGSize = CGSize(width: 720, height: 1280), options: PHImageRequestOptions? = nil, completionBlock:@escaping (UIImage)-> Void ) -> PHImageRequestID {
         var options = options
@@ -125,17 +125,24 @@ func date( year:Int, month:Int,  day:Int) -> Date? {
 
 //MARK: - Load Collection
 extension TLPhotoLibrary {
-    func fetchCollection(allowedVideo: Bool = true, useCameraButton: Bool = true, mediaType: PHAssetMediaType? = nil) {
-        let fromDate = date(year: 2010, month: 01, day: 30)
-        let toDate = date(year: 2017, month: 07, day: 30)
-        let options = PHFetchOptions()
+    
+    func fetchCollection(allowedVideo: Bool = true, useCameraButton: Bool = true, mediaType: PHAssetMediaType? = nil, predicateOption:NSPredicate? = nil) {        let options = PHFetchOptions()
         let sortOrder = [NSSortDescriptor(key: "creationDate", ascending: false), ]
         options.sortDescriptors = sortOrder
-        options.predicate = NSPredicate(format: "creationDate > %@ && creationDate < %@", fromDate! as NSDate , toDate! as NSDate)
+        options.predicate = predicateOption
         @discardableResult
         func getSmartAlbum(subType: PHAssetCollectionSubtype, result: inout [TLAssetsCollection]) -> TLAssetsCollection? {
             let fetchCollection = PHAssetCollection.fetchAssetCollections(with: .smartAlbum, subtype: subType, options: nil)
-          //  let fetchCollection = PHAssetCollection.fetchMoments(with: nil)
+            //  let fetchCollection = PHAssetCollection.fetchMoments(with: nil)
+            /*
+             PHAssetCollection.fetchMoments 에서는 날자 추출이 가능함.
+             
+             PHAssetCollection.fetchAssetCollection 는 날자 추출이 불가능.
+             
+             moments / smart album / user album과 차이가 있는것같은데...
+             
+             */
+            
             print (fetchCollection.firstObject?.startDate ?? "시작날짜가 없다")
             print (fetchCollection.lastObject?.endDate ?? "종료날짜가 없다.")
             print (fetchCollection.firstObject?.approximateLocation ?? "여기가어디오")

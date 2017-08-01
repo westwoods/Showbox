@@ -40,10 +40,10 @@
                                 </connections>
                             </button>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="ihY-zP-lUJ">
-                                <rect key="frame" x="0.0" y="15" width="220" height="80"/>
+                                <rect key="frame" x="0.0" y="15" width="230" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="cdO-TI-tAR"/>
-                                    <constraint firstAttribute="width" constant="220" id="sHi-Xi-mVH"/>
+                                    <constraint firstAttribute="width" constant="230" id="sHi-Xi-mVH"/>
                                 </constraints>
                                 <date key="date" timeIntervalSinceReferenceDate="522933775.289029">
                                     <!--2017-07-28 11:22:55 +0000-->
@@ -53,10 +53,10 @@
                                     <action selector="fromDateChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="w2N-u9-1Qv"/>
                                 </connections>
                             </datePicker>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="까지" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="van-DN-fQS">
-                                <rect key="frame" x="237" y="104" width="30" height="20"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="의 추억" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="van-DN-fQS">
+                                <rect key="frame" x="200" y="99" width="68.5" height="29"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <color key="textColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Y6q-Dr-WSM">
@@ -67,10 +67,10 @@
                                 </connections>
                             </containerView>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" datePickerMode="date" minuteInterval="30" translatesAutoresizingMaskIntoConstraints="NO" id="ysk-Ht-Y14">
-                                <rect key="frame" x="0.0" y="74" width="220" height="80"/>
+                                <rect key="frame" x="0.0" y="74" width="230" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="JUg-ra-2nz"/>
-                                    <constraint firstAttribute="width" constant="220" id="l7h-H3-h3Z"/>
+                                    <constraint firstAttribute="width" constant="230" id="l7h-H3-h3Z"/>
                                 </constraints>
                                 <date key="date" timeIntervalSinceReferenceDate="459775390.01939297">
                                     <!--2015-07-28 11:23:10 +0000-->
@@ -86,11 +86,11 @@
                                     <action selector="toDateChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="kUp-pU-Y3k"/>
                                 </connections>
                             </datePicker>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="부터" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="30" translatesAutoresizingMaskIntoConstraints="NO" id="OIi-FZ-nJz">
-                                <rect key="frame" x="237" y="45" width="30" height="20"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" 출발한" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="30" translatesAutoresizingMaskIntoConstraints="NO" id="OIi-FZ-nJz">
+                                <rect key="frame" x="200" y="41" width="68.5" height="29"/>
                                 <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <color key="textColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -100,10 +100,10 @@
                             <constraint firstItem="ysk-Ht-Y14" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="0Oz-fR-gmA"/>
                             <constraint firstItem="ihY-zP-lUJ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="4ie-gI-eFB"/>
                             <constraint firstItem="ihY-zP-lUJ" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="15" id="Dvq-S5-hHh"/>
-                            <constraint firstItem="van-DN-fQS" firstAttribute="top" secondItem="ysk-Ht-Y14" secondAttribute="bottom" constant="-50" id="MoH-YN-C7C"/>
-                            <constraint firstItem="van-DN-fQS" firstAttribute="leading" secondItem="ysk-Ht-Y14" secondAttribute="trailing" constant="17" id="UXw-oj-Bux"/>
-                            <constraint firstItem="OIi-FZ-nJz" firstAttribute="top" secondItem="ihY-zP-lUJ" secondAttribute="bottom" constant="-50" id="gYU-3Q-DND"/>
-                            <constraint firstItem="OIi-FZ-nJz" firstAttribute="leading" secondItem="ihY-zP-lUJ" secondAttribute="trailing" constant="17" id="qz9-XU-cu9"/>
+                            <constraint firstItem="van-DN-fQS" firstAttribute="top" secondItem="ysk-Ht-Y14" secondAttribute="bottom" constant="-55" id="MoH-YN-C7C"/>
+                            <constraint firstItem="van-DN-fQS" firstAttribute="leading" secondItem="ysk-Ht-Y14" secondAttribute="trailing" constant="-30" id="UXw-oj-Bux"/>
+                            <constraint firstItem="OIi-FZ-nJz" firstAttribute="top" secondItem="ihY-zP-lUJ" secondAttribute="bottom" constant="-54" id="gYU-3Q-DND"/>
+                            <constraint firstItem="OIi-FZ-nJz" firstAttribute="leading" secondItem="ihY-zP-lUJ" secondAttribute="trailing" constant="-30" id="qz9-XU-cu9"/>
                             <constraint firstItem="ysk-Ht-Y14" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="54" id="shd-lm-Jm3"/>
                             <constraint firstItem="ihY-zP-lUJ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="yva-MT-wQg"/>
                         </constraints>

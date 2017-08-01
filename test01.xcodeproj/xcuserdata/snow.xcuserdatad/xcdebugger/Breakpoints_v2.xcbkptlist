@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Pods/TLPhotoPicker/TLPhotoPicker/Classes/TLPhotosPickerViewController.swift"
-            timestampString = "523201625.366928"
+            timestampString = "523257078.593213"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "736"
-            endingLineNumber = "736"
+            startingLineNumber = "748"
+            endingLineNumber = "748"
             landmarkName = "tableView(_:cellForRowAt:)"
             landmarkType = "7">
             <Locations>
@@ -73,12 +73,28 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Pods/TLPhotoPicker/TLPhotoPicker/Classes/TLPhotoLibrary.swift"
-            timestampString = "523203120.968219"
+            timestampString = "523250149.715453"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "134"
-            endingLineNumber = "134"
-            landmarkName = "fetchCollection(allowedVideo:useCameraButton:mediaType:)"
+            startingLineNumber = "132"
+            endingLineNumber = "132"
+            landmarkName = "fetchCollection(allowedVideo:useCameraButton:mediaType:predicateOption:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "test01/ViewController.swift"
+            timestampString = "523255274.434584"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "36"
+            endingLineNumber = "36"
+            landmarkName = "fromDateChanged(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
