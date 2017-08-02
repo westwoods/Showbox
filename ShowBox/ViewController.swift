@@ -67,7 +67,7 @@ class ViewController: UIViewController, TLPhotosPickerViewControllerDelegate{
            destinationVC = (segue.destination as! TLPhotosPickerViewController)
             if let destinationVC = destinationVC{
             destinationVC.delegate = self
-            destinationVC.configure.numberOfColumn = 5
+            destinationVC.configure.numberOfColumn = 4
             destinationVC.configure.usedCameraButton = false
             }
         }

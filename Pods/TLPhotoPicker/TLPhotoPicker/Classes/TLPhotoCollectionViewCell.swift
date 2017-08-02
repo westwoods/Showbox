@@ -78,16 +78,66 @@ open class TLPhotoCollectionViewCell: UICollectionViewCell {
             }
         }
     }
-    open var faces:CIFaceFeature? = nil{
+    open var faces:[CIFeature]? = nil{
         didSet(oldValue){
             
-            self.durationView?.backgroundColor =  self.configure.smileColor
-            self.selectedView?.layer.borderColor = self.configure.smileColor.cgColor
-            self.orderBgView?.backgroundColor = self.configure.smileColor
-            self.selectedView?.isHidden = false
+            var transform = CGAffineTransform(scaleX: 1,y: -1)
+            
+            guard let personciImage = CIImage(image:  (imageView?.image)!) else {
+                return
+            }
+            let ciImageSize = personciImage.extent.size
+            
+            transform = transform.translatedBy(x: 0, y: -(ciImageSize.height))
+            if let faces = faces{
+                for face in faces{
+                    if let face = face as? CIFaceFeature{
+                        
+                        if !face.rightEyeClosed && !face.leftEyeClosed {
+                            self.durationView?.backgroundColor =  self.configure.smileColor
+                            self.selectedView?.layer.borderColor = self.configure.smileColor.cgColor
+                            self.orderBgView?.backgroundColor = self.configure.smileColor
+                            self.orderLabel?.text = (self.orderLabel?.text)! + "E"
+                            self.selectedView?.isHidden = false
+                        }
+                        
+                        if face.hasSmile {
+                            self.durationView?.backgroundColor =  self.configure.smileColor
+                            self.selectedView?.layer.borderColor = self.configure.smileColor.cgColor
+                            self.orderBgView?.backgroundColor = self.configure.smileColor
+                            self.orderLabel?.text = (self.orderLabel?.text)! + "S"
+                            self.selectedView?.isHidden = false
+                        }
+                        print("Found bounds are \(face.bounds)")
+                        // Apply the transform to convert the coordinates
+                        var faceViewBounds = face.bounds.applying(transform)
+                        
+                        // Calculate the actual position and size of the rectangle in the image view
+                        if  let viewSize = imageView?.frame.size{
+                            let scale = min(viewSize.width / (ciImageSize.width),
+                                            viewSize.height / (ciImageSize.height))
+                            let offsetX = (viewSize.width - (ciImageSize.width) * scale) / 2
+                            let offsetY = (viewSize.height - (ciImageSize.height) * scale) / 2
+                            
+                            faceViewBounds = faceViewBounds.applying(CGAffineTransform(scaleX: scale, y: scale))
+                            faceViewBounds.origin.x += offsetX
+                            faceViewBounds.origin.y += offsetY
+//
+                           print("Found bounds are \(faceViewBounds)")
+                            let faceBox = UIView(frame: faceViewBounds)
+//                            
+                            faceBox.layer.borderWidth = 2
+                            faceBox.layer.borderColor = UIColor.red.cgColor
+                            faceBox.backgroundColor = UIColor.clear
+                            faceBox.tag = 222
+                            imageView?.addSubview(faceBox)
+                        }
+                        
+                    }
+                }
+            }
         }
     }
-    
     open var selectedAsset: Int = 0 { //0 unselected 1 selected 2 highlight
         willSet(newValue) {
             switch(newValue)
@@ -107,10 +157,19 @@ open class TLPhotoCollectionViewCell: UICollectionViewCell {
                 self.selectedView?.isHidden = false
                 self.orderLabel?.text = "H"
                 self.orderBgView?.backgroundColor = self.configure.hilightedColor
-
-
+                
+                
             default:
                 return
+            }
+            if let subviews = imageView?.subviews{
+                for view in subviews
+                {
+                    if( view.tag == 222)
+                    {
+                        view.removeFromSuperview()
+                    }
+                }
             }
         }
     }
