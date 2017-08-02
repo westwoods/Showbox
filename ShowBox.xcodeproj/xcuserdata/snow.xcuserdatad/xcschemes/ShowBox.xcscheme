@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "809D23BD1F25DF8C00116FBA"
-               BuildableName = "test01.app"
-               BlueprintName = "test01"
-               ReferencedContainer = "container:test01.xcodeproj">
+               BuildableName = "ShowBox.app"
+               BlueprintName = "ShowBox"
+               ReferencedContainer = "container:ShowBox.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "809D23D11F25DF8C00116FBA"
-               BuildableName = "test01Tests.xctest"
-               BlueprintName = "test01Tests"
-               ReferencedContainer = "container:test01.xcodeproj">
+               BuildableName = "ShowBoxTests.xctest"
+               BlueprintName = "ShowBoxTests"
+               ReferencedContainer = "container:ShowBox.xcodeproj">
             </BuildableReference>
          </TestableReference>
          <TestableReference
@@ -43,9 +43,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "809D23DC1F25DF8C00116FBA"
-               BuildableName = "test01UITests.xctest"
-               BlueprintName = "test01UITests"
-               ReferencedContainer = "container:test01.xcodeproj">
+               BuildableName = "ShowBoxUITests.xctest"
+               BlueprintName = "ShowBoxUITests"
+               ReferencedContainer = "container:ShowBox.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -53,9 +53,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "809D23BD1F25DF8C00116FBA"
-            BuildableName = "test01.app"
-            BlueprintName = "test01"
-            ReferencedContainer = "container:test01.xcodeproj">
+            BuildableName = "ShowBox.app"
+            BlueprintName = "ShowBox"
+            ReferencedContainer = "container:ShowBox.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -76,9 +76,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "809D23BD1F25DF8C00116FBA"
-            BuildableName = "test01.app"
-            BlueprintName = "test01"
-            ReferencedContainer = "container:test01.xcodeproj">
+            BuildableName = "ShowBox.app"
+            BlueprintName = "ShowBox"
+            ReferencedContainer = "container:ShowBox.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -95,9 +95,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "809D23BD1F25DF8C00116FBA"
-            BuildableName = "test01.app"
-            BlueprintName = "test01"
-            ReferencedContainer = "container:test01.xcodeproj">
+            BuildableName = "ShowBox.app"
+            BlueprintName = "ShowBox"
+            ReferencedContainer = "container:ShowBox.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

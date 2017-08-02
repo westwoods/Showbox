@@ -63,17 +63,17 @@
 		8027014A1F29786B00A26F3B /* VideoWriter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoWriter.swift; sourceTree = "<group>"; };
 		808476961F26D3B800A0AD0E /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		808476981F26D5A700A0AD0E /* Pods.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Pods.xcodeproj; path = Pods/Pods.xcodeproj; sourceTree = "<group>"; };
-		809D23BE1F25DF8C00116FBA /* test01.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = test01.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		809D23BE1F25DF8C00116FBA /* ShowBox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShowBox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		809D23C11F25DF8C00116FBA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		809D23C31F25DF8C00116FBA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		809D23C61F25DF8C00116FBA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		809D23C81F25DF8C00116FBA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		809D23CB1F25DF8C00116FBA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		809D23CD1F25DF8C00116FBA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		809D23D21F25DF8C00116FBA /* test01Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = test01Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		809D23D21F25DF8C00116FBA /* ShowBoxTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ShowBoxTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		809D23D61F25DF8C00116FBA /* test01Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = test01Tests.swift; sourceTree = "<group>"; };
 		809D23D81F25DF8C00116FBA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		809D23DD1F25DF8C00116FBA /* test01UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = test01UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		809D23DD1F25DF8C00116FBA /* ShowBoxUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ShowBoxUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		809D23E11F25DF8C00116FBA /* test01UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = test01UITests.swift; sourceTree = "<group>"; };
 		809D23E31F25DF8C00116FBA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		80C6FFB81F30AA70000401C1 /* FaceDetecter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FaceDetecter.swift; sourceTree = "<group>"; };
@@ -139,9 +139,9 @@
 			children = (
 				808476981F26D5A700A0AD0E /* Pods.xcodeproj */,
 				808476961F26D3B800A0AD0E /* Podfile */,
-				809D23C01F25DF8C00116FBA /* test01 */,
-				809D23D51F25DF8C00116FBA /* test01Tests */,
-				809D23E01F25DF8C00116FBA /* test01UITests */,
+				809D23C01F25DF8C00116FBA /* ShowBox */,
+				809D23D51F25DF8C00116FBA /* ShowBoxTests */,
+				809D23E01F25DF8C00116FBA /* ShowBoxUITests */,
 				809D23BF1F25DF8C00116FBA /* Products */,
 				3C68FEA63B890D51B024C738 /* Pods */,
 				0EBACF5F5AC3FBE11AAAAE04 /* Frameworks */,
@@ -151,14 +151,14 @@
 		809D23BF1F25DF8C00116FBA /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				809D23BE1F25DF8C00116FBA /* test01.app */,
-				809D23D21F25DF8C00116FBA /* test01Tests.xctest */,
-				809D23DD1F25DF8C00116FBA /* test01UITests.xctest */,
+				809D23BE1F25DF8C00116FBA /* ShowBox.app */,
+				809D23D21F25DF8C00116FBA /* ShowBoxTests.xctest */,
+				809D23DD1F25DF8C00116FBA /* ShowBoxUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		809D23C01F25DF8C00116FBA /* test01 */ = {
+		809D23C01F25DF8C00116FBA /* ShowBox */ = {
 			isa = PBXGroup;
 			children = (
 				809D23C11F25DF8C00116FBA /* AppDelegate.swift */,
@@ -170,33 +170,33 @@
 				8027014A1F29786B00A26F3B /* VideoWriter.swift */,
 				80C6FFB81F30AA70000401C1 /* FaceDetecter.swift */,
 			);
-			path = test01;
+			path = ShowBox;
 			sourceTree = "<group>";
 		};
-		809D23D51F25DF8C00116FBA /* test01Tests */ = {
+		809D23D51F25DF8C00116FBA /* ShowBoxTests */ = {
 			isa = PBXGroup;
 			children = (
 				809D23D61F25DF8C00116FBA /* test01Tests.swift */,
 				809D23D81F25DF8C00116FBA /* Info.plist */,
 			);
-			path = test01Tests;
+			path = ShowBoxTests;
 			sourceTree = "<group>";
 		};
-		809D23E01F25DF8C00116FBA /* test01UITests */ = {
+		809D23E01F25DF8C00116FBA /* ShowBoxUITests */ = {
 			isa = PBXGroup;
 			children = (
 				809D23E11F25DF8C00116FBA /* test01UITests.swift */,
 				809D23E31F25DF8C00116FBA /* Info.plist */,
 			);
-			path = test01UITests;
+			path = ShowBoxUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		809D23BD1F25DF8C00116FBA /* test01 */ = {
+		809D23BD1F25DF8C00116FBA /* ShowBox */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 809D23E61F25DF8C00116FBA /* Build configuration list for PBXNativeTarget "test01" */;
+			buildConfigurationList = 809D23E61F25DF8C00116FBA /* Build configuration list for PBXNativeTarget "ShowBox" */;
 			buildPhases = (
 				F1647B57CAB89711799CE947 /* [CP] Check Pods Manifest.lock */,
 				809D23BA1F25DF8C00116FBA /* Sources */,
@@ -209,14 +209,14 @@
 			);
 			dependencies = (
 			);
-			name = test01;
+			name = ShowBox;
 			productName = test01;
-			productReference = 809D23BE1F25DF8C00116FBA /* test01.app */;
+			productReference = 809D23BE1F25DF8C00116FBA /* ShowBox.app */;
 			productType = "com.apple.product-type.application";
 		};
-		809D23D11F25DF8C00116FBA /* test01Tests */ = {
+		809D23D11F25DF8C00116FBA /* ShowBoxTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 809D23E91F25DF8C00116FBA /* Build configuration list for PBXNativeTarget "test01Tests" */;
+			buildConfigurationList = 809D23E91F25DF8C00116FBA /* Build configuration list for PBXNativeTarget "ShowBoxTests" */;
 			buildPhases = (
 				809D23CE1F25DF8C00116FBA /* Sources */,
 				809D23CF1F25DF8C00116FBA /* Frameworks */,
@@ -227,14 +227,14 @@
 			dependencies = (
 				809D23D41F25DF8C00116FBA /* PBXTargetDependency */,
 			);
-			name = test01Tests;
+			name = ShowBoxTests;
 			productName = test01Tests;
-			productReference = 809D23D21F25DF8C00116FBA /* test01Tests.xctest */;
+			productReference = 809D23D21F25DF8C00116FBA /* ShowBoxTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		809D23DC1F25DF8C00116FBA /* test01UITests */ = {
+		809D23DC1F25DF8C00116FBA /* ShowBoxUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 809D23EC1F25DF8C00116FBA /* Build configuration list for PBXNativeTarget "test01UITests" */;
+			buildConfigurationList = 809D23EC1F25DF8C00116FBA /* Build configuration list for PBXNativeTarget "ShowBoxUITests" */;
 			buildPhases = (
 				809D23D91F25DF8C00116FBA /* Sources */,
 				809D23DA1F25DF8C00116FBA /* Frameworks */,
@@ -245,9 +245,9 @@
 			dependencies = (
 				809D23DF1F25DF8C00116FBA /* PBXTargetDependency */,
 			);
-			name = test01UITests;
+			name = ShowBoxUITests;
 			productName = test01UITests;
-			productReference = 809D23DD1F25DF8C00116FBA /* test01UITests.xctest */;
+			productReference = 809D23DD1F25DF8C00116FBA /* ShowBoxUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -279,7 +279,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 809D23B91F25DF8C00116FBA /* Build configuration list for PBXProject "test01" */;
+			buildConfigurationList = 809D23B91F25DF8C00116FBA /* Build configuration list for PBXProject "ShowBox" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -298,9 +298,9 @@
 			);
 			projectRoot = "";
 			targets = (
-				809D23BD1F25DF8C00116FBA /* test01 */,
-				809D23D11F25DF8C00116FBA /* test01Tests */,
-				809D23DC1F25DF8C00116FBA /* test01UITests */,
+				809D23BD1F25DF8C00116FBA /* ShowBox */,
+				809D23D11F25DF8C00116FBA /* ShowBoxTests */,
+				809D23DC1F25DF8C00116FBA /* ShowBoxUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -438,12 +438,12 @@
 /* Begin PBXTargetDependency section */
 		809D23D41F25DF8C00116FBA /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 809D23BD1F25DF8C00116FBA /* test01 */;
+			target = 809D23BD1F25DF8C00116FBA /* ShowBox */;
 			targetProxy = 809D23D31F25DF8C00116FBA /* PBXContainerItemProxy */;
 		};
 		809D23DF1F25DF8C00116FBA /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 809D23BD1F25DF8C00116FBA /* test01 */;
+			target = 809D23BD1F25DF8C00116FBA /* ShowBox */;
 			targetProxy = 809D23DE1F25DF8C00116FBA /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -569,10 +569,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 4FQ4R6GQY8;
-				INFOPLIST_FILE = test01/Info.plist;
+				INFOPLIST_FILE = ShowBox/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.dongwoo.test01;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dongwoo.ShowBox;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -584,10 +584,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 4FQ4R6GQY8;
-				INFOPLIST_FILE = test01/Info.plist;
+				INFOPLIST_FILE = ShowBox/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.dongwoo.test01;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dongwoo.ShowBox;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -604,7 +604,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = mymy.test01Tests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/test01.app/test01";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ShowBox.app/ShowBox";
 			};
 			name = Debug;
 		};
@@ -619,7 +619,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = mymy.test01Tests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/test01.app/test01";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ShowBox.app/ShowBox";
 			};
 			name = Release;
 		};
@@ -654,7 +654,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		809D23B91F25DF8C00116FBA /* Build configuration list for PBXProject "test01" */ = {
+		809D23B91F25DF8C00116FBA /* Build configuration list for PBXProject "ShowBox" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				809D23E41F25DF8C00116FBA /* Debug */,
@@ -663,7 +663,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		809D23E61F25DF8C00116FBA /* Build configuration list for PBXNativeTarget "test01" */ = {
+		809D23E61F25DF8C00116FBA /* Build configuration list for PBXNativeTarget "ShowBox" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				809D23E71F25DF8C00116FBA /* Debug */,
@@ -672,7 +672,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		809D23E91F25DF8C00116FBA /* Build configuration list for PBXNativeTarget "test01Tests" */ = {
+		809D23E91F25DF8C00116FBA /* Build configuration list for PBXNativeTarget "ShowBoxTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				809D23EA1F25DF8C00116FBA /* Debug */,
@@ -681,7 +681,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		809D23EC1F25DF8C00116FBA /* Build configuration list for PBXNativeTarget "test01UITests" */ = {
+		809D23EC1F25DF8C00116FBA /* Build configuration list for PBXNativeTarget "ShowBoxUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				809D23ED1F25DF8C00116FBA /* Debug */,
