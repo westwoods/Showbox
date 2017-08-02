@@ -12,7 +12,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="test01" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="ShowBox" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -28,7 +28,7 @@
                                 <state key="normal" title="완료"/>
                                 <connections>
                                     <action selector="CompletebuttonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Vct-Ch-oz7"/>
-                                    <segue destination="JkW-ln-7m5" kind="presentation" id="sme-Sk-tDx"/>
+                                    <segue destination="JkW-ln-7m5" kind="presentation" identifier="Modalsegue" id="sme-Sk-tDx"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cbp-dz-2Vg">
@@ -88,7 +88,7 @@
                                 </connections>
                             </datePicker>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" 출발한" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="30" translatesAutoresizingMaskIntoConstraints="NO" id="OIi-FZ-nJz">
-                                <rect key="frame" x="200" y="50" width="68.666666666666686" height="29"/>
+                                <rect key="frame" x="200" y="50" width="68.5" height="29"/>
                                 <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <color key="textColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -135,14 +135,14 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="back"/>
                                 <connections>
-                                    <segue destination="sWI-VS-pkC" kind="unwind" unwindAction="exitFromViewControllerWithSegue:" id="pI3-xP-kFI"/>
+                                    <segue destination="sWI-VS-pkC" kind="unwind" unwindAction="exitFromViewControllerWithSegue:" id="CQL-tE-8Ak"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <segue destination="sWI-VS-pkC" kind="unwind" unwindAction="exitFromViewControllerWithSegue:" id="yaU-y0-KGa"/>
+                        <segue destination="sWI-VS-pkC" kind="unwind" unwindAction="exitFromViewControllerWithSegue:" id="4d6-ri-NGz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uCX-gj-63V" userLabel="First Responder" sceneMemberID="firstResponder"/>

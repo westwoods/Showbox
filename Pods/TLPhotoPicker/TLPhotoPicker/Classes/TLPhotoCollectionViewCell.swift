@@ -78,6 +78,15 @@ open class TLPhotoCollectionViewCell: UICollectionViewCell {
             }
         }
     }
+    open var faces:CIFaceFeature? = nil{
+        didSet(oldValue){
+            
+            self.durationView?.backgroundColor =  self.configure.smileColor
+            self.selectedView?.layer.borderColor = self.configure.smileColor.cgColor
+            self.orderBgView?.backgroundColor = self.configure.smileColor
+            self.selectedView?.isHidden = false
+        }
+    }
     
     open var selectedAsset: Int = 0 { //0 unselected 1 selected 2 highlight
         willSet(newValue) {

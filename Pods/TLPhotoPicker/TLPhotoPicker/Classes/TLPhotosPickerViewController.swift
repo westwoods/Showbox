@@ -39,6 +39,8 @@ public struct TLPhotosPickerConfigure {
     public var maxSelectedAssets: Int? = nil
     public var selectedColor = UIColor(red: 88/255, green: 144/255, blue: 255/255, alpha: 1.0)
     public var hilightedColor = UIColor(red: 255/255, green: 44/255, blue: 88/255, alpha: 1.0)
+    
+    public var smileColor = UIColor(red: 225/255, green: 225/255, blue: 33/255, alpha: 1.0)
     public var cameraBgColor = UIColor(red: 221/255, green: 223/255, blue: 226/255, alpha: 1)
     public var cameraIcon = TLBundle.podBundleImage(named: "camera")
     public var videoIcon = TLBundle.podBundleImage(named: "video")
@@ -669,6 +671,7 @@ extension TLPhotosPickerViewController: UICollectionViewDelegate,UICollectionVie
                     guard let `self` = self else { return }
                     let requestId = self.photoLibrary.imageAsset(asset: phAsset, size: self.thumbnailSize, completionBlock: { image in
                         cell?.imageView?.image = image
+                        cell?.faces = FaceDetector.detect(uiImage: image)
                         if self.allowedVideo {
                             cell?.durationView?.isHidden = asset.type != .video
                             cell?.duration = asset.type == .video ? phAsset.duration : nil

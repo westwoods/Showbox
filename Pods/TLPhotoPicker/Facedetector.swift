@@ -1,14 +1,13 @@
-
 import UIKit
 
 open class FaceDetector{
     
-    func detect(cgImage: CGImage)  -> Bool{
-        let imageOptions =  NSDictionary(object: NSNumber(value: 5) as NSNumber, forKey: CIDetectorImageOrientation as NSString)
-        let personciImage = CIImage(cgImage: cgImage)
+   class  func detect(uiImage: UIImage)  -> CIFaceFeature? {
+        let imageOptions = [CIDetectorSmile : true ,CIDetectorEyeBlink: true]
+        let personciImage = CIImage(cgImage: uiImage.cgImage!)
         let accuracy = [CIDetectorAccuracy: CIDetectorAccuracyHigh]
         let faceDetector = CIDetector(ofType: CIDetectorTypeFace, context: nil, options: accuracy)
-        let faces = faceDetector?.features(in: personciImage, options: imageOptions as? [String : AnyObject])
+        let faces = faceDetector?.features(in: personciImage, options: imageOptions )
         
         if let face = faces?.first as? CIFaceFeature {
             print("found bounds are \(face.bounds)")
@@ -24,9 +23,9 @@ open class FaceDetector{
             if face.hasRightEyePosition {
                 print("Right eye bounds are \(face.rightEyePosition)")
             }
-            return true
+            return face
         } else {
-            return false
+            return nil
         }
     }
     
