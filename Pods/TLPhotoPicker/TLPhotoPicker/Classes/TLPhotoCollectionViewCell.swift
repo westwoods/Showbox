@@ -97,7 +97,7 @@ open class TLPhotoCollectionViewCell: UICollectionViewCell {
                             self.durationView?.backgroundColor =  self.configure.smileColor
                             self.selectedView?.layer.borderColor = self.configure.smileColor.cgColor
                             self.orderBgView?.backgroundColor = self.configure.smileColor
-                            self.orderLabel?.text = (self.orderLabel?.text)! + "E"
+                            self.orderLabel?.text = (self.orderLabel?.text)! + ((self.orderLabel?.text)!.contains("E") ?  " ":  "E")
                             self.selectedView?.isHidden = false
                         }
                         
@@ -105,16 +105,16 @@ open class TLPhotoCollectionViewCell: UICollectionViewCell {
                             self.durationView?.backgroundColor =  self.configure.smileColor
                             self.selectedView?.layer.borderColor = self.configure.smileColor.cgColor
                             self.orderBgView?.backgroundColor = self.configure.smileColor
-                            self.orderLabel?.text = (self.orderLabel?.text)! + "S"
+                            self.orderLabel?.text = (self.orderLabel?.text)! + ((self.orderLabel?.text)!.contains("S") ?  " ":  "S")
                             self.selectedView?.isHidden = false
                         }
                         print("Found bounds are \(face.bounds)")
                         // Apply the transform to convert the coordinates
                         var faceViewBounds = face.bounds.applying(transform)
-                        
+                    
                         // Calculate the actual position and size of the rectangle in the image view
-                        if  let viewSize = imageView?.frame.size{
-                            let scale = min(viewSize.width / (ciImageSize.width),
+                        if  let viewSize = imageView?.bounds.size{
+                            let scale = max(viewSize.width / (ciImageSize.width), //max로 하니잘맞음
                                             viewSize.height / (ciImageSize.height))
                             let offsetX = (viewSize.width - (ciImageSize.width) * scale) / 2
                             let offsetY = (viewSize.height - (ciImageSize.height) * scale) / 2

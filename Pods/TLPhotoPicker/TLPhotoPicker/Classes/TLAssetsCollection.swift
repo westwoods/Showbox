@@ -71,8 +71,16 @@ struct TLAssetsCollection {
     init(collection: PHAssetCollection) {
         self.title = collection.localizedTitle ?? ""
         self.localIdentifier = collection.localIdentifier
-        self.startDate = collection.startDate
+        self.startDate = collection.startDate //소용이없음
         self.endDate = collection.endDate
+        
+    }
+    
+    
+    init() {
+        self.title = ""
+        self.localIdentifier = ""
+        
     }
     
     func getAsset(at index: Int) -> PHAsset? {

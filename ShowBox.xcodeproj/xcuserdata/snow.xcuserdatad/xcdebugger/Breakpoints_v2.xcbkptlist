@@ -72,22 +72,6 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Pods/TLPhotoPicker/TLPhotoPicker/Classes/TLPhotoLibrary.swift"
-            timestampString = "523250149.715453"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "132"
-            endingLineNumber = "132"
-            landmarkName = "fetchCollection(allowedVideo:useCameraButton:mediaType:predicateOption:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "test01/ViewController.swift"
             timestampString = "523255274.434584"
             startingColumnNumber = "9223372036854775807"
@@ -576,6 +560,307 @@
             endingLineNumber = "89"
             landmarkName = "faces"
             landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ShowBox/ViewController.swift"
+            timestampString = "523417155.485834"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "46"
+            endingLineNumber = "46"
+            landmarkName = "toDateChanged(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pods/TLPhotoPicker/TLPhotoPicker/Classes/TLPhotoLibrary.swift"
+            timestampString = "523417437.763633"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "129"
+            endingLineNumber = "129"
+            landmarkName = "fetchCollection(allowedVideo:useCameraButton:mediaType:predicateOption:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TLPhotoPicker.TLPhotoLibrary.(fetchCollection (allowedVideo : Swift.Bool, useCameraButton : Swift.Bool, mediaType : Swift.Optional&lt;__C.PHAssetMediaType&gt;, predicateOption : Swift.Optional&lt;__ObjC.NSPredicate&gt;) -&gt; ()).(default argument 0)"
+                  moduleName = "TLPhotoPicker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/snow/Documents/Swift/ShowBox/Pods/TLPhotoPicker/TLPhotoPicker/Classes/TLPhotoLibrary.swift"
+                  timestampString = "523417415.29956"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "129"
+                  endingLineNumber = "129"
+                  offsetFromSymbolStart = "0">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TLPhotoPicker.TLPhotoLibrary.(fetchCollection (allowedVideo : Swift.Bool, useCameraButton : Swift.Bool, mediaType : Swift.Optional&lt;__C.PHAssetMediaType&gt;, predicateOption : Swift.Optional&lt;__ObjC.NSPredicate&gt;) -&gt; ()).(default argument 1)"
+                  moduleName = "TLPhotoPicker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/snow/Documents/Swift/ShowBox/Pods/TLPhotoPicker/TLPhotoPicker/Classes/TLPhotoLibrary.swift"
+                  timestampString = "523417415.301375"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "129"
+                  endingLineNumber = "129"
+                  offsetFromSymbolStart = "0">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TLPhotoPicker.TLPhotoLibrary.(fetchCollection (allowedVideo : Swift.Bool, useCameraButton : Swift.Bool, mediaType : Swift.Optional&lt;__C.PHAssetMediaType&gt;, predicateOption : Swift.Optional&lt;__ObjC.NSPredicate&gt;) -&gt; ()).(default argument 2)"
+                  moduleName = "TLPhotoPicker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/snow/Documents/Swift/ShowBox/Pods/TLPhotoPicker/TLPhotoPicker/Classes/TLPhotoLibrary.swift"
+                  timestampString = "523417415.303103"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "129"
+                  endingLineNumber = "129"
+                  offsetFromSymbolStart = "4">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TLPhotoPicker.TLPhotoLibrary.(fetchCollection (allowedVideo : Swift.Bool, useCameraButton : Swift.Bool, mediaType : Swift.Optional&lt;__C.PHAssetMediaType&gt;, predicateOption : Swift.Optional&lt;__ObjC.NSPredicate&gt;) -&gt; ()).(default argument 3)"
+                  moduleName = "TLPhotoPicker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/snow/Documents/Swift/ShowBox/Pods/TLPhotoPicker/TLPhotoPicker/Classes/TLPhotoLibrary.swift"
+                  timestampString = "523417415.304718"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "129"
+                  endingLineNumber = "129"
+                  offsetFromSymbolStart = "4">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TLPhotoPicker.TLPhotoLibrary.fetchCollection (allowedVideo : Swift.Bool, useCameraButton : Swift.Bool, mediaType : Swift.Optional&lt;__C.PHAssetMediaType&gt;, predicateOption : Swift.Optional&lt;__ObjC.NSPredicate&gt;) -&gt; ()"
+                  moduleName = "TLPhotoPicker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/snow/Documents/Swift/ShowBox/Pods/TLPhotoPicker/TLPhotoPicker/Classes/TLPhotoLibrary.swift"
+                  timestampString = "523417415.306166"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "129"
+                  endingLineNumber = "129"
+                  offsetFromSymbolStart = "52">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pods/TLPhotoPicker/TLPhotoPicker/Classes/TLPhotoLibrary.swift"
+            timestampString = "523421557.608284"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "153"
+            endingLineNumber = "153"
+            landmarkName = "getSmartAlbum(subType:result:)"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pods/TLPhotoPicker/TLPhotoPicker/Classes/TLPhotoLibrary.swift"
+            timestampString = "523417510.591366"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "130"
+            endingLineNumber = "130"
+            landmarkName = "fetchCollection(allowedVideo:useCameraButton:mediaType:predicateOption:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pods/TLPhotoPicker/TLPhotoPicker/Classes/TLPhotoLibrary.swift"
+            timestampString = "523421557.608284"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "168"
+            endingLineNumber = "168"
+            landmarkName = "fetchCollection(allowedVideo:useCameraButton:mediaType:predicateOption:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pods/TLPhotoPicker/TLPhotoPicker/Classes/TLPhotoLibrary.swift"
+            timestampString = "523421557.608284"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "167"
+            endingLineNumber = "167"
+            landmarkName = "fetchCollection(allowedVideo:useCameraButton:mediaType:predicateOption:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pods/TLPhotoPicker/TLPhotoPicker/Classes/TLPhotosPickerViewController.swift"
+            timestampString = "523418702.708009"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "414"
+            endingLineNumber = "414"
+            landmarkName = "loadCameraRollCollection(collection:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pods/TLPhotoPicker/TLPhotoPicker/Classes/TLPhotosPickerViewController.swift"
+            timestampString = "523418732.163826"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "423"
+            endingLineNumber = "423"
+            landmarkName = "loadCompleteAllCollection(collections:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pods/TLPhotoPicker/TLPhotoPicker/Classes/TLPhotosPickerViewController.swift"
+            timestampString = "523419730.63168"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "413"
+            endingLineNumber = "413"
+            landmarkName = "loadCameraRollCollection(collection:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pods/TLPhotoPicker/TLPhotoPicker/Classes/TLPhotosPickerViewController.swift"
+            timestampString = "523419757.105822"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "412"
+            endingLineNumber = "412"
+            landmarkName = "loadCameraRollCollection(collection:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TLPhotoPicker.TLPhotosPickerViewController.loadCameraRollCollection (collection : TLPhotoPicker.TLAssetsCollection) -&gt; ()"
+                  moduleName = "TLPhotoPicker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/snow/Documents/Swift/ShowBox/Pods/TLPhotoPicker/TLPhotoPicker/Classes/TLPhotosPickerViewController.swift"
+                  timestampString = "523419757.323823"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "412"
+                  endingLineNumber = "412"
+                  offsetFromSymbolStart = "184">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TLPhotoPicker.TLPhotosPickerViewController.loadCameraRollCollection (collection : TLPhotoPicker.TLAssetsCollection) -&gt; ()"
+                  moduleName = "TLPhotoPicker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/snow/Documents/Swift/ShowBox/Pods/TLPhotoPicker/TLPhotoPicker/Classes/TLPhotosPickerViewController.swift"
+                  timestampString = "523419757.325499"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "412"
+                  endingLineNumber = "412"
+                  offsetFromSymbolStart = "536">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pods/TLPhotoPicker/TLPhotoPicker/Classes/TLPhotoLibrary.swift"
+            timestampString = "523420068.875174"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "136"
+            endingLineNumber = "136"
+            landmarkName = "getSmartAlbum(subType:result:)"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pods/TLPhotoPicker/TLPhotoPicker/Classes/TLPhotoLibrary.swift"
+            timestampString = "523421557.608284"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "152"
+            endingLineNumber = "152"
+            landmarkName = "getSmartAlbum(subType:result:)"
+            landmarkType = "9">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

@@ -126,13 +126,14 @@ func date( year:Int, month:Int,  day:Int) -> Date? {
 //MARK: - Load Collection
 extension TLPhotoLibrary {
     
-    func fetchCollection(allowedVideo: Bool = true, useCameraButton: Bool = true, mediaType: PHAssetMediaType? = nil, predicateOption:NSPredicate? = nil) {        let options = PHFetchOptions()
+    func fetchCollection(allowedVideo: Bool = true, useCameraButton: Bool = true, mediaType: PHAssetMediaType? = nil, predicateOption:NSPredicate? = nil) {
+        let options = PHFetchOptions()
         let sortOrder = [NSSortDescriptor(key: "creationDate", ascending: false), ]
         options.sortDescriptors = sortOrder
         options.predicate = predicateOption
-        @discardableResult
+                @discardableResult
         func getSmartAlbum(subType: PHAssetCollectionSubtype, result: inout [TLAssetsCollection]) -> TLAssetsCollection? {
-            let fetchCollection = PHAssetCollection.fetchAssetCollections(with: .smartAlbum, subtype: subType, options: nil)
+            let fetchCollection = PHAssetCollection.fetchAssetCollections(with: .smartAlbum, subtype: subType, options:  nil)
             //  let fetchCollection = PHAssetCollection.fetchMoments(with: nil)
             /*
              PHAssetCollection.fetchMoments 에서는 날짜 추출이 가능함.
@@ -140,16 +141,14 @@ extension TLPhotoLibrary {
              PHAssetCollection.fetchAssetCollection 는 날짜 추출이 불가능.
              
              moments / smart album / user album과 차이가 있는것같은데...
-             
              */
-            
-            print (fetchCollection.firstObject?.startDate ?? "시작날짜가 없다")
-            print (fetchCollection.lastObject?.endDate ?? "종료날짜가 없다.")
-            print (fetchCollection.firstObject?.approximateLocation ?? "여기가어디오")
             if let collection = fetchCollection.firstObject, !result.contains(where: { $0.localIdentifier == collection.localIdentifier }) {
                 var assetsCollection = TLAssetsCollection(collection: collection)
                 assetsCollection.fetchResult = PHAsset.fetchAssets(in: collection, options: options)
                 if assetsCollection.count > 0 {
+                    
+                    assetsCollection.startDate = assetsCollection.getAsset(at: 0)?.creationDate
+                    assetsCollection.endDate = assetsCollection.getAsset(at: -1)?.creationDate
                     result.append(assetsCollection)
                     return assetsCollection
                 }
@@ -173,6 +172,13 @@ extension TLPhotoLibrary {
                 DispatchQueue.main.async {
                     self?.delegate?.focusCollection(collection: cameraRoll)
                     self?.delegate?.loadCameraRollCollection(collection: cameraRoll)
+                }
+            }
+            else //TODO
+            {
+                DispatchQueue.main.async { //비어있을때.
+                    self?.delegate?.focusCollection(collection:TLAssetsCollection())
+                    self?.delegate?.loadCameraRollCollection(collection: TLAssetsCollection())
                 }
             }
             //Selfies
