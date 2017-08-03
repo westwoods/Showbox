@@ -40,14 +40,14 @@
                                     <action selector="MusicButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hCU-U0-XIY"/>
                                 </connections>
                             </button>
-                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="ihY-zP-lUJ">
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" datePickerMode="date" minuteInterval="30" translatesAutoresizingMaskIntoConstraints="NO" id="ihY-zP-lUJ">
                                 <rect key="frame" x="0.0" y="24" width="230" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="cdO-TI-tAR"/>
                                     <constraint firstAttribute="width" constant="230" id="sHi-Xi-mVH"/>
                                 </constraints>
-                                <date key="date" timeIntervalSinceReferenceDate="522933775.289029">
-                                    <!--2017-07-28 11:22:55 +0000-->
+                                <date key="date" timeIntervalSinceReferenceDate="522588175.289029">
+                                    <!--2017-07-24 11:22:55 +0000-->
                                 </date>
                                 <locale key="locale" localeIdentifier="ko"/>
                                 <connections>

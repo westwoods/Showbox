@@ -146,8 +146,10 @@ extension TLPhotoLibrary {
                 var assetsCollection = TLAssetsCollection(collection: collection)
                 assetsCollection.fetchResult = PHAsset.fetchAssets(in: collection, options: options)
                 if assetsCollection.count > 0 {
-                    assetsCollection.startDate = assetsCollection.getAsset(at: 0)?.creationDate
-                    assetsCollection.endDate = assetsCollection.getAsset(at: -1)?.creationDate
+                    assetsCollection.endDate = assetsCollection.getAsset(at: 0)?.creationDate
+                    //assetsCollection.endDate = assetsCollection.getAsset(at: -1)?.creationDate / /- index가 안되나본대
+                    
+                    assetsCollection.startDate = assetsCollection.getAsset(at:  assetsCollection.count-1)?.creationDate
                     result.append(assetsCollection)
                     return assetsCollection
                 }
@@ -161,8 +163,9 @@ extension TLPhotoLibrary {
                 var assetsCollection = TLAssetsCollection(collection: collection)
                 assetsCollection.fetchResult = PHAsset.fetchAssets(in: collection, options: options)
                 if assetsCollection.count > 0 {
-                    assetsCollection.startDate = assetsCollection.getAsset(at: 0)?.creationDate
-                    assetsCollection.endDate = assetsCollection.getAsset(at: -1)?.creationDate
+                    assetsCollection.endDate = assetsCollection.getAsset(at: 0)?.creationDate
+                    assetsCollection.startDate = assetsCollection.getAsset(at: assetsCollection.count-1)?.creationDate
+                    
                     result.append(assetsCollection)
                     return assetsCollection
                 }

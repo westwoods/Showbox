@@ -107,9 +107,7 @@ open class TLPhotoCollectionViewCell: UICollectionViewCell {
                             self.orderBgView?.backgroundColor = self.configure.smileColor
                             self.orderLabel?.text = (self.orderLabel?.text)! + ((self.orderLabel?.text)!.contains("S") ?  " ":  "S")
                             self.selectedView?.isHidden = false
-                        }
-                        print("Found bounds are \(face.bounds)")
-                        // Apply the transform to convert the coordinates
+                        }                        // Apply the transform to convert the coordinates
                         var faceViewBounds = face.bounds.applying(transform)
                     
                         // Calculate the actual position and size of the rectangle in the image view
@@ -122,10 +120,9 @@ open class TLPhotoCollectionViewCell: UICollectionViewCell {
                             faceViewBounds = faceViewBounds.applying(CGAffineTransform(scaleX: scale, y: scale))
                             faceViewBounds.origin.x += offsetX
                             faceViewBounds.origin.y += offsetY
-//
-                           print("Found bounds are \(faceViewBounds)")
+
                             let faceBox = UIView(frame: faceViewBounds)
-//                            
+                            
                             faceBox.layer.borderWidth = 2
                             faceBox.layer.borderColor = UIColor.red.cgColor
                             faceBox.backgroundColor = UIColor.clear

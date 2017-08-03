@@ -176,7 +176,7 @@ open class TLPhotosPickerViewController: UIViewController {
     override open func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         if isBeingPresented {
-      //      initItemSize()
+            //      initItemSize()
         }
         initItemSize()
     }
@@ -184,7 +184,7 @@ open class TLPhotosPickerViewController: UIViewController {
     override open func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         if isBeingPresented {
-       //     initPhotoLibrary()
+            //     initPhotoLibrary()
         }
         initPhotoLibrary()
     }
@@ -284,7 +284,8 @@ extension TLPhotosPickerViewController {
             self.photoLibrary.delegate = self
             let fromDate = Date()
             let toDate = Date(timeIntervalSinceNow: -24*60*60*60)
-            let predicateOption = NSPredicate(format: "creationDate > %@ && creationDate < %@", fromDate as NSDate , toDate as NSDate)
+            /****            let predicateOption = NSPredicate(format: "creationDate > %@ && creationDate < %@", fromDate as NSDate , toDate as NSDate)
+             ****/
             self.photoLibrary.fetchCollection(allowedVideo: self.allowedVideo, useCameraButton: self.usedCameraButton, mediaType: self.configure.mediaType, predicateOption: nil)
         }else{
             //self.dismiss(animated: true, completion: nil)
@@ -430,9 +431,7 @@ extension TLPhotosPickerViewController: TLPhotoLibraryDelegate {
             for x in collections{
                 if x.startDate != nil && x.endDate != nil{
                     x.startDate! < minStartDate ?(minStartDate = x.startDate!) :()
-                    x.endDate! > maxEndDate ? (maxEndDate = x.endDate!) :()
-                    print (x.startDate! , x.endDate!)
-                }
+                    x.endDate! > maxEndDate ? (maxEndDate = x.endDate!) :()                }
             }
             self.delegate?.initDatepicker(startDate: minStartDate, endDate: maxEndDate)
             self.initDatePicker = ()
@@ -672,7 +671,6 @@ extension TLPhotosPickerViewController: UICollectionViewDelegate,UICollectionVie
         }
         if let phAsset = asset.phAsset {
             
-            print(phAsset.location ?? " 로케이션 없음"  , phAsset.creationDate ??  "생성시간없음" , phAsset.modificationDate ?? "수정시간 없음" )
             
             if self.usedPrefetch {
                 let options = PHImageRequestOptions()

@@ -21,6 +21,7 @@ class ViewController: UIViewController, TLPhotosPickerViewControllerDelegate{
     var imageReady = false
     var videoCount = 0
     var destinationVC:TLPhotosPickerViewController? = nil
+    var calender:Calendar = Calendar(identifier: .gregorian)
     lazy var imageManager = {
         return PHCachingImageManager()
     }()
@@ -29,12 +30,11 @@ class ViewController: UIViewController, TLPhotosPickerViewControllerDelegate{
         // Do any additional setup after loading the view, typically from a nib.
     }
     @IBAction func fromDateChanged(_ sender: UIDatePicker) {
-        print (sender.date)
         if( sender.date > toDatePicker.date )
         {
             toDatePicker.date = sender.date //to date가 지금 시간보다 작지않도록 설정
         }
-        destinationVC?.refetchLibrary(fromDate: fromDatePicker.date, toDate: toDatePicker.date)
+        destinationVC?.refetchLibrary(fromDate: fromDatePicker.date.addingTimeInterval(9*60*60*60), toDate: toDatePicker.date.addingTimeInterval(9*60*60*60)) //임시방편으로 시간 수정 GMT기준으로 더해줘야할듯.
         
     }
     @IBAction func toDateChanged(_ sender: UIDatePicker) {
@@ -43,7 +43,7 @@ class ViewController: UIViewController, TLPhotosPickerViewControllerDelegate{
             fromDatePicker.date = sender.date //from date가 지금 시간보다 크지않도록 설정
         }
         
-        destinationVC?.refetchLibrary(fromDate: fromDatePicker.date, toDate: toDatePicker.date)
+        destinationVC?.refetchLibrary(fromDate: fromDatePicker.date.addingTimeInterval(9*60*60*60), toDate: toDatePicker.date.addingTimeInterval(9*60*60*60)) //임시방편으로 시간수정 GMT기준으로 더해줘야할듯.
     }
     @IBAction func CompletebuttonTapped(_ sender: UIButton) {
         destinationVC?.dismiss(done: true)
@@ -102,8 +102,8 @@ class ViewController: UIViewController, TLPhotosPickerViewControllerDelegate{
                 })
             }
             else  if  (self.selectedAssets[i].type == TLPHAsset.AssetType.photo){
-                print(self.selectedAssets[i].fullResolutionImage?.size.width ?? "이미지가 없다")
-                print (self.selectedAssets[i].phAsset?.creationDate, self.selectedAssets[i].phAsset?.location)
+//                print(self.selectedAssets[i].fullResolutionImage?.size.width ?? "이미지가 없다")
+//                print (self.selectedAssets[i].phAsset?.creationDate, self.selectedAssets[i].phAsset?.location)
                 self.myPhotoAsset.append(self.selectedAssets[i].fullResolutionImage!)
                 
             }
@@ -128,7 +128,6 @@ class ViewController: UIViewController, TLPhotosPickerViewControllerDelegate{
     }
     func initDatepicker(startDate:Date,endDate:Date)
     {
-        fromDatePicker.minimumDate = startDate
         toDatePicker.minimumDate = startDate
         
         toDatePicker.maximumDate = endDate
