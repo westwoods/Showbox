@@ -122,24 +122,26 @@ func date( year:Int, month:Int,  day:Int) -> Date? {
     comp.day = day
     return cal.date(from: comp)
 }
-func convertToAddressWith(coordinate: CLLocation) {
-    let geoCoder = CLGeocoder()
-    geoCoder.reverseGeocodeLocation(coordinate) { (placemarks, error) -> Void in
-        if error != nil {
-            NSLog("\(String(describing: error))")
-            return
-        }
-        guard let placemark = placemarks?.first,
-            let addrList = placemark.addressDictionary?["FormattedAddressLines"] as? [String] else {
-                return
-        }
-        let address = addrList.joined(separator: " ")
-        print(address)
-    }
-}
+
 //MARK: - Load Collection
 extension TLPhotoLibrary {
-    
+    func convertToAddressWith(coordinate: CLLocation) {
+        
+        let geoCoder = CLGeocoder()
+
+        geoCoder.reverseGeocodeLocation(coordinate) { (placemarks, error) -> Void in
+            if error != nil {
+                NSLog("\(String(describing: error))")
+                return
+            }
+            guard let placemark = placemarks?.first,
+                let addrList = placemark.addressDictionary?["FormattedAddressLines"] as? [String] else {
+                    return
+            }
+            let address = addrList.joined(separator: " ")
+            print(address)
+        }
+    }
     func fetchCollection(allowedVideo: Bool = true, useCameraButton: Bool = true, mediaType: PHAssetMediaType? = nil, predicateOption:NSPredicate? = nil) {
         let options = PHFetchOptions()
         let sortOrder = [NSSortDescriptor(key: "creationDate", ascending: false), ]
@@ -157,16 +159,14 @@ extension TLPhotoLibrary {
              moments / smart album / user album과 차이가 있는것같은데...
              */
             if let collection = fetchCollection.firstObject, !result.contains(where: { $0.localIdentifier == collection.localIdentifier }) {
-                var assetsCollection = TLAssetsCollection(collection: collection)
+                let assetsCollection = TLAssetsCollection(collection: collection)
                 assetsCollection.fetchResult = PHAsset.fetchAssets(in: collection, options: options)
                 if assetsCollection.count > 0 {
                     assetsCollection.endDate = assetsCollection.getAsset(at: 0)?.creationDate
                     assetsCollection.startDate = assetsCollection.getAsset(at:  assetsCollection.count-1)?.creationDate
                     for i in 0..<assetsCollection.count{
                         if let location = assetsCollection.getAsset(at: i)?.location{
-                            
-                        print ("왜안될까나", i)
-                        convertToAddressWith(coordinate: location)
+                                            convertToAddressWith(coordinate: location)
                         }
                     }
                     result.append(assetsCollection)
@@ -177,16 +177,16 @@ extension TLPhotoLibrary {
         }
         @discardableResult
         func getMomet( result: inout [TLAssetsCollection]) -> TLAssetsCollection? {
+            
             let fetchCollection = PHAssetCollection.fetchMoments(with: nil)
             if let collection = fetchCollection.firstObject, !result.contains(where: { $0.localIdentifier == collection.localIdentifier }) {
-                var assetsCollection = TLAssetsCollection(collection: collection)
+                let assetsCollection = TLAssetsCollection(collection: collection)
                 assetsCollection.fetchResult = PHAsset.fetchAssets(in: collection, options: options)
                 if assetsCollection.count > 0 {
                     assetsCollection.endDate = assetsCollection.getAsset(at: 0)?.creationDate
                     assetsCollection.startDate = assetsCollection.getAsset(at: assetsCollection.count-1)?.creationDate
                     for i in 0..<assetsCollection.count{
                         if let location = assetsCollection.getAsset(at: i)?.location{
-                            print ("왜안될까나", i)
                             convertToAddressWith(coordinate: location)
                         }
                     }
@@ -207,7 +207,7 @@ extension TLPhotoLibrary {
             var assetCollections = [TLAssetsCollection]()
             //Camera Roll
             let camerarollCollection = getSmartAlbum(subType: .smartAlbumUserLibrary, result: &assetCollections)
-            if var cameraRoll = camerarollCollection {
+            if let cameraRoll = camerarollCollection {
                 cameraRoll.useCameraButton = useCameraButton
                 assetCollections[0] = cameraRoll
                 DispatchQueue.main.async {
@@ -238,7 +238,7 @@ extension TLPhotoLibrary {
             let albumsResult = PHCollectionList.fetchTopLevelUserCollections(with: nil)
             albumsResult.enumerateObjects({ (collection, index, stop) -> Void in
                 guard let collection = collection as? PHAssetCollection else { return }
-                var assetsCollection = TLAssetsCollection(collection: collection)
+                let assetsCollection = TLAssetsCollection(collection: collection)
                 assetsCollection.fetchResult = PHAsset.fetchAssets(in: collection, options: options)
                 if assetsCollection.count > 0, !assetCollections.contains(where: { $0.localIdentifier == collection.localIdentifier }) {
                     assetCollections.append(assetsCollection)

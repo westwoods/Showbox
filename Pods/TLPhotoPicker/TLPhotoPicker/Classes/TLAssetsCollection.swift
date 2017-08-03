@@ -53,7 +53,7 @@ public class TLPHAsset {
     }
 }
 
-struct TLAssetsCollection {
+class TLAssetsCollection {
     var fetchResult: PHFetchResult<PHAsset>? = nil
     var WWAssetsDic:[Int:TLPHAsset] = [:]
     var thumbnail: UIImage? = nil
@@ -89,7 +89,7 @@ struct TLAssetsCollection {
         return self.fetchResult?.object(at: max(index,0))
     }
     
-    mutating func getTLAsset(at index: Int) -> TLPHAsset? {
+    func getTLAsset(at index: Int) -> TLPHAsset? {
         if self.useCameraButton && index == 0 { return nil }
         let index = index - (self.useCameraButton ? 1 : 0)
         guard let asset = self.fetchResult?.object(at: max(index,0)) else { return nil }
