@@ -580,6 +580,7 @@ extension TLPhotosPickerViewController: UICollectionViewDelegate,UICollectionVie
             }else {
                 cell.selectedAsset = 0
             }
+            cell.faces = asset.faces
         }
     }
     
@@ -595,7 +596,7 @@ extension TLPhotosPickerViewController: UICollectionViewDelegate,UICollectionVie
                 return
             }
         }
-        guard var asset = collection.getTLAsset(at: indexPath.row), let cell = self.collectionView.cellForItem(at: indexPath) as? TLPhotoCollectionViewCell else { return }
+        guard let asset = collection.getTLAsset(at: indexPath.row), let cell = self.collectionView.cellForItem(at: indexPath) as? TLPhotoCollectionViewCell else { return }
         cell.popScaleAnim()
         let index = self.selectedAssets.index(where: { $0.phAsset == asset.phAsset })
         if (index != nil){
@@ -604,7 +605,7 @@ extension TLPhotosPickerViewController: UICollectionViewDelegate,UICollectionVie
                 //deselect
                 self.selectedAssets.remove(at: index!)
                 self.selectedAssets = self.selectedAssets.enumerated().flatMap({ (offset,asset) -> TLPHAsset? in
-                    var asset = asset
+                    let asset = asset
                     asset.selectedOrder = offset + 1
                     return asset
                 })
@@ -684,7 +685,11 @@ extension TLPhotosPickerViewController: UICollectionViewDelegate,UICollectionVie
                     guard let `self` = self else { return }
                     let requestId = self.photoLibrary.imageAsset(asset: phAsset, size: self.thumbnailSize, completionBlock: { image in
                         cell?.imageView?.image = image
-                        cell?.faces = FaceDetector.detect(uiImage: image)
+                        if  (asset.faces == nil)
+                        {
+                            asset.faces =  FaceDetector.detect(uiImage:image )
+                        }
+                        cell?.faces = asset.faces
                         if self.allowedVideo {
                             cell?.durationView?.isHidden = asset.type != .video
                             cell?.duration = asset.type == .video ? phAsset.duration : nil

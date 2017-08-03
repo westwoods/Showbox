@@ -122,7 +122,21 @@ func date( year:Int, month:Int,  day:Int) -> Date? {
     comp.day = day
     return cal.date(from: comp)
 }
-
+func convertToAddressWith(coordinate: CLLocation) {
+    let geoCoder = CLGeocoder()
+    geoCoder.reverseGeocodeLocation(coordinate) { (placemarks, error) -> Void in
+        if error != nil {
+            NSLog("\(String(describing: error))")
+            return
+        }
+        guard let placemark = placemarks?.first,
+            let addrList = placemark.addressDictionary?["FormattedAddressLines"] as? [String] else {
+                return
+        }
+        let address = addrList.joined(separator: " ")
+        print(address)
+    }
+}
 //MARK: - Load Collection
 extension TLPhotoLibrary {
     
@@ -147,9 +161,12 @@ extension TLPhotoLibrary {
                 assetsCollection.fetchResult = PHAsset.fetchAssets(in: collection, options: options)
                 if assetsCollection.count > 0 {
                     assetsCollection.endDate = assetsCollection.getAsset(at: 0)?.creationDate
-                    //assetsCollection.endDate = assetsCollection.getAsset(at: -1)?.creationDate / /- index가 안되나본대
-                    
                     assetsCollection.startDate = assetsCollection.getAsset(at:  assetsCollection.count-1)?.creationDate
+                    for i in 0..<assetsCollection.count{
+                        if let location = assetsCollection.getAsset(at: i)?.location{
+                        convertToAddressWith(coordinate: location)
+                        }
+                    }
                     result.append(assetsCollection)
                     return assetsCollection
                 }
@@ -158,14 +175,18 @@ extension TLPhotoLibrary {
         }
         @discardableResult
         func getMomet( result: inout [TLAssetsCollection]) -> TLAssetsCollection? {
-           let fetchCollection = PHAssetCollection.fetchMoments(with: nil)
+            let fetchCollection = PHAssetCollection.fetchMoments(with: nil)
             if let collection = fetchCollection.firstObject, !result.contains(where: { $0.localIdentifier == collection.localIdentifier }) {
                 var assetsCollection = TLAssetsCollection(collection: collection)
                 assetsCollection.fetchResult = PHAsset.fetchAssets(in: collection, options: options)
                 if assetsCollection.count > 0 {
                     assetsCollection.endDate = assetsCollection.getAsset(at: 0)?.creationDate
                     assetsCollection.startDate = assetsCollection.getAsset(at: assetsCollection.count-1)?.creationDate
-                    
+                    for i in 0..<assetsCollection.count{
+                        if let location = assetsCollection.getAsset(at: i)?.location{
+                            convertToAddressWith(coordinate: location)
+                        }
+                    }
                     result.append(assetsCollection)
                     return assetsCollection
                 }
@@ -189,7 +210,7 @@ extension TLPhotoLibrary {
                 DispatchQueue.main.async {
                     self?.delegate?.focusCollection(collection: cameraRoll)
                     self?.delegate?.loadCameraRollCollection(collection: cameraRoll)
-
+                    
                 }
             }
             else //TODO
@@ -220,7 +241,7 @@ extension TLPhotoLibrary {
                     assetCollections.append(assetsCollection)
                 }
             })
-           getMomet(result: &assetCollections)
+            getMomet(result: &assetCollections)
             DispatchQueue.main.async {
                 self?.delegate?.loadCompleteAllCollection(collections: assetCollections)
             }

@@ -10,7 +10,7 @@ import Foundation
 import Photos
 import PhotosUI
 
-public struct TLPHAsset {
+public class TLPHAsset {
     enum CloudDownloadState {
         case ready,progress,complete,failed
     }
@@ -46,6 +46,7 @@ public struct TLPHAsset {
             return resource.originalFilename
         }
     }
+    public var faces:[CIFeature]? = nil
     
     init(asset: PHAsset?) {
         self.phAsset = asset
@@ -54,6 +55,7 @@ public struct TLPHAsset {
 
 struct TLAssetsCollection {
     var fetchResult: PHFetchResult<PHAsset>? = nil
+    var tlAsset: 
     var thumbnail: UIImage? = nil
     var useCameraButton: Bool = false
     var recentPosition: CGPoint = CGPoint.zero
@@ -71,8 +73,6 @@ struct TLAssetsCollection {
     init(collection: PHAssetCollection) {
         self.title = collection.localizedTitle ?? ""
         self.localIdentifier = collection.localIdentifier
-        self.startDate = collection.startDate //소용이없음
-        self.endDate = collection.endDate
         
     }
     
@@ -93,7 +93,7 @@ struct TLAssetsCollection {
         if self.useCameraButton && index == 0 { return nil }
         let index = index - (self.useCameraButton ? 1 : 0)
         guard let asset = self.fetchResult?.object(at: max(index,0)) else { return nil }
-        return TLPHAsset(asset: asset)
+        return TLPHAsset(asset: asset) //왜 새로 만들어서 주냐
     }
     
     func getAssets(at range: CountableClosedRange<Int>) -> [PHAsset]? {
