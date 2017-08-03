@@ -55,7 +55,7 @@ public class TLPHAsset {
 
 struct TLAssetsCollection {
     var fetchResult: PHFetchResult<PHAsset>? = nil
-    var tlAsset: 
+    var WWAssetsDic:[Int:TLPHAsset] = [:]
     var thumbnail: UIImage? = nil
     var useCameraButton: Bool = false
     var recentPosition: CGPoint = CGPoint.zero
@@ -89,11 +89,20 @@ struct TLAssetsCollection {
         return self.fetchResult?.object(at: max(index,0))
     }
     
-    func getTLAsset(at index: Int) -> TLPHAsset? {
+    mutating func getTLAsset(at index: Int) -> TLPHAsset? {
         if self.useCameraButton && index == 0 { return nil }
         let index = index - (self.useCameraButton ? 1 : 0)
         guard let asset = self.fetchResult?.object(at: max(index,0)) else { return nil }
-        return TLPHAsset(asset: asset) //왜 새로 만들어서 주냐
+        if let resultTLAsset = WWAssetsDic[index]
+        {
+            return resultTLAsset
+        }
+        else
+        {
+            WWAssetsDic[index] = TLPHAsset(asset:asset)
+            
+            return WWAssetsDic[index]
+        }
     }
     
     func getAssets(at range: CountableClosedRange<Int>) -> [PHAsset]? {

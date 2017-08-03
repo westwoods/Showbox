@@ -164,6 +164,8 @@ extension TLPhotoLibrary {
                     assetsCollection.startDate = assetsCollection.getAsset(at:  assetsCollection.count-1)?.creationDate
                     for i in 0..<assetsCollection.count{
                         if let location = assetsCollection.getAsset(at: i)?.location{
+                            
+                        print ("왜안될까나", i)
                         convertToAddressWith(coordinate: location)
                         }
                     }
@@ -184,6 +186,7 @@ extension TLPhotoLibrary {
                     assetsCollection.startDate = assetsCollection.getAsset(at: assetsCollection.count-1)?.creationDate
                     for i in 0..<assetsCollection.count{
                         if let location = assetsCollection.getAsset(at: i)?.location{
+                            print ("왜안될까나", i)
                             convertToAddressWith(coordinate: location)
                         }
                     }

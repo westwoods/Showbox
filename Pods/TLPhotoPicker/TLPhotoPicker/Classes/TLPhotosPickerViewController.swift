@@ -282,8 +282,8 @@ extension TLPhotosPickerViewController {
     fileprivate func initPhotoLibrary() {
         if PHPhotoLibrary.authorizationStatus() == .authorized {
             self.photoLibrary.delegate = self
-            let fromDate = Date()
-            let toDate = Date(timeIntervalSinceNow: -24*60*60*60)
+        //    let fromDate = Date()
+          //  let toDate = Date(timeIntervalSinceNow: -24*60*60*60)
             /****            let predicateOption = NSPredicate(format: "creationDate > %@ && creationDate < %@", fromDate as NSDate , toDate as NSDate)
              ****/
             self.photoLibrary.fetchCollection(allowedVideo: self.allowedVideo, useCameraButton: self.usedCameraButton, mediaType: self.configure.mediaType, predicateOption: nil)
@@ -586,7 +586,7 @@ extension TLPhotosPickerViewController: UICollectionViewDelegate,UICollectionVie
     
     //Delegate
     open func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let collection = self.focusedCollection else { return }
+        guard var collection = self.focusedCollection else { return }
         if collection.useCameraButton && indexPath.row == 0 {
             if Platform.isSimulator {
                 print("not supported by the simulator.")
@@ -652,7 +652,7 @@ extension TLPhotosPickerViewController: UICollectionViewDelegate,UICollectionVie
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: nibName, for: indexPath) as! TLPhotoCollectionViewCell
         cell.configure = self.configure
         cell.imageView?.image = self.placeholderThumbnail
-        guard let collection = self.focusedCollection else { return cell }
+        guard var collection = self.focusedCollection else { return cell }
         cell.isCameraCell = collection.useCameraButton && indexPath.row == 0
         if cell.isCameraCell {
             cell.imageView?.image = self.cameraImage
