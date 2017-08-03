@@ -218,6 +218,7 @@ extension TLPhotoLibrary {
             }
             else //TODO
             {
+                
                 DispatchQueue.main.async { //비어있을때.
                     self?.delegate?.focusCollection(collection:TLAssetsCollection())
                     self?.delegate?.loadCameraRollCollection(collection: TLAssetsCollection())

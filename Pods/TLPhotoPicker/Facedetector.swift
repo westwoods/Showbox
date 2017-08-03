@@ -1,5 +1,4 @@
 import UIKit
-
 open class FaceDetector{
     
    class  func detect(uiImage: UIImage)  -> [CIFeature]? {

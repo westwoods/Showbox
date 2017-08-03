@@ -3,7 +3,7 @@ import UIKit
 
 open class FaceDetector{
     
-    func detect(cgImage: CGImage)  -> Bool{
+    func detect(_ cgImage: CGImage)  -> Bool{
         let imageOptions =  NSDictionary(object: NSNumber(value: 5) as NSNumber, forKey: CIDetectorImageOrientation as NSString)
         let personciImage = CIImage(cgImage: cgImage)
         let accuracy = [CIDetectorAccuracy: CIDetectorAccuracyHigh]

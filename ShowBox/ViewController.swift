@@ -28,7 +28,6 @@ class ViewController: UIViewController, TLPhotosPickerViewControllerDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         // Do any additional setup after loading the view, typically from a nib.
     }
     @IBAction func fromDateChanged(_ sender: UIDatePicker) {
@@ -59,7 +58,7 @@ class ViewController: UIViewController, TLPhotosPickerViewControllerDelegate{
     }
     
     
-    @IBAction func exitFromViewController(segue: UIStoryboardSegue) {
+    @IBAction func exitFromViewController(_ segue: UIStoryboardSegue) {
         
         print ("welcome")
     }
@@ -76,7 +75,7 @@ class ViewController: UIViewController, TLPhotosPickerViewControllerDelegate{
     }
     var selectedAssets = [TLPHAsset]()
     //TLPhotosPickerViewControllerDelegate
-    func dismissPhotoPicker(withTLPHAssets: [TLPHAsset]) {
+    func dismissPhotoPicker(_ withTLPHAssets: [TLPHAsset]) {
         let semaphore = DispatchSemaphore(value: 0)
         
         // use selected order, fullresolution image
@@ -94,7 +93,7 @@ class ViewController: UIViewController, TLPhotosPickerViewControllerDelegate{
                     if(self.myVideoAsset.count == self.videoCount )
                     {
                         semaphore.wait()
-                        VideoWriter.mergeVideo(myVideoAsset: self.myVideoAsset,myPhotoAsset: self.myPhotoAsset)
+                        VideoWriter.mergeVideo(self.myVideoAsset,myPhotoAsset: self.myPhotoAsset)
                         //  VideoWriter.exportAsset(asset: self.myVideoAsset[0])
                         self.myVideoAsset.removeAll()
                         self.myPhotoAsset.removeAll()
@@ -116,7 +115,7 @@ class ViewController: UIViewController, TLPhotosPickerViewControllerDelegate{
         }
     }
     
-    func dismissPhotoPicker(withPHAssets: [PHAsset]) {
+    func dismissPhotoPicker(_ withPHAssets: [PHAsset]) {
         // if you want to used phasset.
     }
     func photoPickerDidCancel() {
@@ -125,10 +124,10 @@ class ViewController: UIViewController, TLPhotosPickerViewControllerDelegate{
     func dismissComplete() {
         // picker viewcontroller dismiss completion
     }
-    func didExceedMaximumNumberOfSelection(picker: TLPhotosPickerViewController) {
+    func didExceedMaximumNumberOfSelection(_ picker: TLPhotosPickerViewController) {
         // exceed max selection
     }
-    func initDatepicker(startDate:Date,endDate:Date)
+    func initDatepicker(_ startDate:Date,endDate:Date)
     {
         toDatePicker.minimumDate = startDate
         

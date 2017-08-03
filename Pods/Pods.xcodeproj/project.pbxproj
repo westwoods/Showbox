@@ -13,19 +13,16 @@
 		1A7117AAAFDEFC8F59E9121ACAFE433B /* TLCollectionTableViewCell.xib in Sources */ = {isa = PBXBuildFile; fileRef = D00960DCB1C856FDD28C6B9ABD4EFDB7 /* TLCollectionTableViewCell.xib */; };
 		302038615AF80D0632562D76DC67A382 /* TLPhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FB8C9A5DAE04E2E06960A333DF9E8B8 /* TLPhotoCollectionViewCell.swift */; };
 		468689901192EB11F73850C0BF012334 /* TLPhotoCollectionViewCell.xib in Sources */ = {isa = PBXBuildFile; fileRef = 23B6718E6F97A4D19EA379EC5AB18D0E /* TLPhotoCollectionViewCell.xib */; };
-		5C47AAB46474B1197DC727DB2A3DB394 /* TLPhotosPickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE21DF0898FC78254F06CF89BBD363EA /* TLPhotosPickerViewController.xib */; };
 		610A1ADE02B0B811396311C7020F1201 /* TLAssetsCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AA3FCAF8F79EB18A36DB7072CE9834 /* TLAssetsCollection.swift */; };
 		7F42BAB0273738FE2A4A38BA55CD7F80 /* TLPhotoPicker-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B471D85EA7271C9DEF65814199796A4 /* TLPhotoPicker-dummy.m */; };
-		802F8F711F31B7630018FF55 /* Facedetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802F8F701F31B7630018FF55 /* Facedetector.swift */; settings = {COMPILER_FLAGS = "`"; }; };
+		8025A24B1F33761C00E03D0B /* Bridge_Header.h in Headers */ = {isa = PBXBuildFile; fileRef = 8025A2381F33755600E03D0B /* Bridge_Header.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		802F8F741F31BA3C0018FF55 /* Facedetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802F8F701F31B7630018FF55 /* Facedetector.swift */; };
 		82209687E632911DD16013D3CDD87500 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
 		9077D749DA1DB78C9D8972DB06E01BCF /* TLBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAC67CB7D1A127EF642680A025C9738 /* TLBundle.swift */; };
-		9E41D1F68B10739C554D5CB8F3083E99 /* TLCollectionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D00960DCB1C856FDD28C6B9ABD4EFDB7 /* TLCollectionTableViewCell.xib */; };
 		BAC4F4D02FA9C2C7ABBF13BB1E34F3CB /* TLPhotosPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59C98492C3190E969A53BE0716F63349 /* TLPhotosPickerViewController.swift */; };
 		BC422E9D350B25ACAB7E82CA0B9E2ADC /* TLPhotoPicker-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 7BBF2018F051F2053FB25DBF832D45C4 /* TLPhotoPicker-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D2D6E68AC092348A723077DB1552FC81 /* TLPhotoPicker.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 00275F96EED86FEF9DDFC55E8271BE8D /* TLPhotoPicker.bundle */; };
 		D7669C47A6D996395C2A08BA65696CFD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
-		D9C264C28A78BB33784F3C2047F6F0C0 /* TLPhotoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 23B6718E6F97A4D19EA379EC5AB18D0E /* TLPhotoCollectionViewCell.xib */; };
 		E889CB1CC92E57BF8F1EA67DCDD79FEA /* TLPhotoLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56839E207D514B00CDBC614CF97D923F /* TLPhotoLibrary.swift */; };
 		F707BA02AA91128461C752E4CF7694FC /* TLPhotoPickerController.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 61C472D1B6E13DC6746B88BB5C0599B2 /* TLPhotoPickerController.bundle */; };
 		FBC48A8BF4ECF4D0566EC2B7A668A5AF /* Pods-test01-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 24282A813B4973B01873C38D76000A2E /* Pods-test01-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -60,6 +57,23 @@
 		7200D8B6DAFFACE55E7D27122A6F2549 /* TLPhotoPicker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TLPhotoPicker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A52BD050EBC3D68765B6072B9E22162 /* Pods-test01-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-test01-frameworks.sh"; sourceTree = "<group>"; };
 		7BBF2018F051F2053FB25DBF832D45C4 /* TLPhotoPicker-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "TLPhotoPicker-umbrella.h"; sourceTree = "<group>"; };
+		801078521F33774000E3A629 /* Bridge_Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Bridge_Header.h; path = ../ShowBox/ObjC/Bridge_Header.h; sourceTree = "<group>"; };
+		8025A2381F33755600E03D0B /* Bridge_Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Bridge_Header.h; sourceTree = "<group>"; };
+		8025A2391F33755600E03D0B /* Cluster.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Cluster.h; sourceTree = "<group>"; };
+		8025A23A1F33755600E03D0B /* Cluster.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Cluster.m; sourceTree = "<group>"; };
+		8025A23B1F33755600E03D0B /* CPoint.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CPoint.h; sourceTree = "<group>"; };
+		8025A23C1F33755600E03D0B /* CPoint.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CPoint.m; sourceTree = "<group>"; };
+		8025A23D1F33755600E03D0B /* DBclustring.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBclustring.h; sourceTree = "<group>"; };
+		8025A23E1F33755600E03D0B /* DBclustring.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DBclustring.m; sourceTree = "<group>"; };
+		8025A23F1F33755600E03D0B /* DBScan.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBScan.h; sourceTree = "<group>"; };
+		8025A2401F33755600E03D0B /* DBScan.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DBScan.m; sourceTree = "<group>"; };
+		8025A2411F33755600E03D0B /* DistanceFunction.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DistanceFunction.h; sourceTree = "<group>"; };
+		8025A2421F33755600E03D0B /* EuclidianDistanceFunction.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EuclidianDistanceFunction.h; sourceTree = "<group>"; };
+		8025A2431F33755600E03D0B /* EuclidianDistanceFunction.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EuclidianDistanceFunction.m; sourceTree = "<group>"; };
+		8025A2441F33755600E03D0B /* FileSourceLoader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FileSourceLoader.h; sourceTree = "<group>"; };
+		8025A2451F33755600E03D0B /* FileSourceLoader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FileSourceLoader.m; sourceTree = "<group>"; };
+		8025A2461F33755600E03D0B /* SourceLoader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SourceLoader.h; sourceTree = "<group>"; };
+		8025A2471F33756900E03D0B /* project.xcworkspace */ = {isa = PBXFileReference; lastKnownFileType = wrapper.workspace; name = project.xcworkspace; path = ../ShowBox.xcodeproj/project.xcworkspace; sourceTree = "<group>"; };
 		802F8F701F31B7630018FF55 /* Facedetector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Facedetector.swift; sourceTree = "<group>"; };
 		84AA3FCAF8F79EB18A36DB7072CE9834 /* TLAssetsCollection.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TLAssetsCollection.swift; path = TLPhotoPicker/Classes/TLAssetsCollection.swift; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
@@ -136,12 +150,36 @@
 		7DB346D0F39D3F0E887471402A8071AB = {
 			isa = PBXGroup;
 			children = (
+				801078521F33774000E3A629 /* Bridge_Header.h */,
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
 				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
 				26AAF1D34FE4EF35A69AEE5DD366ED09 /* Pods */,
 				FCB97B1F062E1379FC894B7DD4BCB617 /* Products */,
 				8B4125B52DEFE266C6A994E58B0E9727 /* Targets Support Files */,
 			);
+			sourceTree = "<group>";
+		};
+		8025A2371F33755600E03D0B /* ObjC */ = {
+			isa = PBXGroup;
+			children = (
+				8025A2381F33755600E03D0B /* Bridge_Header.h */,
+				8025A2391F33755600E03D0B /* Cluster.h */,
+				8025A23A1F33755600E03D0B /* Cluster.m */,
+				8025A23B1F33755600E03D0B /* CPoint.h */,
+				8025A23C1F33755600E03D0B /* CPoint.m */,
+				8025A23D1F33755600E03D0B /* DBclustring.h */,
+				8025A23E1F33755600E03D0B /* DBclustring.m */,
+				8025A23F1F33755600E03D0B /* DBScan.h */,
+				8025A2401F33755600E03D0B /* DBScan.m */,
+				8025A2411F33755600E03D0B /* DistanceFunction.h */,
+				8025A2421F33755600E03D0B /* EuclidianDistanceFunction.h */,
+				8025A2431F33755600E03D0B /* EuclidianDistanceFunction.m */,
+				8025A2441F33755600E03D0B /* FileSourceLoader.h */,
+				8025A2451F33755600E03D0B /* FileSourceLoader.m */,
+				8025A2461F33755600E03D0B /* SourceLoader.h */,
+			);
+			name = ObjC;
+			path = ../ShowBox/ObjC;
 			sourceTree = "<group>";
 		};
 		8B4125B52DEFE266C6A994E58B0E9727 /* Targets Support Files */ = {
@@ -163,6 +201,8 @@
 		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8025A2471F33756900E03D0B /* project.xcworkspace */,
+				8025A2371F33755600E03D0B /* ObjC */,
 				D35AF013A5F0BAD4F32504907A52519E /* iOS */,
 			);
 			name = Frameworks;
@@ -226,6 +266,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8025A24B1F33761C00E03D0B /* Bridge_Header.h in Headers */,
 				FBC48A8BF4ECF4D0566EC2B7A668A5AF /* Pods-test01-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -308,6 +349,12 @@
 						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 					};
+					7FC74B87EFE7947CFA1EB382AFD16210 = {
+						LastSwiftMigration = 0830;
+					};
+					F73F96E5E3CCE90A50D074D3B2D9E0EF = {
+						LastSwiftMigration = 0830;
+					};
 				};
 			};
 			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
@@ -334,9 +381,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9E41D1F68B10739C554D5CB8F3083E99 /* TLCollectionTableViewCell.xib in Resources */,
-				D9C264C28A78BB33784F3C2047F6F0C0 /* TLPhotoCollectionViewCell.xib in Resources */,
-				5C47AAB46474B1197DC727DB2A3DB394 /* TLPhotosPickerViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -382,7 +426,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				802F8F711F31B7630018FF55 /* Facedetector.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -410,6 +453,7 @@
 				PRODUCT_NAME = TLPhotoPicker;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = bundle;
 			};
@@ -623,6 +667,7 @@
 				PRODUCT_NAME = TLPhotoPicker;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = bundle;
 			};
