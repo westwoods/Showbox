@@ -35,7 +35,7 @@ class ViewController: UIViewController, TLPhotosPickerViewControllerDelegate{
             toDatePicker.date = sender.date //to date가 지금 시간보다 작지않도록 설정
         }
         destinationVC?.refetchLibrary(fromDate: fromDatePicker.date, toDate: toDatePicker.date)
-
+        
     }
     @IBAction func toDateChanged(_ sender: UIDatePicker) {
         if( sender.date < fromDatePicker.date )
@@ -46,29 +46,29 @@ class ViewController: UIViewController, TLPhotosPickerViewControllerDelegate{
         destinationVC?.refetchLibrary(fromDate: fromDatePicker.date, toDate: toDatePicker.date)
     }
     @IBAction func CompletebuttonTapped(_ sender: UIButton) {
-         destinationVC?.dismiss(done: true)
+        destinationVC?.dismiss(done: true)
     }
     @IBAction func reselectbuttonTapped(_ sender: UIButton) {
         destinationVC?.dismiss(done: true)
     }
     
     @IBAction func MusicButtonTapped(_ sender: UIButton) {
-         destinationVC?.dismiss(done: false)
+        destinationVC?.dismiss(done: false)
     }
     
     
     @IBAction func exitFromViewController(segue: UIStoryboardSegue) {
-    
+        
         print ("welcome")
     }
     let dateFormatter = DateFormatter()
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "EmbedSegue" {
-           destinationVC = (segue.destination as! TLPhotosPickerViewController)
+            destinationVC = (segue.destination as! TLPhotosPickerViewController)
             if let destinationVC = destinationVC{
-            destinationVC.delegate = self
-            destinationVC.configure.numberOfColumn = 4
-            destinationVC.configure.usedCameraButton = false
+                destinationVC.delegate = self
+                destinationVC.configure.numberOfColumn = 4
+                destinationVC.configure.usedCameraButton = false
             }
         }
     }
@@ -76,7 +76,7 @@ class ViewController: UIViewController, TLPhotosPickerViewControllerDelegate{
     //TLPhotosPickerViewControllerDelegate
     func dismissPhotoPicker(withTLPHAssets: [TLPHAsset]) {
         let semaphore = DispatchSemaphore(value: 0)
-
+        
         // use selected order, fullresolution image
         self.selectedAssets = withTLPHAssets
         for i in 0..<self.selectedAssets.count{
@@ -93,7 +93,7 @@ class ViewController: UIViewController, TLPhotosPickerViewControllerDelegate{
                     {
                         semaphore.wait()
                         VideoWriter.mergeVideo(myVideoAsset: self.myVideoAsset,myPhotoAsset: self.myPhotoAsset)
-                  //  VideoWriter.exportAsset(asset: self.myVideoAsset[0])
+                        //  VideoWriter.exportAsset(asset: self.myVideoAsset[0])
                         self.myVideoAsset.removeAll()
                         self.myPhotoAsset.removeAll()
                         self.videoCount = 0
@@ -105,7 +105,7 @@ class ViewController: UIViewController, TLPhotosPickerViewControllerDelegate{
                 print(self.selectedAssets[i].fullResolutionImage?.size.width ?? "이미지가 없다")
                 print (self.selectedAssets[i].phAsset?.creationDate, self.selectedAssets[i].phAsset?.location)
                 self.myPhotoAsset.append(self.selectedAssets[i].fullResolutionImage!)
-
+                
             }
             if(self.myPhotoAsset.count == self.selectedAssets.count - self.videoCount)
             {
@@ -128,8 +128,14 @@ class ViewController: UIViewController, TLPhotosPickerViewControllerDelegate{
     }
     func initDatepicker(startDate:Date,endDate:Date)
     {
-            toDatePicker.date = endDate//to date가 지금 시간보다 작지않도록 설정
-            fromDatePicker.date = startDate
+        fromDatePicker.minimumDate = startDate
+        toDatePicker.minimumDate = startDate
+        
+        toDatePicker.maximumDate = endDate
+        fromDatePicker.maximumDate = endDate
+        
+        toDatePicker.date = endDate//to date가 지금 시간보다 작지않도록 설정
+        fromDatePicker.date = startDate
     }
     
     override func didReceiveMemoryWarning() {

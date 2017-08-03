@@ -131,7 +131,7 @@ extension TLPhotoLibrary {
         let sortOrder = [NSSortDescriptor(key: "creationDate", ascending: false), ]
         options.sortDescriptors = sortOrder
         options.predicate = predicateOption
-                @discardableResult
+        @discardableResult
         func getSmartAlbum(subType: PHAssetCollectionSubtype, result: inout [TLAssetsCollection]) -> TLAssetsCollection? {
             let fetchCollection = PHAssetCollection.fetchAssetCollections(with: .smartAlbum, subtype: subType, options:  nil)
             //  let fetchCollection = PHAssetCollection.fetchMoments(with: nil)
@@ -146,7 +146,21 @@ extension TLPhotoLibrary {
                 var assetsCollection = TLAssetsCollection(collection: collection)
                 assetsCollection.fetchResult = PHAsset.fetchAssets(in: collection, options: options)
                 if assetsCollection.count > 0 {
-                    
+                    assetsCollection.startDate = assetsCollection.getAsset(at: 0)?.creationDate
+                    assetsCollection.endDate = assetsCollection.getAsset(at: -1)?.creationDate
+                    result.append(assetsCollection)
+                    return assetsCollection
+                }
+            }
+            return nil
+        }
+        @discardableResult
+        func getMomet( result: inout [TLAssetsCollection]) -> TLAssetsCollection? {
+           let fetchCollection = PHAssetCollection.fetchMoments(with: nil)
+            if let collection = fetchCollection.firstObject, !result.contains(where: { $0.localIdentifier == collection.localIdentifier }) {
+                var assetsCollection = TLAssetsCollection(collection: collection)
+                assetsCollection.fetchResult = PHAsset.fetchAssets(in: collection, options: options)
+                if assetsCollection.count > 0 {
                     assetsCollection.startDate = assetsCollection.getAsset(at: 0)?.creationDate
                     assetsCollection.endDate = assetsCollection.getAsset(at: -1)?.creationDate
                     result.append(assetsCollection)
@@ -182,6 +196,7 @@ extension TLPhotoLibrary {
                     self?.delegate?.loadCameraRollCollection(collection: TLAssetsCollection())
                 }
             }
+            
             //Selfies
             getSmartAlbum(subType: .smartAlbumSelfPortraits, result: &assetCollections)
             //Panoramas
@@ -202,7 +217,7 @@ extension TLPhotoLibrary {
                     assetCollections.append(assetsCollection)
                 }
             })
-            
+           getMomet(result: &assetCollections)
             DispatchQueue.main.async {
                 self?.delegate?.loadCompleteAllCollection(collections: assetCollections)
             }
