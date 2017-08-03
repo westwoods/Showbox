@@ -318,7 +318,7 @@ extension TLPhotosPickerViewController {
     // Asset Request
     fileprivate func requestCloudDownload(asset: TLPHAsset, indexPath: IndexPath) {
         if asset.state != .complete {
-            var asset = asset
+            let asset = asset
             asset.state = .ready
             guard let phAsset = asset.phAsset else { return }
             let requestId = self.photoLibrary.cloudImageDownload(asset: phAsset, progressBlock: { [weak self] (progress) in
@@ -468,7 +468,7 @@ extension TLPhotosPickerViewController: UIImagePickerControllerDelegate, UINavig
             }, completionHandler: { [weak self] (sucess, error) in
                 if sucess, let `self` = self, let identifier = placeholderAsset?.localIdentifier {
                     guard let asset = PHAsset.fetchAssets(withLocalIdentifiers: [identifier], options: nil).firstObject else { return }
-                    var result = TLPHAsset(asset: asset)
+                    let result = TLPHAsset(asset: asset)
                     result.selectedOrder = self.selectedAssets.count + 1
                     self.selectedAssets.append(result)
                     self.dismiss(done: true)
@@ -586,7 +586,7 @@ extension TLPhotosPickerViewController: UICollectionViewDelegate,UICollectionVie
     
     //Delegate
     open func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard var collection = self.focusedCollection else { return }
+        guard let collection = self.focusedCollection else { return }
         if collection.useCameraButton && indexPath.row == 0 {
             if Platform.isSimulator {
                 print("not supported by the simulator.")
@@ -652,7 +652,7 @@ extension TLPhotosPickerViewController: UICollectionViewDelegate,UICollectionVie
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: nibName, for: indexPath) as! TLPhotoCollectionViewCell
         cell.configure = self.configure
         cell.imageView?.image = self.placeholderThumbnail
-        guard var collection = self.focusedCollection else { return cell }
+        guard let collection = self.focusedCollection else { return cell }
         cell.isCameraCell = collection.useCameraButton && indexPath.row == 0
         if cell.isCameraCell {
             cell.imageView?.image = self.cameraImage

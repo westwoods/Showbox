@@ -82,7 +82,7 @@
                                 </connections>
                             </datePicker>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" 출발한" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="30" translatesAutoresizingMaskIntoConstraints="NO" id="OIi-FZ-nJz">
-                                <rect key="frame" x="200" y="50" width="68.666666666666686" height="29"/>
+                                <rect key="frame" x="200" y="50" width="68.5" height="29"/>
                                 <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <color key="textColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -129,14 +129,14 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="back"/>
                                 <connections>
-                                    <segue destination="sWI-VS-pkC" kind="unwind" unwindAction="exitFromViewControllerWithSegue:" id="CQL-tE-8Ak"/>
+                                    <segue destination="sWI-VS-pkC" kind="unwind" identifier="unwindSeg2" unwindAction="exitFromViewControllerWithSegue:" id="CQL-tE-8Ak"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <segue destination="sWI-VS-pkC" kind="unwind" unwindAction="exitFromViewControllerWithSegue:" id="4d6-ri-NGz"/>
+                        <segue destination="sWI-VS-pkC" kind="unwind" identifier="unwindSeg" unwindAction="exitFromViewControllerWithSegue:" id="4d6-ri-NGz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uCX-gj-63V" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -18,6 +18,7 @@
 		80A2C1031F30ACAC003B3B6D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809D23C31F25DF8C00116FBA /* ViewController.swift */; };
 		80A2C1041F30ACB0003B3B6D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809D23C11F25DF8C00116FBA /* AppDelegate.swift */; };
 		80A2C1051F30ACB3003B3B6D /* VideoWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8027014A1F29786B00A26F3B /* VideoWriter.swift */; };
+		80C2380E1F334F0900CEFE47 /* DBclustring.m in Sources */ = {isa = PBXBuildFile; fileRef = 80C2380D1F334F0900CEFE47 /* DBclustring.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +76,9 @@
 		809D23DD1F25DF8C00116FBA /* ShowBoxUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ShowBoxUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		809D23E11F25DF8C00116FBA /* test01UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = test01UITests.swift; sourceTree = "<group>"; };
 		809D23E31F25DF8C00116FBA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		80C2380C1F334F0900CEFE47 /* DBclustring.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBclustring.h; sourceTree = "<group>"; };
+		80C2380D1F334F0900CEFE47 /* DBclustring.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBclustring.m; sourceTree = "<group>"; };
+		80C2380F1F33504800CEFE47 /* Bridge_Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bridge_Header.h; sourceTree = "<group>"; };
 		80C6FFB81F30AA70000401C1 /* FaceDetecter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FaceDetecter.swift; sourceTree = "<group>"; };
 		CC3091D85E171F10DEB7FDFD /* Pods-test01.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-test01.debug.xcconfig"; path = "Pods/Target Support Files/Pods-test01/Pods-test01.debug.xcconfig"; sourceTree = "<group>"; };
 		FBDB1960D2AA53C827598567 /* Pods-test01.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-test01.release.xcconfig"; path = "Pods/Target Support Files/Pods-test01/Pods-test01.release.xcconfig"; sourceTree = "<group>"; };
@@ -137,8 +141,8 @@
 			children = (
 				808476981F26D5A700A0AD0E /* Pods.xcodeproj */,
 				808476961F26D3B800A0AD0E /* Podfile */,
-				809D23C01F25DF8C00116FBA /* ShowBox */,
 				809D23D51F25DF8C00116FBA /* ShowBoxTests */,
+				809D23C01F25DF8C00116FBA /* ShowBox */,
 				809D23E01F25DF8C00116FBA /* ShowBoxUITests */,
 				809D23BF1F25DF8C00116FBA /* Products */,
 				3C68FEA63B890D51B024C738 /* Pods */,
@@ -159,6 +163,10 @@
 		809D23C01F25DF8C00116FBA /* ShowBox */ = {
 			isa = PBXGroup;
 			children = (
+				80C238111F3353E500CEFE47 /* New Group */,
+				80C2380C1F334F0900CEFE47 /* DBclustring.h */,
+				80C2380D1F334F0900CEFE47 /* DBclustring.m */,
+				80C2380F1F33504800CEFE47 /* Bridge_Header.h */,
 				809D23C11F25DF8C00116FBA /* AppDelegate.swift */,
 				809D23C31F25DF8C00116FBA /* ViewController.swift */,
 				809D23C51F25DF8C00116FBA /* Main.storyboard */,
@@ -187,6 +195,13 @@
 				809D23E31F25DF8C00116FBA /* Info.plist */,
 			);
 			path = ShowBoxUITests;
+			sourceTree = "<group>";
+		};
+		80C238111F3353E500CEFE47 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "New Group";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -408,6 +423,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				80C2380E1F334F0900CEFE47 /* DBclustring.m in Sources */,
 				80A2C1051F30ACB3003B3B6D /* VideoWriter.swift in Sources */,
 				80A2C1041F30ACB0003B3B6D /* AppDelegate.swift in Sources */,
 				80A2C1031F30ACAC003B3B6D /* ViewController.swift in Sources */,
@@ -572,7 +588,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.dongwoo.ShowBox;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "//\n//  main.m\n//  DBScan\n//\n//  Created by Christian Vogel on 02.03.12.\n//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.\n//\n\n#import <Foundation/Foundation.h>\n#import \"FileSourceLoader.h\"\n#import \"SourceLoader.h\"\n#import \"CPoint.h\"\n#import \"DBScan.h\"\n#import \"EuclidianDistanceFunction.h\"\n#import \"DistanceFunction.h\"\n\nint main(int argc, const char *argv[]) {\n    @autoreleasepool {\n        NSArray *pointsEntries;\n\n        if ([[[NSProcessInfo processInfo] arguments] count] > 1) {\n            id <SourceLoader> loader = [FileSourceLoader new];\n            pointsEntries = [loader load:[[[NSProcessInfo processInfo] arguments] objectAtIndex:1]];\n        } else {\n            NSLog(@\"Pass the file path with point entries as an argument to this application.\");\n            exit(0);\n        }\n\n        NSMutableArray *points = [NSMutableArray arrayWithCapacity:pointsEntries.count];\n\n        for (NSString *pointEntry in pointsEntries) {\n            if ([pointEntry length] > 0) {\n                CPoint  *point       = [CPoint new];\n                NSArray *coordinates = [pointEntry componentsSeparatedByString:@\",\"];\n\n                for (NSString *coordinate in coordinates) {\n                    [point addCoordinate:[coordinate floatValue]];\n                }\n\n                [points addObject:point];\n            }\n        }\n\n        NSLog(@\"number of loaded points: %i\", (int)points.count);\n\n        NSDate *startTime = [NSDate date];\n        NSLog(@\"start clustering process (%@)\", startTime);\n\t\t\n#if DEBUG\n\t\t[DBScan setDebugLogging:YES];\n#endif\n\t\t\n        NSArray *clusters = [[[DBScan alloc] initWithPoints:points epsilon:0.2f minNumberOfPointsInCluster:2 distanceFunction:[EuclidianDistanceFunction new]] clusters];\n\n        NSDate *endTime = [NSDate date];\n        NSLog(@\"finished clustering process (%@)\", endTime);\n\n        NSTimeInterval totalProcessingTimeInSeconds = [endTime timeIntervalSinceDate:startTime];\n\n        NSLog(@\"total processing time: %fs\", totalProcessingTimeInSeconds);\n\n        if (clusters.count == 0) {\n            NSLog(@\"no cluster\");\n            return 0;\n        }\n\n        int index     = 1;\n        int sumPoints = 0;\n\n        for (Cluster *c in clusters) {\n            NSLog(@\"\\nCluster %i: \\n%@\", index++, [c description]);\n            sumPoints += c.count;\n        }\n    }\n\n    return 0;\n}\n";
+				SWIFT_OBJC_BRIDGING_HEADER = ShowBox/Bridge_Header.h;
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -588,7 +604,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.dongwoo.ShowBox;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "//\n//  main.m\n//  DBScan\n//\n//  Created by Christian Vogel on 02.03.12.\n//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.\n//\n\n#import <Foundation/Foundation.h>\n#import \"FileSourceLoader.h\"\n#import \"SourceLoader.h\"\n#import \"CPoint.h\"\n#import \"DBScan.h\"\n#import \"EuclidianDistanceFunction.h\"\n#import \"DistanceFunction.h\"\n\nint main(int argc, const char *argv[]) {\n    @autoreleasepool {\n        NSArray *pointsEntries;\n\n        if ([[[NSProcessInfo processInfo] arguments] count] > 1) {\n            id <SourceLoader> loader = [FileSourceLoader new];\n            pointsEntries = [loader load:[[[NSProcessInfo processInfo] arguments] objectAtIndex:1]];\n        } else {\n            NSLog(@\"Pass the file path with point entries as an argument to this application.\");\n            exit(0);\n        }\n\n        NSMutableArray *points = [NSMutableArray arrayWithCapacity:pointsEntries.count];\n\n        for (NSString *pointEntry in pointsEntries) {\n            if ([pointEntry length] > 0) {\n                CPoint  *point       = [CPoint new];\n                NSArray *coordinates = [pointEntry componentsSeparatedByString:@\",\"];\n\n                for (NSString *coordinate in coordinates) {\n                    [point addCoordinate:[coordinate floatValue]];\n                }\n\n                [points addObject:point];\n            }\n        }\n\n        NSLog(@\"number of loaded points: %i\", (int)points.count);\n\n        NSDate *startTime = [NSDate date];\n        NSLog(@\"start clustering process (%@)\", startTime);\n\t\t\n#if DEBUG\n\t\t[DBScan setDebugLogging:YES];\n#endif\n\t\t\n        NSArray *clusters = [[[DBScan alloc] initWithPoints:points epsilon:0.2f minNumberOfPointsInCluster:2 distanceFunction:[EuclidianDistanceFunction new]] clusters];\n\n        NSDate *endTime = [NSDate date];\n        NSLog(@\"finished clustering process (%@)\", endTime);\n\n        NSTimeInterval totalProcessingTimeInSeconds = [endTime timeIntervalSinceDate:startTime];\n\n        NSLog(@\"total processing time: %fs\", totalProcessingTimeInSeconds);\n\n        if (clusters.count == 0) {\n            NSLog(@\"no cluster\");\n            return 0;\n        }\n\n        int index     = 1;\n        int sumPoints = 0;\n\n        for (Cluster *c in clusters) {\n            NSLog(@\"\\nCluster %i: \\n%@\", index++, [c description]);\n            sumPoints += c.count;\n        }\n    }\n\n    return 0;\n}\n";
+				SWIFT_OBJC_BRIDGING_HEADER = ShowBox/Bridge_Header.h;
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
