@@ -16,6 +16,7 @@ public protocol TLPhotosPickerViewControllerDelegate: class {
     func dismissComplete()
     func photoPickerDidCancel()
     func didExceedMaximumNumberOfSelection(picker: TLPhotosPickerViewController)
+    func initDatepicker(startDate:Date,endDate:Date)
 }
 extension TLPhotosPickerViewControllerDelegate {
     public func dismissPhotoPicker(withPHAssets: [PHAsset]) { }
@@ -23,6 +24,7 @@ extension TLPhotosPickerViewControllerDelegate {
     public func dismissComplete() { }
     public func photoPickerDidCancel() { }
     public func didExceedMaximumNumberOfSelection(picker: TLPhotosPickerViewController) { }
+    public func initDatepicker(startDate:Date,endDate:Date){}
 }
 
 public struct TLPhotosPickerConfigure {
@@ -121,7 +123,7 @@ open class TLPhotosPickerViewController: UIViewController {
     fileprivate var thumbnailSize = CGSize.zero
     fileprivate var placeholderThumbnail: UIImage? = nil
     fileprivate var cameraImage: UIImage? = nil
-    
+    fileprivate var initDatePicker: ()? = nil
     deinit {
         //print("deinit TLPhotosPickerViewController")
     }
@@ -283,7 +285,7 @@ extension TLPhotosPickerViewController {
             let fromDate = Date()
             let toDate = Date(timeIntervalSinceNow: -24*60*60*60)
             let predicateOption = NSPredicate(format: "creationDate > %@ && creationDate < %@", fromDate as NSDate , toDate as NSDate)
-            self.photoLibrary.fetchCollection(allowedVideo: self.allowedVideo, useCameraButton: self.usedCameraButton, mediaType: self.configure.mediaType, predicateOption: predicateOption)
+            self.photoLibrary.fetchCollection(allowedVideo: self.allowedVideo, useCameraButton: self.usedCameraButton, mediaType: self.configure.mediaType, predicateOption: nil)
         }else{
             //self.dismiss(animated: true, completion: nil)
         }
@@ -422,6 +424,19 @@ extension TLPhotosPickerViewController: TLPhotoLibraryDelegate {
     func loadCompleteAllCollection(collections: [TLAssetsCollection]) {
         self.collections = collections
         self.reloadTableView()
+        if self.initDatePicker == nil{
+            var minStartDate:Date = Date(timeIntervalSinceNow: 0)
+            var maxEndDate:Date = Date(timeIntervalSince1970: 0)
+            for x in collections{
+                if x.startDate != nil && x.endDate != nil{
+                    x.startDate! < minStartDate ?(minStartDate = x.startDate!) :()
+                    x.endDate! > maxEndDate ? (maxEndDate = x.endDate!) :()
+                    print (x.startDate! , x.endDate!)
+                }
+            }
+            self.delegate?.initDatepicker(startDate: minStartDate, endDate: maxEndDate)
+            self.initDatePicker = ()
+        }
     }
     
     func focusCollection(collection: TLAssetsCollection) {
@@ -601,7 +616,7 @@ extension TLPhotosPickerViewController: UICollectionViewDelegate,UICollectionVie
                     stopPlay()
                 }
             }
-            else{ // 더블 select 
+            else{ // 더블 select
                 cell.selectedAsset = 2
                 self.selectedAssets[index!].selectedHighLight = 2
             }

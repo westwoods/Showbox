@@ -126,6 +126,11 @@ class ViewController: UIViewController, TLPhotosPickerViewControllerDelegate{
     func didExceedMaximumNumberOfSelection(picker: TLPhotosPickerViewController) {
         // exceed max selection
     }
+    func initDatepicker(startDate:Date,endDate:Date)
+    {
+            toDatePicker.date = endDate//to date가 지금 시간보다 작지않도록 설정
+            fromDatePicker.date = startDate
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

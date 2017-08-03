@@ -76,19 +76,13 @@
                                 <date key="date" timeIntervalSinceReferenceDate="459775390.01939297">
                                     <!--2015-07-28 11:23:10 +0000-->
                                 </date>
-                                <date key="minimumDate" timeIntervalSinceReferenceDate="-347115600">
-                                    <!--1990-01-01 11:00:00 +0000-->
-                                </date>
-                                <date key="maximumDate" timeIntervalSinceReferenceDate="1199098800">
-                                    <!--2038-12-31 11:00:00 +0000-->
-                                </date>
                                 <locale key="locale" localeIdentifier="ko"/>
                                 <connections>
                                     <action selector="toDateChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="kUp-pU-Y3k"/>
                                 </connections>
                             </datePicker>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" 출발한" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="30" translatesAutoresizingMaskIntoConstraints="NO" id="OIi-FZ-nJz">
-                                <rect key="frame" x="200" y="50" width="68.5" height="29"/>
+                                <rect key="frame" x="200" y="50" width="68.666666666666686" height="29"/>
                                 <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <color key="textColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>

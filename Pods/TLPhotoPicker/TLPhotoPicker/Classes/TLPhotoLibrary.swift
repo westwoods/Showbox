@@ -172,6 +172,7 @@ extension TLPhotoLibrary {
                 DispatchQueue.main.async {
                     self?.delegate?.focusCollection(collection: cameraRoll)
                     self?.delegate?.loadCameraRollCollection(collection: cameraRoll)
+
                 }
             }
             else //TODO
