@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "TLPhotoLibrary.(fetchCollection(allowedVideo : Bool, useCameraButton : Bool, mediaType : PHAssetMediaType?, predicateOption : NSPredicate?) -&gt; ()).(getSmartAlbum #1)(subType : PHAssetCollectionSubtype, result : inout [TLAssetsCollection]) -&gt; TLAssetsCollection?:TLPhotoLibrary.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "camerarollCollection">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "TLPhotoLibrary.(fetchCollection(allowedVideo : Bool, useCameraButton : Bool, mediaType : PHAssetMediaType?, predicateOption : NSPredicate?) -&gt; ()).(closure #1):TLPhotoLibrary.swift">
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>

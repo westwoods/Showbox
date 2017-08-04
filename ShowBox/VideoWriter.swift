@@ -13,7 +13,7 @@ import AssetsLibrary
 
 class VideoWriter {
     
-    class func mergeVideo(myVideoAsset:[AVAsset],myPhotoAsset:[UIImage])
+    class func mergeVideo(_ myVideoAsset:[AVAsset],myPhotoAsset:[UIImage])
     {
         let myMutableComposition:AVMutableComposition = AVMutableComposition()
         
@@ -67,7 +67,7 @@ class VideoWriter {
             startTime = CMTimeAdd(startTime, assetDurationWithNextDelay)
         }
         if(myPhotoAsset.count > 0){
-        VideoWriter.over(size: renderSize, layercomposition: mutableVideoCompositon,  photosToOverlay: myPhotoAsset)
+        VideoWriter.over(renderSize, layercomposition: mutableVideoCompositon,  photosToOverlay: myPhotoAsset)
         }
         mutableVideoCompositon.renderSize = renderSize
         // Set the frame duration to an appropriate value (i.e. 30 frames per second for video).
@@ -80,7 +80,7 @@ class VideoWriter {
         
         let exportURL = URL(fileURLWithPath: (paths + "/move3.mov"))
         do{
-            try VideoWriter.deleteExistingFile(destinationURL: exportURL)
+            try VideoWriter.deleteExistingFile(exportURL)
         }catch {
             print("THERE IS NO FILE")
         }
@@ -120,8 +120,8 @@ class VideoWriter {
             
         }
     }
-    class func exportAsset(asset: AVAsset) {
-        let today = NSDate() //현재 시각 구하기
+    class func exportAsset(_ asset: AVAsset) {
+        let today = Date() //현재 시각 구하기
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yy_M_d_hh:mm:ss"
         let dateString = dateFormatter.string(from: today as Date)
@@ -131,7 +131,7 @@ class VideoWriter {
         
         let exportURL = URL(fileURLWithPath: (paths + "/"+dateString+".mov"))
         do{
-            try VideoWriter.deleteExistingFile(destinationURL: exportURL)
+            try VideoWriter.deleteExistingFile(exportURL)
         }catch {
             print("THERE IS NO FILE")
         }
@@ -155,7 +155,7 @@ class VideoWriter {
         })
     }
     
-    class func over(size:CGSize,layercomposition:AVMutableVideoComposition,photosToOverlay:[UIImage]){
+    class func over(_ size:CGSize,layercomposition:AVMutableVideoComposition,photosToOverlay:[UIImage]){
         let size = size
         print(photosToOverlay.count)
         let imglogo:UIImage? = photosToOverlay[0]
@@ -166,7 +166,7 @@ class VideoWriter {
         imglayer.opacity = 1
         imglayer.backgroundColor = UIColor.blue.cgColor
         
-        let today = NSDate() //현재 시각 구하기
+        let today = Date() //현재 시각 구하기
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yy_M_d_hh:mm:ss"
         let dateString = dateFormatter.string(from: today as Date)
@@ -201,7 +201,7 @@ class VideoWriter {
         
     }
     
-    class func deleteExistingFile(destinationURL: URL) throws {
+    class func deleteExistingFile(_ destinationURL: URL) throws {
         let fileManager = FileManager()
         
         let destinationPath = destinationURL.path
