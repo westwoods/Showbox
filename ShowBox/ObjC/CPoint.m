@@ -11,13 +11,13 @@
 @implementation CPoint
 
 @synthesize coordinates = _coordinates;
-
+int myindex = -1;
 - (id)init {
     self = [super init];
 
     if (self)
         _coordinates = [NSMutableArray array];
-
+		
     return self;
 }
 
@@ -25,6 +25,9 @@
     [_coordinates addObject:[NSNumber numberWithFloat:coordinate]];
 }
 
+- (void)addIndex:(int)index {
+	myindex = index;
+}
 - (float)coordinateAtPosition:(int)position {
     if ((position < 0) || (position > [_coordinates count]))
         [NSException raise:@"Invalid input." format:@"position %i is invalid", position];

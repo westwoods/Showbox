@@ -19,7 +19,7 @@
 - (void)addCoordinate:(float)coordinate;
 - (float)coordinateAtPosition:(int)position;
 - (NSString *)description;
-
+-(void)addIndex:(int)index;
 + (id)pointWithCoordinates:(NSArray *)coordinates;
 
 @end

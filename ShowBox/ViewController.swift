@@ -129,7 +129,8 @@ class ViewController: UIViewController, TLPhotosPickerViewControllerDelegate{
     func initDatepicker(_ startDate:Date,endDate:Date)
     {
         toDatePicker.minimumDate = startDate
-        
+		fromDatePicker.maximumDate = startDate
+		
         toDatePicker.maximumDate = endDate
         fromDatePicker.maximumDate = endDate
         

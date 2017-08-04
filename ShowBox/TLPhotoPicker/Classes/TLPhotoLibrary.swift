@@ -150,25 +150,20 @@ extension TLPhotoLibrary {
         @discardableResult
         func getSmartAlbum(subType: PHAssetCollectionSubtype, result: inout [TLAssetsCollection]) -> TLAssetsCollection? {
             let fetchCollection = PHAssetCollection.fetchAssetCollections(with: .smartAlbum, subtype: subType, options:  nil)
-            //  let fetchCollection = PHAssetCollection.fetchMoments(with: nil)
-            /*
-             PHAssetCollection.fetchMoments 에서는 날짜 추출이 가능함.
-             
-             PHAssetCollection.fetchAssetCollection 는 날짜 추출이 불가능.
-             
-             moments / smart album / user album과 차이가 있는것같은데...
-             */
             if let collection = fetchCollection.firstObject, !result.contains(where: { $0.localIdentifier == collection.localIdentifier }) {
                 let assetsCollection = TLAssetsCollection(collection: collection)
                 assetsCollection.fetchResult = PHAsset.fetchAssets(in: collection, options: options)
                 if assetsCollection.count > 0 {
                     assetsCollection.endDate = assetsCollection.getAsset(at: 0)?.creationDate
                     assetsCollection.startDate = assetsCollection.getAsset(at:  assetsCollection.count-1)?.creationDate
-                    for i in 0..<assetsCollection.count{
-                        if let location = assetsCollection.getAsset(at: i)?.location{
-                                            convertToAddressWith(coordinate: location)
-                        }
-                    }
+					var myarray:[ [Float] ] = []
+					for i in 0..<assetsCollection.count{
+						if let location = assetsCollection.getAsset(at: i)?.location{
+							//  convertToAddressWith(coordinate: location)
+							myarray.append([Float(location.coordinate.latitude),Float(location.coordinate.longitude)])
+						}
+					}
+					DBclustring.clustring(myarray, 3, 0.3)
                     result.append(assetsCollection)
                     return assetsCollection
                 }
@@ -185,11 +180,15 @@ extension TLPhotoLibrary {
                 if assetsCollection.count > 0 {
                     assetsCollection.endDate = assetsCollection.getAsset(at: 0)?.creationDate
                     assetsCollection.startDate = assetsCollection.getAsset(at: assetsCollection.count-1)?.creationDate
+					
+					var myarray:[ [	Float] ] = []
                     for i in 0..<assetsCollection.count{
                         if let location = assetsCollection.getAsset(at: i)?.location{
-                            convertToAddressWith(coordinate: location)
+                          //  convertToAddressWith(coordinate: location)
+							myarray.append([Float(location.coordinate.latitude),Float(location.coordinate.longitude)])
                         }
                     }
+					DBclustring.clustring(myarray, 3, 0.3)
                     result.append(assetsCollection)
                     return assetsCollection
                 }
@@ -218,7 +217,6 @@ extension TLPhotoLibrary {
             }
             else //TODO
             {
-                
                 DispatchQueue.main.async { //비어있을때.
                     self?.delegate?.focusCollection(collection:TLAssetsCollection())
                     self?.delegate?.loadCameraRollCollection(collection: TLAssetsCollection())
@@ -231,6 +229,8 @@ extension TLPhotoLibrary {
             getSmartAlbum(subType: .smartAlbumPanoramas, result: &assetCollections)
             //Favorites
             getSmartAlbum(subType: .smartAlbumFavorites, result: &assetCollections)
+			
+		//	getSmartAlbum(subType: .smartAlbumFavorites, result: &assetCollections)
             if allowedVideo {
                 //Videos
                 getSmartAlbum(subType: .smartAlbumVideos, result: &assetCollections)

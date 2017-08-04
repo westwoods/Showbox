@@ -40,10 +40,13 @@
             if ([pointEntry count] > 0) {
                 CPoint  *point       = [CPoint new];
                // NSArray *coordinates = [pointEntry componentsSeparatedByString:@","];
-                
+				int i = 0;
+				
                 for ( NSNumber *coordinate in pointEntry) {
                     [point addCoordinate:[coordinate floatValue]];
-                }
+					[point addIndex:i];
+					i++;
+				}
                 
                 [points addObject:point];
             }

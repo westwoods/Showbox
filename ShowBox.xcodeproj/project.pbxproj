@@ -23,6 +23,12 @@
 		80206AF01F341C480089B868 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809D23C31F25DF8C00116FBA /* ViewController.swift */; };
 		80206AF61F341D9C0089B868 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 80206AF21F341D9C0089B868 /* LaunchScreen.storyboard */; };
 		80206AF71F341D9C0089B868 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 80206AF41F341D9C0089B868 /* Main.storyboard */; };
+		80206AF81F3433C90089B868 /* DBclustring.m in Sources */ = {isa = PBXBuildFile; fileRef = 8025A2081F336F7000E03D0B /* DBclustring.m */; };
+		80206AF91F3433D60089B868 /* DBScan.m in Sources */ = {isa = PBXBuildFile; fileRef = 8025A20A1F336F7000E03D0B /* DBScan.m */; };
+		80206B001F3433EC0089B868 /* Cluster.m in Sources */ = {isa = PBXBuildFile; fileRef = 8025A2041F336F7000E03D0B /* Cluster.m */; };
+		80206B011F3433EC0089B868 /* CPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 8025A2061F336F7000E03D0B /* CPoint.m */; };
+		80206B021F3433EC0089B868 /* EuclidianDistanceFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = 8025A20D1F336F7000E03D0B /* EuclidianDistanceFunction.m */; };
+		80206B031F3433EC0089B868 /* FileSourceLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 8025A20F1F336F7000E03D0B /* FileSourceLoader.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -363,12 +369,18 @@
 				80206AEA1F341AFE0089B868 /* TLBundle.swift in Sources */,
 				80206AEB1F341AFE0089B868 /* TLCollectionTableViewCell.swift in Sources */,
 				80206AF01F341C480089B868 /* ViewController.swift in Sources */,
+				80206B021F3433EC0089B868 /* EuclidianDistanceFunction.m in Sources */,
+				80206AF81F3433C90089B868 /* DBclustring.m in Sources */,
 				80206AEC1F341AFE0089B868 /* TLPhotoCollectionViewCell.swift in Sources */,
+				80206B031F3433EC0089B868 /* FileSourceLoader.m in Sources */,
+				80206AF91F3433D60089B868 /* DBScan.m in Sources */,
 				80206AED1F341AFE0089B868 /* TLPhotoLibrary.swift in Sources */,
 				80206AEE1F341AFE0089B868 /* TLPhotosPickerViewController.swift in Sources */,
 				80206ADF1F341AC80089B868 /* FaceDetecter.swift in Sources */,
 				80206AEF1F341C480089B868 /* AppDelegate.swift in Sources */,
+				80206B001F3433EC0089B868 /* Cluster.m in Sources */,
 				80206ADE1F341AC80089B868 /* VideoWriter.swift in Sources */,
+				80206B011F3433EC0089B868 /* CPoint.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
