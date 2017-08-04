@@ -48,7 +48,6 @@
 				
 				[point addIndex:i];
 				
-				NSLog(@" points: %i", i);
 				i++;
                 [points addObject:point];
             }

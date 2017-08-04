@@ -146,7 +146,7 @@ extension TLPhotoLibrary {
         let options = PHFetchOptions()
         let sortOrder = [NSSortDescriptor(key: "creationDate", ascending: false), ]
         options.sortDescriptors = sortOrder
-        options.predicate = predicateOption
+       // options.predicate = predicateOption
         @discardableResult
         func getSmartAlbum(subType: PHAssetCollectionSubtype, result: inout [TLAssetsCollection]) -> TLAssetsCollection? {
             let fetchCollection = PHAssetCollection.fetchAssetCollections(with: .smartAlbum, subtype: subType, options:  nil)
@@ -239,6 +239,8 @@ extension TLPhotoLibrary {
                 getSmartAlbum(subType: .smartAlbumVideos, result: &assetCollections)
             }
             //Album
+			
+			
             let albumsResult = PHCollectionList.fetchTopLevelUserCollections(with: nil)
             albumsResult.enumerateObjects({ (collection, index, stop) -> Void in
                 guard let collection = collection as? PHAssetCollection else { return }
