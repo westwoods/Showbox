@@ -7,54 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8025A2111F336F7000E03D0B /* Cluster.m in Sources */ = {isa = PBXBuildFile; fileRef = 8025A2041F336F7000E03D0B /* Cluster.m */; };
-		8025A2121F336F7000E03D0B /* CPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 8025A2061F336F7000E03D0B /* CPoint.m */; };
-		8025A2131F336F7000E03D0B /* DBclustring.m in Sources */ = {isa = PBXBuildFile; fileRef = 8025A2081F336F7000E03D0B /* DBclustring.m */; };
-		8025A2141F336F7000E03D0B /* DBScan.m in Sources */ = {isa = PBXBuildFile; fileRef = 8025A20A1F336F7000E03D0B /* DBScan.m */; };
-		8025A2151F336F7000E03D0B /* EuclidianDistanceFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = 8025A20D1F336F7000E03D0B /* EuclidianDistanceFunction.m */; };
-		8025A2161F336F7000E03D0B /* FileSourceLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 8025A20F1F336F7000E03D0B /* FileSourceLoader.m */; };
-		802701591F2A31D700A26F3B /* TLPhotoPicker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 808476A11F26D5A700A0AD0E /* TLPhotoPicker.framework */; };
-		808476971F26D3B800A0AD0E /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 808476961F26D3B800A0AD0E /* Podfile */; };
-		809D23C71F25DF8C00116FBA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 809D23C51F25DF8C00116FBA /* Main.storyboard */; };
-		809D23C91F25DF8C00116FBA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 809D23C81F25DF8C00116FBA /* Assets.xcassets */; };
-		809D23CC1F25DF8C00116FBA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 809D23CA1F25DF8C00116FBA /* LaunchScreen.storyboard */; };
-		809D23D71F25DF8C00116FBA /* test01Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809D23D61F25DF8C00116FBA /* test01Tests.swift */; };
-		809D23E21F25DF8C00116FBA /* test01UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809D23E11F25DF8C00116FBA /* test01UITests.swift */; };
-		80A2C1021F30ACA9003B3B6D /* FaceDetecter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C6FFB81F30AA70000401C1 /* FaceDetecter.swift */; };
-		80A2C1031F30ACAC003B3B6D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809D23C31F25DF8C00116FBA /* ViewController.swift */; };
-		80A2C1041F30ACB0003B3B6D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809D23C11F25DF8C00116FBA /* AppDelegate.swift */; };
-		80A2C1051F30ACB3003B3B6D /* VideoWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8027014A1F29786B00A26F3B /* VideoWriter.swift */; };
+		80001E351F341743007FB318 /* TLCollectionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 800B289F1F34126200FD5810 /* TLCollectionTableViewCell.xib */; };
+		80001E371F341743007FB318 /* TLPhotoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 800B28A11F34126200FD5810 /* TLPhotoCollectionViewCell.xib */; };
+		80001E3A1F341743007FB318 /* TLPhotosPickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 800B28A41F34126200FD5810 /* TLPhotosPickerViewController.xib */; };
+		80206ADE1F341AC80089B868 /* VideoWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8027014A1F29786B00A26F3B /* VideoWriter.swift */; };
+		80206ADF1F341AC80089B868 /* FaceDetecter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C6FFB81F30AA70000401C1 /* FaceDetecter.swift */; };
+		80206AE81F341AFE0089B868 /* TLAlbumPopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800B289B1F34126200FD5810 /* TLAlbumPopView.swift */; };
+		80206AE91F341AFE0089B868 /* TLAssetsCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800B289C1F34126200FD5810 /* TLAssetsCollection.swift */; };
+		80206AEA1F341AFE0089B868 /* TLBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800B289D1F34126200FD5810 /* TLBundle.swift */; };
+		80206AEB1F341AFE0089B868 /* TLCollectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800B289E1F34126200FD5810 /* TLCollectionTableViewCell.swift */; };
+		80206AEC1F341AFE0089B868 /* TLPhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800B28A01F34126200FD5810 /* TLPhotoCollectionViewCell.swift */; };
+		80206AED1F341AFE0089B868 /* TLPhotoLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800B28A21F34126200FD5810 /* TLPhotoLibrary.swift */; };
+		80206AEE1F341AFE0089B868 /* TLPhotosPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800B28A31F34126200FD5810 /* TLPhotosPickerViewController.swift */; };
+		80206AEF1F341C480089B868 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809D23C11F25DF8C00116FBA /* AppDelegate.swift */; };
+		80206AF01F341C480089B868 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809D23C31F25DF8C00116FBA /* ViewController.swift */; };
+		80206AF61F341D9C0089B868 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 80206AF21F341D9C0089B868 /* LaunchScreen.storyboard */; };
+		80206AF71F341D9C0089B868 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 80206AF41F341D9C0089B868 /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		8084769E1F26D5A700A0AD0E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 808476981F26D5A700A0AD0E /* Pods.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = DBF48C1AA406BDBCFA86FFF7E9703B8E;
-			remoteInfo = "Pods-test01";
-		};
-		808476A01F26D5A700A0AD0E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 808476981F26D5A700A0AD0E /* Pods.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 7200D8B6DAFFACE55E7D27122A6F2549;
-			remoteInfo = TLPhotoPicker;
-		};
-		808476A21F26D5A700A0AD0E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 808476981F26D5A700A0AD0E /* Pods.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 00275F96EED86FEF9DDFC55E8271BE8D;
-			remoteInfo = "TLPhotoPicker-TLPhotoPicker";
-		};
-		809D23D31F25DF8C00116FBA /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 809D23B61F25DF8C00116FBA /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 809D23BD1F25DF8C00116FBA;
-			remoteInfo = test01;
-		};
 		809D23DE1F25DF8C00116FBA /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 809D23B61F25DF8C00116FBA /* Project object */;
@@ -65,6 +36,19 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		800B289B1F34126200FD5810 /* TLAlbumPopView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TLAlbumPopView.swift; sourceTree = "<group>"; };
+		800B289C1F34126200FD5810 /* TLAssetsCollection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TLAssetsCollection.swift; sourceTree = "<group>"; };
+		800B289D1F34126200FD5810 /* TLBundle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TLBundle.swift; sourceTree = "<group>"; };
+		800B289E1F34126200FD5810 /* TLCollectionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TLCollectionTableViewCell.swift; sourceTree = "<group>"; };
+		800B289F1F34126200FD5810 /* TLCollectionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TLCollectionTableViewCell.xib; sourceTree = "<group>"; };
+		800B28A01F34126200FD5810 /* TLPhotoCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TLPhotoCollectionViewCell.swift; sourceTree = "<group>"; };
+		800B28A11F34126200FD5810 /* TLPhotoCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TLPhotoCollectionViewCell.xib; sourceTree = "<group>"; };
+		800B28A21F34126200FD5810 /* TLPhotoLibrary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TLPhotoLibrary.swift; sourceTree = "<group>"; };
+		800B28A31F34126200FD5810 /* TLPhotosPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TLPhotosPickerViewController.swift; sourceTree = "<group>"; };
+		800B28A41F34126200FD5810 /* TLPhotosPickerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TLPhotosPickerViewController.xib; sourceTree = "<group>"; };
+		800B28A51F34126200FD5810 /* TLPhotoPickerController.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = TLPhotoPickerController.bundle; sourceTree = "<group>"; };
+		80206AF31F341D9C0089B868 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		80206AF51F341D9C0089B868 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8025A2021F336F7000E03D0B /* Bridge_Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bridge_Header.h; sourceTree = "<group>"; };
 		8025A2031F336F7000E03D0B /* Cluster.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cluster.h; sourceTree = "<group>"; };
 		8025A2041F336F7000E03D0B /* Cluster.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Cluster.m; sourceTree = "<group>"; };
@@ -81,24 +65,18 @@
 		8025A20F1F336F7000E03D0B /* FileSourceLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileSourceLoader.m; sourceTree = "<group>"; };
 		8025A2101F336F7000E03D0B /* SourceLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SourceLoader.h; sourceTree = "<group>"; };
 		8027014A1F29786B00A26F3B /* VideoWriter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoWriter.swift; sourceTree = "<group>"; };
-		808476961F26D3B800A0AD0E /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		808476981F26D5A700A0AD0E /* Pods.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Pods.xcodeproj; path = Pods/Pods.xcodeproj; sourceTree = "<group>"; };
 		809D23BE1F25DF8C00116FBA /* ShowBox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShowBox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		809D23C11F25DF8C00116FBA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		809D23C31F25DF8C00116FBA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		809D23C61F25DF8C00116FBA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		809D23C81F25DF8C00116FBA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		809D23CB1F25DF8C00116FBA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		809D23CD1F25DF8C00116FBA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		809D23D21F25DF8C00116FBA /* ShowBoxTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ShowBoxTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		809D23D61F25DF8C00116FBA /* test01Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = test01Tests.swift; sourceTree = "<group>"; };
+		809D23D61F25DF8C00116FBA /* ShowboxTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowboxTests.swift; sourceTree = "<group>"; };
 		809D23D81F25DF8C00116FBA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		809D23DD1F25DF8C00116FBA /* ShowBoxUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ShowBoxUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		809D23E11F25DF8C00116FBA /* test01UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = test01UITests.swift; sourceTree = "<group>"; };
 		809D23E31F25DF8C00116FBA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		80C6FFB81F30AA70000401C1 /* FaceDetecter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FaceDetecter.swift; sourceTree = "<group>"; };
-		CC3091D85E171F10DEB7FDFD /* Pods-test01.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-test01.debug.xcconfig"; path = "Pods/Target Support Files/Pods-test01/Pods-test01.debug.xcconfig"; sourceTree = "<group>"; };
-		FBDB1960D2AA53C827598567 /* Pods-test01.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-test01.release.xcconfig"; path = "Pods/Target Support Files/Pods-test01/Pods-test01.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,7 +84,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				802701591F2A31D700A26F3B /* TLPhotoPicker.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -134,13 +111,30 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		3C68FEA63B890D51B024C738 /* Pods */ = {
+		800B28991F34126200FD5810 /* TLPhotoPicker */ = {
 			isa = PBXGroup;
 			children = (
-				CC3091D85E171F10DEB7FDFD /* Pods-test01.debug.xcconfig */,
-				FBDB1960D2AA53C827598567 /* Pods-test01.release.xcconfig */,
+				800B289A1F34126200FD5810 /* Classes */,
+				800B28A51F34126200FD5810 /* TLPhotoPickerController.bundle */,
 			);
-			name = Pods;
+			path = TLPhotoPicker;
+			sourceTree = "<group>";
+		};
+		800B289A1F34126200FD5810 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				800B289B1F34126200FD5810 /* TLAlbumPopView.swift */,
+				800B289C1F34126200FD5810 /* TLAssetsCollection.swift */,
+				800B289D1F34126200FD5810 /* TLBundle.swift */,
+				800B289E1F34126200FD5810 /* TLCollectionTableViewCell.swift */,
+				800B289F1F34126200FD5810 /* TLCollectionTableViewCell.xib */,
+				800B28A01F34126200FD5810 /* TLPhotoCollectionViewCell.swift */,
+				800B28A11F34126200FD5810 /* TLPhotoCollectionViewCell.xib */,
+				800B28A21F34126200FD5810 /* TLPhotoLibrary.swift */,
+				800B28A31F34126200FD5810 /* TLPhotosPickerViewController.swift */,
+				800B28A41F34126200FD5810 /* TLPhotosPickerViewController.xib */,
+			);
+			path = Classes;
 			sourceTree = "<group>";
 		};
 		8025A2011F336F7000E03D0B /* ObjC */ = {
@@ -166,29 +160,17 @@
 			path = ShowBox/ObjC;
 			sourceTree = SOURCE_ROOT;
 		};
-		808476991F26D5A700A0AD0E /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				8084769F1F26D5A700A0AD0E /* Pods_test01.framework */,
-				808476A11F26D5A700A0AD0E /* TLPhotoPicker.framework */,
-				808476A31F26D5A700A0AD0E /* TLPhotoPicker.bundle */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		809D23B51F25DF8C00116FBA = {
 			isa = PBXGroup;
 			children = (
-				808476981F26D5A700A0AD0E /* Pods.xcodeproj */,
-				808476961F26D3B800A0AD0E /* Podfile */,
 				809D23D51F25DF8C00116FBA /* ShowBoxTests */,
 				809D23C01F25DF8C00116FBA /* ShowBox */,
 				809D23E01F25DF8C00116FBA /* ShowBoxUITests */,
 				809D23BF1F25DF8C00116FBA /* Products */,
-				3C68FEA63B890D51B024C738 /* Pods */,
 				0EBACF5F5AC3FBE11AAAAE04 /* Frameworks */,
 			);
 			sourceTree = "<group>";
+			usesTabs = 1;
 		};
 		809D23BF1F25DF8C00116FBA /* Products */ = {
 			isa = PBXGroup;
@@ -203,12 +185,13 @@
 		809D23C01F25DF8C00116FBA /* ShowBox */ = {
 			isa = PBXGroup;
 			children = (
+				80206AF21F341D9C0089B868 /* LaunchScreen.storyboard */,
+				80206AF41F341D9C0089B868 /* Main.storyboard */,
+				800B28991F34126200FD5810 /* TLPhotoPicker */,
 				8025A2011F336F7000E03D0B /* ObjC */,
 				809D23C11F25DF8C00116FBA /* AppDelegate.swift */,
 				809D23C31F25DF8C00116FBA /* ViewController.swift */,
-				809D23C51F25DF8C00116FBA /* Main.storyboard */,
 				809D23C81F25DF8C00116FBA /* Assets.xcassets */,
-				809D23CA1F25DF8C00116FBA /* LaunchScreen.storyboard */,
 				809D23CD1F25DF8C00116FBA /* Info.plist */,
 				8027014A1F29786B00A26F3B /* VideoWriter.swift */,
 				80C6FFB81F30AA70000401C1 /* FaceDetecter.swift */,
@@ -219,7 +202,7 @@
 		809D23D51F25DF8C00116FBA /* ShowBoxTests */ = {
 			isa = PBXGroup;
 			children = (
-				809D23D61F25DF8C00116FBA /* test01Tests.swift */,
+				809D23D61F25DF8C00116FBA /* ShowboxTests.swift */,
 				809D23D81F25DF8C00116FBA /* Info.plist */,
 			);
 			path = ShowBoxTests;
@@ -241,12 +224,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 809D23E61F25DF8C00116FBA /* Build configuration list for PBXNativeTarget "ShowBox" */;
 			buildPhases = (
-				F1647B57CAB89711799CE947 /* [CP] Check Pods Manifest.lock */,
 				809D23BA1F25DF8C00116FBA /* Sources */,
 				809D23BB1F25DF8C00116FBA /* Frameworks */,
 				809D23BC1F25DF8C00116FBA /* Resources */,
-				659F3C04814A11C38BC55BF7 /* [CP] Embed Pods Frameworks */,
-				BBACF13CA7DEFE3A33444E8D /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -268,7 +248,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				809D23D41F25DF8C00116FBA /* PBXTargetDependency */,
 			);
 			name = ShowBoxTests;
 			productName = test01Tests;
@@ -336,12 +315,6 @@
 			mainGroup = 809D23B51F25DF8C00116FBA;
 			productRefGroup = 809D23BF1F25DF8C00116FBA /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 808476991F26D5A700A0AD0E /* Products */;
-					ProjectRef = 808476981F26D5A700A0AD0E /* Pods.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				809D23BD1F25DF8C00116FBA /* ShowBox */,
@@ -351,39 +324,16 @@
 		};
 /* End PBXProject section */
 
-/* Begin PBXReferenceProxy section */
-		8084769F1F26D5A700A0AD0E /* Pods_test01.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = Pods_test01.framework;
-			remoteRef = 8084769E1F26D5A700A0AD0E /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		808476A11F26D5A700A0AD0E /* TLPhotoPicker.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = TLPhotoPicker.framework;
-			remoteRef = 808476A01F26D5A700A0AD0E /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		808476A31F26D5A700A0AD0E /* TLPhotoPicker.bundle */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = TLPhotoPicker.bundle;
-			remoteRef = 808476A21F26D5A700A0AD0E /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
-
 /* Begin PBXResourcesBuildPhase section */
 		809D23BC1F25DF8C00116FBA /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				809D23CC1F25DF8C00116FBA /* LaunchScreen.storyboard in Resources */,
-				809D23C91F25DF8C00116FBA /* Assets.xcassets in Resources */,
-				808476971F26D3B800A0AD0E /* Podfile in Resources */,
-				809D23C71F25DF8C00116FBA /* Main.storyboard in Resources */,
+				80001E351F341743007FB318 /* TLCollectionTableViewCell.xib in Resources */,
+				80206AF71F341D9C0089B868 /* Main.storyboard in Resources */,
+				80206AF61F341D9C0089B868 /* LaunchScreen.storyboard in Resources */,
+				80001E3A1F341743007FB318 /* TLPhotosPickerViewController.xib in Resources */,
+				80001E371F341743007FB318 /* TLPhotoCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -403,69 +353,22 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		659F3C04814A11C38BC55BF7 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-test01/Pods-test01-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		BBACF13CA7DEFE3A33444E8D /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-test01/Pods-test01-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		F1647B57CAB89711799CE947 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		809D23BA1F25DF8C00116FBA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8025A2151F336F7000E03D0B /* EuclidianDistanceFunction.m in Sources */,
-				80A2C1051F30ACB3003B3B6D /* VideoWriter.swift in Sources */,
-				80A2C1041F30ACB0003B3B6D /* AppDelegate.swift in Sources */,
-				8025A2131F336F7000E03D0B /* DBclustring.m in Sources */,
-				8025A2121F336F7000E03D0B /* CPoint.m in Sources */,
-				8025A2161F336F7000E03D0B /* FileSourceLoader.m in Sources */,
-				80A2C1031F30ACAC003B3B6D /* ViewController.swift in Sources */,
-				8025A2111F336F7000E03D0B /* Cluster.m in Sources */,
-				8025A2141F336F7000E03D0B /* DBScan.m in Sources */,
-				80A2C1021F30ACA9003B3B6D /* FaceDetecter.swift in Sources */,
+				80206AE81F341AFE0089B868 /* TLAlbumPopView.swift in Sources */,
+				80206AE91F341AFE0089B868 /* TLAssetsCollection.swift in Sources */,
+				80206AEA1F341AFE0089B868 /* TLBundle.swift in Sources */,
+				80206AEB1F341AFE0089B868 /* TLCollectionTableViewCell.swift in Sources */,
+				80206AF01F341C480089B868 /* ViewController.swift in Sources */,
+				80206AEC1F341AFE0089B868 /* TLPhotoCollectionViewCell.swift in Sources */,
+				80206AED1F341AFE0089B868 /* TLPhotoLibrary.swift in Sources */,
+				80206AEE1F341AFE0089B868 /* TLPhotosPickerViewController.swift in Sources */,
+				80206ADF1F341AC80089B868 /* FaceDetecter.swift in Sources */,
+				80206AEF1F341C480089B868 /* AppDelegate.swift in Sources */,
+				80206ADE1F341AC80089B868 /* VideoWriter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -473,7 +376,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				809D23D71F25DF8C00116FBA /* test01Tests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -481,18 +383,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				809D23E21F25DF8C00116FBA /* test01UITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		809D23D41F25DF8C00116FBA /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 809D23BD1F25DF8C00116FBA /* ShowBox */;
-			targetProxy = 809D23D31F25DF8C00116FBA /* PBXContainerItemProxy */;
-		};
 		809D23DF1F25DF8C00116FBA /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 809D23BD1F25DF8C00116FBA /* ShowBox */;
@@ -501,20 +397,20 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		809D23C51F25DF8C00116FBA /* Main.storyboard */ = {
+		80206AF21F341D9C0089B868 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				809D23C61F25DF8C00116FBA /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		809D23CA1F25DF8C00116FBA /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				809D23CB1F25DF8C00116FBA /* Base */,
+				80206AF31F341D9C0089B868 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		80206AF41F341D9C0089B868 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				80206AF51F341D9C0089B868 /* Base */,
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -561,7 +457,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -606,7 +502,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -617,7 +513,6 @@
 		};
 		809D23E71F25DF8C00116FBA /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CC3091D85E171F10DEB7FDFD /* Pods-test01.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 4FQ4R6GQY8;
@@ -633,7 +528,6 @@
 		};
 		809D23E81F25DF8C00116FBA /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FBDB1960D2AA53C827598567 /* Pods-test01.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 4FQ4R6GQY8;
@@ -715,7 +609,7 @@
 				809D23E51F25DF8C00116FBA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		809D23E61F25DF8C00116FBA /* Build configuration list for PBXNativeTarget "ShowBox" */ = {
 			isa = XCConfigurationList;
@@ -724,7 +618,7 @@
 				809D23E81F25DF8C00116FBA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		809D23E91F25DF8C00116FBA /* Build configuration list for PBXNativeTarget "ShowBoxTests" */ = {
 			isa = XCConfigurationList;
@@ -733,7 +627,7 @@
 				809D23EB1F25DF8C00116FBA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		809D23EC1F25DF8C00116FBA /* Build configuration list for PBXNativeTarget "ShowBoxUITests" */ = {
 			isa = XCConfigurationList;
@@ -742,7 +636,7 @@
 				809D23EE1F25DF8C00116FBA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
 	};

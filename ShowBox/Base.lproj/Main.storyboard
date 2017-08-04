@@ -82,7 +82,7 @@
                                 </connections>
                             </datePicker>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" 출발한" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="30" translatesAutoresizingMaskIntoConstraints="NO" id="OIi-FZ-nJz">
-                                <rect key="frame" x="200" y="50" width="68.5" height="29"/>
+                                <rect key="frame" x="200" y="50" width="68.666666666666686" height="29"/>
                                 <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <color key="textColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -147,7 +147,7 @@
         <!--Photos Picker View Controller-->
         <scene sceneID="nsH-b2-Bl3">
             <objects>
-                <viewController id="GBj-s0-ZCR" customClass="TLPhotosPickerViewController" customModule="TLPhotoPicker" sceneMemberID="viewController"/>
+                <viewController id="GBj-s0-ZCR" customClass="TLPhotosPickerViewController" customModule="ShowBox" customModuleProvider="target" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gdc-zh-5Bs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="144" y="833"/>

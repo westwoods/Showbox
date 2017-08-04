@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import TLPhotoPicker
 import Photos
 import AVFoundation
 

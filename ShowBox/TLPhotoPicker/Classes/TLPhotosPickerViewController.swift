@@ -9,7 +9,6 @@
 import UIKit
 import Photos
 import PhotosUI
-
 public protocol TLPhotosPickerViewControllerDelegate: class {
     func dismissPhotoPicker(withPHAssets: [PHAsset])
     func dismissPhotoPicker(withTLPHAssets: [TLPHAsset])
