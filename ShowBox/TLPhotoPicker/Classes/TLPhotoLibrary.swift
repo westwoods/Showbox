@@ -157,6 +157,8 @@ extension TLPhotoLibrary {
                     assetsCollection.endDate = assetsCollection.getAsset(at: 0)?.creationDate
                     assetsCollection.startDate = assetsCollection.getAsset(at:  assetsCollection.count-1)?.creationDate
 					var myarray:[ [Float] ] = []
+					
+					print("asset cont1 ", assetsCollection.count)
 					for i in 0..<assetsCollection.count{
 						if let location = assetsCollection.getAsset(at: i)?.location{
 							//  convertToAddressWith(coordinate: location)
@@ -181,6 +183,7 @@ extension TLPhotoLibrary {
                     assetsCollection.endDate = assetsCollection.getAsset(at: 0)?.creationDate
                     assetsCollection.startDate = assetsCollection.getAsset(at: assetsCollection.count-1)?.creationDate
 					
+					print("asset cont 2", assetsCollection.count)
 					var myarray:[ [	Float] ] = []
                     for i in 0..<assetsCollection.count{
                         if let location = assetsCollection.getAsset(at: i)?.location{
@@ -230,7 +233,7 @@ extension TLPhotoLibrary {
             //Favorites
             getSmartAlbum(subType: .smartAlbumFavorites, result: &assetCollections)
 			
-		//	getSmartAlbum(subType: .smartAlbumFavorites, result: &assetCollections)
+			getSmartAlbum(subType: .any, result: &assetCollections)
             if allowedVideo {
                 //Videos
                 getSmartAlbum(subType: .smartAlbumVideos, result: &assetCollections)
@@ -242,9 +245,18 @@ extension TLPhotoLibrary {
                 let assetsCollection = TLAssetsCollection(collection: collection)
                 assetsCollection.fetchResult = PHAsset.fetchAssets(in: collection, options: options)
                 if assetsCollection.count > 0, !assetCollections.contains(where: { $0.localIdentifier == collection.localIdentifier }) {
+					
+					print("asset cont3 ", assetsCollection.count)
                     assetCollections.append(assetsCollection)
                 }
             })
+			
+				let assetsCollection = TLAssetsCollection.init()
+				assetsCollection.fetchResult = PHAsset.fetchAssets(with: PHAssetMediaType.image, options: nil)
+			print("asset cont4 ", assetsCollection.count)
+				assetCollections.append(assetsCollection)
+				
+					
             getMomet(result: &assetCollections)
             DispatchQueue.main.async {
                 self?.delegate?.loadCompleteAllCollection(collections: assetCollections)

@@ -126,10 +126,11 @@ class ViewController: UIViewController, TLPhotosPickerViewControllerDelegate{
     func didExceedMaximumNumberOfSelection(_ picker: TLPhotosPickerViewController) {
         // exceed max selection
     }
-    func initDatepicker(_ startDate:Date,endDate:Date)
+    func initDatepicker(startDate:Date,endDate:Date)
     {
-        toDatePicker.minimumDate = startDate
-		fromDatePicker.maximumDate = startDate
+		print(startDate , endDate)
+		toDatePicker.minimumDate = startDate
+		fromDatePicker.minimumDate = startDate
 		
         toDatePicker.maximumDate = endDate
         fromDatePicker.maximumDate = endDate

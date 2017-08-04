@@ -129,7 +129,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="back"/>
                                 <connections>
-                                    <segue destination="sWI-VS-pkC" kind="unwind" identifier="unwindSeg2" unwindAction="exitFromViewControllerWithSegue:" id="CQL-tE-8Ak"/>
+                                    <segue destination="sWI-VS-pkC" kind="unwind" unwindAction="exitFromViewController:" id="GIK-MZ-pzc"/>
                                 </connections>
                             </button>
                         </subviews>

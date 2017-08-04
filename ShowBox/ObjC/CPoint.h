@@ -15,11 +15,12 @@
 
 @property (readonly) NSArray *coordinates;
 @property (readonly) NSUInteger dimension;
+@property (readonly) NSInteger myindex;
 
 - (void)addCoordinate:(float)coordinate;
 - (float)coordinateAtPosition:(int)position;
 - (NSString *)description;
--(void)addIndex:(int)index;
+-(void)addIndex:(long)index;
 + (id)pointWithCoordinates:(NSArray *)coordinates;
 
 @end

@@ -9,15 +9,14 @@
 #import "CPoint.h"
 
 @implementation CPoint
-
 @synthesize coordinates = _coordinates;
-int myindex = -1;
 - (id)init {
     self = [super init];
 
     if (self)
         _coordinates = [NSMutableArray array];
-		
+	
+		_myindex = -1;
     return self;
 }
 
@@ -26,7 +25,7 @@ int myindex = -1;
 }
 
 - (void)addIndex:(int)index {
-	myindex = index;
+		_myindex = index;
 }
 - (float)coordinateAtPosition:(int)position {
     if ((position < 0) || (position > [_coordinates count]))
@@ -44,9 +43,11 @@ int myindex = -1;
 
     for (int i = 0; i < _coordinates.count; i++) {
         result = [result stringByAppendingString:[[_coordinates objectAtIndex:i] description]];
-
         if (i < (_coordinates.count - 1))
+		{
+			result = [result stringByAppendingString:[NSString stringWithFormat:@" my %ld index", (long)_myindex]];
             result = [result stringByAppendingString:@","];
+		}
     }
 
     return result;
