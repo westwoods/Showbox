@@ -31,7 +31,7 @@ open class FaceDetector{
 		//TODO 이미지 방향이나 해상도에 관련한 이슈가 있음. 가로모드 세로모드에 따라 인식에 차이가있음.
 		let sourceOrientation = imageOrientationToExif(image: uiImage)
 		let imageOptions:[String:Any] = [CIDetectorSmile : true ,CIDetectorEyeBlink: true, CIDetectorImageOrientation: sourceOrientation]
-		print(sourceOrientation)
+		//	print(sourceOrientation)
 		let personciImage = CIImage(cgImage: uiImage.cgImage!)
 		let faces = faceDetector?.features(in: personciImage, options: imageOptions )
 		
