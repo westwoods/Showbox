@@ -73,8 +73,9 @@ class ViewController: UIViewController, TLPhotosPickerViewControllerDelegate{
         }
     }
     var selectedAssets = [TLPHAsset]()
+	
     //TLPhotosPickerViewControllerDelegate
-    func dismissPhotoPicker(_ withTLPHAssets: [TLPHAsset]) {
+    func dismissPhotoPicker(withTLPHAssets: [TLPHAsset]) {
         let semaphore = DispatchSemaphore(value: 0)
         
         // use selected order, fullresolution image
@@ -114,8 +115,8 @@ class ViewController: UIViewController, TLPhotosPickerViewControllerDelegate{
         }
     }
     
-    func dismissPhotoPicker(_ withPHAssets: [PHAsset]) {
-        // if you want to used phasset.
+    func dismissPhotoPicker(withPHAssets: [PHAsset]) {
+		// if you want to used phasset.
     }
     func photoPickerDidCancel() {
         // cancel

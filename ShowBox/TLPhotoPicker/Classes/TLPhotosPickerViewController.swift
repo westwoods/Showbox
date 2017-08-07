@@ -281,7 +281,7 @@ extension TLPhotosPickerViewController {
     fileprivate func initPhotoLibrary() {
         if PHPhotoLibrary.authorizationStatus() == .authorized {
             self.photoLibrary.delegate = self
-        //    let fromDate = Date()
+          //    let fromDate = Date()
           //  let toDate = Date(timeIntervalSinceNow: -24*60*60*60)
             /****            let predicateOption = NSPredicate(format: "creationDate > %@ && creationDate < %@", fromDate as NSDate , toDate as NSDate)
              ****/
@@ -385,7 +385,7 @@ extension TLPhotosPickerViewController {
     
     open func dismiss(done: Bool) {
         if done {
-            self.delegate?.dismissPhotoPicker(withPHAssets: self.selectedAssets.flatMap{ $0.phAsset })
+			self.delegate?.dismissPhotoPicker(withPHAssets: self.selectedAssets.flatMap{ $0.phAsset })
             self.delegate?.dismissPhotoPicker(withTLPHAssets: self.selectedAssets)
             self.completionWithTLPHAssets?(self.selectedAssets)
             self.completionWithPHAssets?(self.selectedAssets.flatMap{ $0.phAsset })

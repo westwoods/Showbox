@@ -10,7 +10,7 @@
 		80001E351F341743007FB318 /* TLCollectionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 800B289F1F34126200FD5810 /* TLCollectionTableViewCell.xib */; };
 		80001E371F341743007FB318 /* TLPhotoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 800B28A11F34126200FD5810 /* TLPhotoCollectionViewCell.xib */; };
 		80001E3A1F341743007FB318 /* TLPhotosPickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 800B28A41F34126200FD5810 /* TLPhotosPickerViewController.xib */; };
-		8019CC331F34736C009C3254 /* TimeLineStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8019CC321F34736C009C3254 /* TimeLineStruct.swift */; };
+		8019CC331F34736C009C3254 /* TimeLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8019CC321F34736C009C3254 /* TimeLine.swift */; };
 		80206ADE1F341AC80089B868 /* VideoWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8027014A1F29786B00A26F3B /* VideoWriter.swift */; };
 		80206ADF1F341AC80089B868 /* FaceDetecter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C6FFB81F30AA70000401C1 /* FaceDetecter.swift */; };
 		80206AE81F341AFE0089B868 /* TLAlbumPopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800B289B1F34126200FD5810 /* TLAlbumPopView.swift */; };
@@ -30,6 +30,7 @@
 		80206B011F3433EC0089B868 /* CPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 8025A2061F336F7000E03D0B /* CPoint.m */; };
 		80206B021F3433EC0089B868 /* EuclidianDistanceFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = 8025A20D1F336F7000E03D0B /* EuclidianDistanceFunction.m */; };
 		80206B031F3433EC0089B868 /* FileSourceLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 8025A20F1F336F7000E03D0B /* FileSourceLoader.m */; };
+		80782B411F380B0700BCBE9E /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80782B401F380B0700BCBE9E /* File.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,7 +55,7 @@
 		800B28A31F34126200FD5810 /* TLPhotosPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TLPhotosPickerViewController.swift; sourceTree = "<group>"; };
 		800B28A41F34126200FD5810 /* TLPhotosPickerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TLPhotosPickerViewController.xib; sourceTree = "<group>"; };
 		800B28A51F34126200FD5810 /* TLPhotoPickerController.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = TLPhotoPickerController.bundle; sourceTree = "<group>"; };
-		8019CC321F34736C009C3254 /* TimeLineStruct.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeLineStruct.swift; sourceTree = "<group>"; };
+		8019CC321F34736C009C3254 /* TimeLine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeLine.swift; sourceTree = "<group>"; };
 		80206AF31F341D9C0089B868 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		80206AF51F341D9C0089B868 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8025A2021F336F7000E03D0B /* Bridge_Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bridge_Header.h; sourceTree = "<group>"; };
@@ -73,6 +74,7 @@
 		8025A20F1F336F7000E03D0B /* FileSourceLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileSourceLoader.m; sourceTree = "<group>"; };
 		8025A2101F336F7000E03D0B /* SourceLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SourceLoader.h; sourceTree = "<group>"; };
 		8027014A1F29786B00A26F3B /* VideoWriter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoWriter.swift; sourceTree = "<group>"; };
+		80782B401F380B0700BCBE9E /* File.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		809D23BE1F25DF8C00116FBA /* ShowBox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShowBox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		809D23C11F25DF8C00116FBA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		809D23C31F25DF8C00116FBA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -141,6 +143,7 @@
 				800B28A21F34126200FD5810 /* TLPhotoLibrary.swift */,
 				800B28A31F34126200FD5810 /* TLPhotosPickerViewController.swift */,
 				800B28A41F34126200FD5810 /* TLPhotosPickerViewController.xib */,
+				80782B401F380B0700BCBE9E /* File.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -198,7 +201,7 @@
 				800B28991F34126200FD5810 /* TLPhotoPicker */,
 				8025A2011F336F7000E03D0B /* ObjC */,
 				809D23C11F25DF8C00116FBA /* AppDelegate.swift */,
-				8019CC321F34736C009C3254 /* TimeLineStruct.swift */,
+				8019CC321F34736C009C3254 /* TimeLine.swift */,
 				809D23C31F25DF8C00116FBA /* ViewController.swift */,
 				809D23C81F25DF8C00116FBA /* Assets.xcassets */,
 				809D23CD1F25DF8C00116FBA /* Info.plist */,
@@ -380,10 +383,11 @@
 				80206AED1F341AFE0089B868 /* TLPhotoLibrary.swift in Sources */,
 				80206AEE1F341AFE0089B868 /* TLPhotosPickerViewController.swift in Sources */,
 				80206ADF1F341AC80089B868 /* FaceDetecter.swift in Sources */,
-				8019CC331F34736C009C3254 /* TimeLineStruct.swift in Sources */,
+				8019CC331F34736C009C3254 /* TimeLine.swift in Sources */,
 				80206AEF1F341C480089B868 /* AppDelegate.swift in Sources */,
 				80206B001F3433EC0089B868 /* Cluster.m in Sources */,
 				80206ADE1F341AC80089B868 /* VideoWriter.swift in Sources */,
+				80782B411F380B0700BCBE9E /* File.swift in Sources */,
 				80206B011F3433EC0089B868 /* CPoint.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

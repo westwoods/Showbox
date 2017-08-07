@@ -28,7 +28,6 @@
                                 <state key="normal" title="완료"/>
                                 <connections>
                                     <action selector="CompletebuttonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Vct-Ch-oz7"/>
-                                    <segue destination="JkW-ln-7m5" kind="presentation" identifier="Modalsegue" id="sme-Sk-tDx"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cbp-dz-2Vg">

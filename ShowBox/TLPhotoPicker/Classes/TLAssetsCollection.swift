@@ -78,7 +78,7 @@ class TLAssetsCollection {
     
     
     init() {
-        self.title = ""
+        self.title = "allphotos"
         self.localIdentifier = ""
         
     }
