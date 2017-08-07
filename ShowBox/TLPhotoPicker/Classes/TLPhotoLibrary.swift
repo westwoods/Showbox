@@ -226,36 +226,36 @@ extension TLPhotoLibrary {
 					self?.delegate?.loadCameraRollCollection(collection: TLAssetsCollection())
 				}
 			}
-
-			//Selfies
-			getSmartAlbum(subType: .smartAlbumSelfPortraits, result: &assetCollections)
-			//Panoramas
-			getSmartAlbum(subType: .smartAlbumPanoramas, result: &assetCollections)
-			//Favorites
-			getSmartAlbum(subType: .smartAlbumFavorites, result: &assetCollections)
-
-			if allowedVideo {
-				//Videos
-				getSmartAlbum(subType: .smartAlbumVideos, result: &assetCollections)
-			}
-			//Album
-			let albumsResult = PHCollectionList.fetchTopLevelUserCollections(with: nil)
-			albumsResult.enumerateObjects({ (collection, index, stop) -> Void in
-				guard let collection = collection as? PHAssetCollection else { return }
-				let assetsCollection = TLAssetsCollection(collection: collection)
-				assetsCollection.fetchResult = PHAsset.fetchAssets(in: collection, options: options)
-				if assetsCollection.count > 500, !assetCollections.contains(where: { $0.localIdentifier == collection.localIdentifier }) {
-
-					print("asset cont3 ", assetsCollection.count)
-					assetCollections.append(assetsCollection)
-
-					self?.delegate?.focusCollection(collection: assetsCollection)
-				}
-			})
-
-			DispatchQueue.main.async {
-				self?.delegate?.loadCompleteAllCollection(collections: assetCollections)
-			}
+//			TODO카메라롤만 일단 합니다.
+//			//Selfies
+//			getSmartAlbum(subType: .smartAlbumSelfPortraits, result: &assetCollections)
+//			//Panoramas
+//			getSmartAlbum(subType: .smartAlbumPanoramas, result: &assetCollections)
+//			//Favorites
+//			getSmartAlbum(subType: .smartAlbumFavorites, result: &assetCollections)
+//
+//			if allowedVideo {
+//				//Videos
+//				getSmartAlbum(subType: .smartAlbumVideos, result: &assetCollections)
+//			}
+//			//Album
+//			let albumsResult = PHCollectionList.fetchTopLevelUserCollections(with: nil)
+//			albumsResult.enumerateObjects({ (collection, index, stop) -> Void in
+//				guard let collection = collection as? PHAssetCollection else { return }
+//				let assetsCollection = TLAssetsCollection(collection: collection)
+//				assetsCollection.fetchResult = PHAsset.fetchAssets(in: collection, options: options)
+//				if assetsCollection.count > 500, !assetCollections.contains(where: { $0.localIdentifier == collection.localIdentifier }) {
+//
+//					print("asset cont3 ", assetsCollection.count)
+//					assetCollections.append(assetsCollection)
+//
+//					self?.delegate?.focusCollection(collection: assetsCollection)
+//				}
+//			})
+//
+//			DispatchQueue.main.async {
+//				//self?.delegate?.loadCompleteAllCollection(collections: assetCollections)
+//			}
 		}
 	}
 }

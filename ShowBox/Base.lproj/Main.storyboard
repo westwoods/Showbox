@@ -37,6 +37,7 @@
                                 <state key="normal" title="음악선택♪"/>
                                 <connections>
                                     <action selector="MusicButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hCU-U0-XIY"/>
+                                    <segue destination="Gep-Eb-exY" kind="presentation" id="t0c-zJ-AZ3"/>
                                 </connections>
                             </button>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" datePickerMode="date" minuteInterval="30" translatesAutoresizingMaskIntoConstraints="NO" id="ihY-zP-lUJ">
@@ -143,6 +144,67 @@
             </objects>
             <point key="canvasLocation" x="1236" y="129"/>
         </scene>
+        <!--Audio View Controller-->
+        <scene sceneID="GOh-wG-Wnv">
+            <objects>
+                <viewController id="Gep-Eb-exY" customClass="AudioViewController" customModule="ShowBox" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Gnf-3V-8wA"/>
+                        <viewControllerLayoutGuide type="bottom" id="CR6-gD-atE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="7FY-Mp-MRh">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="zQB-FO-2cR">
+                                <rect key="frame" x="0.0" y="102" width="414" height="634"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="90" id="M3m-eg-IXT" customClass="SongTableViewcell" customModule="ShowBox" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="90"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="M3m-eg-IXT" id="Qpw-Sj-rl2">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="90"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="insertPhotoMaterial.png" translatesAutoresizingMaskIntoConstraints="NO" id="jmZ-H7-MBL">
+                                                    <rect key="frame" x="8" y="0.0" width="90" height="90"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zp7-9G-gE3">
+                                                    <rect key="frame" x="106" y="8" width="42" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ysq-lo-fUu" customClass="AKOutputWaveformPlot" customModule="ShowBox" customModuleProvider="target">
+                                                    <rect key="frame" x="106" y="36" width="300" height="45"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </view>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="musicImage" destination="jmZ-H7-MBL" id="pfh-qW-W7e"/>
+                                            <outlet property="musicName" destination="Zp7-9G-gE3" id="9Ai-Z4-zt4"/>
+                                            <outlet property="waveFormPlot" destination="Ysq-lo-fUu" id="q1K-Hm-gxs"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="songTable" destination="zQB-FO-2cR" id="VYu-yI-thz"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zQ1-f6-xoW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-581.15942028985512" y="871.46739130434787"/>
+        </scene>
         <!--Photos Picker View Controller-->
         <scene sceneID="nsH-b2-Bl3">
             <objects>
@@ -152,4 +214,7 @@
             <point key="canvasLocation" x="144" y="833"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="insertPhotoMaterial.png" width="40" height="40"/>
+    </resources>
 </document>

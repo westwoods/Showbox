@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1990E55655B651D32B6AD379 /* Pods_ShowBox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FDF0FEB0DDBA99D78C8BBB0 /* Pods_ShowBox.framework */; };
 		80001E351F341743007FB318 /* TLCollectionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 800B289F1F34126200FD5810 /* TLCollectionTableViewCell.xib */; };
-		80001E371F341743007FB318 /* TLPhotoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 800B28A11F34126200FD5810 /* TLPhotoCollectionViewCell.xib */; };
 		80001E3A1F341743007FB318 /* TLPhotosPickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 800B28A41F34126200FD5810 /* TLPhotosPickerViewController.xib */; };
 		8019CC331F34736C009C3254 /* TimeLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8019CC321F34736C009C3254 /* TimeLine.swift */; };
 		80206ADE1F341AC80089B868 /* VideoWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8027014A1F29786B00A26F3B /* VideoWriter.swift */; };
@@ -30,7 +30,16 @@
 		80206B011F3433EC0089B868 /* CPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 8025A2061F336F7000E03D0B /* CPoint.m */; };
 		80206B021F3433EC0089B868 /* EuclidianDistanceFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = 8025A20D1F336F7000E03D0B /* EuclidianDistanceFunction.m */; };
 		80206B031F3433EC0089B868 /* FileSourceLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 8025A20F1F336F7000E03D0B /* FileSourceLoader.m */; };
+		805B525D1F3883210092F74F /* TLPhotoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 800B28A11F34126200FD5810 /* TLPhotoCollectionViewCell.xib */; };
+		806142C31F389FC2006A34AA /* SongTableViewcell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806142C21F389FC2006A34AA /* SongTableViewcell.swift */; };
 		80782B411F380B0700BCBE9E /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80782B401F380B0700BCBE9E /* File.swift */; };
+		80A02D441F386C1E00073054 /* AudioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A02D431F386C1E00073054 /* AudioViewController.swift */; };
+		80B2AAF91F3861A900627204 /* Atlanta.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 80B2AAF41F3861A900627204 /* Atlanta.mp3 */; };
+		80B2AAFA1F3861A900627204 /* Death_Match.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 80B2AAF51F3861A900627204 /* Death_Match.mp3 */; };
+		80B2AAFB1F3861A900627204 /* Hackbeat.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 80B2AAF61F3861A900627204 /* Hackbeat.mp3 */; };
+		80B2AAFC1F3861A900627204 /* Splashing_Around.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 80B2AAF71F3861A900627204 /* Splashing_Around.mp3 */; };
+		80B2AAFD1F3861A900627204 /* There_You_Go.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 80B2AAF81F3861A900627204 /* There_You_Go.mp3 */; };
+		80B2AAFF1F3861DF00627204 /* File in Resources */ = {isa = PBXBuildFile; fileRef = 80B2AAFE1F3861DF00627204 /* File */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +53,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0186020DAD962199B8C083A1 /* Pods-ShowBox.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShowBox.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ShowBox/Pods-ShowBox.debug.xcconfig"; sourceTree = "<group>"; };
+		10D0AF15126352DCF64BB343 /* Pods-ShowBox.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShowBox.release.xcconfig"; path = "Pods/Target Support Files/Pods-ShowBox/Pods-ShowBox.release.xcconfig"; sourceTree = "<group>"; };
 		800B289B1F34126200FD5810 /* TLAlbumPopView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TLAlbumPopView.swift; sourceTree = "<group>"; };
 		800B289C1F34126200FD5810 /* TLAssetsCollection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TLAssetsCollection.swift; sourceTree = "<group>"; };
 		800B289D1F34126200FD5810 /* TLBundle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TLBundle.swift; sourceTree = "<group>"; };
@@ -74,6 +85,7 @@
 		8025A20F1F336F7000E03D0B /* FileSourceLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileSourceLoader.m; sourceTree = "<group>"; };
 		8025A2101F336F7000E03D0B /* SourceLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SourceLoader.h; sourceTree = "<group>"; };
 		8027014A1F29786B00A26F3B /* VideoWriter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoWriter.swift; sourceTree = "<group>"; };
+		806142C21F389FC2006A34AA /* SongTableViewcell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SongTableViewcell.swift; sourceTree = "<group>"; };
 		80782B401F380B0700BCBE9E /* File.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		809D23BE1F25DF8C00116FBA /* ShowBox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShowBox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		809D23C11F25DF8C00116FBA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -86,7 +98,15 @@
 		809D23DD1F25DF8C00116FBA /* ShowBoxUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ShowBoxUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		809D23E11F25DF8C00116FBA /* test01UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = test01UITests.swift; sourceTree = "<group>"; };
 		809D23E31F25DF8C00116FBA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		80A02D431F386C1E00073054 /* AudioViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AudioViewController.swift; path = ../../../../Desktop/AudioViewController.swift; sourceTree = "<group>"; };
+		80B2AAF41F3861A900627204 /* Atlanta.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Atlanta.mp3; sourceTree = "<group>"; };
+		80B2AAF51F3861A900627204 /* Death_Match.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Death_Match.mp3; sourceTree = "<group>"; };
+		80B2AAF61F3861A900627204 /* Hackbeat.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Hackbeat.mp3; sourceTree = "<group>"; };
+		80B2AAF71F3861A900627204 /* Splashing_Around.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Splashing_Around.mp3; sourceTree = "<group>"; };
+		80B2AAF81F3861A900627204 /* There_You_Go.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = There_You_Go.mp3; sourceTree = "<group>"; };
+		80B2AAFE1F3861DF00627204 /* File */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = File; sourceTree = "<group>"; };
 		80C6FFB81F30AA70000401C1 /* FaceDetecter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FaceDetecter.swift; sourceTree = "<group>"; };
+		9FDF0FEB0DDBA99D78C8BBB0 /* Pods_ShowBox.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShowBox.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +114,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1990E55655B651D32B6AD379 /* Pods_ShowBox.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -117,8 +138,18 @@
 		0EBACF5F5AC3FBE11AAAAE04 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9FDF0FEB0DDBA99D78C8BBB0 /* Pods_ShowBox.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		41D9523928C69C459AE4315E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0186020DAD962199B8C083A1 /* Pods-ShowBox.debug.xcconfig */,
+				10D0AF15126352DCF64BB343 /* Pods-ShowBox.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		800B28991F34126200FD5810 /* TLPhotoPicker */ = {
@@ -179,6 +210,7 @@
 				809D23E01F25DF8C00116FBA /* ShowBoxUITests */,
 				809D23BF1F25DF8C00116FBA /* Products */,
 				0EBACF5F5AC3FBE11AAAAE04 /* Frameworks */,
+				41D9523928C69C459AE4315E /* Pods */,
 			);
 			sourceTree = "<group>";
 			usesTabs = 1;
@@ -196,17 +228,20 @@
 		809D23C01F25DF8C00116FBA /* ShowBox */ = {
 			isa = PBXGroup;
 			children = (
+				80B2AAF31F3861A900627204 /* audioresource */,
 				80206AF21F341D9C0089B868 /* LaunchScreen.storyboard */,
 				80206AF41F341D9C0089B868 /* Main.storyboard */,
 				800B28991F34126200FD5810 /* TLPhotoPicker */,
 				8025A2011F336F7000E03D0B /* ObjC */,
 				809D23C11F25DF8C00116FBA /* AppDelegate.swift */,
+				80A02D431F386C1E00073054 /* AudioViewController.swift */,
 				8019CC321F34736C009C3254 /* TimeLine.swift */,
 				809D23C31F25DF8C00116FBA /* ViewController.swift */,
 				809D23C81F25DF8C00116FBA /* Assets.xcassets */,
 				809D23CD1F25DF8C00116FBA /* Info.plist */,
 				8027014A1F29786B00A26F3B /* VideoWriter.swift */,
 				80C6FFB81F30AA70000401C1 /* FaceDetecter.swift */,
+				806142C21F389FC2006A34AA /* SongTableViewcell.swift */,
 			);
 			path = ShowBox;
 			sourceTree = "<group>";
@@ -229,6 +264,19 @@
 			path = ShowBoxUITests;
 			sourceTree = "<group>";
 		};
+		80B2AAF31F3861A900627204 /* audioresource */ = {
+			isa = PBXGroup;
+			children = (
+				80B2AAF41F3861A900627204 /* Atlanta.mp3 */,
+				80B2AAF51F3861A900627204 /* Death_Match.mp3 */,
+				80B2AAF61F3861A900627204 /* Hackbeat.mp3 */,
+				80B2AAF71F3861A900627204 /* Splashing_Around.mp3 */,
+				80B2AAF81F3861A900627204 /* There_You_Go.mp3 */,
+				80B2AAFE1F3861DF00627204 /* File */,
+			);
+			path = audioresource;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -236,9 +284,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 809D23E61F25DF8C00116FBA /* Build configuration list for PBXNativeTarget "ShowBox" */;
 			buildPhases = (
+				06D507807611FA6B8468E99D /* [CP] Check Pods Manifest.lock */,
 				809D23BA1F25DF8C00116FBA /* Sources */,
 				809D23BB1F25DF8C00116FBA /* Frameworks */,
 				809D23BC1F25DF8C00116FBA /* Resources */,
+				15CEAEABF2326697E05F152B /* [CP] Embed Pods Frameworks */,
+				84F4D039A7AE2E05A2A1F51F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -341,11 +392,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				805B525D1F3883210092F74F /* TLPhotoCollectionViewCell.xib in Resources */,
 				80001E351F341743007FB318 /* TLCollectionTableViewCell.xib in Resources */,
+				80B2AAFA1F3861A900627204 /* Death_Match.mp3 in Resources */,
 				80206AF71F341D9C0089B868 /* Main.storyboard in Resources */,
+				80B2AAFD1F3861A900627204 /* There_You_Go.mp3 in Resources */,
 				80206AF61F341D9C0089B868 /* LaunchScreen.storyboard in Resources */,
 				80001E3A1F341743007FB318 /* TLPhotosPickerViewController.xib in Resources */,
-				80001E371F341743007FB318 /* TLPhotoCollectionViewCell.xib in Resources */,
+				80B2AAFF1F3861DF00627204 /* File in Resources */,
+				80B2AAFB1F3861A900627204 /* Hackbeat.mp3 in Resources */,
+				80B2AAFC1F3861A900627204 /* Splashing_Around.mp3 in Resources */,
+				80B2AAF91F3861A900627204 /* Atlanta.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -365,6 +422,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		06D507807611FA6B8468E99D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		15CEAEABF2326697E05F152B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ShowBox/Pods-ShowBox-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		84F4D039A7AE2E05A2A1F51F /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ShowBox/Pods-ShowBox-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		809D23BA1F25DF8C00116FBA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -379,8 +484,10 @@
 				80206AF81F3433C90089B868 /* DBclustring.m in Sources */,
 				80206AEC1F341AFE0089B868 /* TLPhotoCollectionViewCell.swift in Sources */,
 				80206B031F3433EC0089B868 /* FileSourceLoader.m in Sources */,
+				80A02D441F386C1E00073054 /* AudioViewController.swift in Sources */,
 				80206AF91F3433D60089B868 /* DBScan.m in Sources */,
 				80206AED1F341AFE0089B868 /* TLPhotoLibrary.swift in Sources */,
+				806142C31F389FC2006A34AA /* SongTableViewcell.swift in Sources */,
 				80206AEE1F341AFE0089B868 /* TLPhotosPickerViewController.swift in Sources */,
 				80206ADF1F341AC80089B868 /* FaceDetecter.swift in Sources */,
 				8019CC331F34736C009C3254 /* TimeLine.swift in Sources */,
@@ -533,14 +640,17 @@
 		};
 		809D23E71F25DF8C00116FBA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0186020DAD962199B8C083A1 /* Pods-ShowBox.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 4FQ4R6GQY8;
 				INFOPLIST_FILE = ShowBox/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.dongwoo.ShowBox;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = ShowBox/ObjC/Bridge_Header.h;
 				SWIFT_VERSION = 3.0;
 			};
@@ -548,14 +658,17 @@
 		};
 		809D23E81F25DF8C00116FBA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 10D0AF15126352DCF64BB343 /* Pods-ShowBox.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 4FQ4R6GQY8;
 				INFOPLIST_FILE = ShowBox/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.dongwoo.ShowBox;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = ShowBox/ObjC/Bridge_Header.h;
 				SWIFT_VERSION = 3.0;
 			};

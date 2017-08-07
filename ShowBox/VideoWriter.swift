@@ -165,13 +165,13 @@ class VideoWriter {
 		
 		// create text Layer
 		let titleLayer = CATextLayer()
-		titleLayer.backgroundColor = UIColor.white.cgColor
+		titleLayer.backgroundColor = UIColor.clear.cgColor
 		titleLayer.string = "한글 텍스트도 되나 확인을 하자"+dateString
-		titleLayer.font = UIFont(name: "Helvetica", size: 188)
-		titleLayer.foregroundColor = UIColor.blue.cgColor
-		titleLayer.shadowOpacity = 0.5
+		titleLayer.font = UIFont(name: "Helvetica", size: 288)
+		titleLayer.foregroundColor = UIColor.black.cgColor
+		titleLayer.shadowOpacity = 0.0
 		titleLayer.alignmentMode = kCAAlignmentCenter
-		titleLayer.frame = CGRect(x:0, y:50, width:size.width, height:size.height / 6)
+		titleLayer.frame = CGRect(x:0, y:0, width:size.width, height:size.height )
 		
 		let videolayer = CALayer()
 		videolayer.frame = CGRect(x:0, y:0, width:size.width, height:size.height )
@@ -188,6 +188,7 @@ class VideoWriter {
 			let imglayer = CALayer()
 			imglayer.contents = imglogo?.cgImage
 			imglayer.frame = CGRect(x:0, y:0, width:size.width, height:size.height)
+			imglayer.masksToBounds = true
 			imglayer.opacity = 0
 			imglayer.backgroundColor = UIColor.blue.cgColor
 			parentlayer.addSublayer(imglayer)
@@ -196,10 +197,11 @@ class VideoWriter {
 			myanimation.fromValue = imglayer.opacity
 			myanimation.toValue = 1
 			myanimation.duration = 1.0
+			myanimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
 			myanimation.autoreverses  = true
-			myanimation.beginTime = AVCoreAnimationBeginTimeAtZero + Double(i*3)
-			myanimation.isRemovedOnCompletion = false //애니메이션이 종료되어도 애니메이션을 지우지않는다.
-			myanimation.fillMode = kCAFillModeForwards //애니메이션이 종료된뒤 계속해서 상태를 유지한다.
+			myanimation.beginTime = AVCoreAnimationBeginTimeAtZero + Double(i)
+			//myanimation.isRemovedOnCompletion = false //애니메이션이 종료되어도 애니메이션을 지우지않는다.
+			//myanimation.fillMode = kCAFillModeForwards //애니메이션이 종료된뒤 계속해서 상태를 유지한다.
 			imglayer.add(myanimation, forKey: "opacity")
 		}
 		let layercomposition = layercomposition
