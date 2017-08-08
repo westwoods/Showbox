@@ -13,16 +13,11 @@ import AVFoundation
 class ViewController: UIViewController, TLPhotosPickerViewControllerDelegate{
     @IBOutlet var fromDatePicker: UIDatePicker!
     @IBOutlet var toDatePicker: UIDatePicker!
-	
+	var timediff:TimeInterval = 9*60*60*60
     var mySelectedAsset:TimeLine = TimeLine()
-    var videoReady = false
-    var imageReady = false
-    var videoCount = 0
     var destinationVC:TLPhotosPickerViewController? = nil
     var calender:Calendar = Calendar(identifier: .gregorian)
-    lazy var imageManager = {
-        return PHCachingImageManager()
-    }()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -33,7 +28,7 @@ class ViewController: UIViewController, TLPhotosPickerViewControllerDelegate{
         {
             toDatePicker.date = sender.date //to date가 지금 시간보다 작지않도록 설정
         }
-        destinationVC?.refetchLibrary(fromDate: fromDatePicker.date.addingTimeInterval(9*60*60*60), toDate: toDatePicker.date.addingTimeInterval(9*60*60*60)) //임시방편으로 시간 수정 GMT기준으로 더해줘야할듯.
+        destinationVC?.refetchLibrary(fromDate: fromDatePicker.date.addingTimeInterval(timediff), toDate: toDatePicker.date.addingTimeInterval(timediff)) //임시방편으로 시간 수정 GMT기준으로 더해줘야할듯.
         
     }
     @IBAction func toDateChanged(_ sender: UIDatePicker) {
@@ -42,7 +37,7 @@ class ViewController: UIViewController, TLPhotosPickerViewControllerDelegate{
             fromDatePicker.date = sender.date //from date가 지금 시간보다 크지않도록 설정
         }
         
-        destinationVC?.refetchLibrary(fromDate: fromDatePicker.date.addingTimeInterval(9*60*60*60), toDate: toDatePicker.date.addingTimeInterval(9*60*60*60)) //임시방편으로 시간수정 GMT기준으로 더해줘야할듯.
+        destinationVC?.refetchLibrary(fromDate: fromDatePicker.date.addingTimeInterval(timediff), toDate: toDatePicker.date.addingTimeInterval(timediff)) //임시방편으로 시간수정 GMT기준으로 더해줘야할듯.
     }
     @IBAction func CompletebuttonTapped(_ sender: UIButton) {
         destinationVC?.dismiss(done: true)
@@ -87,6 +82,7 @@ class ViewController: UIViewController, TLPhotosPickerViewControllerDelegate{
     }
 		
 	func allFileReadyHeadler(){
+		print("여기 호출됨")
 			self.mySelectedAsset.removeAll()
 	}
     func dismissPhotoPicker(withPHAssets: [PHAsset]) {
