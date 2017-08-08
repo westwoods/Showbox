@@ -65,7 +65,7 @@ class ViewController: UIViewController, TLPhotosPickerViewControllerDelegate{
                 destinationVC.configure.usedCameraButton = false
             }
         }
-		if segue.identifier == "SelectMusic" {
+		if segue.identifier == "MusicSelect" {
 			let AVC = (segue.destination as! AudioViewController)
 			mySelectedAsset.myBGM = AVC.selectedMusic!
 		}
@@ -83,7 +83,7 @@ class ViewController: UIViewController, TLPhotosPickerViewControllerDelegate{
 		
 	func allFileReadyHeadler(){
 		print("여기 호출됨")
-			self.mySelectedAsset.removeAll()
+		self.mySelectedAsset.removeAll()
 	}
     func dismissPhotoPicker(withPHAssets: [PHAsset]) {
 		// if you want to used phasset.

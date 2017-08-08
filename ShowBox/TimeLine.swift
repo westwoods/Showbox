@@ -83,10 +83,20 @@ public class   TimeLine{
 	var myTimes:[TimeAsset]? = nil
 	var	selectedAssets:[TLPHAsset]? = nil
 	public var myBGM:MusicTime?
+	
+	public var defaultBGM:MusicTime?
+
 	//초기딜레이가 시작한시간~ // 영상이 시작한 시간 // 영상이 끝난시간 // 후기딜레이가 끝난시간 == 다음영상의 초기딜레이 시작
 	
 	init()
 	{
+		
+		let thisBundle = Bundle(for: type(of: self))
+		let url = thisBundle.url(forResource: "Splashing_Around", withExtension: "mp3")
+		let splashign_Around = AVAsset(url: url!)
+		let music = MusicTime.init(timeStart: kCMTimeZero, timePlay: CMTimeAdd(kCMTimeZero, CMTime(seconds: 30.0, preferredTimescale: 100000)), timeEnd: CMTimeAdd(kCMTimeZero, CMTime(seconds: 30.0, preferredTimescale: 100000)), musicAsset: splashign_Around, musicName: "Aplashing_Around", coverImage: #imageLiteral(resourceName: "Atlanta.jpeg"),url: url)
+		myBGM = music
+		defaultBGM = music
 		//TODO
 	}
 	
@@ -108,12 +118,15 @@ public class   TimeLine{
 			}
 		}
 		//세마포 걸어야될수도잇음.
-		complete()
+		if myBGM != nil{
+			print ("음악있음")
+			complete()
+		}
 	}
 	
 	public func removeAll(){
 		myTimes?.removeAll()
 		selectedAssets?.removeAll()
-		myBGM = nil
+		myBGM = defaultBGM
 	}
 }
