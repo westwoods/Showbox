@@ -24,7 +24,7 @@
     [_coordinates addObject:[NSNumber numberWithFloat:coordinate]];
 }
 
-- (void)addIndex:(int)index {
+- (void)addIndex:(long)index {
 		_myindex = index;
 }
 - (float)coordinateAtPosition:(int)position {

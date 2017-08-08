@@ -73,13 +73,17 @@ class ViewController: UIViewController, TLPhotosPickerViewControllerDelegate{
         }
     }
     var selectedAssets = [TLPHAsset]()
+	
     //TLPhotosPickerViewControllerDelegate
-    func dismissPhotoPicker(_ withTLPHAssets: [TLPHAsset]) {
+    func dismissPhotoPicker(withTLPHAssets: [TLPHAsset]) {
         let semaphore = DispatchSemaphore(value: 0)
         
         // use selected order, fullresolution image
         self.selectedAssets = withTLPHAssets
+		self.selectedAssets = self.selectedAssets.sorted(by: { ($0.phAsset?.creationDate)! < ($1.phAsset?.creationDate)!}) // 받아온 이미지들을 시간순으로 정렬
         for i in 0..<self.selectedAssets.count{
+			print(self.selectedAssets[i].faceFeatureFilter.contains(.eye))
+			print(self.selectedAssets[i].phAsset?.creationDate ?? "de")
             if (self.selectedAssets[i].type == TLPHAsset.AssetType.video){
                 self.videoCount += 1
             }
@@ -114,8 +118,8 @@ class ViewController: UIViewController, TLPhotosPickerViewControllerDelegate{
         }
     }
     
-    func dismissPhotoPicker(_ withPHAssets: [PHAsset]) {
-        // if you want to used phasset.
+    func dismissPhotoPicker(withPHAssets: [PHAsset]) {
+		// if you want to used phasset.
     }
     func photoPickerDidCancel() {
         // cancel

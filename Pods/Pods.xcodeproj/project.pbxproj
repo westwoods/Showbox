@@ -1,0 +1,560 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5A4926FE9ACDE0CC79303423A5EEE821 /* Pods-ShowBox-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 188743E8C7297D10D805A92350D48C01 /* Pods-ShowBox-dummy.m */; };
+		696186D90C35C3255BA06C42A59B32AF /* FDAudioContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D0CB3BD6A917FDDEB26F4960A9209C /* FDAudioContext.swift */; };
+		74CC4C8A22647F05330EAEF1C88FE83D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
+		A3B5770ACCA9235EFEEDABF352EE3372 /* FDWaveformView-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E607CB09D1A8978A39006076AB06880 /* FDWaveformView-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BAEB447736040006122A324985377E6D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
+		BC8E9F89C31280986DD8FBE772672EFF /* FDWaveformView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4480A0F024BBD573E2609E08DC82676D /* FDWaveformView.swift */; };
+		CCB81841D0AE2BA51F851BBB8B40C81B /* FDWaveformView-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F3AA546A9134690034E27B9C1672FA24 /* FDWaveformView-dummy.m */; };
+		EA7E4630CDE6B121ADE6BE630D5A003D /* FDWaveformRenderOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15651771559B49803B0A1A28DD1179F9 /* FDWaveformRenderOperation.swift */; };
+		F40D83D456BC73089EE5658D07219DBF /* Pods-ShowBox-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 575574B4AE89EF343322D17F0DF240B7 /* Pods-ShowBox-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		BAABA20E82D4BE6D45A239DC28BCDEF9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 100EAFCCC6E91DEC79D9911111EC3E1D;
+			remoteInfo = FDWaveformView;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		055D3E3D3434C1CC827729E51F4CC770 /* Pods_ShowBox.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_ShowBox.framework; path = "Pods-ShowBox.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		15651771559B49803B0A1A28DD1179F9 /* FDWaveformRenderOperation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FDWaveformRenderOperation.swift; path = Source/FDWaveformRenderOperation.swift; sourceTree = "<group>"; };
+		188743E8C7297D10D805A92350D48C01 /* Pods-ShowBox-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-ShowBox-dummy.m"; sourceTree = "<group>"; };
+		20DB0AB730B5D81CECED268098FFE26D /* Pods-ShowBox-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ShowBox-resources.sh"; sourceTree = "<group>"; };
+		2F49D4CF7C23A7AA2938B88737A7AD58 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		32DAFD9FB9D753D67B957F9FB7F866CB /* FDWaveformView.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = FDWaveformView.xcconfig; sourceTree = "<group>"; };
+		3926FA6CCCC7C6916C887E84F52F3D22 /* Pods-ShowBox.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-ShowBox.modulemap"; sourceTree = "<group>"; };
+		4480A0F024BBD573E2609E08DC82676D /* FDWaveformView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FDWaveformView.swift; path = Source/FDWaveformView.swift; sourceTree = "<group>"; };
+		50E0F0E9BF4C33258FB986BDAC198F12 /* Pods-ShowBox-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ShowBox-acknowledgements.plist"; sourceTree = "<group>"; };
+		575574B4AE89EF343322D17F0DF240B7 /* Pods-ShowBox-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-ShowBox-umbrella.h"; sourceTree = "<group>"; };
+		5E607CB09D1A8978A39006076AB06880 /* FDWaveformView-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FDWaveformView-umbrella.h"; sourceTree = "<group>"; };
+		6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		6EF5F0C44F55BC8D7B6564960B2C25A0 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		86F17F412BC23B8CF5FE636EF1FE90C6 /* Pods-ShowBox-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-ShowBox-acknowledgements.markdown"; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		94947BD74ED5DEE04BC9705EE04205A1 /* FDWaveformView.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = FDWaveformView.modulemap; sourceTree = "<group>"; };
+		AF31FA7F20EBE354A15FE270F293DDA1 /* FDWaveformView-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FDWaveformView-prefix.pch"; sourceTree = "<group>"; };
+		B90230EF2F290FCB5BD452731937C6BA /* Pods-ShowBox-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ShowBox-frameworks.sh"; sourceTree = "<group>"; };
+		E4D0CB3BD6A917FDDEB26F4960A9209C /* FDAudioContext.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FDAudioContext.swift; path = Source/FDAudioContext.swift; sourceTree = "<group>"; };
+		F3AA546A9134690034E27B9C1672FA24 /* FDWaveformView-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "FDWaveformView-dummy.m"; sourceTree = "<group>"; };
+		F896629C130A9098E79078BD25E56CFD /* Pods-ShowBox.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ShowBox.debug.xcconfig"; sourceTree = "<group>"; };
+		FE5CD6AA5713FDF3B8FFF718EB42E668 /* Pods-ShowBox.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ShowBox.release.xcconfig"; sourceTree = "<group>"; };
+		FE9FDFF9B7543C85B10915AAB5049A54 /* FDWaveformView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = FDWaveformView.framework; path = FDWaveformView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3FE87E6D1A15DDE9A54B32DE936E572C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BAEB447736040006122A324985377E6D /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AF7CFD59913800586BD63893BF0782E0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				74CC4C8A22647F05330EAEF1C88FE83D /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		35B3349C6C093CB091A0742AECE59D9C /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				94947BD74ED5DEE04BC9705EE04205A1 /* FDWaveformView.modulemap */,
+				32DAFD9FB9D753D67B957F9FB7F866CB /* FDWaveformView.xcconfig */,
+				F3AA546A9134690034E27B9C1672FA24 /* FDWaveformView-dummy.m */,
+				AF31FA7F20EBE354A15FE270F293DDA1 /* FDWaveformView-prefix.pch */,
+				5E607CB09D1A8978A39006076AB06880 /* FDWaveformView-umbrella.h */,
+				6EF5F0C44F55BC8D7B6564960B2C25A0 /* Info.plist */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/FDWaveformView";
+			sourceTree = "<group>";
+		};
+		3B300BED19B05B6C347519A2509E43AE /* Pods-ShowBox */ = {
+			isa = PBXGroup;
+			children = (
+				2F49D4CF7C23A7AA2938B88737A7AD58 /* Info.plist */,
+				3926FA6CCCC7C6916C887E84F52F3D22 /* Pods-ShowBox.modulemap */,
+				86F17F412BC23B8CF5FE636EF1FE90C6 /* Pods-ShowBox-acknowledgements.markdown */,
+				50E0F0E9BF4C33258FB986BDAC198F12 /* Pods-ShowBox-acknowledgements.plist */,
+				188743E8C7297D10D805A92350D48C01 /* Pods-ShowBox-dummy.m */,
+				B90230EF2F290FCB5BD452731937C6BA /* Pods-ShowBox-frameworks.sh */,
+				20DB0AB730B5D81CECED268098FFE26D /* Pods-ShowBox-resources.sh */,
+				575574B4AE89EF343322D17F0DF240B7 /* Pods-ShowBox-umbrella.h */,
+				F896629C130A9098E79078BD25E56CFD /* Pods-ShowBox.debug.xcconfig */,
+				FE5CD6AA5713FDF3B8FFF718EB42E668 /* Pods-ShowBox.release.xcconfig */,
+			);
+			name = "Pods-ShowBox";
+			path = "Target Support Files/Pods-ShowBox";
+			sourceTree = "<group>";
+		};
+		473DE3D6E240B8BA9E675A9595FFA3D1 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7B5E82EDE7C685A02D44ADD5A4E1623B /* FDWaveformView */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		7B5E82EDE7C685A02D44ADD5A4E1623B /* FDWaveformView */ = {
+			isa = PBXGroup;
+			children = (
+				E4D0CB3BD6A917FDDEB26F4960A9209C /* FDAudioContext.swift */,
+				15651771559B49803B0A1A28DD1179F9 /* FDWaveformRenderOperation.swift */,
+				4480A0F024BBD573E2609E08DC82676D /* FDWaveformView.swift */,
+				35B3349C6C093CB091A0742AECE59D9C /* Support Files */,
+			);
+			name = FDWaveformView;
+			path = FDWaveformView;
+			sourceTree = "<group>";
+		};
+		7DB346D0F39D3F0E887471402A8071AB = {
+			isa = PBXGroup;
+			children = (
+				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
+				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
+				473DE3D6E240B8BA9E675A9595FFA3D1 /* Pods */,
+				CD39C0A857C41AE3DF106CAA8750F065 /* Products */,
+				9C493A8076FEC22242F58CAB3877F474 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		9C493A8076FEC22242F58CAB3877F474 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				3B300BED19B05B6C347519A2509E43AE /* Pods-ShowBox */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D35AF013A5F0BAD4F32504907A52519E /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CD39C0A857C41AE3DF106CAA8750F065 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FE9FDFF9B7543C85B10915AAB5049A54 /* FDWaveformView.framework */,
+				055D3E3D3434C1CC827729E51F4CC770 /* Pods_ShowBox.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D35AF013A5F0BAD4F32504907A52519E /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		552CFF99F4D4FB44C856F0F45E4F8C99 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F40D83D456BC73089EE5658D07219DBF /* Pods-ShowBox-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C69CAC053503E6156B9E13D1D6BA17E3 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A3B5770ACCA9235EFEEDABF352EE3372 /* FDWaveformView-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		100EAFCCC6E91DEC79D9911111EC3E1D /* FDWaveformView */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AAD3C6FE14020D073295F248D5491671 /* Build configuration list for PBXNativeTarget "FDWaveformView" */;
+			buildPhases = (
+				0B0E717326938DB97FC4F16D526375FD /* Sources */,
+				AF7CFD59913800586BD63893BF0782E0 /* Frameworks */,
+				C69CAC053503E6156B9E13D1D6BA17E3 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FDWaveformView;
+			productName = FDWaveformView;
+			productReference = FE9FDFF9B7543C85B10915AAB5049A54 /* FDWaveformView.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		6BB3BB144F348020914FDDF3C80835D7 /* Pods-ShowBox */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C24C0B329FA12D478F8FFCFA977C97D6 /* Build configuration list for PBXNativeTarget "Pods-ShowBox" */;
+			buildPhases = (
+				C335E249510C4D48C6BDE46FE1D8C617 /* Sources */,
+				3FE87E6D1A15DDE9A54B32DE936E572C /* Frameworks */,
+				552CFF99F4D4FB44C856F0F45E4F8C99 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				679CAA4EE8E0B2C1FFB00DE2DAB65BE4 /* PBXTargetDependency */,
+			);
+			name = "Pods-ShowBox";
+			productName = "Pods-ShowBox";
+			productReference = 055D3E3D3434C1CC827729E51F4CC770 /* Pods_ShowBox.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0700;
+			};
+			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
+			productRefGroup = CD39C0A857C41AE3DF106CAA8750F065 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				100EAFCCC6E91DEC79D9911111EC3E1D /* FDWaveformView */,
+				6BB3BB144F348020914FDDF3C80835D7 /* Pods-ShowBox */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		0B0E717326938DB97FC4F16D526375FD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				696186D90C35C3255BA06C42A59B32AF /* FDAudioContext.swift in Sources */,
+				EA7E4630CDE6B121ADE6BE630D5A003D /* FDWaveformRenderOperation.swift in Sources */,
+				CCB81841D0AE2BA51F851BBB8B40C81B /* FDWaveformView-dummy.m in Sources */,
+				BC8E9F89C31280986DD8FBE772672EFF /* FDWaveformView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C335E249510C4D48C6BDE46FE1D8C617 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5A4926FE9ACDE0CC79303423A5EEE821 /* Pods-ShowBox-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		679CAA4EE8E0B2C1FFB00DE2DAB65BE4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = FDWaveformView;
+			target = 100EAFCCC6E91DEC79D9911111EC3E1D /* FDWaveformView */;
+			targetProxy = BAABA20E82D4BE6D45A239DC28BCDEF9 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		062A86B4ACB679A92614FBB9A79290A7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 32DAFD9FB9D753D67B957F9FB7F866CB /* FDWaveformView.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/FDWaveformView/FDWaveformView-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/FDWaveformView/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/FDWaveformView/FDWaveformView.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = FDWaveformView;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		07E925C481DDD32B742C8B0D765D951D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		14EB1DF3356B6A029E46C37D0E895E85 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F896629C130A9098E79078BD25E56CFD /* Pods-ShowBox.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-ShowBox/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-ShowBox/Pods-ShowBox.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_ShowBox;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		71F1A1A938F22EF5B266F328687A4CD7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FE5CD6AA5713FDF3B8FFF718EB42E668 /* Pods-ShowBox.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-ShowBox/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-ShowBox/Pods-ShowBox.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_ShowBox;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		7362F540D4F843C79C032FAA150C6428 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 32DAFD9FB9D753D67B957F9FB7F866CB /* FDWaveformView.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/FDWaveformView/FDWaveformView-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/FDWaveformView/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/FDWaveformView/FDWaveformView.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = FDWaveformView;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		EF2D8301FF834DFF974266BAE40AE54F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EF2D8301FF834DFF974266BAE40AE54F /* Debug */,
+				07E925C481DDD32B742C8B0D765D951D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AAD3C6FE14020D073295F248D5491671 /* Build configuration list for PBXNativeTarget "FDWaveformView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				062A86B4ACB679A92614FBB9A79290A7 /* Debug */,
+				7362F540D4F843C79C032FAA150C6428 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C24C0B329FA12D478F8FFCFA977C97D6 /* Build configuration list for PBXNativeTarget "Pods-ShowBox" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				14EB1DF3356B6A029E46C37D0E895E85 /* Debug */,
+				71F1A1A938F22EF5B266F328687A4CD7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+}
