@@ -1,12 +1,12 @@
 PODS:
-  - AudioKit (3.7.1)
+  - FDWaveformView (2.2.1)
 
 DEPENDENCIES:
-  - AudioKit (~> 3.7)
+  - FDWaveformView
 
 SPEC CHECKSUMS:
-  AudioKit: e04d3282bf904cdf7121965edb067177c6d1c7d1
+  FDWaveformView: 0f2e966d4bf242ab1e747c3a87b2ca10ed9c46b8
 
-PODFILE CHECKSUM: 2ea56b4a8260b636a3d59f52ff063577b4024f4f
+PODFILE CHECKSUM: ca1ee0de5129f3798750e98c7061640c9c3c2ade
 
 COCOAPODS: 1.2.1
