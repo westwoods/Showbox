@@ -9,7 +9,7 @@
 import AVFoundation
 import Photos
 import Foundation
-class TimeAssets{
+public class TimeAssets{
 	public enum AssetType {
 		case photo,video,livePhoto,music,unknown
 	}
@@ -39,11 +39,11 @@ class TimeAssets{
 	}
 }
 class VideoTime:TimeAssets{
-init (timeStart: CMTime, timePlay: CMTime?, timeEnd: CMTime, asset: PHAsset?){
+	init (timeStart: CMTime, timePlay: CMTime?, timeEnd: CMTime, asset: PHAsset?){
 		super.init(timeStart: timeStart, timePlay: timePlay, timeEnd: timeEnd, asset: asset)
 	}
 }
-class MusicTime:TimeAssets{
+public class MusicTime:TimeAssets{
 	var musicName: String = ""
 	var coverImage:UIImage? = nil
 	var url:URL? = nil
@@ -60,14 +60,33 @@ class ImageTime:TimeAssets{
 		super.init(timeStart: timeStart, timePlay: nil, timeEnd: timeEnd, asset: asset)
 	}
 }
-class   TimeLine{
+
+//imageManager.requestAVAsset(forVideo: self.selectedAssets[i].phAsset!, options: options, resultHandler: { (AVAsset, AVAudioMix, info) in
+//	self.mySelectedAsset.myTimes?.(TimeAssets(timeStart: <#T##CMTime#>, timePlay: <#T##CMTime?#>, timeEnd: <#T##CMTime#>, asset: <#T##PHAsset?#>, musicAsset: <#T##AVAsset?#>) //비디오타입 PHAsset -> AVAsset 변환작업
+//	if(self.myVideoAsset.count == self.videoCount )
+//	{
+//	//  VideoWriter.exportAsset(asset: self.myVideoAsset[0])
+//
+//	}
+//	})
+
+public class   TimeLine{
 	
 	var myTimes:[TimeAssets]? = nil
+	var	selectedAssets:[TLPHAsset]? = nil
+	public var myBGM:MusicTime?
  //초기딜레이가 시작한시간~ // 영상이 시작한 시간 // 영상이 끝난시간 // 후기딜레이가 끝난시간 == 다음영상의 초기딜레이 시작
-	
-	
 	init()
-	{
+	{//TODO
+		
+	}
+	public func makeTimeLine(selectedAssets:[TLPHAsset],complete:(()->()) ){
+	
+		print("여기 호출됨")
+		complete()
+	}
+	public func removeAll(){
+		//TODO
 		
 	}
 }

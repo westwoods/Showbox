@@ -13,9 +13,8 @@ import AVFoundation
 class ViewController: UIViewController, TLPhotosPickerViewControllerDelegate{
     @IBOutlet var fromDatePicker: UIDatePicker!
     @IBOutlet var toDatePicker: UIDatePicker!
-    var myVideoAsset:[AVAsset] = []
-    var myPhotoAsset:[UIImage] = []
-    var myAudioAsset:[AVAudioMix] = []
+	
+    var mySelectedAsset:TimeLine = TimeLine()
     var videoReady = false
     var imageReady = false
     var videoCount = 0
@@ -71,53 +70,25 @@ class ViewController: UIViewController, TLPhotosPickerViewControllerDelegate{
                 destinationVC.configure.usedCameraButton = false
             }
         }
+		if segue.identifier == "SelectMusic" {
+			let AVC = (segue.destination as! AudioViewController)
+			mySelectedAsset.myBGM = AVC.selectedMusic!
+		}
+		
     }
     var selectedAssets = [TLPHAsset]()
 	
     //TLPhotosPickerViewControllerDelegate
     func dismissPhotoPicker(withTLPHAssets: [TLPHAsset]) {
-        let semaphore = DispatchSemaphore(value: 0)
-        
         // use selected order, fullresolution image
         self.selectedAssets = withTLPHAssets
 		self.selectedAssets = self.selectedAssets.sorted(by: { ($0.phAsset?.creationDate)! < ($1.phAsset?.creationDate)!}) // 받아온 이미지들을 시간순으로 정렬
-        for i in 0..<self.selectedAssets.count{
-			print(self.selectedAssets[i].faceFeatureFilter.contains(.eye))
-			print(self.selectedAssets[i].phAsset?.creationDate ?? "de")
-            if (self.selectedAssets[i].type == TLPHAsset.AssetType.video){
-                self.videoCount += 1
-            }
-        }
-        for i in 0..<self.selectedAssets.count{
-            let options = PHVideoRequestOptions()
-            if (self.selectedAssets[i].type == TLPHAsset.AssetType.video){
-                imageManager.requestAVAsset(forVideo: self.selectedAssets[i].phAsset!, options: options, resultHandler: { (AVAsset, AVAudioMix, info) in
-                    self.myVideoAsset.append( AVAsset!) //비디오타입 PHAsset -> AVAsset 변환작업
-                    if(self.myVideoAsset.count == self.videoCount )
-                    {
-                        semaphore.wait()
-                        VideoWriter.mergeVideo(self.myVideoAsset,myPhotoAsset: self.myPhotoAsset)
-                        //  VideoWriter.exportAsset(asset: self.myVideoAsset[0])
-                        self.myVideoAsset.removeAll()
-                        self.myPhotoAsset.removeAll()
-                        self.videoCount = 0
-                        
-                    }
-                })
-            }
-            else  if  (self.selectedAssets[i].type == TLPHAsset.AssetType.photo){
-//                print(self.selectedAssets[i].fullResolutionImage?.size.width ?? "이미지가 없다")
-//                print (self.selectedAssets[i].phAsset?.creationDate, self.selectedAssets[i].phAsset?.location)
-                self.myPhotoAsset.append(self.selectedAssets[i].fullResolutionImage!)
-                
-            }
-            if(self.myPhotoAsset.count == self.selectedAssets.count - self.videoCount)
-            {
-                semaphore.signal()
-            }
-        }
+		mySelectedAsset.makeTimeLine(selectedAssets: self.selectedAssets, complete: self.allFileReadyHeadler)
     }
-    
+		
+	func allFileReadyHeadler(){
+			self.mySelectedAsset.removeAll()
+	}
     func dismissPhotoPicker(withPHAssets: [PHAsset]) {
 		// if you want to used phasset.
     }
