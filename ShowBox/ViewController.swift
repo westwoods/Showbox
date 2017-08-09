@@ -40,7 +40,7 @@ class ViewController: UIViewController, TLPhotosPickerViewControllerDelegate{
         destinationVC?.refetchLibrary(fromDate: fromDatePicker.date.addingTimeInterval(timediff), toDate: toDatePicker.date.addingTimeInterval(timediff)) //임시방편으로 시간수정 GMT기준으로 더해줘야할듯.
     }
     @IBAction func CompletebuttonTapped(_ sender: UIButton) {
-        destinationVC?.dismiss(done: true)
+       destinationVC?.dismiss(done: true)
     }
     @IBAction func reselectbuttonTapped(_ sender: UIButton) {
         destinationVC?.dismiss(done: true)
@@ -67,7 +67,7 @@ class ViewController: UIViewController, TLPhotosPickerViewControllerDelegate{
         }
 		if segue.identifier == "ShowBox" {
 			let SVC = (segue.destination as! ShowBoxViewController)
-			print("ShowBOx seg")
+			SVC.selectedAsset = self.mySelectedAsset
 		}
 		
     }
@@ -82,9 +82,7 @@ class ViewController: UIViewController, TLPhotosPickerViewControllerDelegate{
     }
 		
 	func allFileReadyHeadler(){
-		
-		VideoWriter.setAsset(self.mySelectedAsset)
-		//self.mySelectedAsset.removeAll()
+		performSegue(withIdentifier: "ShowBox", sender: nil)
 		
 	}
     func dismissPhotoPicker(withPHAssets: [PHAsset]) {

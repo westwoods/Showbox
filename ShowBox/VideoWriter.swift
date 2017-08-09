@@ -12,13 +12,7 @@ import AVFoundation
 import AssetsLibrary
 
 class VideoWriter {
-	static var mycompletefunc:((AVMutableComposition)->())? = nil
-	static var timeLine:TimeLine? = nil
-	class func setAsset(_ myTimeLine:TimeLine)
-	{
-		VideoWriter.timeLine = myTimeLine
-	}
-	class func mergeVideo(){
+	class func mergeVideo(_ myTimeLine:TimeLine, complete:((AVMutableComposition)->())){
 		let myMutableComposition:AVMutableComposition = AVMutableComposition()
 		let videoCompositionTrack:AVMutableCompositionTrack
 			= myMutableComposition.addMutableTrack(withMediaType: AVMediaTypeVideo, preferredTrackID:  kCMPersistentTrackID_Invalid)
@@ -32,8 +26,8 @@ class VideoWriter {
 		var renderSize:CGSize = CGSize.init(width: 0, height: 0)
 		let mutableVideoCompositon = AVMutableVideoComposition.init()
 		var VideoCompositionInsturction:AVMutableVideoCompositionInstruction? = nil
-		print (timeLine!.myTimes.count)
-		let myTimes = timeLine!.myTimes
+		print (myTimeLine.myTimes.count)
+		let myTimes = myTimeLine.myTimes
 		let audioAssetTrack:AVMutableAudioMix = AVMutableAudioMix()
 		//		audioAssetTrack.inputParameters = AVAudioMixInputParameters( myTimeLine.myBGM?.musicAsset?.tracks(withMediaType: AVMediaTypeAudio)[0])
 		
@@ -85,10 +79,10 @@ class VideoWriter {
 		
 		
 		let session:AVAssetExportSession? = AVAssetExportSession(asset: myMutableComposition, presetName: AVAssetExportPresetHighestQuality)
-		if( mycompletefunc != nil)
-		{
-			mycompletefunc!(myMutableComposition)
-		}
+
+		/***/
+		complete(myMutableComposition)
+		/***/
 		let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first!
 		
 		let exportURL = URL(fileURLWithPath: (paths + "/move3.mov"))

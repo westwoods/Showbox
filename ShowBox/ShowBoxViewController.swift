@@ -5,29 +5,29 @@
 //  Created by snow on 2017. 8. 8..
 //  Copyright © 2017년 snow. All rights reserved.
 //
-
-import Foundation
 import AVKit
 import AVFoundation
+import UIKit
 
 
 class ShowBoxViewController: UIViewController {
 	
-	
 	@IBOutlet var ShowBox: UIView!
 	
-	override public func viewDidLoad() {
+	var selectedAsset:TimeLine? = nil
+	
+	override func viewDidLoad() {
 		super.viewDidLoad()
-		VideoWriter.mycompletefunc = videoout
+			VideoWriter.mergeVideo((selectedAsset)!,complete:videoout)
 	}
+	
 	func videoout(composition:AVMutableComposition){
-		DispatchQueue.main.async {
-			let player = AVPlayer(playerItem: AVPlayerItem(asset: composition))
+				selectedAsset?.removeAll()
+		let player = AVPlayer(playerItem: AVPlayerItem(asset: composition))
 			print (composition.duration)
 			let playerLayer = AVPlayerLayer(player: player)
 			playerLayer.frame = self.ShowBox.bounds
 			self.ShowBox.layer.addSublayer(playerLayer)
 			player.play()
-		}
 	}
 }
