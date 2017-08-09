@@ -33,6 +33,8 @@
 		803F12CE1F3982E4006C36B3 /* Atlanta.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 803F12CC1F3982E4006C36B3 /* Atlanta.jpeg */; };
 		803F12CF1F3982E4006C36B3 /* Splashing_Around.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 803F12CD1F3982E4006C36B3 /* Splashing_Around.jpg */; };
 		805B525D1F3883210092F74F /* TLPhotoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 800B28A11F34126200FD5810 /* TLPhotoCollectionViewCell.xib */; };
+		805D80111F39BC8400F1C3F8 /* MusicTimeTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 805D80101F39BC8400F1C3F8 /* MusicTimeTable.swift */; };
+		805D80131F39ECD300F1C3F8 /* ShowBoxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 805D80121F39ECD300F1C3F8 /* ShowBoxViewController.swift */; };
 		806142C31F389FC2006A34AA /* MusicTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806142C21F389FC2006A34AA /* MusicTableViewCell.swift */; };
 		80782B411F380B0700BCBE9E /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80782B401F380B0700BCBE9E /* File.swift */; };
 		80A02D441F386C1E00073054 /* AudioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A02D431F386C1E00073054 /* AudioViewController.swift */; };
@@ -90,6 +92,8 @@
 		803F12C81F3970CD006C36B3 /* FDWaveformView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FDWaveformView.framework; path = "../../../Library/Developer/Xcode/DerivedData/ShowBox-gghizcvmyuxhirebvwgboewuuzkk/Build/Products/Debug-iphoneos/FDWaveformView/FDWaveformView.framework"; sourceTree = "<group>"; };
 		803F12CC1F3982E4006C36B3 /* Atlanta.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Atlanta.jpeg; sourceTree = "<group>"; };
 		803F12CD1F3982E4006C36B3 /* Splashing_Around.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Splashing_Around.jpg; sourceTree = "<group>"; };
+		805D80101F39BC8400F1C3F8 /* MusicTimeTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MusicTimeTable.swift; path = ObjC/MusicTimeTable.swift; sourceTree = "<group>"; };
+		805D80121F39ECD300F1C3F8 /* ShowBoxViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowBoxViewController.swift; sourceTree = "<group>"; };
 		806142C21F389FC2006A34AA /* MusicTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicTableViewCell.swift; sourceTree = "<group>"; };
 		80782B401F380B0700BCBE9E /* File.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		809D23BE1F25DF8C00116FBA /* ShowBox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShowBox.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -103,7 +107,7 @@
 		809D23DD1F25DF8C00116FBA /* ShowBoxUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ShowBoxUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		809D23E11F25DF8C00116FBA /* test01UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = test01UITests.swift; sourceTree = "<group>"; };
 		809D23E31F25DF8C00116FBA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		80A02D431F386C1E00073054 /* AudioViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AudioViewController.swift; path = ../../../../Desktop/AudioViewController.swift; sourceTree = "<group>"; };
+		80A02D431F386C1E00073054 /* AudioViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioViewController.swift; sourceTree = "<group>"; };
 		80B2AAF41F3861A900627204 /* Atlanta.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Atlanta.mp3; sourceTree = "<group>"; };
 		80B2AAF51F3861A900627204 /* Death_Match.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Death_Match.mp3; sourceTree = "<group>"; };
 		80B2AAF61F3861A900627204 /* Hackbeat.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Hackbeat.mp3; sourceTree = "<group>"; };
@@ -208,6 +212,17 @@
 			path = ShowBox/ObjC;
 			sourceTree = SOURCE_ROOT;
 		};
+		805D80141F39EFC600F1C3F8 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				809D23CD1F25DF8C00116FBA /* Info.plist */,
+				809D23C81F25DF8C00116FBA /* Assets.xcassets */,
+				80206AF41F341D9C0089B868 /* Main.storyboard */,
+				80206AF21F341D9C0089B868 /* LaunchScreen.storyboard */,
+			);
+			name = "Support Files";
+			sourceTree = "<group>";
+		};
 		809D23B51F25DF8C00116FBA = {
 			isa = PBXGroup;
 			children = (
@@ -234,17 +249,16 @@
 		809D23C01F25DF8C00116FBA /* ShowBox */ = {
 			isa = PBXGroup;
 			children = (
-				80B2AAF31F3861A900627204 /* audioresource */,
-				80206AF21F341D9C0089B868 /* LaunchScreen.storyboard */,
-				80206AF41F341D9C0089B868 /* Main.storyboard */,
+				805D80141F39EFC600F1C3F8 /* Support Files */,
+				80B2AAF31F3861A900627204 /* Audio */,
 				800B28991F34126200FD5810 /* TLPhotoPicker */,
 				8025A2011F336F7000E03D0B /* ObjC */,
 				809D23C11F25DF8C00116FBA /* AppDelegate.swift */,
+				805D80101F39BC8400F1C3F8 /* MusicTimeTable.swift */,
+				805D80121F39ECD300F1C3F8 /* ShowBoxViewController.swift */,
 				80A02D431F386C1E00073054 /* AudioViewController.swift */,
 				8019CC321F34736C009C3254 /* TimeLine.swift */,
 				809D23C31F25DF8C00116FBA /* ViewController.swift */,
-				809D23C81F25DF8C00116FBA /* Assets.xcassets */,
-				809D23CD1F25DF8C00116FBA /* Info.plist */,
 				8027014A1F29786B00A26F3B /* VideoWriter.swift */,
 				80C6FFB81F30AA70000401C1 /* FaceDetecter.swift */,
 				806142C21F389FC2006A34AA /* MusicTableViewCell.swift */,
@@ -270,7 +284,7 @@
 			path = ShowBoxUITests;
 			sourceTree = "<group>";
 		};
-		80B2AAF31F3861A900627204 /* audioresource */ = {
+		80B2AAF31F3861A900627204 /* Audio */ = {
 			isa = PBXGroup;
 			children = (
 				803F12CC1F3982E4006C36B3 /* Atlanta.jpeg */,
@@ -282,7 +296,7 @@
 				80B2AAF81F3861A900627204 /* There_You_Go.mp3 */,
 				80B2AAFE1F3861DF00627204 /* File */,
 			);
-			path = audioresource;
+			path = Audio;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -497,7 +511,9 @@
 				80A02D441F386C1E00073054 /* AudioViewController.swift in Sources */,
 				80206AF91F3433D60089B868 /* DBScan.m in Sources */,
 				80206AED1F341AFE0089B868 /* TLPhotoLibrary.swift in Sources */,
+				805D80131F39ECD300F1C3F8 /* ShowBoxViewController.swift in Sources */,
 				806142C31F389FC2006A34AA /* MusicTableViewCell.swift in Sources */,
+				805D80111F39BC8400F1C3F8 /* MusicTimeTable.swift in Sources */,
 				80206AEE1F341AFE0089B868 /* TLPhotosPickerViewController.swift in Sources */,
 				80206ADF1F341AC80089B868 /* FaceDetecter.swift in Sources */,
 				8019CC331F34736C009C3254 /* TimeLine.swift in Sources */,

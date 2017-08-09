@@ -19,14 +19,10 @@ public class TLPHAsset {
 	public enum AssetType {
 		case photo,video,livePhoto
 	}
-	
-	public enum FaceFeatures {
-		case none , eye, smile, many
-	}
 	public var phAsset: PHAsset? = nil
 	public var selectedOrder: Int = 0
 	public var selectedHighLight: Int = 0  //0 nomal 1 selected 2 highlighted
-	public var faceFeatureFilter:[FaceFeatures] = []
+	public var faceFeatureFilter:[TimeAsset.FaceFeatures] = []
 	public var type: AssetType {
 		get {
 			guard let phAsset = self.phAsset else { return .photo }
