@@ -330,11 +330,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ShowBox/VideoWriter.swift"
-            timestampString = "523970792.211417"
+            timestampString = "523972356.69489"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "104"
-            endingLineNumber = "104"
+            startingLineNumber = "105"
+            endingLineNumber = "105"
             landmarkName = "mergeVideo(_:complete:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -519,12 +519,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ShowBox/VideoWriter.swift"
-            timestampString = "523971178.743647"
+            timestampString = "523972356.69489"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "292"
-            endingLineNumber = "292"
-            landmarkName = "over(_:layercomposition:photosToOverlay:)"
+            startingLineNumber = "185"
+            endingLineNumber = "185"
+            landmarkName = "preViewOverlay(_:layercomposition:photosToOverlay:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -535,12 +535,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ShowBox/VideoWriter.swift"
-            timestampString = "523971178.743647"
+            timestampString = "523972438.681119"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "343"
-            endingLineNumber = "343"
-            landmarkName = "over(_:layercomposition:photosToOverlay:)"
+            startingLineNumber = "232"
+            endingLineNumber = "232"
+            landmarkName = "preViewOverlay(_:layercomposition:photosToOverlay:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -551,12 +551,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ShowBox/VideoWriter.swift"
-            timestampString = "523971178.743647"
+            timestampString = "523972438.681119"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "343"
-            endingLineNumber = "343"
-            landmarkName = "over(_:layercomposition:photosToOverlay:)"
+            startingLineNumber = "232"
+            endingLineNumber = "232"
+            landmarkName = "preViewOverlay(_:layercomposition:photosToOverlay:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

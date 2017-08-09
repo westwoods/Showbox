@@ -27,13 +27,17 @@ class ShowBoxViewController: UIViewController {
         let playerItem = AVPlayerItem(asset: composition)
         playerItem.videoComposition = mutableVideoCom//비디오 컴포지션 설정
 		let synclayer:AVSynchronizedLayer = AVSynchronizedLayer.init(playerItem: playerItem)
-		synclayer.frame = self.ShowBox.layer.frame
+		synclayer.frame = self.ShowBox.bounds
 		synclayer.addSublayer(layer )
 		
 		let player = AVPlayer(playerItem: playerItem)
 			print (composition.duration)
 			let playerLayer = AVPlayerLayer(player: player)
 			playerLayer.frame = self.ShowBox.bounds
+			print(playerLayer.frame)
+			print(self.ShowBox.bounds)
+			print(synclayer.frame)
+			print(self.ShowBox.layer.frame)
 			playerLayer.addSublayer(synclayer)
 			self.ShowBox.layer.addSublayer(playerLayer)
 			player.play()
