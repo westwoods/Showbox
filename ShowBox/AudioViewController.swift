@@ -32,6 +32,11 @@ public class AudioViewController: UITableViewController,FDWaveformViewDelegate {
 		splashign_Around = AVAsset(url: url!)
 		music = MusicTime.init(timeStart: kCMTimeZero, timePlay: CMTimeAdd(kCMTimeZero, CMTime(seconds: 30.0, preferredTimescale: 100000)), timeEnd: CMTimeAdd(kCMTimeZero, CMTime(seconds: 30.0, preferredTimescale: 100000)), musicAsset: splashign_Around, musicName: "Atlanta", coverImage: #imageLiteral(resourceName: "Splashing_Around.jpg"),url: url)
 		musics += [music]
+		
+		url = thisBundle.url(forResource: "Humidity", withExtension: "mp3")
+		splashign_Around = AVAsset(url: url!)
+		music = MusicTime.init(timeStart: kCMTimeZero, timePlay: CMTimeAdd(kCMTimeZero, CMTime(seconds: 30.0, preferredTimescale: 100000)), timeEnd: CMTimeAdd(kCMTimeZero, CMTime(seconds: 30.0, preferredTimescale: 100000)), musicAsset: splashign_Around, musicName: "Humidity", coverImage: #imageLiteral(resourceName: "humidity_albumJacket.jpg"),url: url)
+		musics += [music]
 		self.selectedMusic = musics[0]
 	}
 	
