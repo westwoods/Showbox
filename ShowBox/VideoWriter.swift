@@ -14,15 +14,21 @@ import AssetsLibrary
 class VideoWriter {
 	class func mergeVideo(_ myTimeLine:TimeLine, complete:((AVMutableComposition)->())){
 		let myMutableComposition:AVMutableComposition = AVMutableComposition()
+		//*************************************트랙생성
 		let videoCompositionTrack:AVMutableCompositionTrack
 			= myMutableComposition.addMutableTrack(withMediaType: AVMediaTypeVideo, preferredTrackID:  kCMPersistentTrackID_Invalid)
 		let audioCompositionTrack:AVMutableCompositionTrack =
 				myMutableComposition.addMutableTrack(withMediaType: AVMediaTypeAudio, preferredTrackID:  kCMPersistentTrackID_Invalid)
-		let nextDelayTime:TimeInterval = 3
+		let BGMCompositionTrack:AVMutableCompositionTrack =
+			myMutableComposition.addMutableTrack(withMediaType: AVMediaTypeAudio, preferredTrackID:  kCMPersistentTrackID_Invalid)
+		//************************************트랙생성 끝
+		//************************************딜레이, 시작시간 설정
+		let nextDelayTime:TimeInterval = 2
 		var startTime:CMTime = kCMTimeZero
 		let nextDelay:CMTime = CMTimeMakeWithSeconds(nextDelayTime, 1000000);
 		
 		startTime = CMTimeAdd(startTime,nextDelay)
+		//*************************************딜레이 시작시간 설정 끝
 		var renderSize:CGSize = CGSize.init(width: 0, height: 0)
 		let mutableVideoCompositon = AVMutableVideoComposition.init()
 		var VideoCompositionInsturction:AVMutableVideoCompositionInstruction? = nil
@@ -36,6 +42,7 @@ class VideoWriter {
 			print(assetDuration)
 			assetDurationWithNextDelay = CMTimeAdd(assetDuration!, nextDelay)
 			let videoAssetTrack:AVAssetTrack =  myTimes[Index].vAsset!.tracks(withMediaType: AVMediaTypeVideo)[0]
+			let audioAssetTrack:AVAssetTrack =  myTimes[Index].vAsset!.tracks(withMediaType: AVMediaTypeAudio)[0]
 			
 			//렌더링 사이즈 결정
 			if renderSize.width < videoAssetTrack.naturalSize.width{
@@ -47,6 +54,7 @@ class VideoWriter {
 			
 			do{
 				try videoCompositionTrack.insertTimeRange(CMTimeRangeMake(kCMTimeZero,assetDurationWithNextDelay),of:videoAssetTrack, at:startTime)
+				try audioCompositionTrack.insertTimeRange(CMTimeRangeMake(kCMTimeZero,assetDurationWithNextDelay),of:audioAssetTrack, at:startTime)
 				
 			}
 			catch{
@@ -60,9 +68,10 @@ class VideoWriter {
 				VideoCompositionInsturction = AVMutableVideoCompositionInstruction.init()
 				VideoCompositionInsturction!.timeRange = CMTimeRangeMake(startTime,assetDurationWithNextDelay)
 			}
+			/*********영상 위치, 회전, 설정***********/
 			let VideoLayerInstruction =
 				AVMutableVideoCompositionLayerInstruction(assetTrack: videoCompositionTrack)
-			VideoLayerInstruction.setTransform(videoAssetTrack.preferredTransform, at: startTime)
+				VideoLayerInstruction.setTransform(videoAssetTrack.preferredTransform.rotated(by: 90), at: startTime)
 			
 			VideoCompositionInsturction!.layerInstructions = [VideoLayerInstruction]
 			mutableVideoCompositon.instructions.append(VideoCompositionInsturction!)
@@ -70,11 +79,11 @@ class VideoWriter {
 			
 			startTime = CMTimeAdd(startTime, assetDurationWithNextDelay)
 		}
-//TODO
-		let audioAssetTrack:AVAssetTrack =  (myTimeLine.defaultBGM?.musicAsset?.tracks(withMediaType: AVMediaTypeAudio)[0])!
+		//배경음악
+		let audioAssetTrack:AVAssetTrack =  (myTimeLine.myBGM?.musicAsset?.tracks(withMediaType: AVMediaTypeAudio)[0])!
 		
 		do{
-			try audioCompositionTrack.insertTimeRange(CMTimeRangeMake(kCMTimeZero,startTime),of:audioAssetTrack, at:kCMTimeZero)
+			try BGMCompositionTrack.insertTimeRange(CMTimeRangeMake(kCMTimeZero,startTime),of:audioAssetTrack, at:kCMTimeZero)
 		}
 		catch{
 		}

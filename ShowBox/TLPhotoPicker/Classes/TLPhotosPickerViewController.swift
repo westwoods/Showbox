@@ -389,6 +389,7 @@ extension TLPhotosPickerViewController {
 			self.delegate?.dismissPhotoPicker(withTLPHAssets: self.selectedAssets)
 			self.completionWithTLPHAssets?(self.selectedAssets)
 			self.completionWithPHAssets?(self.selectedAssets.flatMap{ $0.phAsset })
+			self.stopPlay()
 		}else {
 			self.delegate?.photoPickerDidCancel()
 			self.didCancel?()

@@ -80,7 +80,9 @@ public class AudioViewController: UITableViewController,FDWaveformViewDelegate {
 		player = AVPlayer(playerItem:playerItem)
 		player.rate = 1.0;
 		player.play()
+		
 	}
+	
 	}
 	
 	func updateWaveformTypeButtons() {
