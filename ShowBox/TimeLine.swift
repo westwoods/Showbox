@@ -19,7 +19,7 @@ public class TimeAsset{
 	public enum FaceFeatures {
 		case none , eye, smile, many
 	}
-	let asset:PHAsset?
+	var passet:UIImage?
 	let aAsset:AVAudioMix?
 	let musicAsset:AVAsset?
 	var vAsset:AVAsset?
@@ -32,11 +32,11 @@ public class TimeAsset{
 	public var selectedHighLight: SelectedHighLight = .none  //0 nomal 1 selected 2 highlighted
 	public var faces:[FaceFeatures] = []
 	
-	init (timeStart : CMTime,  timePlay : CMTime?, timeEnd : CMTime,		asset :PHAsset? = nil, vAsset:AVAsset? = nil, musicAsset:AVAsset? = nil, aAsset:AVAudioMix? = nil, type:AssetType = AssetType.unknown){
+	init (timeStart : CMTime,  timePlay : CMTime?, timeEnd : CMTime,		passet :UIImage? = nil, vAsset:AVAsset? = nil, musicAsset:AVAsset? = nil, aAsset:AVAudioMix? = nil, type:AssetType = AssetType.unknown){
 		self.timeStart = timeStart
 		self.timePlay = timePlay
 		self.timeEnd = timeEnd
-		self.asset = asset
+		self.passet = passet
 		self.aAsset = aAsset
 		self.vAsset = vAsset
 		self.musicAsset = musicAsset
@@ -69,6 +69,7 @@ class ImageTime:TimeAsset{
 	{
 		super.init(timeStart: timeStart, timePlay: nil, timeEnd: timeEnd)
 		self.type = AssetType.photo
+		self.passet = asset
 		self.faces = faces
 	}
 }

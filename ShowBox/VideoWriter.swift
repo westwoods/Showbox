@@ -12,7 +12,7 @@ import AVFoundation
 import AssetsLibrary
 
 class VideoWriter {
-	class func mergeVideo(_ myTimeLine:TimeLine, complete:((AVMutableComposition,AVMutableVideoComposition)->())){
+	class func mergeVideo(_ myTimeLine:TimeLine, complete:((AVComposition,AVMutableVideoComposition,CALayer)->())){
 		let myMutableComposition:AVMutableComposition = AVMutableComposition()
 		//*************************************트랙생성
 		let videoCompositionTrack:AVMutableCompositionTrack
@@ -86,59 +86,63 @@ class VideoWriter {
 		}
 		catch{
 		}
+		var mlayer:CALayer = CALayer()
 		
-		if( myTimes.count < 0){
-			//		VideoWriter.over(renderSize, layercomposition: mutableVideoCompositon,  photosToOverlay: myPhotoAsset)
-		}
 		mutableVideoCompositon.renderSize = renderSize
-		// Set the frame duration to an appropriate value (i.e. 30 frames per second for video).
 		mutableVideoCompositon.frameDuration = CMTimeMake(1,30);
 		
-		
-		let session:AVAssetExportSession? = AVAssetExportSession(asset: myMutableComposition, presetName: AVAssetExportPreset1280x720)
-		
-		/***/
-		complete(myMutableComposition , mutableVideoCompositon)
-		/***/
-		let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first!
-		
-		let exportURL = URL(fileURLWithPath: (paths + "/move3.mov"))
-		do{
-			try VideoWriter.deleteExistingFile(exportURL)
-		}catch {
-			print("THERE IS NO FILE")
+		let MVCforpreView:AVMutableVideoComposition =	mutableVideoCompositon.mutableCopy() as! AVMutableVideoComposition
+		//프리뷰를 위한 깊은 복사
+		if( myTimes.count > 0){
+				mlayer = VideoWriter.over(renderSize, layercomposition: mutableVideoCompositon,  photosToOverlay: myTimes)
 		}
-		if let session = session
-		{
-			session.outputURL = exportURL
-			session.outputFileType = AVFileTypeQuickTimeMovie
-			//session.shouldOptimizeForNetworkUse = true
-			session.videoComposition = mutableVideoCompositon
-			session.exportAsynchronously(completionHandler: {
-				print("Output File Type: \(session.outputFileType ?? "FILE TYPE MIA")")
-				print("Output URL: \(session.outputURL?.absoluteString ?? "URL MIA")")
-				print("Video Compatible W/ Camera Roll: \(session.asset.isCompatibleWithSavedPhotosAlbum)")
-				//-----SAVE-----
-				if session.status == AVAssetExportSessionStatus.completed
-				{
-					print("Export Finished")
-					PHPhotoLibrary.shared().performChanges({
-						PHAssetChangeRequest.creationRequestForAssetFromVideo(atFileURL: exportURL)
-					}) { saved, error in
-						if saved { print("Saved")}
-						else{ print(error as Any)}
-					}
-				}
-				else if session.status == AVAssetExportSessionStatus.failed{
-					print("Export Error: \(session.error ?? "ERR" as! Error)")
-					print("Export Failed")
-				}
-				else{
-					print("Export Cancelled")
-				}
-			})
+		
+		// Set the frame duration to an appropriate value (i.e. 30 frames per second for video).
+		
+//		let session:AVAssetExportSession? = AVAssetExportSession(asset: myMutableComposition, presetName: AVAssetExportPreset1280x720)
+//		
+		/***/
+		complete(myMutableComposition  , MVCforpreView, mlayer)
+		/***/
+//		let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first!
+//		
+//		let exportURL = URL(fileURLWithPath: (paths + "/move3.mov"))
+//		do{
+//			try VideoWriter.deleteExistingFile(exportURL)
+//		}catch {
+//			print("THERE IS NO FILE")
+//		}
+//		if let session = session
+//		{
+//			session.outputURL = exportURL
+//			session.outputFileType = AVFileTypeQuickTimeMovie
+//			//session.shouldOptimizeForNetworkUse = true
+//			session.videoComposition = mutableVideoCompositon
+//			session.exportAsynchronously(completionHandler: {
+//				print("Output File Type: \(session.outputFileType ?? "FILE TYPE MIA")")
+//				print("Output URL: \(session.outputURL?.absoluteString ?? "URL MIA")")
+//				print("Video Compatible W/ Camera Roll: \(session.asset.isCompatibleWithSavedPhotosAlbum)")
+//				//-----SAVE-----
+//				if session.status == AVAssetExportSessionStatus.completed
+//				{
+//					print("Export Finished")
+//					PHPhotoLibrary.shared().performChanges({
+//						PHAssetChangeRequest.creationRequestForAssetFromVideo(atFileURL: exportURL)
+//					}) { saved, error in
+//						if saved { print("Saved")}
+//						else{ print(error as Any)}
+//					}
+//				}
+//				else if session.status == AVAssetExportSessionStatus.failed{
+//					print("Export Error: \(session.error ?? "ERR" as! Error)")
+//					print("Export Failed")
+//				}
+//				else{
+//					print("Export Cancelled")
+//				}
+//			})
 			
-		}
+//		}
 	}
 	
 	class func mergeVideo(_ myVideoAsset:[AVAsset],myPhotoAsset:[UIImage])
@@ -283,6 +287,61 @@ class VideoWriter {
 		})
 	}
 	
+	class func over(_ size:CGSize,layercomposition:AVMutableVideoComposition,photosToOverlay:[TimeAsset])->CALayer{
+		let size = size
+		print(photosToOverlay.count)
+		let today = Date() //현재 시각 구하기
+		let dateFormatter = DateFormatter()
+		dateFormatter.dateFormat = "yy_M_d_hh:mm:ss"
+		let dateString = dateFormatter.string(from: today as Date)
+		
+		// create text Layer
+		let titleLayer = CATextLayer()
+		titleLayer.backgroundColor = UIColor.clear.cgColor
+		titleLayer.string = "한글 텍스트도 되나 확인을 하자"+dateString
+		titleLayer.font = UIFont(name: "Helvetica", size: 88)
+		titleLayer.foregroundColor = UIColor.black.cgColor
+		titleLayer.shadowOpacity = 0.0
+		titleLayer.alignmentMode = kCAAlignmentCenter
+		titleLayer.frame = CGRect(x:0, y:0, width:size.width, height:size.height )
+		
+		let videolayer = CALayer()
+		videolayer.frame = CGRect(x:0, y:0, width:size.width, height:size.height )
+		let parentlayer = CALayer()
+		parentlayer.frame = CGRect(x:0, y:0, width:size.width, height:size.height )
+		parentlayer.addSublayer(videolayer)
+		parentlayer.addSublayer(titleLayer)
+		for i in 0..<photosToOverlay.count
+		{
+			
+			let imglogo:UIImage? = #imageLiteral(resourceName: "Atlanta.jpeg")
+			let imglayer = CALayer()
+			imglayer.contents = imglogo?.cgImage
+			imglayer.frame = CGRect(x:0, y:0, width:size.width, height:size.height)
+			imglayer.masksToBounds = true
+			imglayer.opacity = 0.0
+			imglayer.backgroundColor = UIColor.blue.cgColor
+			
+			let myanimation:CABasicAnimation = CABasicAnimation(keyPath: "opacity")
+			myanimation.fromValue = imglayer.opacity
+			myanimation.toValue = 1
+			myanimation.duration = 1.0
+			myanimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
+			myanimation.autoreverses  = true
+			myanimation.beginTime = AVCoreAnimationBeginTimeAtZero + Double(i*3)
+			
+			myanimation.isRemovedOnCompletion = false //애니메이션이 종료되어도 애니메이션을 지우지않는다.
+			myanimation.fillMode = kCAFillModeForwards //애니메이션이 종료된뒤 계속해서 상태를 유지한다.
+			imglayer.add(myanimation, forKey: "opacity")
+			
+			parentlayer.addSublayer(imglayer)
+		}
+		let layercomposition = layercomposition
+		layercomposition.animationTool = AVVideoCompositionCoreAnimationTool(postProcessingAsVideoLayer: videolayer, in: parentlayer)
+
+
+		return parentlayer
+	}
 	class func over(_ size:CGSize,layercomposition:AVMutableVideoComposition,photosToOverlay:[UIImage]){
 		let size = size
 		print(photosToOverlay.count)
