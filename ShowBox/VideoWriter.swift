@@ -45,10 +45,10 @@ class VideoWriter {
 			
 			//렌더링 사이즈 결정
 			if renderSize.width < videoAssetTrack.naturalSize.width{
-				renderSize.width = videoAssetTrack.naturalSize.width
+				renderSize.width = 1280
 			}
 			if renderSize.height < videoAssetTrack.naturalSize.height{
-				renderSize.height = videoAssetTrack.naturalSize.height
+				renderSize.height = 720
 			}
 			
 			do{
@@ -70,7 +70,7 @@ class VideoWriter {
 			/*********영상 위치, 회전, 설정***********/
 			let VideoLayerInstruction =
 				AVMutableVideoCompositionLayerInstruction(assetTrack: videoCompositionTrack)
-				VideoLayerInstruction.setTransform(videoAssetTrack.preferredTransform, at: startTime)
+				//VideoLayerInstruction.setTransform(videoAssetTrack.preferredTransform, at: startTime)
 			
 			VideoCompositionInsturction!.layerInstructions = [VideoLayerInstruction]
 			mutableVideoCompositon.instructions.append(VideoCompositionInsturction!)
@@ -87,15 +87,15 @@ class VideoWriter {
 		catch{
 		}
 		var player:CALayer = CALayer()
-		var elayer:CALayer = CALayer()
 		mutableVideoCompositon.renderSize = renderSize
+		print(renderSize)
 		mutableVideoCompositon.frameDuration = CMTimeMake(1,30);
 		
 		let MVCforpreView:AVMutableVideoComposition =	mutableVideoCompositon.mutableCopy() as! AVMutableVideoComposition
 		//프리뷰를 위한 깊은 복사
 		if( myTimes.count > 0){
 				player = VideoWriter.preViewOverlay(renderSize, layercomposition: mutableVideoCompositon,  photosToOverlay: myTimes)
-				elayer = VideoWriter.exportOverlay(renderSize, layercomposition: mutableVideoCompositon,  photosToOverlay: myTimes)
+				VideoWriter.exportOverlay(renderSize, layercomposition: mutableVideoCompositon,  photosToOverlay: myTimes)
 		}
 		
 		// Set the frame duration to an appropriate value (i.e. 30 frames per second for video).
@@ -181,7 +181,7 @@ class VideoWriter {
 	}
 	
 	class func preViewOverlay(_ size:CGSize,layercomposition:AVMutableVideoComposition,photosToOverlay:[TimeAsset])->CALayer{
-		let size = CGRect(x: 0, y: 0, width: 414, height: 338)
+		let size = CGRect(x: 0, y: (338 - 720/(1280/414) )/4, width: 414, height: 720/(1280/414))
 		print(photosToOverlay.count)
 		let today = Date() //현재 시각 구하기
 		let dateFormatter = DateFormatter()
@@ -190,27 +190,28 @@ class VideoWriter {
 		
 		// create text Layer
 		let titleLayer = CATextLayer()
-		titleLayer.backgroundColor = UIColor.clear.cgColor
-		titleLayer.string = "한글 텍스트도 되나 확인을 하자"+dateString
-		titleLayer.font = UIFont(name: "Helvetica", size: 88)
+		titleLayer.backgroundColor = UIColor.white.cgColor
+		titleLayer.string = "aaabbb"+dateString
+		titleLayer.font = UIFont(name: "Helvetica", size: 10)
+		titleLayer.fontSize = 20/3
 		titleLayer.foregroundColor = UIColor.black.cgColor
 		titleLayer.shadowOpacity = 0.0
 		titleLayer.alignmentMode = kCAAlignmentCenter
-		titleLayer.frame = CGRect(x:0, y:0, width:size.width, height:size.height )
+		titleLayer.frame = size
 		
 		let videolayer = CALayer()
-		videolayer.frame = CGRect(x:0, y:0, width:size.width, height:size.height )
+		videolayer.frame = size
 		let parentlayer = CALayer()
-		parentlayer.frame = CGRect(x:0, y:0, width:size.width, height:size.height )
+		parentlayer.frame = size
 		parentlayer.addSublayer(videolayer)
 		parentlayer.addSublayer(titleLayer)
 		for i in 0..<photosToOverlay.count
 		{
 			
-			let imglogo:UIImage? = #imageLiteral(resourceName: "Atlanta.jpeg")
+			let imglogo:UIImage? = #imageLiteral(resourceName: "humidity_albumJacket.jpg")
 			let imglayer = CALayer()
 			imglayer.contents = imglogo?.cgImage
-			imglayer.frame = CGRect(x:0, y:0, width:size.width, height:size.height)
+			imglayer.frame = size
 			imglayer.masksToBounds = true
 			imglayer.opacity = 0.0
 			imglayer.backgroundColor = UIColor.blue.cgColor
@@ -231,7 +232,7 @@ class VideoWriter {
 		}
 			return parentlayer
 	}
-	class func exportOverlay(_ size:CGSize,layercomposition:AVMutableVideoComposition,photosToOverlay:[TimeAsset])->CALayer{
+	class func exportOverlay(_ size:CGSize,layercomposition:AVMutableVideoComposition,photosToOverlay:[TimeAsset]){
 		let size = size
 		print(photosToOverlay.count)
 		let today = Date() //현재 시각 구하기
@@ -244,6 +245,7 @@ class VideoWriter {
 		titleLayer.backgroundColor = UIColor.clear.cgColor
 		titleLayer.string = "한글 텍스트도 되나 확인을 하자"+dateString
 		titleLayer.font = UIFont(name: "Helvetica", size: 88)
+		titleLayer.fontSize = 88
 		titleLayer.foregroundColor = UIColor.black.cgColor
 		titleLayer.shadowOpacity = 0.0
 		titleLayer.alignmentMode = kCAAlignmentCenter
@@ -282,9 +284,6 @@ class VideoWriter {
 		}
 		let layercomposition = layercomposition
 		layercomposition.animationTool = AVVideoCompositionCoreAnimationTool(postProcessingAsVideoLayer: videolayer, in: parentlayer)
-		
-		
-		return parentlayer
 	}
 	class func deleteExistingFile(_ destinationURL: URL) throws {
 		let fileManager = FileManager()
