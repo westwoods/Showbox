@@ -12,7 +12,7 @@ import AVFoundation
 import AssetsLibrary
 
 class VideoWriter {
-	class func mergeVideo(_ myTimeLine:TimeLine, complete:((AVMutableComposition)->())){
+	class func mergeVideo(_ myTimeLine:TimeLine, complete:((AVMutableComposition,AVMutableVideoComposition)->())){
 		let myMutableComposition:AVMutableComposition = AVMutableComposition()
 		//*************************************트랙생성
 		let videoCompositionTrack:AVMutableCompositionTrack
@@ -39,7 +39,6 @@ class VideoWriter {
 		var assetDurationWithNextDelay = kCMTimeZero
 		for Index in 0..<myTimes.count{
 			let assetDuration = myTimes[Index].vAsset?.duration
-			print(assetDuration)
 			assetDurationWithNextDelay = CMTimeAdd(assetDuration!, nextDelay)
 			let videoAssetTrack:AVAssetTrack =  myTimes[Index].vAsset!.tracks(withMediaType: AVMediaTypeVideo)[0]
 			let audioAssetTrack:AVAssetTrack =  myTimes[Index].vAsset!.tracks(withMediaType: AVMediaTypeAudio)[0]
@@ -71,7 +70,7 @@ class VideoWriter {
 			/*********영상 위치, 회전, 설정***********/
 			let VideoLayerInstruction =
 				AVMutableVideoCompositionLayerInstruction(assetTrack: videoCompositionTrack)
-				VideoLayerInstruction.setTransform(videoAssetTrack.preferredTransform.rotated(by: 90), at: startTime)
+				VideoLayerInstruction.setTransform(videoAssetTrack.preferredTransform, at: startTime)
 			
 			VideoCompositionInsturction!.layerInstructions = [VideoLayerInstruction]
 			mutableVideoCompositon.instructions.append(VideoCompositionInsturction!)
@@ -96,10 +95,10 @@ class VideoWriter {
 		mutableVideoCompositon.frameDuration = CMTimeMake(1,30);
 		
 		
-		let session:AVAssetExportSession? = AVAssetExportSession(asset: myMutableComposition, presetName: AVAssetExportPresetHighestQuality)
+		let session:AVAssetExportSession? = AVAssetExportSession(asset: myMutableComposition, presetName: AVAssetExportPreset1280x720)
 		
 		/***/
-		complete(myMutableComposition)
+		complete(myMutableComposition , mutableVideoCompositon)
 		/***/
 		let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first!
 		

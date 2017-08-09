@@ -21,10 +21,12 @@ class ShowBoxViewController: UIViewController {
 			VideoWriter.mergeVideo((selectedAsset)!,complete:videoout)
 	}
 	
-	func videoout(composition:AVMutableComposition){
+	func videoout(composition:AVMutableComposition,layer:AVMutableVideoComposition){
 		
 				selectedAsset?.removeAll()
-		let player = AVPlayer(playerItem: AVPlayerItem(asset: composition))
+        let playerItem = AVPlayerItem(asset: composition)
+        playerItem.videoComposition = layer //비디오 컴포지션 설정
+		let player = AVPlayer(playerItem: playerItem)
 			print (composition.duration)
 			let playerLayer = AVPlayerLayer(player: player)
 			playerLayer.frame = self.ShowBox.bounds

@@ -140,7 +140,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="back"/>
                                 <connections>
-                                    <segue destination="sWI-VS-pkC" kind="unwind" unwindAction="exitFromViewController:" id="4Sf-Ic-6OI"/>
+                                    <segue destination="sWI-VS-pkC" kind="unwind" identifier="toMain_" unwindAction="exitFromViewController:" id="4Sf-Ic-6OI"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZBh-Ch-qXk">
@@ -158,7 +158,7 @@
                     </view>
                     <connections>
                         <outlet property="ShowBox" destination="ZBh-Ch-qXk" id="oix-T5-nIU"/>
-                        <segue destination="sWI-VS-pkC" kind="unwind" unwindAction="exitFromViewController:" id="Vgm-4E-uey"/>
+                        <segue destination="sWI-VS-pkC" kind="unwind" identifier="toMain" unwindAction="exitFromViewController:" id="Vgm-4E-uey"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uCX-gj-63V" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -230,7 +230,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="배경음악 선택" id="hdv-wi-5se">
-                        <barButtonItem key="leftBarButtonItem" style="plain" id="4CS-Sw-7Sh">
+                        <barButtonItem key="leftBarButtonItem" id="4CS-Sw-7Sh">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="UhQ-3D-KsB">
                                 <rect key="frame" x="20" y="7" width="92" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -242,7 +242,7 @@
                                 </connections>
                             </button>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="Txs-Bo-176">
+                        <barButtonItem key="rightBarButtonItem" id="Txs-Bo-176">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="6E0-Qx-eyw">
                                 <rect key="frame" x="302" y="7" width="92" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
