@@ -65,9 +65,9 @@ class ViewController: UIViewController, TLPhotosPickerViewControllerDelegate{
                 destinationVC.configure.usedCameraButton = false
             }
         }
-		if segue.identifier == "MusicSelect" {
-			let AVC = (segue.destination as! AudioViewController)
-			mySelectedAsset.myBGM = AVC.selectedMusic!
+		if segue.identifier == "ShowBox" {
+			let SVC = (segue.destination as! ShowBoxViewController)
+			print("ShowBOx seg")
 		}
 		
     }
@@ -82,8 +82,10 @@ class ViewController: UIViewController, TLPhotosPickerViewControllerDelegate{
     }
 		
 	func allFileReadyHeadler(){
-		print("여기 호출됨")
-		self.mySelectedAsset.removeAll()
+		
+		VideoWriter.setAsset(self.mySelectedAsset)
+		//self.mySelectedAsset.removeAll()
+		
 	}
     func dismissPhotoPicker(withPHAssets: [PHAsset]) {
 		// if you want to used phasset.

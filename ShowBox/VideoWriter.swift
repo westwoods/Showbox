@@ -12,6 +12,123 @@ import AVFoundation
 import AssetsLibrary
 
 class VideoWriter {
+	static var mycompletefunc:((AVMutableComposition)->())? = nil
+	static var timeLine:TimeLine? = nil
+	class func setAsset(_ myTimeLine:TimeLine)
+	{
+		VideoWriter.timeLine = myTimeLine
+	}
+	class func mergeVideo(){
+		let myMutableComposition:AVMutableComposition = AVMutableComposition()
+		let videoCompositionTrack:AVMutableCompositionTrack
+			= myMutableComposition.addMutableTrack(withMediaType: AVMediaTypeVideo, preferredTrackID:  kCMPersistentTrackID_Invalid)
+		//	let audioCompositionTrack:AVMutableCompositionTrack =
+		//		myMutableComposition.addMutableTrack(withMediaType: AVMediaTypeAudio, preferredTrackID:  kCMPersistentTrackID_Invalid)
+		let nextDelayTime:TimeInterval = 3
+		var startTime:CMTime = kCMTimeZero
+		let nextDelay:CMTime = CMTimeMakeWithSeconds(nextDelayTime, 1000000);
+		
+		startTime = CMTimeAdd(startTime,nextDelay)
+		var renderSize:CGSize = CGSize.init(width: 0, height: 0)
+		let mutableVideoCompositon = AVMutableVideoComposition.init()
+		var VideoCompositionInsturction:AVMutableVideoCompositionInstruction? = nil
+		print (timeLine!.myTimes.count)
+		let myTimes = timeLine!.myTimes
+		let audioAssetTrack:AVMutableAudioMix = AVMutableAudioMix()
+		//		audioAssetTrack.inputParameters = AVAudioMixInputParameters( myTimeLine.myBGM?.musicAsset?.tracks(withMediaType: AVMediaTypeAudio)[0])
+		
+		for Index in 0..<myTimes.count{
+			let assetDuration = myTimes[Index].vAsset?.duration
+			print(assetDuration)
+			let assetDurationWithNextDelay = CMTimeAdd(assetDuration!, nextDelay)
+			let videoAssetTrack:AVAssetTrack =  myTimes[Index].vAsset!.tracks(withMediaType: AVMediaTypeVideo)[0]
+			
+			//렌더링 사이즈 결정
+			if renderSize.width < videoAssetTrack.naturalSize.width{
+				renderSize.width = videoAssetTrack.naturalSize.width
+			}
+			if renderSize.height < videoAssetTrack.naturalSize.height{
+				renderSize.height = videoAssetTrack.naturalSize.height
+			}
+			
+			do{
+				try videoCompositionTrack.insertTimeRange(CMTimeRangeMake(kCMTimeZero,assetDurationWithNextDelay),of:videoAssetTrack, at:startTime)
+				
+			}
+			catch{
+			}
+			//  인스트럭션 결정
+			if VideoCompositionInsturction == nil {
+				VideoCompositionInsturction = AVMutableVideoCompositionInstruction.init()
+				VideoCompositionInsturction!.timeRange = CMTimeRangeMake(kCMTimeZero,CMTimeAdd(assetDurationWithNextDelay,startTime))
+			}
+			else{
+				VideoCompositionInsturction = AVMutableVideoCompositionInstruction.init()
+				VideoCompositionInsturction!.timeRange = CMTimeRangeMake(startTime,assetDurationWithNextDelay)
+			}
+			let VideoLayerInstruction =
+				AVMutableVideoCompositionLayerInstruction(assetTrack: videoCompositionTrack)
+			VideoLayerInstruction.setTransform(videoAssetTrack.preferredTransform, at: startTime)
+			
+			VideoCompositionInsturction!.layerInstructions = [VideoLayerInstruction]
+			mutableVideoCompositon.instructions.append(VideoCompositionInsturction!)
+			
+			
+			startTime = CMTimeAdd(startTime, assetDurationWithNextDelay)
+		}
+		if( myTimes.count < 0){
+			//		VideoWriter.over(renderSize, layercomposition: mutableVideoCompositon,  photosToOverlay: myPhotoAsset)
+		}
+		mutableVideoCompositon.renderSize = renderSize
+		// Set the frame duration to an appropriate value (i.e. 30 frames per second for video).
+		mutableVideoCompositon.frameDuration = CMTimeMake(1,30);
+		
+		
+		let session:AVAssetExportSession? = AVAssetExportSession(asset: myMutableComposition, presetName: AVAssetExportPresetHighestQuality)
+		if( mycompletefunc != nil)
+		{
+			mycompletefunc!(myMutableComposition)
+		}
+		let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first!
+		
+		let exportURL = URL(fileURLWithPath: (paths + "/move3.mov"))
+		do{
+			try VideoWriter.deleteExistingFile(exportURL)
+		}catch {
+			print("THERE IS NO FILE")
+		}
+		if let session = session
+		{
+			session.outputURL = exportURL
+			session.outputFileType = AVFileTypeQuickTimeMovie
+			//session.shouldOptimizeForNetworkUse = true
+			session.videoComposition = mutableVideoCompositon
+			session.exportAsynchronously(completionHandler: {
+				print("Output File Type: \(session.outputFileType ?? "FILE TYPE MIA")")
+				print("Output URL: \(session.outputURL?.absoluteString ?? "URL MIA")")
+				print("Video Compatible W/ Camera Roll: \(session.asset.isCompatibleWithSavedPhotosAlbum)")
+				//-----SAVE-----
+				if session.status == AVAssetExportSessionStatus.completed
+				{
+					print("Export Finished")
+					PHPhotoLibrary.shared().performChanges({
+						PHAssetChangeRequest.creationRequestForAssetFromVideo(atFileURL: exportURL)
+					}) { saved, error in
+						if saved { print("Saved")}
+						else{ print(error as Any)}
+					}
+				}
+				else if session.status == AVAssetExportSessionStatus.failed{
+					print("Export Error: \(session.error ?? "ERR" as! Error)")
+					print("Export Failed")
+				}
+				else{
+					print("Export Cancelled")
+				}
+			})
+			
+		}
+	}
 	
 	class func mergeVideo(_ myVideoAsset:[AVAsset],myPhotoAsset:[UIImage])
 	{
