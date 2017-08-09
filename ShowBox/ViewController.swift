@@ -13,17 +13,11 @@ import AVFoundation
 class ViewController: UIViewController, TLPhotosPickerViewControllerDelegate{
     @IBOutlet var fromDatePicker: UIDatePicker!
     @IBOutlet var toDatePicker: UIDatePicker!
-    var myVideoAsset:[AVAsset] = []
-    var myPhotoAsset:[UIImage] = []
-    var myAudioAsset:[AVAudioMix] = []
-    var videoReady = false
-    var imageReady = false
-    var videoCount = 0
+	var timediff:TimeInterval = 9*60*60*60
+    var mySelectedAsset:TimeLine = TimeLine()
     var destinationVC:TLPhotosPickerViewController? = nil
     var calender:Calendar = Calendar(identifier: .gregorian)
-    lazy var imageManager = {
-        return PHCachingImageManager()
-    }()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -34,7 +28,7 @@ class ViewController: UIViewController, TLPhotosPickerViewControllerDelegate{
         {
             toDatePicker.date = sender.date //to date가 지금 시간보다 작지않도록 설정
         }
-        destinationVC?.refetchLibrary(fromDate: fromDatePicker.date.addingTimeInterval(9*60*60*60), toDate: toDatePicker.date.addingTimeInterval(9*60*60*60)) //임시방편으로 시간 수정 GMT기준으로 더해줘야할듯.
+        destinationVC?.refetchLibrary(fromDate: fromDatePicker.date.addingTimeInterval(timediff), toDate: toDatePicker.date.addingTimeInterval(timediff)) //임시방편으로 시간 수정 GMT기준으로 더해줘야할듯.
         
     }
     @IBAction func toDateChanged(_ sender: UIDatePicker) {
@@ -43,10 +37,10 @@ class ViewController: UIViewController, TLPhotosPickerViewControllerDelegate{
             fromDatePicker.date = sender.date //from date가 지금 시간보다 크지않도록 설정
         }
         
-        destinationVC?.refetchLibrary(fromDate: fromDatePicker.date.addingTimeInterval(9*60*60*60), toDate: toDatePicker.date.addingTimeInterval(9*60*60*60)) //임시방편으로 시간수정 GMT기준으로 더해줘야할듯.
+        destinationVC?.refetchLibrary(fromDate: fromDatePicker.date.addingTimeInterval(timediff), toDate: toDatePicker.date.addingTimeInterval(timediff)) //임시방편으로 시간수정 GMT기준으로 더해줘야할듯.
     }
     @IBAction func CompletebuttonTapped(_ sender: UIButton) {
-        destinationVC?.dismiss(done: true)
+       destinationVC?.dismiss(done: true)
     }
     @IBAction func reselectbuttonTapped(_ sender: UIButton) {
         destinationVC?.dismiss(done: true)
@@ -71,51 +65,28 @@ class ViewController: UIViewController, TLPhotosPickerViewControllerDelegate{
                 destinationVC.configure.usedCameraButton = false
             }
         }
+		if segue.identifier == "ShowBox" {
+			let SVC = (segue.destination as! ShowBoxViewController)
+			SVC.selectedAsset = self.mySelectedAsset
+		}
+		
     }
     var selectedAssets = [TLPHAsset]()
+	
     //TLPhotosPickerViewControllerDelegate
-    func dismissPhotoPicker(_ withTLPHAssets: [TLPHAsset]) {
-        let semaphore = DispatchSemaphore(value: 0)
-        
+    func dismissPhotoPicker(withTLPHAssets: [TLPHAsset]) {
         // use selected order, fullresolution image
         self.selectedAssets = withTLPHAssets
-        for i in 0..<self.selectedAssets.count{
-            if (self.selectedAssets[i].type == TLPHAsset.AssetType.video){
-                self.videoCount += 1
-            }
-        }
-        for i in 0..<self.selectedAssets.count{
-            let options = PHVideoRequestOptions()
-            if (self.selectedAssets[i].type == TLPHAsset.AssetType.video){
-                imageManager.requestAVAsset(forVideo: self.selectedAssets[i].phAsset!, options: options, resultHandler: { (AVAsset, AVAudioMix, info) in
-                    self.myVideoAsset.append( AVAsset!) //비디오타입 PHAsset -> AVAsset 변환작업
-                    if(self.myVideoAsset.count == self.videoCount )
-                    {
-                        semaphore.wait()
-                        VideoWriter.mergeVideo(self.myVideoAsset,myPhotoAsset: self.myPhotoAsset)
-                        //  VideoWriter.exportAsset(asset: self.myVideoAsset[0])
-                        self.myVideoAsset.removeAll()
-                        self.myPhotoAsset.removeAll()
-                        self.videoCount = 0
-                        
-                    }
-                })
-            }
-            else  if  (self.selectedAssets[i].type == TLPHAsset.AssetType.photo){
-//                print(self.selectedAssets[i].fullResolutionImage?.size.width ?? "이미지가 없다")
-//                print (self.selectedAssets[i].phAsset?.creationDate, self.selectedAssets[i].phAsset?.location)
-                self.myPhotoAsset.append(self.selectedAssets[i].fullResolutionImage!)
-                
-            }
-            if(self.myPhotoAsset.count == self.selectedAssets.count - self.videoCount)
-            {
-                semaphore.signal()
-            }
-        }
+		self.selectedAssets = self.selectedAssets.sorted(by: { ($0.phAsset?.creationDate)! < ($1.phAsset?.creationDate)!}) // 받아온 이미지들을 시간순으로 정렬
+		mySelectedAsset.makeTimeLine(selectedAssets: self.selectedAssets, complete: self.allFileReadyHeadler)
     }
-    
-    func dismissPhotoPicker(_ withPHAssets: [PHAsset]) {
-        // if you want to used phasset.
+		
+	func allFileReadyHeadler(){
+		performSegue(withIdentifier: "ShowBox", sender: nil)
+		
+	}
+    func dismissPhotoPicker(withPHAssets: [PHAsset]) {
+		// if you want to used phasset.
     }
     func photoPickerDidCancel() {
         // cancel
