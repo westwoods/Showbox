@@ -22,6 +22,7 @@ class ShowBoxViewController: UIViewController {
 	}
 	
 	func videoout(composition:AVMutableComposition){
+		
 				selectedAsset?.removeAll()
 		let player = AVPlayer(playerItem: AVPlayerItem(asset: composition))
 			print (composition.duration)

@@ -16,8 +16,8 @@ class VideoWriter {
 		let myMutableComposition:AVMutableComposition = AVMutableComposition()
 		let videoCompositionTrack:AVMutableCompositionTrack
 			= myMutableComposition.addMutableTrack(withMediaType: AVMediaTypeVideo, preferredTrackID:  kCMPersistentTrackID_Invalid)
-		//	let audioCompositionTrack:AVMutableCompositionTrack =
-		//		myMutableComposition.addMutableTrack(withMediaType: AVMediaTypeAudio, preferredTrackID:  kCMPersistentTrackID_Invalid)
+		let audioCompositionTrack:AVMutableCompositionTrack =
+				myMutableComposition.addMutableTrack(withMediaType: AVMediaTypeAudio, preferredTrackID:  kCMPersistentTrackID_Invalid)
 		let nextDelayTime:TimeInterval = 3
 		var startTime:CMTime = kCMTimeZero
 		let nextDelay:CMTime = CMTimeMakeWithSeconds(nextDelayTime, 1000000);
@@ -28,13 +28,13 @@ class VideoWriter {
 		var VideoCompositionInsturction:AVMutableVideoCompositionInstruction? = nil
 		print (myTimeLine.myTimes.count)
 		let myTimes = myTimeLine.myTimes
-		let audioAssetTrack:AVMutableAudioMix = AVMutableAudioMix()
+		//let audioAssetTrack:AVMutableAudioMix = AVMutableAudioMix()
 		//		audioAssetTrack.inputParameters = AVAudioMixInputParameters( myTimeLine.myBGM?.musicAsset?.tracks(withMediaType: AVMediaTypeAudio)[0])
-		
+		var assetDurationWithNextDelay = kCMTimeZero
 		for Index in 0..<myTimes.count{
 			let assetDuration = myTimes[Index].vAsset?.duration
 			print(assetDuration)
-			let assetDurationWithNextDelay = CMTimeAdd(assetDuration!, nextDelay)
+			assetDurationWithNextDelay = CMTimeAdd(assetDuration!, nextDelay)
 			let videoAssetTrack:AVAssetTrack =  myTimes[Index].vAsset!.tracks(withMediaType: AVMediaTypeVideo)[0]
 			
 			//렌더링 사이즈 결정
@@ -70,6 +70,15 @@ class VideoWriter {
 			
 			startTime = CMTimeAdd(startTime, assetDurationWithNextDelay)
 		}
+//TODO
+		let audioAssetTrack:AVAssetTrack =  (myTimeLine.defaultBGM?.musicAsset?.tracks(withMediaType: AVMediaTypeAudio)[0])!
+		
+		do{
+			try audioCompositionTrack.insertTimeRange(CMTimeRangeMake(kCMTimeZero,startTime),of:audioAssetTrack, at:kCMTimeZero)
+		}
+		catch{
+		}
+		
 		if( myTimes.count < 0){
 			//		VideoWriter.over(renderSize, layercomposition: mutableVideoCompositon,  photosToOverlay: myPhotoAsset)
 		}
@@ -79,7 +88,7 @@ class VideoWriter {
 		
 		
 		let session:AVAssetExportSession? = AVAssetExportSession(asset: myMutableComposition, presetName: AVAssetExportPresetHighestQuality)
-
+		
 		/***/
 		complete(myMutableComposition)
 		/***/
