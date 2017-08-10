@@ -25,17 +25,17 @@ public class TimeAsset{
 	var vAsset:AVAsset?
 	var type: AssetType = .unknown
 	var timeStart:CMTime
-	var timePlay:CMTime?
-	var timeEnd:CMTime
+	var timePlayEnd:CMTime?
+	var timeDelayEnd:CMTime
 	
 	public var selectedOrder: Int = 0
 	public var selectedHighLight: SelectedHighLight = .none  //0 nomal 1 selected 2 highlighted
 	public var faces:[FaceFeatures] = []
 	
-	init (timeStart : CMTime,  timePlay : CMTime?, timeEnd : CMTime,		passet :UIImage? = nil, vAsset:AVAsset? = nil, musicAsset:AVAsset? = nil, aAsset:AVAudioMix? = nil, type:AssetType = AssetType.unknown){
+	init (timeStart : CMTime,  timePlayEnd : CMTime?, timeDelayEnd : CMTime,		passet :UIImage? = nil, vAsset:AVAsset? = nil, musicAsset:AVAsset? = nil, aAsset:AVAudioMix? = nil, type:AssetType = AssetType.unknown){
 		self.timeStart = timeStart
-		self.timePlay = timePlay
-		self.timeEnd = timeEnd
+		self.timePlayEnd = timePlayEnd
+		self.timeDelayEnd = timeDelayEnd
 		self.passet = passet
 		self.aAsset = aAsset
 		self.vAsset = vAsset
@@ -45,9 +45,10 @@ public class TimeAsset{
 
 
 class VideoTime:TimeAsset{
-	init (timeStart: CMTime, timePlay: CMTime?, timeEnd: CMTime, vAsset: AVAsset?,aAsset:AVAudioMix?){
-		super.init(timeStart: timeStart, timePlay: timePlay, timeEnd: timeEnd, vAsset: vAsset,aAsset:aAsset)
-
+	init (timeStart: CMTime, timePlayEnd: CMTime?, timeDelayEnd: CMTime, vAsset: AVAsset?){
+		super.init(timeStart: timeStart, timePlayEnd: timePlayEnd, timeDelayEnd: timeDelayEnd, vAsset: vAsset)
+		
+		self.type = AssetType.video
 	}
 }
 
@@ -56,7 +57,7 @@ public class MusicTime:TimeAsset{
 	var coverImage:UIImage? = nil
 	var url:URL? = nil
 	init (timeStart: CMTime, timePlay: CMTime?, timeEnd: CMTime, musicAsset: AVAsset?,musicName:String, coverImage:UIImage?, url:URL?){
-		super.init(timeStart: timeStart, timePlay: timePlay, timeEnd: timeEnd, musicAsset: musicAsset)
+		super.init(timeStart: timeStart, timePlayEnd: timePlay, timeDelayEnd: timeEnd, musicAsset: musicAsset)
 		self.url = url
 		self.coverImage = coverImage
 		self.musicName = musicName
@@ -65,9 +66,9 @@ public class MusicTime:TimeAsset{
 }
 
 class ImageTime:TimeAsset{
-	init (timeStart: CMTime, timeEnd: CMTime, asset: UIImage, faces:[FaceFeatures])
+	init (timeStart: CMTime, timePlayEnd: CMTime, asset: UIImage, faces:[FaceFeatures])
 	{
-		super.init(timeStart: timeStart, timePlay: nil, timeEnd: timeEnd)
+		super.init(timeStart: timeStart, timePlayEnd: timePlayEnd, timeDelayEnd: kCMTimeInvalid)
 		self.type = AssetType.photo
 		self.passet = asset
 		self.faces = faces
@@ -92,6 +93,7 @@ public class   TimeLine{
 	var semaphore:DispatchSemaphore = DispatchSemaphore(value: 0)
 	//초기딜레이가 시작한시간~ // 영상이 시작한 시간 // 영상이 끝난시간 // 후기딜레이가 끝난시간 == 다음영상의 초기딜레이 시작
 	
+	
 	init()
 	{
 		
@@ -105,30 +107,57 @@ public class   TimeLine{
 	}
 	
 	public func makeTimeLine(selectedAssets:[TLPHAsset],complete:@escaping (()->()) ){
+		
+		let nextDelayTime:TimeInterval = 2
+		var startTime:CMTime = kCMTimeZero
+		let nextDelay:CMTime = CMTimeMakeWithSeconds(nextDelayTime, 3000000);
 		semaphore = DispatchSemaphore(value: 0)
 		self.selectedAssets = selectedAssets
 		self.complete = complete
+		
+		let thisBundle = Bundle(for: type(of: self))
+		let introAsset = AVAsset(url:  thisBundle.url(forResource: "intro", withExtension: "MOV")!)
+		let intro = VideoTime(timeStart: startTime, timePlayEnd:kCMTimeZero, timeDelayEnd: kCMTimeZero, vAsset:introAsset)
+		self.myTimes.append(	intro)
+		var latestVideo:VideoTime = intro
 		for i in 0..<selectedAssets.count
 		{
 			let temp = selectedAssets[i]
 			if temp.type == TLPHAsset.AssetType.video{
 				let options = PHVideoRequestOptions()
 				imageManager.requestAVAsset(forVideo: temp.phAsset!, options: options, resultHandler: { (AVAsset, AVAudioMix, info) in
-					self.myTimes.append(	VideoTime(timeStart: kCMTimeZero, timePlay: kCMTimeZero, timeEnd: kCMTimeZero, vAsset: AVAsset, aAsset:AVAudioMix))
+					latestVideo.timeDelayEnd = startTime // 이전 영상이 다음 영상의 시작 시간까지 담당.
+					
+					debugPrint("TD Lvideo start", latestVideo.timeStart,"\n")
+					debugPrint("TD Lvideo dend", latestVideo.timeDelayEnd,"\n")
+
+					let nextVideo = VideoTime(timeStart: startTime, timePlayEnd:CMTimeAdd(startTime, (AVAsset?.duration)!), timeDelayEnd: kCMTimeInvalid, vAsset: AVAsset)
+					self.myTimes.append(	nextVideo )
+					
+					debugPrint("TD Nvideo start", nextVideo.timeStart,"\n")
+					debugPrint("TD Nvideo dend", nextVideo.timeDelayEnd,"\n")
+					latestVideo = nextVideo
+					startTime = CMTimeAdd(startTime, (AVAsset?.duration)!)
 					self.semaphore.signal()
 				})
-				
 				semaphore.wait()
 			}
 			else{
 				if temp.type == TLPHAsset.AssetType.photo{
-					myTimes.append(ImageTime(timeStart: kCMTimeZero, timeEnd: kCMTimeZero, asset: temp.fullResolutionImage!,faces:temp.faceFeatureFilter))
+					myTimes.append(ImageTime(timeStart: startTime, timePlayEnd: CMTimeAdd(startTime, nextDelay), asset: temp.fullResolutionImage!,faces:temp.faceFeatureFilter))
+					debugPrint("TDphoto start", startTime,"\n")
+					startTime = CMTimeAdd(startTime, nextDelay)
+					latestVideo.timeDelayEnd = startTime
+					debugPrint("TDphoto end",startTime,"\n")
 				}
 				else if(temp.type == TLPHAsset.AssetType.livePhoto){
-					print("라이브 포토는 어떡 하지")
+					print("라이브 포토는 이미지와 영상이 합쳐진 형태임.")
 				}
 			}
 		}
+		
+		debugPrint("TD Lvideo start", latestVideo.timeStart,"\n")
+		debugPrint("TD Lvideo dend", latestVideo.timeDelayEnd,"\n")
 		//세마포 걸어야될수도잇음.
 		if myBGM != nil{
 			print ("음악있음")

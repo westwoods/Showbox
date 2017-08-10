@@ -60,7 +60,7 @@ public class AudioViewController: UITableViewController,FDWaveformViewDelegate {
 		cell.musicImage.image = music.coverImage
 		let waveform:FDWaveformView = 	cell.waveform
 		waveform.delegate = self
-		waveform.alpha = 1
+		waveform.alpha = 0.5
 		waveform.audioURL = music.url
 		waveform.zoomSamples = 0 ..< waveform.totalSamples / 3
 		waveform.doesAllowScrubbing = false

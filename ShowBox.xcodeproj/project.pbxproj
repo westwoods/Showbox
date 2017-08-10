@@ -44,6 +44,7 @@
 		80B2AAFC1F3861A900627204 /* Splashing_Around.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 80B2AAF71F3861A900627204 /* Splashing_Around.mp3 */; };
 		80B2AAFD1F3861A900627204 /* There_You_Go.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 80B2AAF81F3861A900627204 /* There_You_Go.mp3 */; };
 		80B2AAFF1F3861DF00627204 /* File in Resources */ = {isa = PBXBuildFile; fileRef = 80B2AAFE1F3861DF00627204 /* File */; };
+		80CA68001F3C2F5400F21FEA /* intro.MOV in Resources */ = {isa = PBXBuildFile; fileRef = 80CA67FE1F3C2F5400F21FEA /* intro.MOV */; };
 		80DE3F9E1F3AE427000E8A2E /* Humidity.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 80DE3F9D1F3AE427000E8A2E /* Humidity.mp3 */; };
 		80DE3FA01F3AE454000E8A2E /* humidity_albumJacket.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 80DE3F9F1F3AE454000E8A2E /* humidity_albumJacket.jpg */; };
 /* End PBXBuildFile section */
@@ -90,7 +91,7 @@
 		8025A20E1F336F7000E03D0B /* FileSourceLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileSourceLoader.h; sourceTree = "<group>"; };
 		8025A20F1F336F7000E03D0B /* FileSourceLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileSourceLoader.m; sourceTree = "<group>"; };
 		8025A2101F336F7000E03D0B /* SourceLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SourceLoader.h; sourceTree = "<group>"; };
-		8027014A1F29786B00A26F3B /* VideoWriter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoWriter.swift; sourceTree = "<group>"; };
+		8027014A1F29786B00A26F3B /* VideoWriter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoWriter.swift; sourceTree = "<group>"; wrapsLines = 0; };
 		803F12C81F3970CD006C36B3 /* FDWaveformView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FDWaveformView.framework; path = "../../../Library/Developer/Xcode/DerivedData/ShowBox-gghizcvmyuxhirebvwgboewuuzkk/Build/Products/Debug-iphoneos/FDWaveformView/FDWaveformView.framework"; sourceTree = "<group>"; };
 		803F12CC1F3982E4006C36B3 /* Atlanta.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Atlanta.jpeg; sourceTree = "<group>"; };
 		803F12CD1F3982E4006C36B3 /* Splashing_Around.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Splashing_Around.jpg; sourceTree = "<group>"; };
@@ -117,6 +118,7 @@
 		80B2AAF81F3861A900627204 /* There_You_Go.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = There_You_Go.mp3; sourceTree = "<group>"; };
 		80B2AAFE1F3861DF00627204 /* File */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = File; sourceTree = "<group>"; };
 		80C6FFB81F30AA70000401C1 /* FaceDetecter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FaceDetecter.swift; sourceTree = "<group>"; };
+		80CA67FF1F3C2F5400F21FEA /* Base */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; name = Base; path = Base.lproj/intro.MOV; sourceTree = "<group>"; };
 		80DE3F9D1F3AE427000E8A2E /* Humidity.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Humidity.mp3; sourceTree = "<group>"; };
 		80DE3F9F1F3AE454000E8A2E /* humidity_albumJacket.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = humidity_albumJacket.jpg; sourceTree = "<group>"; };
 		9FDF0FEB0DDBA99D78C8BBB0 /* Pods_ShowBox.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShowBox.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -219,6 +221,7 @@
 		805D80141F39EFC600F1C3F8 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
+				80CA67FE1F3C2F5400F21FEA /* intro.MOV */,
 				809D23CD1F25DF8C00116FBA /* Info.plist */,
 				809D23C81F25DF8C00116FBA /* Assets.xcassets */,
 				80206AF41F341D9C0089B868 /* Main.storyboard */,
@@ -291,10 +294,10 @@
 		80B2AAF31F3861A900627204 /* Audio */ = {
 			isa = PBXGroup;
 			children = (
-				80DE3F9F1F3AE454000E8A2E /* humidity_albumJacket.jpg */,
 				80DE3F9D1F3AE427000E8A2E /* Humidity.mp3 */,
 				803F12CC1F3982E4006C36B3 /* Atlanta.jpeg */,
 				803F12CD1F3982E4006C36B3 /* Splashing_Around.jpg */,
+				80DE3F9F1F3AE454000E8A2E /* humidity_albumJacket.jpg */,
 				80B2AAF41F3861A900627204 /* Atlanta.mp3 */,
 				80B2AAF51F3861A900627204 /* Death_Match.mp3 */,
 				80B2AAF61F3861A900627204 /* Hackbeat.mp3 */,
@@ -425,6 +428,7 @@
 				80B2AAFA1F3861A900627204 /* Death_Match.mp3 in Resources */,
 				80206AF71F341D9C0089B868 /* Main.storyboard in Resources */,
 				80B2AAFD1F3861A900627204 /* There_You_Go.mp3 in Resources */,
+				80CA68001F3C2F5400F21FEA /* intro.MOV in Resources */,
 				80206AF61F341D9C0089B868 /* LaunchScreen.storyboard in Resources */,
 				80001E3A1F341743007FB318 /* TLPhotosPickerViewController.xib in Resources */,
 				80B2AAFF1F3861DF00627204 /* File in Resources */,
@@ -572,6 +576,14 @@
 				80206AF51F341D9C0089B868 /* Base */,
 			);
 			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		80CA67FE1F3C2F5400F21FEA /* intro.MOV */ = {
+			isa = PBXVariantGroup;
+			children = (
+				80CA67FF1F3C2F5400F21FEA /* Base */,
+			);
+			name = intro.MOV;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

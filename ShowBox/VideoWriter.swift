@@ -101,7 +101,7 @@ class VideoWriter {
 		
 		// Set the frame duration to an appropriate value (i.e. 30 frames per second for video).
 		
-		let session:AVAssetExportSession? = AVAssetExportSession(asset: myMutableComposition, presetName: AVAssetExportPresetMediumQuality)
+		let session:AVAssetExportSession? = AVAssetExportSession(asset: myMutableComposition, presetName: AVAssetExportPresetHighestQuality)
 
 		/***/
 		complete(myMutableComposition  , MVCforpreView, previewlayer)
