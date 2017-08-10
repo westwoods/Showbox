@@ -122,6 +122,7 @@ public class   TimeLine{
 		self.myTimes.append(	intro)
 		var latestVideo:VideoTime = intro
 		startTime = CMTimeAdd(startTime, introAsset.duration)
+		var musicpoint:Int = 0
 		for i in 0..<selectedAssets.count
 		{
 			let temp = selectedAssets[i]
@@ -152,7 +153,10 @@ public class   TimeLine{
 			}
 			else{
 				if temp.type == TLPHAsset.AssetType.photo{
+					
+		//			myTimes.append(ImageTime(timeStart: startTime, timePlayEnd: CMTimeAdd(startTime, nextDelay), asset: temp.fullResolutionImage!,faces:temp.faceFeatureFilter))
 					myTimes.append(ImageTime(timeStart: startTime, timePlayEnd: CMTimeAdd(startTime, nextDelay), asset: temp.fullResolutionImage!,faces:temp.faceFeatureFilter))
+		//음악과 맞추는것,,, 어떻게 할까
 					debugPrint("TDphoto start", startTime,"\n")
 					startTime = CMTimeAdd(startTime, nextDelay)
 					latestVideo.timeDelayEnd = startTime

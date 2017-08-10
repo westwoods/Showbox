@@ -59,7 +59,7 @@ class VideoWriter {
 				/*********영상 위치, 회전, 설정***********/
 				let VideoLayerInstruction =
 					AVMutableVideoCompositionLayerInstruction(assetTrack: videoCompositionTrack)
-				//VideoLayerInstruction.setTransform(videoAssetTrack.preferredTransform, at: startTime)
+				VideoLayerInstruction.setTransform((videoAssetTrack?.preferredTransform)!, at: myTime.timeStart)
 				
 				VideoCompositionInsturction!.layerInstructions = [VideoLayerInstruction]
 				mutableVideoCompositon.instructions.append(VideoCompositionInsturction!)
