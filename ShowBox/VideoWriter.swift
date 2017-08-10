@@ -12,77 +12,69 @@ import AVFoundation
 import AssetsLibrary
 
 class VideoWriter {
+	
 	class func mergeVideo(_ myTimeLine:TimeLine, previewSize:CGRect,complete:((AVComposition,AVMutableVideoComposition,CALayer)->())){
 		let myMutableComposition:AVMutableComposition = AVMutableComposition()
 		//*************************************트랙생성
 		let videoCompositionTrack:AVMutableCompositionTrack
 			= myMutableComposition.addMutableTrack(withMediaType: AVMediaTypeVideo, preferredTrackID:  kCMPersistentTrackID_Invalid)
 		let audioCompositionTrack:AVMutableCompositionTrack =
-				myMutableComposition.addMutableTrack(withMediaType: AVMediaTypeAudio, preferredTrackID:  kCMPersistentTrackID_Invalid)
+			myMutableComposition.addMutableTrack(withMediaType: AVMediaTypeAudio, preferredTrackID:  kCMPersistentTrackID_Invalid)
 		let BGMCompositionTrack:AVMutableCompositionTrack =
 			myMutableComposition.addMutableTrack(withMediaType: AVMediaTypeAudio, preferredTrackID:  kCMPersistentTrackID_Invalid)
 		//************************************트랙생성 끝
-		//************************************딜레이, 시작시간 설정
-		let nextDelayTime:TimeInterval = 2
-		var startTime:CMTime = kCMTimeZero
-		let nextDelay:CMTime = CMTimeMakeWithSeconds(nextDelayTime, 1000000);
 		
-		startTime = CMTimeAdd(startTime,nextDelay)
-		//*************************************딜레이 시작시간 설정 끝
 		var renderSize:CGSize = CGSize.init(width: 0, height: 0)
 		let mutableVideoCompositon = AVMutableVideoComposition.init()
 		var VideoCompositionInsturction:AVMutableVideoCompositionInstruction? = nil
 		print (myTimeLine.myTimes.count)
 		let myTimes = myTimeLine.myTimes
-		//let audioAssetTrack:AVMutableAudioMix = AVMutableAudioMix()
-		//		audioAssetTrack.inputParameters = AVAudioMixInputParameters( myTimeLine.myBGM?.musicAsset?.tracks(withMediaType: AVMediaTypeAudio)[0])
-		var assetDurationWithNextDelay = kCMTimeZero
+		
 		for Index in 0..<myTimes.count{
-			let assetDuration = myTimes[Index].vAsset?.duration
-			assetDurationWithNextDelay = CMTimeAdd(assetDuration!, nextDelay)
-			let videoAssetTrack:AVAssetTrack =  myTimes[Index].vAsset!.tracks(withMediaType: AVMediaTypeVideo)[0]
-			let audioAssetTrack:AVAssetTrack =  myTimes[Index].vAsset!.tracks(withMediaType: AVMediaTypeAudio)[0]
-			
-			//렌더링 사이즈 결정
-			if renderSize.width < videoAssetTrack.naturalSize.width{
-				renderSize.width = 1280
-			}
-			if renderSize.height < videoAssetTrack.naturalSize.height{
-				renderSize.height = 720
-			}
-			
-			do{
-				try videoCompositionTrack.insertTimeRange(CMTimeRangeMake(kCMTimeZero,assetDurationWithNextDelay),of:videoAssetTrack, at:startTime)
-				try audioCompositionTrack.insertTimeRange(CMTimeRangeMake(kCMTimeZero,assetDurationWithNextDelay),of:audioAssetTrack, at:startTime)
+			print("index : ",Index)
+			let myTime = myTimes[Index]
+			if myTime.type == TimeAsset.AssetType.video{
+				let videoAssetTrack:AVAssetTrack = myTime.vAsset!.tracks(withMediaType: AVMediaTypeVideo)[0]
+				let audioAssetTrack:AVAssetTrack = myTime.vAsset!.tracks(withMediaType: AVMediaTypeAudio)[0]
 				
-			}
-			catch{
-			}
-			//  인스트럭션 결정
-			if VideoCompositionInsturction == nil {
+				//렌더링 사이즈 결정
+				if renderSize.width < videoAssetTrack.naturalSize.width{
+					renderSize.width = 1280
+				}
+				if renderSize.height < videoAssetTrack.naturalSize.height{
+					renderSize.height = 720
+				}
+				
+				
+				let videoDurationaddDelay = CMTimeSubtract(myTime.timeDelayEnd, myTime.timeStart)
+				
+				do{
+					try videoCompositionTrack.insertTimeRange(CMTimeRangeMake(kCMTimeZero,videoDurationaddDelay),of:videoAssetTrack, at:myTime.timeStart)
+					try audioCompositionTrack.insertTimeRange(CMTimeRangeMake(kCMTimeZero,videoDurationaddDelay),of:audioAssetTrack, at:myTime.timeStart)
+					
+					print("myTime. start  : ",myTime.timeStart , "\n myTime DelayEnd : ",myTime.timeDelayEnd)
+					
+				}
+				catch{
+				}
+				//  인스트럭션 결정
 				VideoCompositionInsturction = AVMutableVideoCompositionInstruction.init()
-				VideoCompositionInsturction!.timeRange = CMTimeRangeMake(kCMTimeZero,CMTimeAdd(assetDurationWithNextDelay,startTime))
-			}
-			else{
-				VideoCompositionInsturction = AVMutableVideoCompositionInstruction.init()
-				VideoCompositionInsturction!.timeRange = CMTimeRangeMake(startTime,assetDurationWithNextDelay)
-			}
-			/*********영상 위치, 회전, 설정***********/
-			let VideoLayerInstruction =
-				AVMutableVideoCompositionLayerInstruction(assetTrack: videoCompositionTrack)
+				VideoCompositionInsturction!.timeRange = CMTimeRangeMake(myTime.timeStart,videoDurationaddDelay)
+				
+				/*********영상 위치, 회전, 설정***********/
+				let VideoLayerInstruction =
+					AVMutableVideoCompositionLayerInstruction(assetTrack: videoCompositionTrack)
 				//VideoLayerInstruction.setTransform(videoAssetTrack.preferredTransform, at: startTime)
-			
-			VideoCompositionInsturction!.layerInstructions = [VideoLayerInstruction]
-			mutableVideoCompositon.instructions.append(VideoCompositionInsturction!)
-			
-			
-			startTime = CMTimeAdd(startTime, assetDurationWithNextDelay)
+				
+				VideoCompositionInsturction!.layerInstructions = [VideoLayerInstruction]
+				mutableVideoCompositon.instructions.append(VideoCompositionInsturction!)
+			}
 		}
 		//배경음악
 		let audioAssetTrack:AVAssetTrack =  (myTimeLine.myBGM?.musicAsset?.tracks(withMediaType: AVMediaTypeAudio)[0])!
 		
 		do{
-			try BGMCompositionTrack.insertTimeRange(CMTimeRangeMake(kCMTimeZero,startTime),of:audioAssetTrack, at:kCMTimeZero)
+			try BGMCompositionTrack.insertTimeRange(CMTimeRangeMake(kCMTimeZero,(myTimeLine.timecut)),of:audioAssetTrack, at:kCMTimeZero)
 		}
 		catch{
 		}
@@ -96,13 +88,13 @@ class VideoWriter {
 		//프리뷰를 위한 깊은 복사
 		if( myTimes.count > 0){
 			previewlayer = VideoWriter.preViewOverlay(previewSize, layercomposition: mutableVideoCompositon,  photosToOverlay: myTimes)
-				VideoWriter.exportOverlay(renderSize, layercomposition: mutableVideoCompositon,  photosToOverlay: myTimes)
+			VideoWriter.exportOverlay(renderSize, layercomposition: mutableVideoCompositon,  photosToOverlay: myTimes)
 		}
 		
 		// Set the frame duration to an appropriate value (i.e. 30 frames per second for video).
 		
 		let session:AVAssetExportSession? = AVAssetExportSession(asset: myMutableComposition, presetName: AVAssetExportPresetHighestQuality)
-
+		
 		/***/
 		complete(myMutableComposition  , MVCforpreView, previewlayer)
 		/***/
@@ -231,7 +223,7 @@ class VideoWriter {
 			
 			parentlayer.addSublayer(imglayer)
 		}
-			return parentlayer
+		return parentlayer
 	}
 	class func exportOverlay(_ size:CGSize,layercomposition:AVMutableVideoComposition,photosToOverlay:[TimeAsset]){
 		let size = size
@@ -271,7 +263,7 @@ class VideoWriter {
 			
 			let myanimation:CABasicAnimation = CABasicAnimation(keyPath: "opacity")
 			myanimation.fromValue = imglayer.opacity
-			myanimation.toValue = 1
+			myanimation.toValue = 0
 			myanimation.duration = 1.0
 			myanimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
 			myanimation.autoreverses  = true

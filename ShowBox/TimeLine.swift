@@ -45,7 +45,7 @@ public class TimeAsset{
 
 
 class VideoTime:TimeAsset{
-	init (timeStart: CMTime, timePlayEnd: CMTime?, timeDelayEnd: CMTime, vAsset: AVAsset?){
+	init (timeStart: CMTime, timePlayEnd: CMTime, timeDelayEnd: CMTime, vAsset: AVAsset?){
 		super.init(timeStart: timeStart, timePlayEnd: timePlayEnd, timeDelayEnd: timeDelayEnd, vAsset: vAsset)
 		
 		self.type = AssetType.video
@@ -87,6 +87,7 @@ public class   TimeLine{
 	var myTimes:[TimeAsset] = []
 	var	selectedAssets:[TLPHAsset] = []
 	var complete:(()->())? = nil
+	public var timecut:CMTime = kCMTimeInvalid
 	public var myBGM:MusicTime?
 	
 	public var defaultBGM:MusicTime?
@@ -117,9 +118,10 @@ public class   TimeLine{
 		
 		let thisBundle = Bundle(for: type(of: self))
 		let introAsset = AVAsset(url:  thisBundle.url(forResource: "intro", withExtension: "MOV")!)
-		let intro = VideoTime(timeStart: startTime, timePlayEnd:kCMTimeZero, timeDelayEnd: kCMTimeZero, vAsset:introAsset)
+		let intro = VideoTime(timeStart: startTime, timePlayEnd:introAsset.duration, timeDelayEnd: introAsset.duration, vAsset:introAsset)
 		self.myTimes.append(	intro)
 		var latestVideo:VideoTime = intro
+		startTime = CMTimeAdd(startTime, introAsset.duration)
 		for i in 0..<selectedAssets.count
 		{
 			let temp = selectedAssets[i]
@@ -127,17 +129,23 @@ public class   TimeLine{
 				let options = PHVideoRequestOptions()
 				imageManager.requestAVAsset(forVideo: temp.phAsset!, options: options, resultHandler: { (AVAsset, AVAudioMix, info) in
 					latestVideo.timeDelayEnd = startTime // 이전 영상이 다음 영상의 시작 시간까지 담당.
-					
-					debugPrint("TD Lvideo start", latestVideo.timeStart,"\n")
-					debugPrint("TD Lvideo dend", latestVideo.timeDelayEnd,"\n")
+//					
+//					debugPrint("TD Lvideo start", latestVideo.timeStart,"\n")
+//					debugPrint("TD Lvideo pend", latestVideo.timePlayEnd,"\n")
+//					debugPrint("TD Lvideo dend", latestVideo.timeDelayEnd,"\n")
 
 					let nextVideo = VideoTime(timeStart: startTime, timePlayEnd:CMTimeAdd(startTime, (AVAsset?.duration)!), timeDelayEnd: kCMTimeInvalid, vAsset: AVAsset)
 					self.myTimes.append(	nextVideo )
-					
-					debugPrint("TD Nvideo start", nextVideo.timeStart,"\n")
-					debugPrint("TD Nvideo dend", nextVideo.timeDelayEnd,"\n")
+//					
+//					debugPrint("TD Nvideo start", nextVideo.timeStart,"\n")
+//					debugPrint("TD Nvideo pend", nextVideo.timePlayEnd,"\n")
+//					debugPrint("TD Nvideo dend", nextVideo.timeDelayEnd,"\n")
 					latestVideo = nextVideo
 					startTime = CMTimeAdd(startTime, (AVAsset?.duration)!)
+					if( i == selectedAssets.count-1)
+					{
+						latestVideo.timeDelayEnd = latestVideo.timePlayEnd! //영상으로 끝이 날때는!
+					}
 					self.semaphore.signal()
 				})
 				semaphore.wait()
@@ -155,9 +163,10 @@ public class   TimeLine{
 				}
 			}
 		}
-		
-		debugPrint("TD Lvideo start", latestVideo.timeStart,"\n")
-		debugPrint("TD Lvideo dend", latestVideo.timeDelayEnd,"\n")
+//		
+//		debugPrint("TD Lvideo start", latestVideo.timeStart,"\n")
+//		debugPrint("TD Lvideo dend", latestVideo.timeDelayEnd,"\n")
+		self.timecut = latestVideo.timeDelayEnd
 		//세마포 걸어야될수도잇음.
 		if myBGM != nil{
 			print ("음악있음")
