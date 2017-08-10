@@ -12,7 +12,7 @@ import AVFoundation
 import AssetsLibrary
 
 class VideoWriter {
-	class func mergeVideo(_ myTimeLine:TimeLine, complete:((AVComposition,AVMutableVideoComposition,CALayer)->())){
+	class func mergeVideo(_ myTimeLine:TimeLine, previewSize:CGRect,complete:((AVComposition,AVMutableVideoComposition,CALayer)->())){
 		let myMutableComposition:AVMutableComposition = AVMutableComposition()
 		//*************************************트랙생성
 		let videoCompositionTrack:AVMutableCompositionTrack
@@ -86,24 +86,25 @@ class VideoWriter {
 		}
 		catch{
 		}
-		var player:CALayer = CALayer()
+		var previewlayer:CALayer = CALayer()
+		renderSize = CGSize(width: 1024, height: 768)
 		mutableVideoCompositon.renderSize = renderSize
-		print(renderSize)
+		print(mutableVideoCompositon.renderSize)
 		mutableVideoCompositon.frameDuration = CMTimeMake(1,30);
 		
 		let MVCforpreView:AVMutableVideoComposition =	mutableVideoCompositon.mutableCopy() as! AVMutableVideoComposition
 		//프리뷰를 위한 깊은 복사
 		if( myTimes.count > 0){
-				player = VideoWriter.preViewOverlay(renderSize, layercomposition: mutableVideoCompositon,  photosToOverlay: myTimes)
+			previewlayer = VideoWriter.preViewOverlay(previewSize, layercomposition: mutableVideoCompositon,  photosToOverlay: myTimes)
 				VideoWriter.exportOverlay(renderSize, layercomposition: mutableVideoCompositon,  photosToOverlay: myTimes)
 		}
 		
 		// Set the frame duration to an appropriate value (i.e. 30 frames per second for video).
 		
-		let session:AVAssetExportSession? = AVAssetExportSession(asset: myMutableComposition, presetName: AVAssetExportPreset1280x720)
+		let session:AVAssetExportSession? = AVAssetExportSession(asset: myMutableComposition, presetName: AVAssetExportPresetMediumQuality)
 
 		/***/
-		complete(myMutableComposition  , MVCforpreView, player)
+		complete(myMutableComposition  , MVCforpreView, previewlayer)
 		/***/
 		let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first!
 		
@@ -180,8 +181,8 @@ class VideoWriter {
 		})
 	}
 	
-	class func preViewOverlay(_ size:CGSize,layercomposition:AVMutableVideoComposition,photosToOverlay:[TimeAsset])->CALayer{
-		let size = CGRect(x: 0, y: (338 - 720/(1280/414) )/4, width: 414, height: 720/(1280/414))
+	class func preViewOverlay(_ size:CGRect,layercomposition:AVMutableVideoComposition,photosToOverlay:[TimeAsset])->CALayer{
+		let size = size
 		print(photosToOverlay.count)
 		let today = Date() //현재 시각 구하기
 		let dateFormatter = DateFormatter()
@@ -190,7 +191,7 @@ class VideoWriter {
 		
 		// create text Layer
 		let titleLayer = CATextLayer()
-		titleLayer.backgroundColor = UIColor.white.cgColor
+		titleLayer.backgroundColor = UIColor.clear.cgColor
 		titleLayer.string = "aaabbb"+dateString
 		titleLayer.font = UIFont(name: "Helvetica", size: 10)
 		titleLayer.fontSize = 20/3

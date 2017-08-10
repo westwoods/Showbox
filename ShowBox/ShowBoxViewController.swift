@@ -18,7 +18,7 @@ class ShowBoxViewController: UIViewController {
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-			VideoWriter.mergeVideo((selectedAsset)!,complete:videoout)
+		VideoWriter.mergeVideo((selectedAsset)!,previewSize:self.ShowBox.bounds,complete:videoout)
 	}
 	
 	func videoout(composition:AVComposition,mutableVideoCom:AVMutableVideoComposition,layer:CALayer){
@@ -32,7 +32,7 @@ class ShowBoxViewController: UIViewController {
 		let player = AVPlayer(playerItem: playerItem)
 			print (composition.duration)
 			let playerLayer = AVPlayerLayer(player: player)
-			playerLayer.frame = self.ShowBox.layer.frame
+			playerLayer.frame = self.ShowBox.layer.bounds
 			print(playerLayer.frame)
 			print(self.ShowBox.bounds)
 			print(synclayer.frame)
