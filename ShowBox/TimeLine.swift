@@ -25,14 +25,14 @@ public class TimeAsset{
 	var vAsset:AVAsset?
 	var type: AssetType = .unknown
 	var timeStart:CMTime
-	var timePlayEnd:CMTime?
+	var timePlayEnd:CMTime
 	var timeDelayEnd:CMTime
 	
 	public var selectedOrder: Int = 0
 	public var selectedHighLight: SelectedHighLight = .none  //0 nomal 1 selected 2 highlighted
 	public var faces:[FaceFeatures] = []
 	
-	init (timeStart : CMTime,  timePlayEnd : CMTime?, timeDelayEnd : CMTime,		passet :UIImage? = nil, vAsset:AVAsset? = nil, musicAsset:AVAsset? = nil, aAsset:AVAudioMix? = nil, type:AssetType = AssetType.unknown){
+	init (timeStart : CMTime,  timePlayEnd : CMTime, timeDelayEnd : CMTime,		passet :UIImage? = nil, vAsset:AVAsset? = nil, musicAsset:AVAsset? = nil, aAsset:AVAudioMix? = nil, type:AssetType = AssetType.unknown){
 		self.timeStart = timeStart
 		self.timePlayEnd = timePlayEnd
 		self.timeDelayEnd = timeDelayEnd
@@ -56,7 +56,7 @@ public class MusicTime:TimeAsset{
 	var musicName: String = ""
 	var coverImage:UIImage? = nil
 	var url:URL? = nil
-	init (timeStart: CMTime, timePlay: CMTime?, timeEnd: CMTime, musicAsset: AVAsset?,musicName:String, coverImage:UIImage?, url:URL?){
+	init (timeStart: CMTime, timePlay: CMTime, timeEnd: CMTime, musicAsset: AVAsset?,musicName:String, coverImage:UIImage?, url:URL?){
 		super.init(timeStart: timeStart, timePlayEnd: timePlay, timeDelayEnd: timeEnd, musicAsset: musicAsset)
 		self.url = url
 		self.coverImage = coverImage
@@ -144,7 +144,7 @@ public class   TimeLine{
 					startTime = CMTimeAdd(startTime, (AVAsset?.duration)!)
 					if( i == selectedAssets.count-1)
 					{
-						latestVideo.timeDelayEnd = latestVideo.timePlayEnd! //영상으로 끝이 날때는!
+						latestVideo.timeDelayEnd = latestVideo.timePlayEnd //영상으로 끝이 날때는!
 					}
 					self.semaphore.signal()
 				})
