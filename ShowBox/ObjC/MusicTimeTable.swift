@@ -50,6 +50,6 @@ class MusicTimeTable{
 	                                        CMTime(seconds: 340.451, preferredTimescale: 44100),
 	                                        CMTime(seconds: 340.451, preferredTimescale: 44100),
 	                                        CMTime(seconds: 340.451, preferredTimescale: 44100),
-	                                        CMTime(seconds: 340.451, preferredTimescale: 44100),]
+	                                        CMTime(seconds: 12340.451, preferredTimescale: 44100),]
 	
 }

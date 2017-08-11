@@ -126,26 +126,46 @@ public class   TimeLine{
 		for i in 0..<selectedAssets.count
 		{
 			let temp = selectedAssets[i]
+			//음악과 맞추는것,,, 어떻게 할까
+			/***************************************************************************************************************/
+			/*
+			1. 동영상은 전체 구간을 재생
+			
+			2. 전환 효과별 dafualt타임보다 2초이상 남을시 dafualt 타임을 적용하고(현 2초) 다음이미지 호출
+			
+			3. 남은 시간이 2초보다 적을시 이번 전환 효과를 전환 효과 시간을 늘이거나 전환효과를 더 긴것으로 바꿈
+			*/
+						while (MusicTimeTable.splashing_Around[musicpoint] < CMTimeAdd(startTime, nextDelay)){
+				musicpoint+=1
+			}
+			let musicgap = CMTimeSubtract(MusicTimeTable.splashing_Around[musicpoint],CMTimeAdd(startTime, nextDelay)) //뮤직 포인트와 현재 사진 끝나는 시간과의 갭
+			var gap = kCMTimeZero
+			if( musicgap <  nextDelay ||  i == selectedAssets.count-1){
+				gap = musicgap
+			}
+			
+			/*************************************************************************************************************/
+
 			if temp.type == TLPHAsset.AssetType.video{
 				let options = PHVideoRequestOptions()
 				imageManager.requestAVAsset(forVideo: temp.phAsset!, options: options, resultHandler: { (AVAsset, AVAudioMix, info) in
 					latestVideo.timeDelayEnd = startTime // 이전 영상이 다음 영상의 시작 시간까지 담당.
-//					
-//					debugPrint("TD Lvideo start", latestVideo.timeStart,"\n")
-//					debugPrint("TD Lvideo pend", latestVideo.timePlayEnd,"\n")
-//					debugPrint("TD Lvideo dend", latestVideo.timeDelayEnd,"\n")
-
+					//
+					//					debugPrint("TD Lvideo start", latestVideo.timeStart,"\n")
+					//					debugPrint("TD Lvideo pend", latestVideo.timePlayEnd,"\n")
+					//					debugPrint("TD Lvideo dend", latestVideo.timeDelayEnd,"\n")
+					
 					let nextVideo = VideoTime(timeStart: startTime, timePlayEnd:CMTimeAdd(startTime, (AVAsset?.duration)!), timeDelayEnd: kCMTimeInvalid, vAsset: AVAsset)
 					self.myTimes.append(	nextVideo )
-//					
-//					debugPrint("TD Nvideo start", nextVideo.timeStart,"\n")
-//					debugPrint("TD Nvideo pend", nextVideo.timePlayEnd,"\n")
-//					debugPrint("TD Nvideo dend", nextVideo.timeDelayEnd,"\n")
+					//
+					//					debugPrint("TD Nvideo start", nextVideo.timeStart,"\n")
+					//					debugPrint("TD Nvideo pend", nextVideo.timePlayEnd,"\n")
+					//					debugPrint("TD Nvideo dend", nextVideo.timeDelayEnd,"\n")
 					latestVideo = nextVideo
 					startTime = CMTimeAdd(startTime, (AVAsset?.duration)!)
 					if( i == selectedAssets.count-1)
 					{
-						latestVideo.timeDelayEnd = latestVideo.timePlayEnd //영상으로 끝이 날때는!
+						latestVideo.timeDelayEnd = CMTimeAdd(latestVideo.timePlayEnd  , gap)//영상으로 끝이 날때는!
 					}
 					self.semaphore.signal()
 				})
@@ -153,27 +173,9 @@ public class   TimeLine{
 			}
 			else{
 				if temp.type == TLPHAsset.AssetType.photo{
-					while (MusicTimeTable.splashing_Around[musicpoint] < CMTimeAdd(startTime, nextDelay)){
-						musicpoint+=1
-					}
-						let musicgap = CMTimeSubtract(MusicTimeTable.splashing_Around[musicpoint],CMTimeAdd(startTime, nextDelay)) //뮤직 포인트와 현재 사진 끝나는 시간과의 갭
-						var gap = kCMTimeZero
-					if( musicgap <  nextDelay){ 
-						gap = musicgap
-					}
-					
-					myTimes.append(ImageTime(timeStart: startTime, timePlayEnd: CMTimeAdd(startTime, CMTimeAdd(nextDelay, gap)), asset: temp.fullResolutionImage!,faces:temp.faceFeatureFilter))
-		//음악과 맞추는것,,, 어떻게 할까
-		/*
-					
-					1. 동영상은 전체 구간을 재생
-					
-					2. 전환 효과별 dafualt타임보다 2초이상 남을시 dafualt 타임을 적용하고(현 2초) 다음이미지 호출
-					
-					3. 남은 시간이 2초보다 적을시 이번 전환 효과를 전환 효과 시간을 늘이거나 전환효과를 더 긴것으로 바꿈
-					
 
-					*/
+					myTimes.append(ImageTime(timeStart: startTime, timePlayEnd: CMTimeAdd(startTime, CMTimeAdd(nextDelay, gap)), asset: temp.fullResolutionImage!,faces:temp.faceFeatureFilter))
+				
 					debugPrint("TDphoto start", startTime,"\n")
 					startTime = CMTimeAdd(startTime, CMTimeAdd(nextDelay, gap))
 					latestVideo.timeDelayEnd = startTime
@@ -184,9 +186,9 @@ public class   TimeLine{
 				}
 			}
 		}
-//		
-//		debugPrint("TD Lvideo start", latestVideo.timeStart,"\n")
-//		debugPrint("TD Lvideo dend", latestVideo.timeDelayEnd,"\n")
+		//
+		//		debugPrint("TD Lvideo start", latestVideo.timeStart,"\n")
+		//		debugPrint("TD Lvideo dend", latestVideo.timeDelayEnd,"\n")
 		self.timecut = latestVideo.timeDelayEnd
 		//세마포 걸어야될수도잇음.
 		if myBGM != nil{
