@@ -153,12 +153,29 @@ public class   TimeLine{
 			}
 			else{
 				if temp.type == TLPHAsset.AssetType.photo{
+					while (MusicTimeTable.splashing_Around[musicpoint] < CMTimeAdd(startTime, nextDelay)){
+						musicpoint+=1
+					}
+						let musicgap = CMTimeSubtract(MusicTimeTable.splashing_Around[musicpoint],CMTimeAdd(startTime, nextDelay)) //뮤직 포인트와 현재 사진 끝나는 시간과의 갭
+						var gap = kCMTimeZero
+					if( musicgap <  nextDelay){ 
+						gap = musicgap
+					}
 					
-		//			myTimes.append(ImageTime(timeStart: startTime, timePlayEnd: CMTimeAdd(startTime, nextDelay), asset: temp.fullResolutionImage!,faces:temp.faceFeatureFilter))
-					myTimes.append(ImageTime(timeStart: startTime, timePlayEnd: CMTimeAdd(startTime, nextDelay), asset: temp.fullResolutionImage!,faces:temp.faceFeatureFilter))
+					myTimes.append(ImageTime(timeStart: startTime, timePlayEnd: CMTimeAdd(startTime, CMTimeAdd(nextDelay, gap)), asset: temp.fullResolutionImage!,faces:temp.faceFeatureFilter))
 		//음악과 맞추는것,,, 어떻게 할까
+		/*
+					
+					1. 동영상은 전체 구간을 재생
+					
+					2. 전환 효과별 dafualt타임보다 2초이상 남을시 dafualt 타임을 적용하고(현 2초) 다음이미지 호출
+					
+					3. 남은 시간이 2초보다 적을시 이번 전환 효과를 전환 효과 시간을 늘이거나 전환효과를 더 긴것으로 바꿈
+					
+
+					*/
 					debugPrint("TDphoto start", startTime,"\n")
-					startTime = CMTimeAdd(startTime, nextDelay)
+					startTime = CMTimeAdd(startTime, CMTimeAdd(nextDelay, gap))
 					latestVideo.timeDelayEnd = startTime
 					debugPrint("TDphoto end",startTime,"\n")
 				}

@@ -218,11 +218,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ShowBox/ObjC/MusicTimeTable.swift"
-            timestampString = "524059767.852993"
+            timestampString = "524119062.123809"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "21"
-            endingLineNumber = "21"
+            startingLineNumber = "54"
+            endingLineNumber = "54"
             landmarkName = "MusicTimeTable"
             landmarkType = "3">
          </BreakpointContent>
@@ -492,22 +492,6 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "120"
             endingLineNumber = "120"
-            landmarkName = "makeTimeLine(selectedAssets:complete:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ShowBox/TimeLine.swift"
-            timestampString = "524061946.910582"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "157"
-            endingLineNumber = "157"
             landmarkName = "makeTimeLine(selectedAssets:complete:)"
             landmarkType = "7">
          </BreakpointContent>
