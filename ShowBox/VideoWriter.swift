@@ -264,17 +264,17 @@ class VideoWriter {
 				imglayer.opacity = 0.0
 				imglayer.backgroundColor = UIColor.blue.cgColor
 				
-				let myanimation:CABasicAnimation = CABasicAnimation(keyPath: "opacity")
-				myanimation.fromValue = imglayer.opacity
-				myanimation.toValue = 1
-				myanimation.duration = (tempPhoto.timePlayEnd.seconds - tempPhoto.timeStart.seconds)/2
-				myanimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
-				myanimation.autoreverses  = true
-				myanimation.beginTime = AVCoreAnimationBeginTimeAtZero + tempPhoto.timeStart.seconds
+				let animation:CABasicAnimation = CABasicAnimation(keyPath: "opacity")
+				animation.fromValue = imglayer.opacity
+				animation.toValue = 1
+				animation.duration = (tempPhoto.timePlayEnd.seconds - tempPhoto.timeStart.seconds)/2
+				animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
+				animation.autoreverses  = true
+				animation.beginTime = AVCoreAnimationBeginTimeAtZero + tempPhoto.timeStart.seconds
 				
 				//myanimation.isRemovedOnCompletion = false //애니메이션이 종료되어도 애니메이션을 지우지않는다.
 				//myanimation.fillMode = kCAFillModeForwards //애니메이션이 종료된뒤 계속해서 상태를 유지한다.
-				imglayer.add(myanimation, forKey: "opacity")
+				imglayer.add(animation, forKey: "opacity")
 				
 				parentlayer.addSublayer(imglayer)
 			}

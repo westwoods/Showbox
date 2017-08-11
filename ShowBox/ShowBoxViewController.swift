@@ -33,6 +33,8 @@ class ShowBoxViewController: UIViewController {
 			print (composition.duration)
 			let playerLayer = AVPlayerLayer(player: player)
 			playerLayer.frame = self.ShowBox.layer.bounds
+			playerLayer.contentsScale = 2.0
+			playerLayer.contentsGravity = AVLayerVideoGravityResize
 			print(playerLayer.frame)
 			print(self.ShowBox.bounds)
 			print(synclayer.frame)

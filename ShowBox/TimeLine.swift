@@ -134,6 +134,8 @@ public class   TimeLine{
 			2. 전환 효과별 dafualt타임보다 2초이상 남을시 dafualt 타임을 적용하고(현 2초) 다음이미지 호출
 			
 			3. 남은 시간이 2초보다 적을시 이번 전환 효과를 전환 효과 시간을 늘이거나 전환효과를 더 긴것으로 바꿈
+			
+			4. 마지막 이미지와 동영상은 배경음악 포인트까지 진행한다
 			*/
 						while (MusicTimeTable.splashing_Around[musicpoint] < CMTimeAdd(startTime, nextDelay)){
 				musicpoint+=1
