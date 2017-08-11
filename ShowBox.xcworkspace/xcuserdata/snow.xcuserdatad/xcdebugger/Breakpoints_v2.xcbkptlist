@@ -154,11 +154,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ShowBox/ViewController.swift"
-            timestampString = "523947747.55035"
+            timestampString = "524140673.307465"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "80"
-            endingLineNumber = "80"
+            startingLineNumber = "82"
+            endingLineNumber = "82"
             landmarkName = "dismissPhotoPicker(withTLPHAssets:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -170,11 +170,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ShowBox/ViewController.swift"
-            timestampString = "523947747.55035"
+            timestampString = "524140673.307465"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "59"
-            endingLineNumber = "59"
+            startingLineNumber = "61"
+            endingLineNumber = "61"
             landmarkName = "prepare(for:sender:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -186,11 +186,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ShowBox/ViewController.swift"
-            timestampString = "523947747.55035"
+            timestampString = "524140673.307465"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "79"
-            endingLineNumber = "79"
+            startingLineNumber = "81"
+            endingLineNumber = "81"
             landmarkName = "dismissPhotoPicker(withTLPHAssets:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -589,6 +589,131 @@
             startingLineNumber = "87"
             endingLineNumber = "87"
             landmarkName = "mergeVideo(_:previewSize:complete:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ShowBox/TLPhotoPicker/Classes/TLPhotoLibrary.swift"
+            timestampString = "524139588.380158"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "212"
+            endingLineNumber = "212"
+            landmarkName = "fetchCollection(allowedVideo:useCameraButton:mediaType:predicateOption:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ShowBox/ViewController.swift"
+            timestampString = "524140234.176257"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "13"
+            endingLineNumber = "13"
+            landmarkName = "ViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ShowBox.ViewController.__deallocating_deinit"
+                  moduleName = "ShowBox"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/snow/Documents/Swift/ShowBox/ShowBox/ViewController.swift"
+                  timestampString = "524140674.423344"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "12">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ShowBox.ViewController.init (nibName : Swift.Optional&lt;Swift.String&gt;, bundle : Swift.Optional&lt;__ObjC.Bundle&gt;) -&gt; ShowBox.ViewController"
+                  moduleName = "ShowBox"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/snow/Documents/Swift/ShowBox/ShowBox/ViewController.swift"
+                  timestampString = "524140674.424845"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "100">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ShowBox.ViewController.__allocating_init (nibName : Swift.Optional&lt;Swift.String&gt;, bundle : Swift.Optional&lt;__ObjC.Bundle&gt;) -&gt; ShowBox.ViewController"
+                  moduleName = "ShowBox"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/snow/Documents/Swift/ShowBox/ShowBox/ViewController.swift"
+                  timestampString = "524140674.426226"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "32">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ShowBox.ViewController.__allocating_init (coder : __ObjC.NSCoder) -&gt; Swift.Optional&lt;ShowBox.ViewController&gt;"
+                  moduleName = "ShowBox"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/snow/Documents/Swift/ShowBox/ShowBox/ViewController.swift"
+                  timestampString = "524140674.42773"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "12">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ShowBox.ViewController.init (coder : __ObjC.NSCoder) -&gt; Swift.Optional&lt;ShowBox.ViewController&gt;"
+                  moduleName = "ShowBox"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/snow/Documents/Swift/ShowBox/ShowBox/ViewController.swift"
+                  timestampString = "524140674.42898"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "60">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ShowBox/ViewController.swift"
+            timestampString = "524140925.732162"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "109"
+            endingLineNumber = "109"
+            landmarkName = "initDatepicker(startDate:endDate:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

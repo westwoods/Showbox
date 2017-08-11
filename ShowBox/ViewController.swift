@@ -10,36 +10,38 @@ import UIKit
 import Photos
 import AVFoundation
 
-class ViewController: UIViewController, TLPhotosPickerViewControllerDelegate{
-    @IBOutlet var fromDatePicker: UIDatePicker!
-    @IBOutlet var toDatePicker: UIDatePicker!
-	var timediff:TimeInterval = 9*60*60*60
+class ViewController: UIViewController, TLPhotosPickerViewControllerDelegate,UIPickerViewDataSource,UIPickerViewDelegate{
+
+	@IBOutlet var toDatePicker: UIPickerView!
+	@IBOutlet var fromDatePicker: UIDatePicker!
+	var timediff:TimeInterval = 9*60*60
     var mySelectedAsset:TimeLine = TimeLine()
     var destinationVC:TLPhotosPickerViewController? = nil
     var calender:Calendar = Calendar(identifier: .gregorian)
-
+	//@IBOutlet var toDatePicker: UIPickerView!
+	var pickerData:[String] = ["하루","이틀","사흘","나흘","닷새","엿새","일주일"]
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        toDatePicker.dataSource = self
+		toDatePicker.delegate = self
         // Do any additional setup after loading the view, typically from a nib.
     }
     @IBAction func fromDateChanged(_ sender: UIDatePicker) {
-        if( sender.date > toDatePicker.date )
-        {
-            toDatePicker.date = sender.date //to date가 지금 시간보다 작지않도록 설정
-        }
-        destinationVC?.refetchLibrary(fromDate: fromDatePicker.date.addingTimeInterval(timediff), toDate: toDatePicker.date.addingTimeInterval(timediff)) //임시방편으로 시간 수정 GMT기준으로 더해줘야할듯.
+
+//        destinationVC?.refetchLibrary(fromDate: fromDatePicker.date.addingTimeInterval(timediff), toDate: toDatePicker) //임시방편으로 시간 수정 GMT기준으로 더해줘야할듯.
         
     }
-    @IBAction func toDateChanged(_ sender: UIDatePicker) {
-        if( sender.date < fromDatePicker.date )
-        {
-            fromDatePicker.date = sender.date //from date가 지금 시간보다 크지않도록 설정
-        }
-        
-        destinationVC?.refetchLibrary(fromDate: fromDatePicker.date.addingTimeInterval(timediff), toDate: toDatePicker.date.addingTimeInterval(timediff)) //임시방편으로 시간수정 GMT기준으로 더해줘야할듯.
-    }
-    @IBAction func CompletebuttonTapped(_ sender: UIButton) {
+	func numberOfComponents(in pickerView: UIPickerView) -> Int {
+		return 1
+	}
+	func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+		return pickerData.count;
+	}
+	
+	func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+		return pickerData[row]
+	}
+	@IBAction func CompletebuttonTapped(_ sender: UIButton) {
        destinationVC?.dismiss(done: true)
     }
     @IBAction func reselectbuttonTapped(_ sender: UIButton) {
@@ -100,14 +102,14 @@ class ViewController: UIViewController, TLPhotosPickerViewControllerDelegate{
     func initDatepicker(startDate:Date,endDate:Date)
     {
 		print(startDate , endDate)
-		toDatePicker.minimumDate = startDate
 		fromDatePicker.minimumDate = startDate
-		
-        toDatePicker.maximumDate = endDate
-        fromDatePicker.maximumDate = endDate
-        
-        toDatePicker.date = endDate//to date가 지금 시간보다 작지않도록 설정
-        fromDatePicker.date = startDate
+		fromDatePicker.maximumDate = endDate
+		fromDatePicker.date = startDate
+		let days = Int(endDate.timeIntervalSince1970 -  startDate.timeIntervalSince1970)/(24*60*60)
+		for i in 7..<days{
+		pickerData.append(String(format:"%d일",i))
+		}
+		toDatePicker.reloadAllComponents()
     }
     
     override func didReceiveMemoryWarning() {

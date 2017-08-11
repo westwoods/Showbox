@@ -552,22 +552,6 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "ShowBox/ViewController.swift"
-            timestampString = "523875451.046474"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "41"
-            endingLineNumber = "41"
-            landmarkName = "toDateChanged(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "Pods/TLPhotoPicker/TLPhotoPicker/Classes/TLPhotoLibrary.swift"
             timestampString = "523446484.634123"
             startingColumnNumber = "9223372036854775807"
@@ -1142,11 +1126,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ShowBox/ViewController.swift"
-            timestampString = "523947747.55035"
+            timestampString = "524140673.307465"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "100"
-            endingLineNumber = "100"
+            startingLineNumber = "102"
+            endingLineNumber = "102"
             landmarkName = "initDatepicker(startDate:endDate:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1190,11 +1174,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ShowBox/ViewController.swift"
-            timestampString = "523947747.55035"
+            timestampString = "524140673.307465"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "55"
-            endingLineNumber = "55"
+            startingLineNumber = "57"
+            endingLineNumber = "57"
             landmarkName = "exitFromViewController(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1206,11 +1190,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ShowBox/ViewController.swift"
-            timestampString = "523947747.55035"
+            timestampString = "524140673.307465"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "43"
-            endingLineNumber = "43"
+            startingLineNumber = "45"
+            endingLineNumber = "45"
             landmarkName = "CompletebuttonTapped(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1570,11 +1554,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ShowBox/ViewController.swift"
-            timestampString = "523947747.55035"
+            timestampString = "524140673.307465"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "80"
-            endingLineNumber = "80"
+            startingLineNumber = "82"
+            endingLineNumber = "82"
             landmarkName = "dismissPhotoPicker(withTLPHAssets:)"
             landmarkType = "7">
             <Locations>
