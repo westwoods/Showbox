@@ -30,6 +30,7 @@
 		80206B011F3433EC0089B868 /* CPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 8025A2061F336F7000E03D0B /* CPoint.m */; };
 		80206B021F3433EC0089B868 /* EuclidianDistanceFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = 8025A20D1F336F7000E03D0B /* EuclidianDistanceFunction.m */; };
 		80206B031F3433EC0089B868 /* FileSourceLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 8025A20F1F336F7000E03D0B /* FileSourceLoader.m */; };
+		80341C4F1F41848200E1811D /* PreViewCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80341C4E1F41848200E1811D /* PreViewCollectionViewCell.swift */; };
 		803F12CE1F3982E4006C36B3 /* Atlanta.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 803F12CC1F3982E4006C36B3 /* Atlanta.jpeg */; };
 		803F12CF1F3982E4006C36B3 /* Splashing_Around.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 803F12CD1F3982E4006C36B3 /* Splashing_Around.jpg */; };
 		805B525D1F3883210092F74F /* TLPhotoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 800B28A11F34126200FD5810 /* TLPhotoCollectionViewCell.xib */; };
@@ -93,6 +94,7 @@
 		8025A20F1F336F7000E03D0B /* FileSourceLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileSourceLoader.m; sourceTree = "<group>"; };
 		8025A2101F336F7000E03D0B /* SourceLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SourceLoader.h; sourceTree = "<group>"; };
 		8027014A1F29786B00A26F3B /* VideoWriter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoWriter.swift; sourceTree = "<group>"; wrapsLines = 0; };
+		80341C4E1F41848200E1811D /* PreViewCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreViewCollectionViewCell.swift; sourceTree = "<group>"; };
 		803F12C81F3970CD006C36B3 /* FDWaveformView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FDWaveformView.framework; path = "../../../Library/Developer/Xcode/DerivedData/ShowBox-gghizcvmyuxhirebvwgboewuuzkk/Build/Products/Debug-iphoneos/FDWaveformView/FDWaveformView.framework"; sourceTree = "<group>"; };
 		803F12CC1F3982E4006C36B3 /* Atlanta.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Atlanta.jpeg; sourceTree = "<group>"; };
 		803F12CD1F3982E4006C36B3 /* Splashing_Around.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Splashing_Around.jpg; sourceTree = "<group>"; };
@@ -272,6 +274,7 @@
 				80C6FFB81F30AA70000401C1 /* FaceDetecter.swift */,
 				806142C21F389FC2006A34AA /* MusicTableViewCell.swift */,
 				805BCA901F416968004307DC /* LocalDic.swift */,
+				80341C4E1F41848200E1811D /* PreViewCollectionViewCell.swift */,
 			);
 			path = ShowBox;
 			sourceTree = "<group>";
@@ -534,6 +537,7 @@
 				80206ADF1F341AC80089B868 /* FaceDetecter.swift in Sources */,
 				8019CC331F34736C009C3254 /* TimeLine.swift in Sources */,
 				80206AEF1F341C480089B868 /* AppDelegate.swift in Sources */,
+				80341C4F1F41848200E1811D /* PreViewCollectionViewCell.swift in Sources */,
 				80206B001F3433EC0089B868 /* Cluster.m in Sources */,
 				80206ADE1F341AC80089B868 /* VideoWriter.swift in Sources */,
 				80782B411F380B0700BCBE9E /* File.swift in Sources */,
