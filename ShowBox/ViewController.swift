@@ -18,6 +18,7 @@ class ViewController: UIViewController, TLPhotosPickerViewControllerDelegate,UIP
     var mySelectedAsset:TimeLine = TimeLine()
     var destinationVC:TLPhotosPickerViewController? = nil
     var calender:Calendar = Calendar(identifier: .gregorian)
+	var toDate:Date = Date()
 	//@IBOutlet var toDatePicker: UIPickerView!
 	var pickerData:[String] = ["하루","이틀","사흘","나흘","닷새","엿새","일주일"]
     override func viewDidLoad() {
@@ -28,7 +29,7 @@ class ViewController: UIViewController, TLPhotosPickerViewControllerDelegate,UIP
     }
     @IBAction func fromDateChanged(_ sender: UIDatePicker) {
 
-//        destinationVC?.refetchLibrary(fromDate: fromDatePicker.date.addingTimeInterval(timediff), toDate: toDatePicker) //임시방편으로 시간 수정 GMT기준으로 더해줘야할듯.
+		destinationVC?.refetchLibrary(fromDate: fromDatePicker.date.addingTimeInterval(timediff), toDate: toDate) //임시방편으로 시간 수정 GMT기준으로 더해줘야할듯.
         
     }
 	func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -39,6 +40,8 @@ class ViewController: UIViewController, TLPhotosPickerViewControllerDelegate,UIP
 	}
 	
 	func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+		toDate = fromDatePicker.date.addingTimeInterval(TimeInterval(row * 24*60*60))
+		//destinationVC?.refetchLibrary(fromDate: fromDatePicker.date.addingTimeInterval(timediff), toDate: toDate)
 		return pickerData[row]
 	}
 	@IBAction func CompletebuttonTapped(_ sender: UIButton) {
@@ -110,7 +113,9 @@ class ViewController: UIViewController, TLPhotosPickerViewControllerDelegate,UIP
 		pickerData.append(String(format:"%d일",i))
 		}
 		toDatePicker.reloadAllComponents()
-    }
+		
+		toDatePicker.selectRow(days-1, inComponent: 0, animated: true)
+	}
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

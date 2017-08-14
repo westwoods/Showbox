@@ -427,7 +427,7 @@ extension TLPhotosPickerViewController: TLPhotoLibraryDelegate {
 				}
 			}
 			self.delegate?.initDatepicker(startDate: minStartDate, endDate: maxEndDate)
-			
+					self.initDatePicker = ()
 		}
 		self.indicator.stopAnimating()
 		self.reloadCollectionView()
