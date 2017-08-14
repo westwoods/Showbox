@@ -12,7 +12,7 @@ import AVFoundation
 import AssetsLibrary
 
 class VideoWriter {
-	
+	static var exportURL:URL? = nil
 	class func mergeVideo(_ myTimeLine:TimeLine, previewSize:CGRect,complete:((AVComposition,AVMutableVideoComposition,CALayer)->())){
 		let myMutableComposition:AVMutableComposition = AVMutableComposition()
 		//*************************************트랙생성
@@ -95,10 +95,9 @@ class VideoWriter {
 		complete(myMutableComposition  , MVCforpreView, previewlayer)
 		/***/
 		let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first!
-		
-		let exportURL = URL(fileURLWithPath: (paths + "/move3.mov"))
+		exportURL = URL(fileURLWithPath: (paths + "/move3.mov"))
 		do{
-			try VideoWriter.deleteExistingFile(exportURL)
+			try VideoWriter.deleteExistingFile(exportURL!)
 		}catch {
 			print("THERE IS NO FILE")
 		}
@@ -116,12 +115,6 @@ class VideoWriter {
 				if session.status == AVAssetExportSessionStatus.completed
 				{
 					print("Export Finished")
-					PHPhotoLibrary.shared().performChanges({
-						PHAssetChangeRequest.creationRequestForAssetFromVideo(atFileURL: exportURL)
-					}) { saved, error in
-						if saved { print("Saved")}
-						else{ print(error as Any)}
-					}
 				}
 				else if session.status == AVAssetExportSessionStatus.failed{
 					print("Export Error: \(session.error ?? "ERR" as! Error)")
@@ -134,41 +127,20 @@ class VideoWriter {
 			
 		}
 	}
-	class func exportAsset(_ asset: AVAsset) {
-		let today = Date() //현재 시각 구하기
-		let dateFormatter = DateFormatter()
-		dateFormatter.dateFormat = "yy_M_d_hh:mm:ss"
-		let dateString = dateFormatter.string(from: today as Date)
-		
-		
-		let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first!
-		
-		let exportURL = URL(fileURLWithPath: (paths + "/"+dateString+".mov"))
-		do{
-			try VideoWriter.deleteExistingFile(exportURL)
-		}catch {
-			print("THERE IS NO FILE")
+	class func saveToCameraRollAlbum(){
+		if let exportURL = exportURL{
+			print("저장 준비완료")
+		PHPhotoLibrary.shared().performChanges({
+			PHAssetChangeRequest.creationRequestForAssetFromVideo(atFileURL: exportURL)
+		}) { saved, error in
+			if saved { print("Saved")}
+			else{ print(error as Any)}
 		}
-		
-		let exporter = AVAssetExportSession(asset: asset, presetName: AVAssetExportPresetLowQuality)
-		exporter?.outputURL = exportURL
-		exporter?.outputFileType = AVFileTypeQuickTimeMovie
-		exporter?.exportAsynchronously(completionHandler: {
-			
-			
-			print("Output File Type: \(exporter?.outputFileType ?? "FILE TYPE MIA")")
-			print("Output URL: \(exporter?.outputURL?.absoluteString ?? "URL MIA")")
-			print("Video Compatible W/ Camera Roll: \(exporter!.asset.isCompatibleWithSavedPhotosAlbum)")
-			PHPhotoLibrary.shared().performChanges({
-				PHAssetChangeRequest.creationRequestForAssetFromVideo(atFileURL: exportURL)
-			}) { saved, error in
-				if saved {
-					print("Saved")
-				}
-			}
-		})
+		}
+		else{
+			print("저장할 파일이 없음.")
+		}
 	}
-	
 	class func preViewOverlay(_ size:CGRect,layercomposition:AVMutableVideoComposition,photosToOverlay:[TimeAsset])->CALayer{
 		let size = size
 		print(photosToOverlay.count)

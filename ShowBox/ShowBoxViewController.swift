@@ -14,6 +14,9 @@ class ShowBoxViewController: UIViewController {
 	
 	@IBOutlet var ShowBox: UIView!
 	
+	@IBAction func savetoAlbum(_ sender: UIButton) {
+		VideoWriter.saveToCameraRollAlbum()
+	}
 	var selectedAsset:TimeLine? = nil
 	
 	override func viewDidLoad() {

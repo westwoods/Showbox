@@ -21,6 +21,7 @@ public class TLPHAsset {
 	}
 	public var phAsset: PHAsset? = nil
 	public var selectedOrder: Int = 0
+	public var clusterGroup:Int = -1
 	public var selectedHighLight: Int = 0  //0 nomal 1 selected 2 highlighted
 	public var faceFeatureFilter:[TimeAsset.FaceFeatures] = []
 	public var type: AssetType {

@@ -44,7 +44,7 @@
 
     for (int ptrIndex = 0; ptrIndex < points.count; ptrIndex++) {
         result = [result stringByAppendingString:[[points objectAtIndex:ptrIndex] description]];
-		result = [result stringByAppendingString:[NSString stringWithFormat:@"%d index", ptrIndex]];
+		result = [result stringByAppendingString:[NSString stringWithFormat:@" %d", ptrIndex]];
         if (ptrIndex < (points.count - 1))
             result = [result stringByAppendingString:@"\n"];
     }

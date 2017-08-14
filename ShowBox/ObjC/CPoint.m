@@ -42,11 +42,11 @@
     NSString *result = @"";
 
     for (int i = 0; i < _coordinates.count; i++) {
-        result = [result stringByAppendingString:[[_coordinates objectAtIndex:i] description]];
+  //      result = [result stringByAppendingString:[[_coordinates objectAtIndex:i] description]];
         if (i < (_coordinates.count - 1))
 		{
-			result = [result stringByAppendingString:[NSString stringWithFormat:@" my %ld index", (long)_myindex]];
-            result = [result stringByAppendingString:@","];
+			result = [result stringByAppendingString:[NSString stringWithFormat:@"%ld", (long)_myindex]];
+  //          result = [result stringByAppendingString:@","];
 		}
     }
 

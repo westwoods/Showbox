@@ -17,6 +17,7 @@ public class AudioViewController: UITableViewController,FDWaveformViewDelegate {
 		
 	}
 	@IBAction func musicSelected(_ sender: UIButton) {
+		performSegue(withIdentifier: "MusicSelect", sender: self)
 		
 	}
 	var musics = [MusicTime]()

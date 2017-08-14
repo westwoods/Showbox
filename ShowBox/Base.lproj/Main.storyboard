@@ -163,6 +163,15 @@
                                     <constraint firstAttribute="width" secondItem="ZBh-Ch-qXk" secondAttribute="height" multiplier="1024:768" constant="8.3333333333333712" id="aUj-Nk-2ak"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7gm-fQ-fhf">
+                                <rect key="frame" x="291" y="581" width="68" height="59"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <state key="normal" title="저장"/>
+                                <connections>
+                                    <action selector="savetoAlbum:" destination="JkW-ln-7m5" eventType="touchUpInside" id="yQL-RX-kyo"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>

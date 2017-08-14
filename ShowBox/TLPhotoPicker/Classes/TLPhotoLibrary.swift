@@ -125,23 +125,7 @@ func date( year:Int, month:Int,  day:Int) -> Date? {
 
 //MARK: - Load Collection
 extension TLPhotoLibrary {
-	func convertToAddressWith(coordinate: CLLocation) {
 
-		let geoCoder = CLGeocoder()
-
-		geoCoder.reverseGeocodeLocation(coordinate) { (placemarks, error) -> Void in
-			if error != nil {
-				NSLog("\(String(describing: error))")
-				return
-			}
-			guard let placemark = placemarks?.first,
-				let addrList = placemark.addressDictionary?["FormattedAddressLines"] as? [String] else {
-					return
-			}
-			let address = addrList.joined(separator: " ")
-			print(address)
-		}
-	}
 	func fetchCollection(allowedVideo: Bool = true, useCameraButton: Bool = true, mediaType: PHAssetMediaType? = nil, predicateOption:NSPredicate? = nil) {
 		let options = PHFetchOptions()
 		let sortOrder = [NSSortDescriptor(key: "creationDate", ascending: false), ]
@@ -165,14 +149,25 @@ extension TLPhotoLibrary {
 							myarray.append([Float(location.coordinate.latitude),Float(location.coordinate.longitude)])
 						}
 					}
-					DBclustring.clustring(myarray, 3, 0.3)
+					/*************지역 클러스터링 ***********/
+					let sampleArray = DBclustring.clustring(myarray, 0, 0.01)  as! [Cluster]
+					for group in 0..<sampleArray.count{
+					let points = sampleArray[group].points as! [CPoint]
+						for j in 0..<points.count{
+							let point = points[j]
+							assetsCollection.getTLAsset(at: point.myindex)?.clusterGroup = group
+							print ( point.myindex , group, "그룹그룹 오우예")
+						}
+						convertToAddressWith(group,coordinate: CLLocation())
+						
+					}
+					/**********지역 클러스터링 끝**************/
 					result.append(assetsCollection)
 					return assetsCollection
 				}
 			}
 			return nil
 		}
-
 		@discardableResult
 		func getMomet( result: inout [TLAssetsCollection]) -> TLAssetsCollection? {
 

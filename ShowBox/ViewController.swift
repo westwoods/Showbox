@@ -18,7 +18,8 @@ class ViewController: UIViewController, TLPhotosPickerViewControllerDelegate,UIP
     var mySelectedAsset:TimeLine = TimeLine()
     var destinationVC:TLPhotosPickerViewController? = nil
     var calender:Calendar = Calendar(identifier: .gregorian)
-	var toDate:Date = Date()
+	var toDateRow:Int = 0
+
 	//@IBOutlet var toDatePicker: UIPickerView!
 	var pickerData:[String] = ["하루","이틀","사흘","나흘","닷새","엿새","일주일"]
     override func viewDidLoad() {
@@ -28,7 +29,7 @@ class ViewController: UIViewController, TLPhotosPickerViewControllerDelegate,UIP
         // Do any additional setup after loading the view, typically from a nib.
     }
     @IBAction func fromDateChanged(_ sender: UIDatePicker) {
-
+		let toDate:Date = fromDatePicker.date.addingTimeInterval(TimeInterval(toDateRow * 24*60*60))
 		destinationVC?.refetchLibrary(fromDate: fromDatePicker.date.addingTimeInterval(timediff), toDate: toDate) //임시방편으로 시간 수정 GMT기준으로 더해줘야할듯.
         
     }
@@ -38,11 +39,17 @@ class ViewController: UIViewController, TLPhotosPickerViewControllerDelegate,UIP
 	func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
 		return pickerData.count;
 	}
-	
 	func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-		toDate = fromDatePicker.date.addingTimeInterval(TimeInterval(row * 24*60*60))
-		//destinationVC?.refetchLibrary(fromDate: fromDatePicker.date.addingTimeInterval(timediff), toDate: toDate)
 		return pickerData[row]
+	}
+	
+	// Catpure the picker view selection
+	func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+		toDateRow = row
+		
+		let toDate:Date = fromDatePicker.date.addingTimeInterval(TimeInterval(toDateRow * 24*60*60))
+		
+		destinationVC?.refetchLibrary(fromDate: fromDatePicker.date.addingTimeInterval(timediff), toDate: toDate)
 	}
 	@IBAction func CompletebuttonTapped(_ sender: UIButton) {
        destinationVC?.dismiss(done: true)
@@ -50,12 +57,9 @@ class ViewController: UIViewController, TLPhotosPickerViewControllerDelegate,UIP
     @IBAction func reselectbuttonTapped(_ sender: UIButton) {
         destinationVC?.dismiss(done: true)
     }
-    
     @IBAction func MusicButtonTapped(_ sender: UIButton) {
         destinationVC?.dismiss(done: false)
     }
-    
-    
     @IBAction func exitFromViewController(_ segue: UIStoryboardSegue) {
         
         print ("welcome")
