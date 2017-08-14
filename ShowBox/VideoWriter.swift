@@ -150,24 +150,15 @@ class VideoWriter {
 		let dateString = dateFormatter.string(from: today as Date)
 		
 		// create text Layer
-		let titleLayer = CATextLayer()
-		titleLayer.backgroundColor = UIColor.clear.cgColor
-		titleLayer.string = "아옳옿"+dateString
-		titleLayer.font = UIFont(name: "Helvetica", size: 10)
-		titleLayer.fontSize = 20/3
-		titleLayer.foregroundColor = UIColor.black.cgColor
-		titleLayer.shadowOpacity = 0.0
-		titleLayer.alignmentMode = kCAAlignmentCenter
-		titleLayer.frame = size
 		
 		let videolayer = CALayer()
 		videolayer.frame = size
 		let parentlayer = CALayer()
 		parentlayer.frame = size
 		parentlayer.addSublayer(videolayer)
-		parentlayer.addSublayer(titleLayer)
 		for i in 0..<photosToOverlay.count
 		{
+			
 			let tempPhoto = photosToOverlay[i]
 			if tempPhoto.type == TimeAsset.AssetType.photo{
 				
@@ -192,6 +183,20 @@ class VideoWriter {
 				imglayer.add(myanimation, forKey: "opacity")
 				
 				parentlayer.addSublayer(imglayer)
+				
+				
+				if let location = tempPhoto.location{
+				let titleLayer = CATextLayer()
+				titleLayer.backgroundColor = UIColor.clear.cgColor
+				titleLayer.string = location + dateString
+				titleLayer.font = UIFont(name: "HelveticaNeue-Bold", size: 40)
+				titleLayer.fontSize = 15
+				titleLayer.foregroundColor = UIColor.black.cgColor
+				titleLayer.shadowOpacity = 0.0
+				titleLayer.alignmentMode = kCAAlignmentCenter
+				titleLayer.frame = size
+				imglayer.addSublayer(titleLayer)
+				}
 			}
 		}
 		return parentlayer

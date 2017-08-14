@@ -27,7 +27,7 @@ public class TimeAsset{
 	var timeStart:CMTime
 	var timePlayEnd:CMTime
 	var timeDelayEnd:CMTime
-	
+	var location:String?
 	public var selectedOrder: Int = 0
 	public var selectedHighLight: SelectedHighLight = .none  //0 nomal 1 selected 2 highlighted
 	public var faces:[FaceFeatures] = []
@@ -66,12 +66,13 @@ public class MusicTime:TimeAsset{
 }
 
 class ImageTime:TimeAsset{
-	init (timeStart: CMTime, timePlayEnd: CMTime, asset: UIImage, faces:[FaceFeatures])
+	init (timeStart: CMTime, timePlayEnd: CMTime, asset: UIImage, faces:[FaceFeatures], location:String?)
 	{
 		super.init(timeStart: timeStart, timePlayEnd: timePlayEnd, timeDelayEnd: kCMTimeInvalid)
 		self.type = AssetType.photo
 		self.passet = asset
 		self.faces = faces
+		self.location = location
 	}
 }
 
@@ -176,7 +177,7 @@ public class   TimeLine{
 			else{
 				if temp.type == TLPHAsset.AssetType.photo{
 
-					myTimes.append(ImageTime(timeStart: startTime, timePlayEnd: CMTimeAdd(startTime, CMTimeAdd(nextDelay, gap)), asset: temp.fullResolutionImage!,faces:temp.faceFeatureFilter))
+					myTimes.append(ImageTime(timeStart: startTime, timePlayEnd: CMTimeAdd(startTime, CMTimeAdd(nextDelay, gap)), asset: temp.fullResolutionImage!,faces:temp.faceFeatureFilter, location:LocalDic[temp.clusterGroup]))
 				
 					debugPrint("TDphoto start", startTime,"\n")
 					startTime = CMTimeAdd(startTime, CMTimeAdd(nextDelay, gap))

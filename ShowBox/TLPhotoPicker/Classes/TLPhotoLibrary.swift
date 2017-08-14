@@ -148,9 +148,12 @@ extension TLPhotoLibrary {
 							//  convertToAddressWith(coordinate: location)
 							myarray.append([Float(location.coordinate.latitude),Float(location.coordinate.longitude)])
 						}
+						else {
+						myarray.append([Float(-1),Float(-1)])
+						}
 					}
 					/*************지역 클러스터링 ***********/
-					let sampleArray = DBclustring.clustring(myarray, 0, 0.01)  as! [Cluster]
+					let sampleArray = DBclustring.clustring(myarray, 0, 0.03)  as! [Cluster]
 					for group in 0..<sampleArray.count{
 					let points = sampleArray[group].points as! [CPoint]
 						for j in 0..<points.count{
@@ -158,7 +161,9 @@ extension TLPhotoLibrary {
 							assetsCollection.getTLAsset(at: point.myindex)?.clusterGroup = group
 							print ( point.myindex , group, "그룹그룹 오우예")
 						}
-						convertToAddressWith(group,coordinate: CLLocation())
+						if let coordi = assetsCollection.getAsset(at: points[0].myindex)?.location{
+							convertToAddressWith(key:group,coordinate: coordi)
+						}
 						
 					}
 					/**********지역 클러스터링 끝**************/

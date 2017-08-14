@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+import Photos
 
 var LocalDic:[Int: String] = [:]
 
@@ -15,7 +15,7 @@ func convertToAddressWith(key:Int,coordinate: CLLocation) {
 	
 	let geoCoder = CLGeocoder()
 	
-	geoCoder.reverseGeocodeLocation(coordinate) { (placemarks, error) -> String in
+	geoCoder.reverseGeocodeLocation(coordinate) { (placemarks, error) -> () in
 		if error != nil {
 			NSLog("\(String(describing: error))")
 			return
@@ -25,8 +25,8 @@ func convertToAddressWith(key:Int,coordinate: CLLocation) {
 				return
 		}
 		let address = addrList.joined(separator: " ")
-		LocalDic.append(key,address)
+		LocalDic[key] = address
 		print (address)
-		return address
+	//	return address
 	}
 }
