@@ -56,15 +56,10 @@ class ShowBoxViewController: UIViewController,UICollectionViewDelegate,UICollect
 			synclayer.addSublayer(layer )
 			
 			let player = AVPlayer(playerItem: playerItem)
-			print (composition.duration)
 			let playerLayer = AVPlayerLayer(player: player)
 			playerLayer.frame = self.ShowBox.layer.bounds
 			playerLayer.contentsScale = 2.0
 			playerLayer.contentsGravity = AVLayerVideoGravityResize
-			print(playerLayer.frame)
-			print(self.ShowBox.bounds)
-			print(synclayer.frame)
-			print(self.ShowBox.layer.frame)
 			playerLayer.addSublayer(synclayer)
 			self.ShowBox.layer.addSublayer(playerLayer)
 			player.play()

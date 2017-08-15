@@ -24,7 +24,7 @@ class VideoWriter {
 			myMutableComposition.addMutableTrack(withMediaType: AVMediaTypeAudio, preferredTrackID:  kCMPersistentTrackID_Invalid)
 		//************************************트랙생성 끝
 		
-		var renderSize:CGSize = CGSize.init(width: 0, height: 0)
+		let renderSize:CGSize = CGSize(width: 1024, height: 768)
 		let mutableVideoCompositon = AVMutableVideoComposition.init()
 		var VideoCompositionInsturction:AVMutableVideoCompositionInstruction? = nil
 		print (myTimeLine.myTimes.count)
@@ -59,7 +59,14 @@ class VideoWriter {
 				/*********영상 위치, 회전, 설정***********/
 				let VideoLayerInstruction =
 					AVMutableVideoCompositionLayerInstruction(assetTrack: videoCompositionTrack)
-				VideoLayerInstruction.setTransform((videoAssetTrack?.preferredTransform)!, at: myTime.timeStart)
+				var resizefactor = CGFloat(1.0)
+				if (videoAssetTrack?.naturalSize.width)!/4 > (videoAssetTrack?.naturalSize.height)!/3{
+					resizefactor = renderSize.width/(videoAssetTrack?.naturalSize.width)!
+				}else{
+					resizefactor = renderSize.height/(videoAssetTrack?.naturalSize.height)!
+				}
+				
+				VideoLayerInstruction.setTransform((videoAssetTrack?.preferredTransform)!.scaledBy(x: resizefactor, y: resizefactor), at: myTime.timeStart)
 				
 				VideoCompositionInsturction!.layerInstructions = [VideoLayerInstruction]
 				mutableVideoCompositon.instructions.append(VideoCompositionInsturction!)
@@ -80,7 +87,6 @@ class VideoWriter {
 		catch{
 		}
 		var previewlayer:CALayer = CALayer()
-		renderSize = CGSize(width: 1024, height: 768)
 		mutableVideoCompositon.renderSize = renderSize
 		print(mutableVideoCompositon.renderSize)
 		mutableVideoCompositon.frameDuration = CMTimeMake(1,30);
@@ -178,6 +184,7 @@ class VideoWriter {
 				let imglayer = CALayer()
 				imglayer.contents = imglogo?.cgImage
 				imglayer.frame = CGRect(origin: CGPoint(x:0,y:0), size: CGSize(width: ((imglogo?.size.width)!*resizefactor), height: ((imglogo?.size.height)!*resizefactor)))
+				imglayer.position = CGPoint(x:parentlayer.bounds.midX , y:parentlayer.bounds.midY)
 				imglayer.masksToBounds = true
 				imglayer.opacity = 0.0
 				imglayer.backgroundColor = UIColor.blue.cgColor

@@ -141,7 +141,6 @@ extension TLPhotoLibrary {
 					assetsCollection.endDate = assetsCollection.getAsset(at: 0)?.creationDate
 					assetsCollection.startDate = assetsCollection.getAsset(at:  assetsCollection.count-1)?.creationDate
 					var myarray:[ [Float] ] = []
-
 					print("asset cont1 ", assetsCollection.count)
 					for i in 0..<assetsCollection.count{
 						if let location = assetsCollection.getAsset(at: i)?.location{
@@ -159,7 +158,6 @@ extension TLPhotoLibrary {
 						for j in 0..<points.count{
 							let point = points[j]
 							assetsCollection.getTLAsset(at: point.myindex)?.clusterGroup = group
-							print ( point.myindex , group, "그룹그룹 오우예")
 						}
 						if let coordi = assetsCollection.getAsset(at: points[0].myindex)?.location{
 							convertToAddressWith(key:group,coordinate: coordi)
@@ -184,7 +182,6 @@ extension TLPhotoLibrary {
 					assetsCollection.endDate = assetsCollection.getAsset(at: 0)?.creationDate
 					assetsCollection.startDate = assetsCollection.getAsset(at: assetsCollection.count-1)?.creationDate
 
-					print("asset cont 2", assetsCollection.count)
 					var myarray:[ [	Float] ] = []
 					for i in 0..<assetsCollection.count{
 						if let location = assetsCollection.getAsset(at: i)?.location{
