@@ -70,7 +70,7 @@ class VideoWriter {
 		
 		do{
 			var audioLoopStartTime:CMTime = kCMTimeZero
-			while(audioLoopStartTime < myTimeLine.timecut){ // 영상 끝까지 무한루프~
+			while(audioLoopStartTime < CMTimeSubtract(myTimeLine.timecut,(audioAssetTrack.asset?.duration)!)){ // 영상 끝까지 무한루프~
 				try BGMCompositionTrack.insertTimeRange(CMTimeRangeMake(kCMTimeZero,(audioAssetTrack.asset?.duration)!),of:audioAssetTrack, at:audioLoopStartTime)
 				audioLoopStartTime = CMTimeAdd(audioLoopStartTime, (audioAssetTrack.asset?.duration)!)
 			}
