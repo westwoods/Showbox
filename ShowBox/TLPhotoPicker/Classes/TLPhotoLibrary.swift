@@ -149,7 +149,7 @@ extension TLPhotoLibrary {
 							myarray.append([Float(location.coordinate.latitude),Float(location.coordinate.longitude)])
 						}
 						else {
-						myarray.append([Float(-1),Float(-1)])
+						myarray.append([-1.0+Float(i)*0.0001,-1.0+Float(i)*0.0001])
 						}
 					}
 					/*************지역 클러스터링 ***********/
