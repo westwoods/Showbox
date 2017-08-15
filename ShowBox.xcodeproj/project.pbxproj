@@ -31,6 +31,7 @@
 		80206B021F3433EC0089B868 /* EuclidianDistanceFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = 8025A20D1F336F7000E03D0B /* EuclidianDistanceFunction.m */; };
 		80206B031F3433EC0089B868 /* FileSourceLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 8025A20F1F336F7000E03D0B /* FileSourceLoader.m */; };
 		80341C4F1F41848200E1811D /* PreViewCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80341C4E1F41848200E1811D /* PreViewCollectionViewCell.swift */; };
+		80341C511F42D9DD00E1811D /* filmborder.png in Resources */ = {isa = PBXBuildFile; fileRef = 80341C501F42D9DD00E1811D /* filmborder.png */; };
 		803F12CE1F3982E4006C36B3 /* Atlanta.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 803F12CC1F3982E4006C36B3 /* Atlanta.jpeg */; };
 		803F12CF1F3982E4006C36B3 /* Splashing_Around.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 803F12CD1F3982E4006C36B3 /* Splashing_Around.jpg */; };
 		805B525D1F3883210092F74F /* TLPhotoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 800B28A11F34126200FD5810 /* TLPhotoCollectionViewCell.xib */; };
@@ -95,6 +96,7 @@
 		8025A2101F336F7000E03D0B /* SourceLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SourceLoader.h; sourceTree = "<group>"; };
 		8027014A1F29786B00A26F3B /* VideoWriter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoWriter.swift; sourceTree = "<group>"; wrapsLines = 0; };
 		80341C4E1F41848200E1811D /* PreViewCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreViewCollectionViewCell.swift; sourceTree = "<group>"; };
+		80341C501F42D9DD00E1811D /* filmborder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = filmborder.png; sourceTree = "<group>"; };
 		803F12C81F3970CD006C36B3 /* FDWaveformView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FDWaveformView.framework; path = "../../../Library/Developer/Xcode/DerivedData/ShowBox-gghizcvmyuxhirebvwgboewuuzkk/Build/Products/Debug-iphoneos/FDWaveformView/FDWaveformView.framework"; sourceTree = "<group>"; };
 		803F12CC1F3982E4006C36B3 /* Atlanta.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Atlanta.jpeg; sourceTree = "<group>"; };
 		803F12CD1F3982E4006C36B3 /* Splashing_Around.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Splashing_Around.jpg; sourceTree = "<group>"; };
@@ -225,6 +227,7 @@
 		805D80141F39EFC600F1C3F8 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
+				80341C501F42D9DD00E1811D /* filmborder.png */,
 				80CA67FE1F3C2F5400F21FEA /* intro.MOV */,
 				809D23CD1F25DF8C00116FBA /* Info.plist */,
 				809D23C81F25DF8C00116FBA /* Assets.xcassets */,
@@ -441,6 +444,7 @@
 				803F12CE1F3982E4006C36B3 /* Atlanta.jpeg in Resources */,
 				80B2AAFB1F3861A900627204 /* Hackbeat.mp3 in Resources */,
 				80B2AAFC1F3861A900627204 /* Splashing_Around.mp3 in Resources */,
+				80341C511F42D9DD00E1811D /* filmborder.png in Resources */,
 				80DE3FA01F3AE454000E8A2E /* humidity_albumJacket.jpg in Resources */,
 				803F12CF1F3982E4006C36B3 /* Splashing_Around.jpg in Resources */,
 				80B2AAF91F3861A900627204 /* Atlanta.mp3 in Resources */,

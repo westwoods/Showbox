@@ -220,17 +220,35 @@
                             </collectionView>
                             <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SmJ-Us-ZJ0">
                                 <rect key="frame" x="0.0" y="549" width="375" height="17"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="filmborder.png" translatesAutoresizingMaskIntoConstraints="NO" id="TsN-3h-4A9">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="17"/>
+                                    </imageView>
+                                </subviews>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="TsN-3h-4A9" secondAttribute="bottom" id="M1k-um-mdI"/>
                                     <constraint firstAttribute="height" constant="17" id="Pt0-Me-5ah"/>
+                                    <constraint firstItem="TsN-3h-4A9" firstAttribute="leading" secondItem="SmJ-Us-ZJ0" secondAttribute="leading" id="cDd-6m-rHo"/>
+                                    <constraint firstItem="TsN-3h-4A9" firstAttribute="top" secondItem="SmJ-Us-ZJ0" secondAttribute="top" id="fGs-33-TtY"/>
+                                    <constraint firstAttribute="trailing" secondItem="TsN-3h-4A9" secondAttribute="trailing" id="w3T-Bw-Ki4"/>
                                 </constraints>
                             </view>
                             <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ofY-Hh-ZXq">
                                 <rect key="frame" x="0.0" y="455" width="375" height="17"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="filmborder.png" translatesAutoresizingMaskIntoConstraints="NO" id="4vp-lI-27I">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="17"/>
+                                    </imageView>
+                                </subviews>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="17" id="1ec-N6-mCj"/>
+                                    <constraint firstItem="4vp-lI-27I" firstAttribute="top" secondItem="ofY-Hh-ZXq" secondAttribute="top" id="4jX-Tb-TQp"/>
+                                    <constraint firstAttribute="bottom" secondItem="4vp-lI-27I" secondAttribute="bottom" id="TKZ-nZ-aJP"/>
+                                    <constraint firstItem="4vp-lI-27I" firstAttribute="leading" secondItem="ofY-Hh-ZXq" secondAttribute="leading" id="d4q-8M-j0m"/>
+                                    <constraint firstAttribute="trailing" secondItem="4vp-lI-27I" secondAttribute="trailing" id="yru-WV-4VV"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -385,4 +403,7 @@
             <point key="canvasLocation" x="-978" y="143"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="filmborder.png" width="860" height="30"/>
+    </resources>
 </document>
