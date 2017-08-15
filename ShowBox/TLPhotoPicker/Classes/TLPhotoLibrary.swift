@@ -16,17 +16,17 @@ protocol TLPhotoLibraryDelegate: class {
 }
 
 class TLPhotoLibrary {
-
+	
 	weak var delegate: TLPhotoLibraryDelegate? = nil
-
+	
 	lazy var imageManager: PHCachingImageManager = {
 		return PHCachingImageManager()
 	}()
-
+	
 	deinit {
 		//print("deinit TLPhotoLibrary")
 	}
-
+	
 	@discardableResult
 	func livePhotoAsset(asset: PHAsset, size: CGSize = CGSize(width: 720, height: 1280), progressBlock: Photos.PHAssetImageProgressHandler? = nil, completionBlock:@escaping (PHLivePhoto)-> Void ) -> PHImageRequestID {
 		let options = PHLivePhotoRequestOptions()
@@ -40,7 +40,7 @@ class TLPhotoLibrary {
 		}
 		return requestId
 	}
-
+	
 	@discardableResult
 	func videoAsset(asset: PHAsset, size: CGSize = CGSize(width: 720, height: 1280), progressBlock: Photos.PHAssetImageProgressHandler? = nil, completionBlock:@escaping (AVPlayerItem?, [AnyHashable : Any]?) -> Void ) -> PHImageRequestID {
 		let options = PHVideoRequestOptions()
@@ -52,7 +52,7 @@ class TLPhotoLibrary {
 		})
 		return requestId
 	}
-
+	
 	@discardableResult
 	func imageAsset(asset: PHAsset, size: CGSize = CGSize(width: 720, height: 1280), options: PHImageRequestOptions? = nil, completionBlock:@escaping (UIImage)-> Void ) -> PHImageRequestID {
 		var options = options
@@ -68,11 +68,11 @@ class TLPhotoLibrary {
 		}
 		return requestId
 	}
-
+	
 	func cancelPHImageRequest(requestId: PHImageRequestID) {
 		self.imageManager.cancelImageRequest(requestId)
 	}
-
+	
 	@discardableResult
 	func cloudImageDownload(asset: PHAsset, size: CGSize = PHImageManagerMaximumSize, progressBlock: @escaping (Double) -> Void, completionBlock:@escaping (UIImage?)-> Void ) -> PHImageRequestID {
 		let options = PHImageRequestOptions()
@@ -91,7 +91,7 @@ class TLPhotoLibrary {
 		}
 		return requestId
 	}
-
+	
 	@discardableResult
 	class func fullResolutionImageData(asset: PHAsset) -> UIImage? {
 		let options = PHImageRequestOptions()
@@ -115,7 +115,7 @@ func date( year:Int, month:Int,  day:Int) -> Date? {
 	day: the day(1~31)
 	*/
 	let cal = Calendar(identifier:Calendar.Identifier.gregorian)
-
+	
 	var comp = DateComponents()
 	comp.year = year
 	comp.month = month
@@ -125,12 +125,12 @@ func date( year:Int, month:Int,  day:Int) -> Date? {
 
 //MARK: - Load Collection
 extension TLPhotoLibrary {
-
+	
 	func fetchCollection(allowedVideo: Bool = true, useCameraButton: Bool = true, mediaType: PHAssetMediaType? = nil, predicateOption:NSPredicate? = nil) {
 		let options = PHFetchOptions()
 		let sortOrder = [NSSortDescriptor(key: "creationDate", ascending: false), ]
 		options.sortDescriptors = sortOrder
-	    options.predicate = predicateOption
+		options.predicate = predicateOption
 		@discardableResult
 		func getSmartAlbum(subType: PHAssetCollectionSubtype, result: inout [TLAssetsCollection]) -> TLAssetsCollection? {
 			let fetchCollection = PHAssetCollection.fetchAssetCollections(with: .smartAlbum, subtype: subType, options:  nil)
@@ -148,19 +148,25 @@ extension TLPhotoLibrary {
 							myarray.append([Float(location.coordinate.latitude),Float(location.coordinate.longitude)])
 						}
 						else {
-						myarray.append([-1.0+Float(i)*0.0001,-1.0+Float(i)*0.0001])
+							()
+							myarray.append([-1.0+Float(i)*0.00001,-1.0+Float(i)*0.00001])
 						}
 					}
 					/*************지역 클러스터링 ***********/
-					let sampleArray = DBclustring.clustring(myarray, 0, 0.03)  as! [Cluster]
+					let sampleArray = DBclustring.clustring(myarray, 0, 0.0037)  as! [Cluster]
 					for group in 0..<sampleArray.count{
-					let points = sampleArray[group].points as! [CPoint]
+						let points = sampleArray[group].points as! [CPoint]
 						for j in 0..<points.count{
 							let point = points[j]
+							print ("myindex = ",point.myindex)
 							assetsCollection.getTLAsset(at: point.myindex)?.clusterGroup = group
 						}
-						if let coordi = assetsCollection.getAsset(at: points[0].myindex)?.location{
-							convertToAddressWith(key:group,coordinate: coordi)
+						for j in 0..<points.count{
+							let point = points[j]
+							if let coordi = assetsCollection.getAsset(at: point.myindex)?.location{
+								convertToAddressWith(key:group,coordinate: coordi)
+								break
+							}
 						}
 						
 					}
@@ -173,7 +179,7 @@ extension TLPhotoLibrary {
 		}
 		@discardableResult
 		func getMomet( result: inout [TLAssetsCollection]) -> TLAssetsCollection? {
-
+			
 			let fetchCollection = PHAssetCollection.fetchMoments(with: nil)
 			if let collection = fetchCollection.firstObject, !result.contains(where: { $0.localIdentifier == collection.localIdentifier }) {
 				let assetsCollection = TLAssetsCollection(collection: collection)
@@ -181,7 +187,7 @@ extension TLPhotoLibrary {
 				if assetsCollection.count > 0 {
 					assetsCollection.endDate = assetsCollection.getAsset(at: 0)?.creationDate
 					assetsCollection.startDate = assetsCollection.getAsset(at: assetsCollection.count-1)?.creationDate
-
+					
 					var myarray:[ [	Float] ] = []
 					for i in 0..<assetsCollection.count{
 						if let location = assetsCollection.getAsset(at: i)?.location{
@@ -196,13 +202,13 @@ extension TLPhotoLibrary {
 			}
 			return nil
 		}
-
+		
 		if let mediaType = mediaType {
 			options.predicate = NSPredicate(format: "mediaType = %i", mediaType.rawValue)
 		}else if !allowedVideo {
 			options.predicate = NSPredicate(format: "mediaType = %i", PHAssetMediaType.image.rawValue)
 		}
-
+		
 		DispatchQueue.global(qos: .userInteractive).async { [weak self] _ in
 			var assetCollections = [TLAssetsCollection]()
 			//Camera Roll
@@ -213,7 +219,7 @@ extension TLPhotoLibrary {
 				DispatchQueue.main.async {
 					self?.delegate?.focusCollection(collection: cameraRoll)
 					self?.delegate?.loadCameraRollCollection(collection: cameraRoll)
-
+					
 				}
 			}
 			else //TODO
@@ -223,36 +229,36 @@ extension TLPhotoLibrary {
 					self?.delegate?.loadCameraRollCollection(collection: TLAssetsCollection())
 				}
 			}
-//			TODO카메라롤만 일단 합니다.
-//			//Selfies
-//			getSmartAlbum(subType: .smartAlbumSelfPortraits, result: &assetCollections)
-//			//Panoramas
-//			getSmartAlbum(subType: .smartAlbumPanoramas, result: &assetCollections)
-//			//Favorites
-//			getSmartAlbum(subType: .smartAlbumFavorites, result: &assetCollections)
-//
-//			if allowedVideo {
-//				//Videos
-//				getSmartAlbum(subType: .smartAlbumVideos, result: &assetCollections)
-//			}
-//			//Album
-//			let albumsResult = PHCollectionList.fetchTopLevelUserCollections(with: nil)
-//			albumsResult.enumerateObjects({ (collection, index, stop) -> Void in
-//				guard let collection = collection as? PHAssetCollection else { return }
-//				let assetsCollection = TLAssetsCollection(collection: collection)
-//				assetsCollection.fetchResult = PHAsset.fetchAssets(in: collection, options: options)
-//				if assetsCollection.count > 500, !assetCollections.contains(where: { $0.localIdentifier == collection.localIdentifier }) {
-//
-//					print("asset cont3 ", assetsCollection.count)
-//					assetCollections.append(assetsCollection)
-//
-//					self?.delegate?.focusCollection(collection: assetsCollection)
-//				}
-//			})
-//
-//			DispatchQueue.main.async {
-//				//self?.delegate?.loadCompleteAllCollection(collections: assetCollections)
-//			}
+			//			TODO카메라롤만 일단 합니다.
+			//			//Selfies
+			//			getSmartAlbum(subType: .smartAlbumSelfPortraits, result: &assetCollections)
+			//			//Panoramas
+			//			getSmartAlbum(subType: .smartAlbumPanoramas, result: &assetCollections)
+			//			//Favorites
+			//			getSmartAlbum(subType: .smartAlbumFavorites, result: &assetCollections)
+			//
+			//			if allowedVideo {
+			//				//Videos
+			//				getSmartAlbum(subType: .smartAlbumVideos, result: &assetCollections)
+			//			}
+			//			//Album
+			//			let albumsResult = PHCollectionList.fetchTopLevelUserCollections(with: nil)
+			//			albumsResult.enumerateObjects({ (collection, index, stop) -> Void in
+			//				guard let collection = collection as? PHAssetCollection else { return }
+			//				let assetsCollection = TLAssetsCollection(collection: collection)
+			//				assetsCollection.fetchResult = PHAsset.fetchAssets(in: collection, options: options)
+			//				if assetsCollection.count > 500, !assetCollections.contains(where: { $0.localIdentifier == collection.localIdentifier }) {
+			//
+			//					print("asset cont3 ", assetsCollection.count)
+			//					assetCollections.append(assetsCollection)
+			//
+			//					self?.delegate?.focusCollection(collection: assetsCollection)
+			//				}
+			//			})
+			//
+			//			DispatchQueue.main.async {
+			//				//self?.delegate?.loadCompleteAllCollection(collections: assetCollections)
+			//			}
 		}
 	}
 }

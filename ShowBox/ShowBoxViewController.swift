@@ -47,26 +47,11 @@ class ShowBoxViewController: UIViewController,UICollectionViewDelegate,UICollect
 		super.viewDidLoad()
 		VideoWriter.mergeVideo((selectedAsset)!,previewSize:self.ShowBox.bounds,complete:videoout)
 	}
-	
-	func videoout(composition:AVComposition,mutableVideoCom:AVMutableVideoComposition,layer:CALayer){
-		DispatchQueue.main.async {
-			let playerItem = AVPlayerItem(asset: composition)
-			playerItem.videoComposition = mutableVideoCom//비디오 컴포지션 설정
-			let synclayer:AVSynchronizedLayer = AVSynchronizedLayer.init(playerItem: playerItem)
-			synclayer.addSublayer(layer )
+	func preViewGenerator(composition:AVComposition,mutableVideoCom:AVMutableVideoComposition){
+		DispatchQueue.global().async {
 			
-			let player = AVPlayer(playerItem: playerItem)
-			let playerLayer = AVPlayerLayer(player: player)
-			playerLayer.frame = self.ShowBox.layer.bounds
-			playerLayer.contentsScale = 2.0
-			playerLayer.contentsGravity = AVLayerVideoGravityResize
-			playerLayer.addSublayer(synclayer)
-			self.ShowBox.layer.addSublayer(playerLayer)
-			player.play()
-			DispatchQueue.global().async {
-				
 			let imageGenerator = AVAssetImageGenerator(asset: composition)
-				imageGenerator.videoComposition = mutableVideoCom
+			imageGenerator.videoComposition = mutableVideoCom
 			var actualTime = kCMTimeZero
 			var thumbnail : CGImage?
 			print ("마지막 시간",Int((self.selectedAsset?.getTimes().last?.timePlayEnd.seconds)!))
@@ -90,12 +75,29 @@ class ShowBoxViewController: UIViewController,UICollectionViewDelegate,UICollect
 					}
 				}
 			}
-				DispatchQueue.main.async {
+			DispatchQueue.main.async {
 				self.preViewCollectionView.reloadData()
-				}
-				self.selectedAsset?.removeAll()
 			}
+			self.selectedAsset?.removeAll()
+		}
+	}
+	func videoout(composition:AVComposition,mutableVideoCom:AVMutableVideoComposition,layer:CALayer){
+		DispatchQueue.main.async {
+			let playerItem = AVPlayerItem(asset: composition)
+			playerItem.videoComposition = mutableVideoCom//비디오 컴포지션 설정
+			let synclayer:AVSynchronizedLayer = AVSynchronizedLayer.init(playerItem: playerItem)
+			synclayer.addSublayer(layer )
 			
+			let player = AVPlayer(playerItem: playerItem)
+			let playerLayer = AVPlayerLayer(player: player)
+			playerLayer.frame = self.ShowBox.layer.bounds
+			playerLayer.contentsScale = 2.0
+			playerLayer.contentsGravity = AVLayerVideoGravityResize
+			playerLayer.addSublayer(synclayer)
+			self.ShowBox.layer.addSublayer(playerLayer)
+			player.play()
+			player.rate = 2.0
+			self.preViewGenerator(composition:composition,mutableVideoCom: mutableVideoCom)
 		}
 	}
 }
