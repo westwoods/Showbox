@@ -417,6 +417,16 @@ extension TLPhotosPickerViewController: TLPhotoLibraryDelegate {
 			focusCollection(collection: collection)
 		}
 		self.collections = [collection]
+		
+		print (collection.count ,"카운트가 왜이러냥")
+		self.selectedAssets = []
+		for i in 0..<collection.count{
+			if let tempTLAsset = collection.getTLAsset(at: i){
+				tempTLAsset.selectedOrder = i+1
+				tempTLAsset.selectedHighLight = 1
+				self.selectedAssets.append( tempTLAsset)
+			}
+		}
 		if self.initDatePicker == nil{
 			var minStartDate:Date = Date(timeIntervalSinceNow: 0)
 			var maxEndDate:Date = Date(timeIntervalSince1970: 0)
@@ -427,7 +437,7 @@ extension TLPhotosPickerViewController: TLPhotoLibraryDelegate {
 				}
 			}
 			self.delegate?.initDatepicker(startDate: minStartDate, endDate: maxEndDate)
-					self.initDatePicker = ()
+			self.initDatePicker = ()
 		}
 		self.indicator.stopAnimating()
 		self.reloadCollectionView()
@@ -588,7 +598,10 @@ extension TLPhotosPickerViewController: UICollectionViewDelegate,UICollectionVie
 			guard let cell = self.collectionView.cellForItem(at: indexPath) as? TLPhotoCollectionViewCell else { continue }
 			guard let asset = self.focusedCollection?.getTLAsset(at: indexPath.row) else { continue }
 			if let selectedAsset = getSelectedAssets(asset) {
-				cell.orderLabel?.text = "\(selectedAsset.selectedOrder)"  //
+				cell.orderLabel?.text = "\(selectedAsset.selectedOrder)"
+				if (selectedAsset.selectedOrder > 1000){
+					print("카운트 대체 왜넘어가는지 모르겠네")
+				}//
 				cell.selectedAsset = selectedAsset.selectedHighLight           //두줄 순서가 중요함 willset에서 속성을 바꿈으로
 			}else {
 				cell.selectedAsset = 0
@@ -620,6 +633,7 @@ extension TLPhotosPickerViewController: UICollectionViewDelegate,UICollectionVie
 				self.selectedAssets = self.selectedAssets.enumerated().flatMap({ (offset,asset) -> TLPHAsset? in
 					let asset = asset
 					asset.selectedOrder = offset + 1
+					print("카운트 오프셋",offset, selectedAssets.count)
 					return asset
 				})
 				cell.selectedAsset = asset.selectedHighLight
@@ -699,8 +713,8 @@ extension TLPhotosPickerViewController: UICollectionViewDelegate,UICollectionVie
 					let requestId = self.photoLibrary.imageAsset(asset: phAsset, size: self.thumbnailSize, completionBlock: { image in
 						cell?.imageView?.image = image
 						if  (asset.faces == nil)
-						{
-							asset.faces =  FaceDetector.detect(uiImage:image )
+						{()
+							//asset.faces =  FaceDetector.detect(uiImage:image )
 						}
 						cell?.faces = asset.faces
 						if self.allowedVideo {

@@ -128,18 +128,18 @@ extension TLPhotoLibrary {
 	
 	func fetchCollection(allowedVideo: Bool = true, useCameraButton: Bool = true, mediaType: PHAssetMediaType? = nil, predicateOption:NSPredicate? = nil) {
 		let options = PHFetchOptions()
-		let sortOrder = [NSSortDescriptor(key: "creationDate", ascending: false), ]
+		let sortOrder = [NSSortDescriptor(key: "creationDate", ascending: true), ]
 		options.sortDescriptors = sortOrder
 		options.predicate = predicateOption
 		@discardableResult
 		func getSmartAlbum(subType: PHAssetCollectionSubtype, result: inout [TLAssetsCollection]) -> TLAssetsCollection? {
 			let fetchCollection = PHAssetCollection.fetchAssetCollections(with: .smartAlbum, subtype: subType, options:  nil)
-			if let collection = fetchCollection.firstObject, !result.contains(where: { $0.localIdentifier == collection.localIdentifier }) {
+			if let collection = fetchCollection.firstObject, !result.contains(where: { $0.localIdentifier == collection.localIdentifier }) { //앨범에 변경사항이있을 경우 다시 받기
 				let assetsCollection = TLAssetsCollection(collection: collection)
 				assetsCollection.fetchResult = PHAsset.fetchAssets(in: collection, options: options)
 				if assetsCollection.count > 0 {
-					assetsCollection.endDate = assetsCollection.getAsset(at: 0)?.creationDate
-					assetsCollection.startDate = assetsCollection.getAsset(at:  assetsCollection.count-1)?.creationDate
+					assetsCollection.startDate = assetsCollection.getAsset(at: 0)?.creationDate
+					assetsCollection.endDate = assetsCollection.getAsset(at:  assetsCollection.count-1)?.creationDate
 					var myarray:[ CPoint ] = []
 					print("asset cont1 ", assetsCollection.count)
 					for i in 0..<assetsCollection.count{
@@ -150,6 +150,7 @@ extension TLPhotoLibrary {
 							mycode.addCoordinate(Float(location.coordinate.longitude))
 							mycode.add(i)
 							myarray.append(mycode)
+							
 						}
 						else {
 							()

@@ -142,12 +142,12 @@ class VideoWriter {
 	class func saveToCameraRollAlbum(){
 		if let exportURL = exportURL{
 			print("저장 준비완료")
-		PHPhotoLibrary.shared().performChanges({
-			PHAssetChangeRequest.creationRequestForAssetFromVideo(atFileURL: exportURL)
-		}) { saved, error in
-			if saved { print("Saved")}
-			else{ print(error as Any)}
-		}
+			PHPhotoLibrary.shared().performChanges({
+				PHAssetChangeRequest.creationRequestForAssetFromVideo(atFileURL: exportURL)
+			}) { saved, error in
+				if saved { print("Saved")}
+				else{ print(error as Any)}
+			}
 		}
 		else{
 			print("저장할 파일이 없음.")
@@ -180,25 +180,12 @@ class VideoWriter {
 				imglayer.frame = CGRect(origin: CGPoint(x:0,y:0), size: CGSize(width: ((imglogo?.size.width)!*resizefactor), height: ((imglogo?.size.height)!*resizefactor)))
 				imglayer.position = CGPoint(x:parentlayer.bounds.midX , y:parentlayer.bounds.midY)
 				imglayer.masksToBounds = true
-				imglayer.opacity = 1.0
+				imglayer.opacity = 0.0
 				imglayer.backgroundColor = UIColor.blue.cgColor
 				
-				//				let myanimation:CABasicAnimation = CABasicAnimation(keyPath: "opacity")
-				//				myanimation.fromValue = imglayer.opacity
-				//				myanimation.toValue = 1
-				//				myanimation.duration = (tempPhoto.timePlayEnd.seconds - tempPhoto.timeStart.seconds)/2
-				//				myanimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
-				//				myanimation.autoreverses  = true
-				//				myanimation.beginTime = AVCoreAnimationBeginTimeAtZero + tempPhoto.timeStart.seconds
-				//
-				//				myanimation.isRemovedOnCompletion = false //애니메이션이 종료되어도 애니메이션을 지우지않는다.
-				//				myanimation.fillMode = kCAFillModeForwards //애니메이션이 종료된뒤 계속해서 상태를 유지한다.
-				//				imglayer.add(myanimation, forKey: "opacity")
-				//
-				let myanimation:CABasicAnimation = CABasicAnimation(keyPath: "transform.scale")
-				
-				myanimation.fromValue =  1
-				myanimation.toValue = 2
+				let myanimation:CABasicAnimation = CABasicAnimation(keyPath: "opacity")
+				myanimation.fromValue = imglayer.opacity
+				myanimation.toValue = 1
 				myanimation.duration = (tempPhoto.timePlayEnd.seconds - tempPhoto.timeStart.seconds)/2
 				myanimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
 				myanimation.autoreverses  = true
@@ -206,11 +193,24 @@ class VideoWriter {
 				
 				myanimation.isRemovedOnCompletion = false //애니메이션이 종료되어도 애니메이션을 지우지않는다.
 				myanimation.fillMode = kCAFillModeForwards //애니메이션이 종료된뒤 계속해서 상태를 유지한다.
-				imglayer.add(myanimation, forKey: "scale")
+				imglayer.add(myanimation, forKey: "opacity")
 				
+				let sizeanimation:CABasicAnimation = CABasicAnimation(keyPath: "transform.scale")
+				
+				sizeanimation.fromValue =  1
+				sizeanimation.toValue = 2
+				sizeanimation.duration = (tempPhoto.timePlayEnd.seconds - tempPhoto.timeStart.seconds)/2
+				sizeanimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
+				sizeanimation.autoreverses  = true
+				sizeanimation.beginTime = AVCoreAnimationBeginTimeAtZero + tempPhoto.timeStart.seconds
+				
+				sizeanimation.isRemovedOnCompletion = false //애니메이션이 종료되어도 애니메이션을 지우지않는다.
+				sizeanimation.fillMode = kCAFillModeForwards //애니메이션이 종료된뒤 계속해서 상태를 유지한다.
+				imglayer.add(sizeanimation, forKey: "scale")
+				let transitionType = [kCATransitionFromTop,kCATransitionFromBottom,kCATransitionFromLeft,kCATransitionFromRight]
 				let transition = CATransition()
 				transition.type = kCATransitionPush
-				transition.subtype = kCATransitionFromRight
+				transition.subtype = transitionType[Int(arc4random_uniform(4))]
 				transition.duration = (tempPhoto.timePlayEnd.seconds - tempPhoto.timeStart.seconds)/2
 				transition.beginTime =  AVCoreAnimationBeginTimeAtZero + tempPhoto.timeStart.seconds
 				transition.autoreverses = true

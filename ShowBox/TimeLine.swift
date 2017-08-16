@@ -176,9 +176,9 @@ public class   TimeLine{
 			}
 			else{
 				if temp.type == TLPHAsset.AssetType.photo{
-					if temp.clusterGroup > -1{
+					if let mapimage = LocalImageDIc[temp.clusterGroup]{
 						//	지도 이미지추가
-						myTimes.append(ImageTime(timeStart: startTime, timePlayEnd: CMTimeAdd(startTime, CMTimeAdd(nextDelay, gap)), asset: LocalImageDIc[temp.clusterGroup]!,faces:temp.faceFeatureFilter, locationGroup:temp.clusterGroup))
+						myTimes.append(ImageTime(timeStart: startTime, timePlayEnd: CMTimeAdd(startTime, CMTimeAdd(nextDelay, gap)), asset:mapimage ,faces:temp.faceFeatureFilter, locationGroup:temp.clusterGroup))
 						startTime = CMTimeAdd(startTime, CMTimeAdd(nextDelay, gap))
 						latestVideo.timeDelayEnd = startTime
 					}

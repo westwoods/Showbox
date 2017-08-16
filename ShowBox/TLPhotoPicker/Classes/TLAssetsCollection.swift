@@ -59,14 +59,11 @@ public class TLPHAsset {
 			for face in faces{
 				if let face = face as? CIFaceFeature{
 					if !face.rightEyeClosed && !face.leftEyeClosed {
-						
 						faceFeatureFilter.append(.eye)
 					}
-					
 					if face.hasSmile {
 						faceFeatureFilter.append(.smile)
 					}                        // Apply the transform to convert the coordinates
-					
 				}
 			}
 		}

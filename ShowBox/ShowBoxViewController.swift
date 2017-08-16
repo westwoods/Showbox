@@ -54,8 +54,8 @@ class ShowBoxViewController: UIViewController,UICollectionViewDelegate,UICollect
 			imageGenerator.videoComposition = mutableVideoCom
 			var actualTime = kCMTimeZero
 			var thumbnail : CGImage?
-			print ("마지막 시간",Int((self.selectedAsset?.getTimes().last?.timePlayEnd.seconds)!))
-			for i in 0..<(self.selectedAsset?.getTimes().count)!{
+			print ("영상 길이는 ",Float((self.selectedAsset?.getTimes().last?.timePlayEnd.seconds)!),"초 입니다.")
+			for i in 1..<(self.selectedAsset?.getTimes().count)!{ //첫영상은 더미임으로 미리보기를 만들지 말자
 				if let tempAsset = self.selectedAsset?.getTimes()[i]{
 					if tempAsset.type == TimeAsset.AssetType.video{
 						//	비디오 타입
