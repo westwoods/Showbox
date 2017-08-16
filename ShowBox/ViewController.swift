@@ -30,6 +30,7 @@ class ViewController: UIViewController, TLPhotosPickerViewControllerDelegate,UIP
     }
     @IBAction func fromDateChanged(_ sender: UIDatePicker) {
 		let toDate:Date = fromDatePicker.date.addingTimeInterval(TimeInterval(toDateRow * 24*60*60))
+
 		destinationVC?.refetchLibrary(fromDate: fromDatePicker.date.addingTimeInterval(timediff), toDate: toDate) //임시방편으로 시간 수정 GMT기준으로 더해줘야할듯.
         
     }
@@ -42,7 +43,10 @@ class ViewController: UIViewController, TLPhotosPickerViewControllerDelegate,UIP
 	func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
 		return pickerData[row]
 	}
-	
+	func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
+		let attributedString = NSAttributedString(string: pickerData[row], attributes: [NSForegroundColorAttributeName : UIColor.white])
+		return attributedString
+	}
 	// Catpure the picker view selection
 	func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
 		toDateRow = row
@@ -109,6 +113,10 @@ class ViewController: UIViewController, TLPhotosPickerViewControllerDelegate,UIP
     func initDatepicker(startDate:Date,endDate:Date)
     {
 		print(startDate , endDate)
+		fromDatePicker.setValue(UIColor.white, forKeyPath: "textColor")
+		fromDatePicker.setValue(false, forKeyPath: "highlightsToday")
+	//	fromDatePicker.datePickerMode = .countDownTimer
+	//	fromDatePicker.datePickerMode = .dateAndTime
 		fromDatePicker.minimumDate = startDate
 		fromDatePicker.maximumDate = endDate
 		fromDatePicker.date = startDate

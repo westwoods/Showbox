@@ -12,7 +12,6 @@
 		80001E3A1F341743007FB318 /* TLPhotosPickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 800B28A41F34126200FD5810 /* TLPhotosPickerViewController.xib */; };
 		801676551F446D680019F81F /* airplane.png in Resources */ = {isa = PBXBuildFile; fileRef = 8016764B1F446D680019F81F /* airplane.png */; };
 		801676561F446D680019F81F /* back.png in Resources */ = {isa = PBXBuildFile; fileRef = 8016764C1F446D680019F81F /* back.png */; };
-		801676571F446D680019F81F /* filmborder.png in Resources */ = {isa = PBXBuildFile; fileRef = 8016764D1F446D680019F81F /* filmborder.png */; };
 		801676581F446D680019F81F /* make.png in Resources */ = {isa = PBXBuildFile; fileRef = 8016764E1F446D680019F81F /* make.png */; };
 		801676591F446D680019F81F /* music.png in Resources */ = {isa = PBXBuildFile; fileRef = 8016764F1F446D680019F81F /* music.png */; };
 		8016765A1F446D680019F81F /* ok.png in Resources */ = {isa = PBXBuildFile; fileRef = 801676501F446D680019F81F /* ok.png */; };
@@ -41,7 +40,6 @@
 		80206B021F3433EC0089B868 /* EuclidianDistanceFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = 8025A20D1F336F7000E03D0B /* EuclidianDistanceFunction.m */; };
 		80206B031F3433EC0089B868 /* FileSourceLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 8025A20F1F336F7000E03D0B /* FileSourceLoader.m */; };
 		80341C4F1F41848200E1811D /* PreViewCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80341C4E1F41848200E1811D /* PreViewCollectionViewCell.swift */; };
-		80341C511F42D9DD00E1811D /* filmborder.png in Resources */ = {isa = PBXBuildFile; fileRef = 80341C501F42D9DD00E1811D /* filmborder.png */; };
 		803F12CE1F3982E4006C36B3 /* Atlanta.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 803F12CC1F3982E4006C36B3 /* Atlanta.jpeg */; };
 		803F12CF1F3982E4006C36B3 /* Splashing_Around.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 803F12CD1F3982E4006C36B3 /* Splashing_Around.jpg */; };
 		805B525D1F3883210092F74F /* TLPhotoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 800B28A11F34126200FD5810 /* TLPhotoCollectionViewCell.xib */; };
@@ -88,7 +86,6 @@
 		800B28A51F34126200FD5810 /* TLPhotoPickerController.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = TLPhotoPickerController.bundle; sourceTree = "<group>"; };
 		8016764B1F446D680019F81F /* airplane.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = airplane.png; sourceTree = "<group>"; };
 		8016764C1F446D680019F81F /* back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back.png; sourceTree = "<group>"; };
-		8016764D1F446D680019F81F /* filmborder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = filmborder.png; sourceTree = "<group>"; };
 		8016764E1F446D680019F81F /* make.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = make.png; sourceTree = "<group>"; };
 		8016764F1F446D680019F81F /* music.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = music.png; sourceTree = "<group>"; };
 		801676501F446D680019F81F /* ok.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ok.png; sourceTree = "<group>"; };
@@ -116,7 +113,7 @@
 		8025A2101F336F7000E03D0B /* SourceLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SourceLoader.h; sourceTree = "<group>"; };
 		8027014A1F29786B00A26F3B /* VideoWriter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoWriter.swift; sourceTree = "<group>"; wrapsLines = 0; };
 		80341C4E1F41848200E1811D /* PreViewCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreViewCollectionViewCell.swift; sourceTree = "<group>"; };
-		80341C501F42D9DD00E1811D /* filmborder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = filmborder.png; sourceTree = "<group>"; };
+		80341C501F42D9DD00E1811D /* filmborder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = filmborder.png; path = ../../../filmborder.png; sourceTree = "<group>"; };
 		803F12C81F3970CD006C36B3 /* FDWaveformView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FDWaveformView.framework; path = "../../../Library/Developer/Xcode/DerivedData/ShowBox-gghizcvmyuxhirebvwgboewuuzkk/Build/Products/Debug-iphoneos/FDWaveformView/FDWaveformView.framework"; sourceTree = "<group>"; };
 		803F12CC1F3982E4006C36B3 /* Atlanta.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Atlanta.jpeg; sourceTree = "<group>"; };
 		803F12CD1F3982E4006C36B3 /* Splashing_Around.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Splashing_Around.jpg; sourceTree = "<group>"; };
@@ -227,7 +224,6 @@
 				80341C501F42D9DD00E1811D /* filmborder.png */,
 				8016764B1F446D680019F81F /* airplane.png */,
 				8016764C1F446D680019F81F /* back.png */,
-				8016764D1F446D680019F81F /* filmborder.png */,
 				8016764E1F446D680019F81F /* make.png */,
 				8016764F1F446D680019F81F /* music.png */,
 				801676501F446D680019F81F /* ok.png */,
@@ -476,7 +472,6 @@
 				8016765E1F446D680019F81F /* stop.png in Resources */,
 				8016765B1F446D680019F81F /* pause.png in Resources */,
 				80B2AAFA1F3861A900627204 /* Death_Match.mp3 in Resources */,
-				801676571F446D680019F81F /* filmborder.png in Resources */,
 				801676551F446D680019F81F /* airplane.png in Resources */,
 				801676591F446D680019F81F /* music.png in Resources */,
 				801676581F446D680019F81F /* make.png in Resources */,
@@ -491,7 +486,6 @@
 				801676561F446D680019F81F /* back.png in Resources */,
 				8016765A1F446D680019F81F /* ok.png in Resources */,
 				80B2AAFC1F3861A900627204 /* Splashing_Around.mp3 in Resources */,
-				80341C511F42D9DD00E1811D /* filmborder.png in Resources */,
 				80DE3FA01F3AE454000E8A2E /* humidity_albumJacket.jpg in Resources */,
 				8016765C1F446D680019F81F /* play.png in Resources */,
 				8016765D1F446D680019F81F /* save.png in Resources */,
