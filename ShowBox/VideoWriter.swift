@@ -101,7 +101,7 @@ class VideoWriter {
 		
 		// Set the frame duration to an appropriate value (i.e. 30 frames per second for video).
 		
-		let session:AVAssetExportSession? = AVAssetExportSession(asset: myMutableComposition, presetName: AVAssetExportPresetHighestQuality)
+		let session:AVAssetExportSession? = AVAssetExportSession(asset: myMutableComposition, presetName: AVAssetExportPresetMediumQuality)
 		
 		/***/
 		complete(myMutableComposition  , MVCforpreView, previewlayer)
@@ -191,8 +191,8 @@ class VideoWriter {
 				myanimation.autoreverses  = true
 				myanimation.beginTime = AVCoreAnimationBeginTimeAtZero + tempPhoto.timeStart.seconds
 				
-				myanimation.isRemovedOnCompletion = false //애니메이션이 종료되어도 애니메이션을 지우지않는다.
-				myanimation.fillMode = kCAFillModeForwards //애니메이션이 종료된뒤 계속해서 상태를 유지한다.
+	//			myanimation.isRemovedOnCompletion = false //애니메이션이 종료되어도 애니메이션을 지우지않는다.
+	//			myanimation.fillMode = kCAFillModeForwards //애니메이션이 종료된뒤 계속해서 상태를 유지한다.
 				imglayer.add(myanimation, forKey: "opacity")
 				
 				let sizeanimation:CABasicAnimation = CABasicAnimation(keyPath: "transform.scale")
@@ -204,8 +204,8 @@ class VideoWriter {
 				sizeanimation.autoreverses  = true
 				sizeanimation.beginTime = AVCoreAnimationBeginTimeAtZero + tempPhoto.timeStart.seconds
 				
-				sizeanimation.isRemovedOnCompletion = false //애니메이션이 종료되어도 애니메이션을 지우지않는다.
-				sizeanimation.fillMode = kCAFillModeForwards //애니메이션이 종료된뒤 계속해서 상태를 유지한다.
+//				sizeanimation.isRemovedOnCompletion = false //애니메이션이 종료되어도 애니메이션을 지우지않는다.
+//				sizeanimation.fillMode = kCAFillModeForwards //애니메이션이 종료된뒤 계속해서 상태를 유지한다.
 				imglayer.add(sizeanimation, forKey: "scale")
 				let transitionType = [kCATransitionFromTop,kCATransitionFromBottom,kCATransitionFromLeft,kCATransitionFromRight]
 				let transition = CATransition()
@@ -214,8 +214,8 @@ class VideoWriter {
 				transition.duration = (tempPhoto.timePlayEnd.seconds - tempPhoto.timeStart.seconds)/2
 				transition.beginTime =  AVCoreAnimationBeginTimeAtZero + tempPhoto.timeStart.seconds
 				transition.autoreverses = true
-				transition.isRemovedOnCompletion = false //애니메이션이 종료되어도 애니메이션을 지우지않는다.
-				transition.fillMode = kCAFillModeForwards //애니메이션이 종료된뒤 계속해서 상태를 유지한다.
+				//transition.isRemovedOnCompletion = false //애니메이션이 종료되어도 애니메이션을 지우지않는다.
+				//transition.fillMode = kCAFillModeForwards //애니메이션이 종료된뒤 계속해서 상태를 유지한다.
 				imglayer.add(transition, forKey: "transition")
 				parentlayer.addSublayer(imglayer)
 				
