@@ -519,11 +519,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ShowBox/VideoWriter.swift"
-            timestampString = "524479511.531427"
+            timestampString = "524558315.875428"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "156"
-            endingLineNumber = "156"
+            startingLineNumber = "241"
+            endingLineNumber = "241"
             landmarkName = "preViewOverlay(_:layercomposition:photosToOverlay:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -771,22 +771,6 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "ShowBox/VideoWriter.swift"
-            timestampString = "524555240.285357"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "229"
-            endingLineNumber = "229"
-            landmarkName = "preViewOverlay(_:layercomposition:photosToOverlay:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "ShowBox/TimeLine.swift"
             timestampString = "524384244.573871"
             startingColumnNumber = "9223372036854775807"
@@ -955,54 +939,6 @@
             endingLineNumber = "49"
             landmarkName = "getMapImage(lat:long:)"
             landmarkType = "9">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ShowBox/VideoWriter.swift"
-            timestampString = "524555240.285357"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "228"
-            endingLineNumber = "228"
-            landmarkName = "preViewOverlay(_:layercomposition:photosToOverlay:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "static ShowBox.VideoWriter.preViewOverlay (__C.CGRect, layercomposition : __ObjC.AVMutableVideoComposition, photosToOverlay : Swift.Array&lt;ShowBox.TimeAsset&gt;) -&gt; __ObjC.CALayer"
-                  moduleName = "ShowBox"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/snow/Documents/Swift/ShowBox/ShowBox/VideoWriter.swift"
-                  timestampString = "524495023.095925"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "207"
-                  endingLineNumber = "207"
-                  offsetFromSymbolStart = "5060">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "static ShowBox.VideoWriter.preViewOverlay (__C.CGRect, layercomposition : __ObjC.AVMutableVideoComposition, photosToOverlay : Swift.Array&lt;ShowBox.TimeAsset&gt;) -&gt; __ObjC.CALayer"
-                  moduleName = "ShowBox"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/snow/Documents/Swift/ShowBox/ShowBox/VideoWriter.swift"
-                  timestampString = "524495023.097454"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "207"
-                  endingLineNumber = "207"
-                  offsetFromSymbolStart = "5416">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy

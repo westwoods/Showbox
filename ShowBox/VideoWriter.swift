@@ -153,21 +153,15 @@ class VideoWriter {
 			print("저장할 파일이 없음.")
 		}
 	}
-	class func preViewOverlay(_ size:CGRect,layercomposition:AVMutableVideoComposition,photosToOverlay:[TimeAsset])->CALayer{
-		let size = size
-		print(photosToOverlay.count)
-		let today = Date() //현재 시각 구하기
-		let dateFormatter = DateFormatter()
-		dateFormatter.dateFormat = "yy_M_d_hh:mm:ss"
-		let dateString = dateFormatter.string(from: today as Date)
-		
-		// create text Layer
-		
+	class func addAnimationLayer(_ size:CGRect, photosToOverlay:[TimeAsset])->(CALayer,CALayer){
 		let videolayer = CALayer()
 		videolayer.frame = size
+		
 		let parentlayer = CALayer()
 		parentlayer.frame = size
+		parentlayer.masksToBounds = true
 		parentlayer.addSublayer(videolayer)
+		
 		for i in 0..<photosToOverlay.count
 		{
 			
@@ -189,102 +183,22 @@ class VideoWriter {
 				imglayer.opacity = 1.0
 				imglayer.backgroundColor = UIColor.blue.cgColor
 				
-//				let myanimation:CABasicAnimation = CABasicAnimation(keyPath: "opacity")
-//				myanimation.fromValue = imglayer.opacity
-//				myanimation.toValue = 1
-//				myanimation.duration = (tempPhoto.timePlayEnd.seconds - tempPhoto.timeStart.seconds)/2
-//				myanimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
-//				myanimation.autoreverses  = true
-//				myanimation.beginTime = AVCoreAnimationBeginTimeAtZero + tempPhoto.timeStart.seconds
-//				
-//				myanimation.isRemovedOnCompletion = false //애니메이션이 종료되어도 애니메이션을 지우지않는다.
-//				myanimation.fillMode = kCAFillModeForwards //애니메이션이 종료된뒤 계속해서 상태를 유지한다.
-//				imglayer.add(myanimation, forKey: "opacity")
-//				
-				let myanimation:CABasicAnimation = CABasicAnimation(keyPath: "affineTransform")
-				myanimation.fromValue = imglayer.affineTransform()
-				myanimation.toValue = imglayer.affineTransform().scaledBy(x: 2.0, y: 2.0)
-				myanimation.duration = (tempPhoto.timePlayEnd.seconds - tempPhoto.timeStart.seconds)/2
-				myanimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
-				myanimation.autoreverses  = true
-				myanimation.beginTime = AVCoreAnimationBeginTimeAtZero + tempPhoto.timeStart.seconds
+				//				let myanimation:CABasicAnimation = CABasicAnimation(keyPath: "opacity")
+				//				myanimation.fromValue = imglayer.opacity
+				//				myanimation.toValue = 1
+				//				myanimation.duration = (tempPhoto.timePlayEnd.seconds - tempPhoto.timeStart.seconds)/2
+				//				myanimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
+				//				myanimation.autoreverses  = true
+				//				myanimation.beginTime = AVCoreAnimationBeginTimeAtZero + tempPhoto.timeStart.seconds
+				//
+				//				myanimation.isRemovedOnCompletion = false //애니메이션이 종료되어도 애니메이션을 지우지않는다.
+				//				myanimation.fillMode = kCAFillModeForwards //애니메이션이 종료된뒤 계속해서 상태를 유지한다.
+				//				imglayer.add(myanimation, forKey: "opacity")
+				//
+				let myanimation:CABasicAnimation = CABasicAnimation(keyPath: "transform.scale")
 				
-			//	myanimation.isRemovedOnCompletion = false //애니메이션이 종료되어도 애니메이션을 지우지않는다.
-			//	myanimation.fillMode = kCAFillModeForwards //애니메이션이 종료된뒤 계속해서 상태를 유지한다.
-				imglayer.add(myanimation, forKey: "affineTransform")
-//				
-//				let transition = CATransition()
-//				transition.type = kCATransitionPush
-//				transition.subtype = kCATransitionFromRight
-//				transition.duration = (tempPhoto.timePlayEnd.seconds - tempPhoto.timeStart.seconds)/2
-//				transition.beginTime =  AVCoreAnimationBeginTimeAtZero + tempPhoto.timeStart.seconds
-//				transition.autoreverses = true
-//				transition.isRemovedOnCompletion = false //애니메이션이 종료되어도 애니메이션을 지우지않는다.
-//				transition.fillMode = kCAFillModeForwards //애니메이션이 종료된뒤 계속해서 상태를 유지한다.
-//				imglayer.add(transition, forKey: "transition")
-				parentlayer.addSublayer(imglayer)
-				
-				
-				if let location = LocalDic[tempPhoto.locationGroup!]{
-				let titleLayer = CATextLayer()
-				titleLayer.backgroundColor = UIColor.clear.cgColor
-				titleLayer.string = location + dateString
-				titleLayer.font = UIFont(name: "HelveticaNeue-Bold", size: 40)
-				titleLayer.fontSize = 15
-				titleLayer.foregroundColor = UIColor.black.cgColor
-				titleLayer.shadowOpacity = 0.0
-				titleLayer.alignmentMode = kCAAlignmentCenter
-				titleLayer.frame = size
-					
-					
-				imglayer.addSublayer(titleLayer)
-				}
-			}
-		}
-		return parentlayer
-	}
-	
-	
-	class func exportOverlay(_ size:CGRect,layercomposition:AVMutableVideoComposition,photosToOverlay:[TimeAsset]){
-		/*******************/
-		let size = size
-		print(photosToOverlay.count)
-		let today = Date() //현재 시각 구하기
-		let dateFormatter = DateFormatter()
-		dateFormatter.dateFormat = "yy_M_d_hh:mm:ss"
-		let dateString = dateFormatter.string(from: today as Date)
-		
-		// create text Layer
-		
-		let videolayer = CALayer()
-		videolayer.frame = size
-		let parentlayer = CALayer()
-		parentlayer.frame = size
-		parentlayer.addSublayer(videolayer)
-		for i in 0..<photosToOverlay.count
-		{
-			
-			let tempPhoto = photosToOverlay[i]
-			if tempPhoto.type == TimeAsset.AssetType.photo{
-				
-				let imglogo:UIImage? = tempPhoto.passet
-				var resizefactor = CGFloat(1.0)
-				if (imglogo?.size.width)!/4 > (imglogo?.size.height)!/3{
-					resizefactor = size.width/(imglogo?.size.width)!
-				}else{
-					resizefactor = size.height/(imglogo?.size.height)!
-				}
-				let imglayer = CALayer()
-				imglayer.contents = imglogo?.cgImage
-				imglayer.frame = CGRect(origin: CGPoint(x:0,y:0), size: CGSize(width: ((imglogo?.size.width)!*resizefactor), height: ((imglogo?.size.height)!*resizefactor)))
-				imglayer.position = CGPoint(x:parentlayer.bounds.midX , y:parentlayer.bounds.midY)
-				imglayer.masksToBounds = true
-				imglayer.opacity = 0.0
-				imglayer.backgroundColor = UIColor.blue.cgColor
-				
-				let myanimation:CABasicAnimation = CABasicAnimation(keyPath: "opacity")
-				myanimation.fromValue = imglayer.opacity
-				myanimation.toValue = 1
+				myanimation.fromValue =  1
+				myanimation.toValue = 2
 				myanimation.duration = (tempPhoto.timePlayEnd.seconds - tempPhoto.timeStart.seconds)/2
 				myanimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
 				myanimation.autoreverses  = true
@@ -292,15 +206,24 @@ class VideoWriter {
 				
 				myanimation.isRemovedOnCompletion = false //애니메이션이 종료되어도 애니메이션을 지우지않는다.
 				myanimation.fillMode = kCAFillModeForwards //애니메이션이 종료된뒤 계속해서 상태를 유지한다.
-				imglayer.add(myanimation, forKey: "opacity")
+				imglayer.add(myanimation, forKey: "scale")
 				
+				let transition = CATransition()
+				transition.type = kCATransitionPush
+				transition.subtype = kCATransitionFromRight
+				transition.duration = (tempPhoto.timePlayEnd.seconds - tempPhoto.timeStart.seconds)/2
+				transition.beginTime =  AVCoreAnimationBeginTimeAtZero + tempPhoto.timeStart.seconds
+				transition.autoreverses = true
+				transition.isRemovedOnCompletion = false //애니메이션이 종료되어도 애니메이션을 지우지않는다.
+				transition.fillMode = kCAFillModeForwards //애니메이션이 종료된뒤 계속해서 상태를 유지한다.
+				imglayer.add(transition, forKey: "transition")
 				parentlayer.addSublayer(imglayer)
 				
 				
 				if let location = LocalDic[tempPhoto.locationGroup!]{
 					let titleLayer = CATextLayer()
 					titleLayer.backgroundColor = UIColor.clear.cgColor
-					titleLayer.string = location + dateString
+					titleLayer.string = location
 					titleLayer.font = UIFont(name: "HelveticaNeue-Bold", size: 40)
 					titleLayer.fontSize = 15
 					titleLayer.foregroundColor = UIColor.black.cgColor
@@ -313,9 +236,22 @@ class VideoWriter {
 				}
 			}
 		}
-		/******************************/
+		return (videolayer,parentlayer)
+	}
+	class func preViewOverlay(_ size:CGRect,layercomposition:AVMutableVideoComposition,photosToOverlay:[TimeAsset])->CALayer{
+		let size = size
+		print(photosToOverlay.count)
+		
+		// create text Layer
+		return addAnimationLayer(size, photosToOverlay: photosToOverlay).1
+	}
+	
+	
+	class func exportOverlay(_ size:CGRect,layercomposition:AVMutableVideoComposition,photosToOverlay:[TimeAsset]){
+		
+		let videoandparentLayer = addAnimationLayer(size, photosToOverlay: photosToOverlay)
 		let layercomposition = layercomposition
-		layercomposition.animationTool = AVVideoCompositionCoreAnimationTool(postProcessingAsVideoLayer: videolayer, in: parentlayer)
+		layercomposition.animationTool = AVVideoCompositionCoreAnimationTool(postProcessingAsVideoLayer: videoandparentLayer.0, in: videoandparentLayer.1)
 	}
 	
 	class func deleteExistingFile(_ destinationURL: URL) throws {
