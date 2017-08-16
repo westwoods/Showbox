@@ -10,6 +10,7 @@
 
 @implementation CPoint
 @synthesize coordinates = _coordinates;
+@synthesize myindex = _myindex;
 - (id)init {
     self = [super init];
 

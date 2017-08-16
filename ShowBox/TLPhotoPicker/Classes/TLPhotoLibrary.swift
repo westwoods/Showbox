@@ -140,34 +140,35 @@ extension TLPhotoLibrary {
 				if assetsCollection.count > 0 {
 					assetsCollection.endDate = assetsCollection.getAsset(at: 0)?.creationDate
 					assetsCollection.startDate = assetsCollection.getAsset(at:  assetsCollection.count-1)?.creationDate
-					var myarray:[ [Float] ] = []
+					var myarray:[ CPoint ] = []
 					print("asset cont1 ", assetsCollection.count)
 					for i in 0..<assetsCollection.count{
 						if let location = assetsCollection.getAsset(at: i)?.location{
 							//  convertToAddressWith(coordinate: location)
-							myarray.append([Float(location.coordinate.latitude),Float(location.coordinate.longitude)])
+							let mycode:CPoint = CPoint.init()
+							mycode.addCoordinate(Float(location.coordinate.latitude))
+							mycode.addCoordinate(Float(location.coordinate.longitude))
+							mycode.add(i)
+							myarray.append(mycode)
 						}
 						else {
 							()
-							myarray.append([-1.0+Float(i)*0.00001,-1.0+Float(i)*0.00001])
+					//		myarray.append([-1.0,-1.0])//+Float(i)*0.00001,-1.0+Float(i)*0.00001])
 						}
 					}
+					
+					print("local cont1 ", myarray.count)
 					/*************지역 클러스터링 ***********/
-					let sampleArray = DBclustring.clustring(myarray, 0, 0.0037)  as! [Cluster]
+					let sampleArray = DBclustring.clustring(myarray, 0, 0.004)  as! [Cluster]
 					for group in 0..<sampleArray.count{
 						let points = sampleArray[group].points as! [CPoint]
 						for j in 0..<points.count{
 							let point = points[j]
-							print ("myindex = ",point.myindex)
+							print ("myindex = ",point.myindex, "group= ", group)
 							assetsCollection.getTLAsset(at: point.myindex)?.clusterGroup = group
 						}
-						for j in 0..<points.count{
-							let point = points[j]
-							if let coordi = assetsCollection.getAsset(at: point.myindex)?.location{
-								convertToAddressWith(key:group,coordinate: coordi)
-								break
-							}
-						}
+						convertToAddressWith(key:group,coordinate: (assetsCollection.getAsset(at: (points.first?.myindex)!)?.location)!)
+					
 						
 					}
 					/**********지역 클러스터링 끝**************/

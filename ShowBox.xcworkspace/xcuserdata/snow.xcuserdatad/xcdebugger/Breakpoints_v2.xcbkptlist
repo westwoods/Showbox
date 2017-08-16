@@ -583,11 +583,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ShowBox/TLPhotoPicker/Classes/TLPhotoLibrary.swift"
-            timestampString = "524482138.796482"
+            timestampString = "524545727.640681"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "230"
-            endingLineNumber = "230"
+            startingLineNumber = "231"
+            endingLineNumber = "231"
             landmarkName = "fetchCollection(allowedVideo:useCameraButton:mediaType:predicateOption:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -740,11 +740,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ShowBox/LocalDic.swift"
-            timestampString = "524381414.581297"
+            timestampString = "524494457.959223"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "14"
-            endingLineNumber = "14"
+            startingLineNumber = "15"
+            endingLineNumber = "15"
             landmarkName = "convertToAddressWith(key:coordinate:)"
             landmarkType = "9">
          </BreakpointContent>
@@ -756,11 +756,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ShowBox/LocalDic.swift"
-            timestampString = "524381442.254353"
+            timestampString = "524494457.959223"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "16"
-            endingLineNumber = "16"
+            startingLineNumber = "17"
+            endingLineNumber = "17"
             landmarkName = "convertToAddressWith(key:coordinate:)"
             landmarkType = "9">
          </BreakpointContent>
@@ -772,11 +772,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ShowBox/VideoWriter.swift"
-            timestampString = "524479511.531427"
+            timestampString = "524555240.285357"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "208"
-            endingLineNumber = "208"
+            startingLineNumber = "229"
+            endingLineNumber = "229"
             landmarkName = "preViewOverlay(_:layercomposition:photosToOverlay:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -836,11 +836,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ShowBox/TimeLine.swift"
-            timestampString = "524384284.134659"
+            timestampString = "524550842.772191"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "180"
-            endingLineNumber = "180"
+            startingLineNumber = "185"
+            endingLineNumber = "185"
             landmarkName = "makeTimeLine(selectedAssets:complete:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -915,76 +915,12 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "ShowBox/VideoWriter.swift"
-            timestampString = "524479511.531427"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "257"
-            endingLineNumber = "257"
-            landmarkName = "exportOverlay(_:layercomposition:photosToOverlay:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ShowBox/VideoWriter.swift"
-            timestampString = "524479511.531427"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "247"
-            endingLineNumber = "247"
-            landmarkName = "exportOverlay(_:layercomposition:photosToOverlay:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ShowBox/VideoWriter.swift"
-            timestampString = "524479511.531427"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "256"
-            endingLineNumber = "256"
-            landmarkName = "exportOverlay(_:layercomposition:photosToOverlay:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ShowBox/VideoWriter.swift"
-            timestampString = "524479511.531427"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "249"
-            endingLineNumber = "249"
-            landmarkName = "exportOverlay(_:layercomposition:photosToOverlay:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "ShowBox/TLPhotoPicker/Classes/TLPhotoLibrary.swift"
-            timestampString = "524482138.796482"
+            timestampString = "524545456.569849"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "167"
-            endingLineNumber = "167"
+            startingLineNumber = "163"
+            endingLineNumber = "163"
             landmarkName = "getSmartAlbum(subType:result:)"
             landmarkType = "9">
          </BreakpointContent>
@@ -993,31 +929,111 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ShowBox/TLPhotoPicker/Classes/TLPhotoLibrary.swift"
-            timestampString = "524481934.023049"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "157"
-            endingLineNumber = "157"
-            landmarkName = "getSmartAlbum(subType:result:)"
-            landmarkType = "9">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ShowBox/LocalDic.swift"
-            timestampString = "524482244.858769"
+            timestampString = "524494457.959223"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "25"
-            endingLineNumber = "25"
+            startingLineNumber = "26"
+            endingLineNumber = "26"
             landmarkName = "convertToAddressWith(key:coordinate:)"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ShowBox/LocalDic.swift"
+            timestampString = "524496147.276455"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "49"
+            endingLineNumber = "49"
+            landmarkName = "getMapImage(lat:long:)"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ShowBox/VideoWriter.swift"
+            timestampString = "524555240.285357"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "228"
+            endingLineNumber = "228"
+            landmarkName = "preViewOverlay(_:layercomposition:photosToOverlay:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static ShowBox.VideoWriter.preViewOverlay (__C.CGRect, layercomposition : __ObjC.AVMutableVideoComposition, photosToOverlay : Swift.Array&lt;ShowBox.TimeAsset&gt;) -&gt; __ObjC.CALayer"
+                  moduleName = "ShowBox"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/snow/Documents/Swift/ShowBox/ShowBox/VideoWriter.swift"
+                  timestampString = "524495023.095925"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "207"
+                  endingLineNumber = "207"
+                  offsetFromSymbolStart = "5060">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static ShowBox.VideoWriter.preViewOverlay (__C.CGRect, layercomposition : __ObjC.AVMutableVideoComposition, photosToOverlay : Swift.Array&lt;ShowBox.TimeAsset&gt;) -&gt; __ObjC.CALayer"
+                  moduleName = "ShowBox"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/snow/Documents/Swift/ShowBox/ShowBox/VideoWriter.swift"
+                  timestampString = "524495023.097454"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "207"
+                  endingLineNumber = "207"
+                  offsetFromSymbolStart = "5416">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ShowBox/TLPhotoPicker/Classes/TLPhotoLibrary.swift"
+            timestampString = "524544142.897586"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "148"
+            endingLineNumber = "148"
+            landmarkName = "getSmartAlbum(subType:result:)"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ShowBox/TLPhotoPicker/Classes/TLPhotoLibrary.swift"
+            timestampString = "524545376.41026"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "152"
+            endingLineNumber = "152"
+            landmarkName = "getSmartAlbum(subType:result:)"
             landmarkType = "9">
          </BreakpointContent>
       </BreakpointProxy>

@@ -84,7 +84,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="간의 추억" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="van-DN-fQS">
-                                <rect key="frame" x="158" y="112" width="110" height="29"/>
+                                <rect key="frame" x="208" y="112" width="110" height="29"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="110" id="KRG-4D-HZf"/>
                                     <constraint firstAttribute="height" constant="29" id="PMR-T0-UfP"/>
@@ -94,7 +94,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YLO-H5-F7A">
-                                <rect key="frame" x="48" y="72" width="102" height="108"/>
+                                <rect key="frame" x="98" y="72" width="102" height="108"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             </pickerView>
                         </subviews>
@@ -118,7 +118,7 @@
                             <constraint firstItem="OIi-FZ-nJz" firstAttribute="top" secondItem="ihY-zP-lUJ" secondAttribute="bottom" constant="-54" id="gYU-3Q-DND"/>
                             <constraint firstItem="van-DN-fQS" firstAttribute="top" secondItem="ihY-zP-lUJ" secondAttribute="bottom" constant="8" symbolic="YES" id="n9U-W1-LL4"/>
                             <constraint firstItem="Y6q-Dr-WSM" firstAttribute="leading" secondItem="cbp-dz-2Vg" secondAttribute="leading" id="nK7-eZ-8kW"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="van-DN-fQS" secondAttribute="trailing" constant="91" id="qAt-qJ-Njs"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="van-DN-fQS" secondAttribute="trailing" constant="41" id="qAt-qJ-Njs"/>
                             <constraint firstItem="OIi-FZ-nJz" firstAttribute="leading" secondItem="ihY-zP-lUJ" secondAttribute="trailing" constant="-30" id="qz9-XU-cu9"/>
                             <constraint firstItem="Y6q-Dr-WSM" firstAttribute="top" secondItem="van-DN-fQS" secondAttribute="bottom" constant="52" id="rEb-BE-u3N"/>
                             <constraint firstItem="cWE-xZ-1dI" firstAttribute="top" secondItem="Y6q-Dr-WSM" secondAttribute="bottom" constant="2" id="wjw-HT-yPR"/>

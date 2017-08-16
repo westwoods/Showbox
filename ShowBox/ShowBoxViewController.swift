@@ -96,7 +96,7 @@ class ShowBoxViewController: UIViewController,UICollectionViewDelegate,UICollect
 			playerLayer.addSublayer(synclayer)
 			self.ShowBox.layer.addSublayer(playerLayer)
 			player.play()
-			player.rate = 2.0
+			player.rate = 1.0
 			self.preViewGenerator(composition:composition,mutableVideoCom: mutableVideoCom)
 		}
 	}

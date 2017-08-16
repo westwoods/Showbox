@@ -186,25 +186,46 @@ class VideoWriter {
 				imglayer.frame = CGRect(origin: CGPoint(x:0,y:0), size: CGSize(width: ((imglogo?.size.width)!*resizefactor), height: ((imglogo?.size.height)!*resizefactor)))
 				imglayer.position = CGPoint(x:parentlayer.bounds.midX , y:parentlayer.bounds.midY)
 				imglayer.masksToBounds = true
-				imglayer.opacity = 0.0
+				imglayer.opacity = 1.0
 				imglayer.backgroundColor = UIColor.blue.cgColor
 				
-				let myanimation:CABasicAnimation = CABasicAnimation(keyPath: "opacity")
-				myanimation.fromValue = imglayer.opacity
-				myanimation.toValue = 1
+//				let myanimation:CABasicAnimation = CABasicAnimation(keyPath: "opacity")
+//				myanimation.fromValue = imglayer.opacity
+//				myanimation.toValue = 1
+//				myanimation.duration = (tempPhoto.timePlayEnd.seconds - tempPhoto.timeStart.seconds)/2
+//				myanimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
+//				myanimation.autoreverses  = true
+//				myanimation.beginTime = AVCoreAnimationBeginTimeAtZero + tempPhoto.timeStart.seconds
+//				
+//				myanimation.isRemovedOnCompletion = false //애니메이션이 종료되어도 애니메이션을 지우지않는다.
+//				myanimation.fillMode = kCAFillModeForwards //애니메이션이 종료된뒤 계속해서 상태를 유지한다.
+//				imglayer.add(myanimation, forKey: "opacity")
+//				
+				let myanimation:CABasicAnimation = CABasicAnimation(keyPath: "affineTransform")
+				myanimation.fromValue = imglayer.affineTransform()
+				myanimation.toValue = imglayer.affineTransform().scaledBy(x: 2.0, y: 2.0)
 				myanimation.duration = (tempPhoto.timePlayEnd.seconds - tempPhoto.timeStart.seconds)/2
 				myanimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
 				myanimation.autoreverses  = true
 				myanimation.beginTime = AVCoreAnimationBeginTimeAtZero + tempPhoto.timeStart.seconds
 				
-				myanimation.isRemovedOnCompletion = false //애니메이션이 종료되어도 애니메이션을 지우지않는다.
-				myanimation.fillMode = kCAFillModeForwards //애니메이션이 종료된뒤 계속해서 상태를 유지한다.
-				imglayer.add(myanimation, forKey: "opacity")
-				
+			//	myanimation.isRemovedOnCompletion = false //애니메이션이 종료되어도 애니메이션을 지우지않는다.
+			//	myanimation.fillMode = kCAFillModeForwards //애니메이션이 종료된뒤 계속해서 상태를 유지한다.
+				imglayer.add(myanimation, forKey: "affineTransform")
+//				
+//				let transition = CATransition()
+//				transition.type = kCATransitionPush
+//				transition.subtype = kCATransitionFromRight
+//				transition.duration = (tempPhoto.timePlayEnd.seconds - tempPhoto.timeStart.seconds)/2
+//				transition.beginTime =  AVCoreAnimationBeginTimeAtZero + tempPhoto.timeStart.seconds
+//				transition.autoreverses = true
+//				transition.isRemovedOnCompletion = false //애니메이션이 종료되어도 애니메이션을 지우지않는다.
+//				transition.fillMode = kCAFillModeForwards //애니메이션이 종료된뒤 계속해서 상태를 유지한다.
+//				imglayer.add(transition, forKey: "transition")
 				parentlayer.addSublayer(imglayer)
 				
 				
-				if let location = tempPhoto.location{
+				if let location = LocalDic[tempPhoto.locationGroup!]{
 				let titleLayer = CATextLayer()
 				titleLayer.backgroundColor = UIColor.clear.cgColor
 				titleLayer.string = location + dateString
@@ -214,6 +235,8 @@ class VideoWriter {
 				titleLayer.shadowOpacity = 0.0
 				titleLayer.alignmentMode = kCAAlignmentCenter
 				titleLayer.frame = size
+					
+					
 				imglayer.addSublayer(titleLayer)
 				}
 			}
@@ -243,6 +266,7 @@ class VideoWriter {
 			
 			let tempPhoto = photosToOverlay[i]
 			if tempPhoto.type == TimeAsset.AssetType.photo{
+				
 				let imglogo:UIImage? = tempPhoto.passet
 				var resizefactor = CGFloat(1.0)
 				if (imglogo?.size.width)!/4 > (imglogo?.size.height)!/3{
@@ -250,10 +274,10 @@ class VideoWriter {
 				}else{
 					resizefactor = size.height/(imglogo?.size.height)!
 				}
-				print("resizingfactor",resizefactor)
 				let imglayer = CALayer()
 				imglayer.contents = imglogo?.cgImage
 				imglayer.frame = CGRect(origin: CGPoint(x:0,y:0), size: CGSize(width: ((imglogo?.size.width)!*resizefactor), height: ((imglogo?.size.height)!*resizefactor)))
+				imglayer.position = CGPoint(x:parentlayer.bounds.midX , y:parentlayer.bounds.midY)
 				imglayer.masksToBounds = true
 				imglayer.opacity = 0.0
 				imglayer.backgroundColor = UIColor.blue.cgColor
@@ -273,7 +297,7 @@ class VideoWriter {
 				parentlayer.addSublayer(imglayer)
 				
 				
-				if let location = tempPhoto.location{
+				if let location = LocalDic[tempPhoto.locationGroup!]{
 					let titleLayer = CATextLayer()
 					titleLayer.backgroundColor = UIColor.clear.cgColor
 					titleLayer.string = location + dateString
@@ -283,6 +307,8 @@ class VideoWriter {
 					titleLayer.shadowOpacity = 0.0
 					titleLayer.alignmentMode = kCAAlignmentCenter
 					titleLayer.frame = size
+					
+					
 					imglayer.addSublayer(titleLayer)
 				}
 			}

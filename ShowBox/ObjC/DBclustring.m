@@ -33,27 +33,27 @@
 
 +(NSArray *)clustring:(NSArray *)pointsEntries  :(NSNumber*)minnumberCluster :(NSNumber*)epsilon{
     @autoreleasepool {
-        
-        NSMutableArray *points = [NSMutableArray arrayWithCapacity:pointsEntries.count];
-        				int i = 0;
-        for (NSArray *pointEntry in pointsEntries) {
-            if ([pointEntry count] > 0) {
-                CPoint  *point       = [CPoint new];
-               // NSArray *coordinates = [pointEntry componentsSeparatedByString:@","];
-
-				
-                for ( NSNumber *coordinate in pointEntry) {
-                    [point addCoordinate:[coordinate floatValue]];
-				}
-				
-				[point addIndex:i];
-				
-				i++;
-                [points addObject:point];
-            }
-        }
-        
-        NSLog(@"number of loaded points: %i", (int)points.count);
+//        
+//        NSMutableArray *points = [NSMutableArray arrayWithCapacity:pointsEntries.count];
+//        				int i = 0;
+////        for (NSArray *pointEntry in pointsEntries) {
+////            if ([pointEntry count] > 0) {
+////                CPoint  *point       = [CPoint new];
+////               // NSArray *coordinates = [pointEntry componentsSeparatedByString:@","];
+////
+////				
+////                for ( NSNumber *coordinate in pointEntry) {
+////                    [point addCoordinate:[coordinate floatValue]];
+////				}
+////				
+////				[point addIndex:i];
+////				
+////				i++;
+//                [points addObject:point];
+//            }
+//        }
+		
+        NSLog(@"number of loaded points: %i", (int)pointsEntries.count);
         
         NSDate *startTime = [NSDate date];
         NSLog(@"start clustering process (%@)", startTime);
@@ -62,7 +62,7 @@
         [DBScan setDebugLogging:YES];
 #endif
         
-        NSArray *clusters = [[[DBScan alloc] initWithPoints:points epsilon:[epsilon floatValue]minNumberOfPointsInCluster:(int)minnumberCluster distanceFunction:[EuclidianDistanceFunction new]] clusters];
+        NSArray *clusters = [[[DBScan alloc] initWithPoints:pointsEntries epsilon:[epsilon floatValue]minNumberOfPointsInCluster:(int)minnumberCluster distanceFunction:[EuclidianDistanceFunction new]] clusters];
         
         NSDate *endTime = [NSDate date];
         NSLog(@"finished clustering process (%@)", endTime);

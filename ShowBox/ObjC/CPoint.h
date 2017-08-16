@@ -11,6 +11,7 @@
 @interface CPoint : NSObject
 {
     NSMutableArray *_coordinates;
+	NSInteger _myindex;
 }
 
 @property (readonly) NSArray *coordinates;
