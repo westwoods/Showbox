@@ -216,14 +216,15 @@ class VideoWriter {
 				imglayer.add(sizeanimation, forKey: "scale")
 				let transitionType = [kCATransitionFromTop,kCATransitionFromBottom,kCATransitionFromLeft,kCATransitionFromRight]
 				let transition = CATransition()
-				transition.type = kCATransitionPush
-				transition.subtype = transitionType[Int(arc4random_uniform(4))]
-				transition.duration = (tempPhoto.timePlayEnd.seconds - tempPhoto.timeStart.seconds)/2
-				transition.beginTime =  AVCoreAnimationBeginTimeAtZero + tempPhoto.timeStart.seconds
-				transition.autoreverses = true
-				transition.isRemovedOnCompletion = false //애니메이션이 종료되어도 애니메이션을 지우지않는다.
-				transition.fillMode = kCAFillModeForwards //애니메이션이 종료된뒤 계속해서 상태를 유지한다.
-				imglayer.add(transition, forKey: "transition")
+//				transition.type = kCATransitionPush
+//				transition.subtype = transitionType[Int(arc4random_uniform(4))]
+//				transition.duration = (tempPhoto.timePlayEnd.seconds - tempPhoto.timeStart.seconds)/2
+//				transition.beginTime =  AVCoreAnimationBeginTimeAtZero + tempPhoto.timeStart.seconds
+//				transition.autoreverses = true
+//				transition.isRemovedOnCompletion = false //애니메이션이 종료되어도 애니메이션을 지우지않는다.
+//				transition.fillMode = kCAFillModeForwards //애니메이션이 종료된뒤 계속해서 상태를 유지한다.
+//				imglayer.add(transition, forKey: "transition")
+				
 				parentlayer.addSublayer(imglayer)
 				
 				

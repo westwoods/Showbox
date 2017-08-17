@@ -118,7 +118,6 @@ public class   TimeLine{
 		semaphore = DispatchSemaphore(value: 0)
 		self.selectedAssets = selectedAssets
 		self.complete = complete
-		
 		let thisBundle = Bundle(for: type(of: self))
 		let introAsset = AVAsset(url:  thisBundle.url(forResource: "intro", withExtension: "MOV")!)
 		let intro = VideoTime(timeStart: startTime, timePlayEnd:introAsset.duration, timeDelayEnd: introAsset.duration, vAsset:introAsset)
@@ -126,6 +125,8 @@ public class   TimeLine{
 		var latestVideo:VideoTime = intro
 		startTime = CMTimeAdd(startTime, introAsset.duration)
 		var musicpoint:Int = 0
+		
+		var nowGroup = -1
 		for i in 0..<selectedAssets.count
 		{
 			let temp = selectedAssets[i]
@@ -178,11 +179,14 @@ public class   TimeLine{
 			}
 			else{
 				if temp.type == TLPHAsset.AssetType.photo{
-					if let mapimage = LocalImageDIc[temp.clusterGroup]{
+					if let mapimage = LocalImageDIc[temp.clusterGroup]  {
+						if (temp.clusterGroup != nowGroup){ //최근 한번만 추가.
+							nowGroup = temp.clusterGroup
 						//	지도 이미지추가
 						myTimes.append(ImageTime(timeStart: startTime, timePlayEnd: CMTimeAdd(startTime, CMTimeAdd(nextDelay, gap)), phAsset: nil, asset:mapimage ,faces:temp.faceFeatureFilter, locationGroup:temp.clusterGroup))
 						startTime = CMTimeAdd(startTime, CMTimeAdd(nextDelay, gap))
 						latestVideo.timeDelayEnd = startTime
+						}
 					}
 					myTimes.append(ImageTime(timeStart: startTime, timePlayEnd: CMTimeAdd(startTime, CMTimeAdd(nextDelay, gap)), phAsset: temp.phAsset, asset: nil,faces:temp.faceFeatureFilter, locationGroup:temp.clusterGroup))
 					debugPrint("TDphoto start", startTime,"\n")

@@ -187,7 +187,7 @@
                             <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SfM-Y7-HRE">
                                 <rect key="frame" x="0.0" y="549" width="375" height="17"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="filmborder.png" translatesAutoresizingMaskIntoConstraints="NO" id="kec-z4-SDn">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="filmborder 복사본.png" translatesAutoresizingMaskIntoConstraints="NO" id="kec-z4-SDn">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="17"/>
                                     </imageView>
                                 </subviews>
@@ -203,7 +203,7 @@
                             <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iA2-eg-ESW">
                                 <rect key="frame" x="0.0" y="455" width="375" height="17"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="filmborder.png" translatesAutoresizingMaskIntoConstraints="NO" id="m8S-Y5-MD4">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="filmborder 복사본.png" translatesAutoresizingMaskIntoConstraints="NO" id="m8S-Y5-MD4">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="17"/>
                                     </imageView>
                                 </subviews>
@@ -395,7 +395,7 @@
     </scenes>
     <resources>
         <image name="back.png" width="175" height="177"/>
-        <image name="filmborder.png" width="860" height="30"/>
+        <image name="filmborder 복사본.png" width="860" height="30"/>
         <image name="make.png" width="177" height="177"/>
         <image name="music.png" width="177" height="177"/>
         <image name="ok.png" width="45" height="45"/>
