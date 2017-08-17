@@ -29,8 +29,14 @@ class ViewController: UIViewController, TLPhotosPickerViewControllerDelegate,UIP
         // Do any additional setup after loading the view, typically from a nib.
     }
     @IBAction func fromDateChanged(_ sender: UIDatePicker) {
-		let toDate:Date = fromDatePicker.date.addingTimeInterval(TimeInterval(toDateRow * 24*60*60))
-
+		
+		let days = Int((fromDatePicker.maximumDate?.timeIntervalSince1970)! -  fromDatePicker.date.timeIntervalSince1970)/(24*60*60)
+		if (toDateRow > days){
+		toDateRow = days
+		toDatePicker.selectRow(toDateRow, inComponent: 0, animated: true)
+		}
+		let toDate:Date = fromDatePicker.date.addingTimeInterval(TimeInterval((toDateRow+1) * 24*60*60))
+		
 		destinationVC?.refetchLibrary(fromDate: fromDatePicker.date.addingTimeInterval(timediff), toDate: toDate) //임시방편으로 시간 수정 GMT기준으로 더해줘야할듯.
         
     }
@@ -50,8 +56,12 @@ class ViewController: UIViewController, TLPhotosPickerViewControllerDelegate,UIP
 	// Catpure the picker view selection
 	func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
 		toDateRow = row
-		
-		let toDate:Date = fromDatePicker.date.addingTimeInterval(TimeInterval(toDateRow * 24*60*60))
+		let days = Int((fromDatePicker.maximumDate?.timeIntervalSince1970)! -  fromDatePicker.date.timeIntervalSince1970)/(24*60*60)
+		if (toDateRow > days){
+			toDateRow = days
+			toDatePicker.selectRow(toDateRow, inComponent: 0, animated: true)
+		}
+		let toDate:Date = fromDatePicker.date.addingTimeInterval(TimeInterval((toDateRow+1) * 24*60*60))
 		
 		destinationVC?.refetchLibrary(fromDate: fromDatePicker.date.addingTimeInterval(timediff), toDate: toDate)
 	}
@@ -111,22 +121,24 @@ class ViewController: UIViewController, TLPhotosPickerViewControllerDelegate,UIP
         // exceed max selection
     }
     func initDatepicker(startDate:Date,endDate:Date)
-    {
+    { //제일 최근 사진과 하루 간격인 사진들 출력.
 		print(startDate , endDate)
 		fromDatePicker.setValue(UIColor.white, forKeyPath: "textColor")
 		fromDatePicker.setValue(false, forKeyPath: "highlightsToday")
-	//	fromDatePicker.datePickerMode = .countDownTimer
-	//	fromDatePicker.datePickerMode = .dateAndTime
 		fromDatePicker.minimumDate = startDate
 		fromDatePicker.maximumDate = endDate
-		fromDatePicker.date = startDate
+		let oneDay = 24*60*60
+		fromDatePicker.date = Date(timeInterval: -(Double(oneDay)), since: endDate)//1days
 		let days = Int(endDate.timeIntervalSince1970 -  startDate.timeIntervalSince1970)/(24*60*60)
-		for i in 7..<days{
+		for i in 8..<days{
 		pickerData.append(String(format:"%d일",i))
 		}
 		toDatePicker.reloadAllComponents()
+		toDateRow = 0//days-1
+		toDatePicker.selectRow(toDateRow, inComponent: 0, animated: true)
 		
-		toDatePicker.selectRow(days-1, inComponent: 0, animated: true)
+		let toDate:Date = fromDatePicker.date.addingTimeInterval(TimeInterval((toDateRow+1) * oneDay))
+		destinationVC?.refetchLibrary(fromDate: fromDatePicker.date.addingTimeInterval(timediff), toDate: toDate)
 	}
     
     override func didReceiveMemoryWarning() {

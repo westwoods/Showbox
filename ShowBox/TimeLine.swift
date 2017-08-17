@@ -114,7 +114,7 @@ public class   TimeLine{
 		
 		let nextDelayTime:TimeInterval = 2
 		var startTime:CMTime = kCMTimeZero
-		let nextDelay:CMTime = CMTimeMakeWithSeconds(nextDelayTime, 3000000);
+		let nextDelay:CMTime = CMTimeMakeWithSeconds(nextDelayTime, 1);
 		semaphore = DispatchSemaphore(value: 0)
 		self.selectedAssets = selectedAssets
 		self.complete = complete

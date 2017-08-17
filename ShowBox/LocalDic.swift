@@ -36,7 +36,7 @@ func convertToAddressWith(key:Int,coordinate: CLLocation) {
 }
 
 func getMapImage(lat:Double,long:Double)->UIImage?{
-	let staticMapUrl: String = "http://maps.google.com/maps/api/staticmap?markers=color:red|\(lat),\(long)&\("zoom=15&size=\(2 * Int(500))x\(2 * Int(500))")&sensor=true"
+	let staticMapUrl: String = "http://maps.google.com/maps/api/staticmap?markers=color:red|\(lat),\(long)&\("zoom=15&size=\( Int(300))x\(Int(300))")&maptype=hybrid&sensor=true&language=ko-KR&key=AIzaSyCdQ4zLfN2LsBrRsLji7QworscPYerpap8"
 	var image:UIImage? = nil
 	let url = URL(string: staticMapUrl.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)
 	do {

@@ -14,8 +14,6 @@ class MusicTableViewCell:UITableViewCell{
 	
 	@IBOutlet var musicImage: UIImageView!
 //MARK: Properties
-	@IBOutlet var waveFormPlot: UIView!
-    
  
 	@IBOutlet weak var waveform:FDWaveformView!
 }

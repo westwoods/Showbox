@@ -113,7 +113,7 @@
 		8025A2101F336F7000E03D0B /* SourceLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SourceLoader.h; sourceTree = "<group>"; };
 		8027014A1F29786B00A26F3B /* VideoWriter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoWriter.swift; sourceTree = "<group>"; wrapsLines = 0; };
 		80341C4E1F41848200E1811D /* PreViewCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreViewCollectionViewCell.swift; sourceTree = "<group>"; };
-		80341C501F42D9DD00E1811D /* filmborder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = filmborder.png; path = ../../../filmborder.png; sourceTree = "<group>"; };
+		80341C501F42D9DD00E1811D /* filmborder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = filmborder.png; sourceTree = "<group>"; };
 		803F12C81F3970CD006C36B3 /* FDWaveformView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FDWaveformView.framework; path = "../../../Library/Developer/Xcode/DerivedData/ShowBox-gghizcvmyuxhirebvwgboewuuzkk/Build/Products/Debug-iphoneos/FDWaveformView/FDWaveformView.framework"; sourceTree = "<group>"; };
 		803F12CC1F3982E4006C36B3 /* Atlanta.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Atlanta.jpeg; sourceTree = "<group>"; };
 		803F12CD1F3982E4006C36B3 /* Splashing_Around.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Splashing_Around.jpg; sourceTree = "<group>"; };

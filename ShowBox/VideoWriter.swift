@@ -117,7 +117,7 @@ class VideoWriter {
 		if let session = session
 		{
 			session.outputURL = exportURL
-			session.outputFileType = AVFileTypeQuickTimeMovie
+			session.outputFileType = AVFileTypeMPEG4
 			//session.shouldOptimizeForNetworkUse = true
 			session.videoComposition = mutableVideoCompositon
 			session.exportAsynchronously(completionHandler: {
