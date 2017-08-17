@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "getMapImage(lat : Double, long : Double) -&gt; UIImage?:LocalDic.swift">
+      </ContextState>
+      <ContextState
+         contextName = "(convertToAddressWith(key : Int, coordinate : CLLocation) -&gt; ()).(closure #1):LocalDic.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "LocalImageDIc">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "static VideoWriter.preViewOverlay(CGRect, layercomposition : AVMutableVideoComposition, photosToOverlay : [TimeAsset]) -&gt; CALayer:VideoWriter.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "LocalDic">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "TimeLine.makeTimeLine(selectedAssets : [TLPHAsset], complete : () -&gt; ()) -&gt; ():TimeLine.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "LocalImageDIc">
+            </PersistentString>
+            <PersistentString
+               value = "LocalImageDIc[temp.clusterGroup]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "(convertToAddressWith(key : Int, coordinate : CLLocation) -&gt; ()).(closure #2):LocalDic.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "LocalImageDIc">
+            </PersistentString>
+            <PersistentString
+               value = "staticMapUrl">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>

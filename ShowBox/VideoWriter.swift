@@ -171,7 +171,7 @@ class VideoWriter {
 				if tempPhoto.phAsset  == nil{
 					 imglogo = tempPhoto.passet
 				}else{
-					myPhLib.getThumbnailAsset(asset:  tempPhoto.phAsset!, size: CGSize.init(width: 100, height: 100), options: nil, completionBlock: { (uiimage) in
+					myPhLib.getThumbnailAsset(asset:  tempPhoto.phAsset!, size: CGSize.init(width: 160, height: 160), options: nil, completionBlock: { (uiimage) in
 						imglogo = uiimage
 				})
 				}
