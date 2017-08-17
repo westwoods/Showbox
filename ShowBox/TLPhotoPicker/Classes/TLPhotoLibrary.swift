@@ -69,6 +69,22 @@ class TLPhotoLibrary {
 		return requestId
 	}
 	
+	@discardableResult
+	func getThumbnailAsset(asset: PHAsset, size: CGSize = CGSize(width: 30, height: 30), options: PHImageRequestOptions? = nil, completionBlock:@escaping (UIImage)-> Void ) -> PHImageRequestID {
+		var options = options
+		if options == nil {
+			options = PHImageRequestOptions()
+			options?.isSynchronous = true //섬네일 순서 바뀌면 안됨.
+			options?.deliveryMode = .highQualityFormat
+			options?.isNetworkAccessAllowed = false
+		}
+		let requestId = self.imageManager.requestImage(for: asset, targetSize: size, contentMode: .aspectFill, options: options) { image, info in
+			if let image = image {
+				completionBlock(image)
+			}
+		}
+		return requestId
+	}
 	func cancelPHImageRequest(requestId: PHImageRequestID) {
 		self.imageManager.cancelImageRequest(requestId)
 	}

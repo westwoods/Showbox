@@ -23,6 +23,7 @@ public class TimeAsset{
 	let aAsset:AVAudioMix?
 	let musicAsset:AVAsset?
 	var vAsset:AVAsset?
+	var phAsset:PHAsset?
 	var type: AssetType = .unknown
 	var timeStart:CMTime
 	var timePlayEnd:CMTime
@@ -32,7 +33,7 @@ public class TimeAsset{
 	public var selectedHighLight: SelectedHighLight = .none  //0 nomal 1 selected 2 highlighted
 	public var faces:[FaceFeatures] = []
 	
-	init (timeStart : CMTime,  timePlayEnd : CMTime, timeDelayEnd : CMTime,		passet :UIImage? = nil, vAsset:AVAsset? = nil, musicAsset:AVAsset? = nil, aAsset:AVAudioMix? = nil, type:AssetType = AssetType.unknown){
+	init (timeStart : CMTime,  timePlayEnd : CMTime, timeDelayEnd : CMTime,	phAsset:PHAsset? = nil	,passet :UIImage? = nil, vAsset:AVAsset? = nil, musicAsset:AVAsset? = nil, aAsset:AVAudioMix? = nil, type:AssetType = AssetType.unknown){
 		self.timeStart = timeStart
 		self.timePlayEnd = timePlayEnd
 		self.timeDelayEnd = timeDelayEnd
@@ -40,6 +41,7 @@ public class TimeAsset{
 		self.aAsset = aAsset
 		self.vAsset = vAsset
 		self.musicAsset = musicAsset
+		self.phAsset = phAsset
 	}
 }
 
@@ -66,9 +68,9 @@ public class MusicTime:TimeAsset{
 }
 
 class ImageTime:TimeAsset{
-	init (timeStart: CMTime, timePlayEnd: CMTime, asset: UIImage, faces:[FaceFeatures], locationGroup:Int?)
+	init (timeStart: CMTime, timePlayEnd: CMTime,phAsset:PHAsset?, asset: UIImage?, faces:[FaceFeatures], locationGroup:Int?)
 	{
-		super.init(timeStart: timeStart, timePlayEnd: timePlayEnd, timeDelayEnd: kCMTimeInvalid)
+		super.init(timeStart: timeStart, timePlayEnd: timePlayEnd, timeDelayEnd: kCMTimeInvalid,phAsset: phAsset)
 		self.type = AssetType.photo
 		self.passet = asset
 		self.faces = faces
@@ -138,7 +140,7 @@ public class   TimeLine{
 			
 			4. 마지막 이미지와 동영상은 배경음악 포인트까지 진행한다
 			*/
-						while (MusicTimeTable.splashing_Around[musicpoint] < CMTimeAdd(startTime, nextDelay)){
+			while (musicpoint<MusicTimeTable.splashing_Around.count-1 && MusicTimeTable.splashing_Around[musicpoint] < CMTimeAdd(startTime, nextDelay)){
 				musicpoint+=1
 			}
 			let musicgap = CMTimeSubtract(MusicTimeTable.splashing_Around[musicpoint],CMTimeAdd(startTime, nextDelay)) //뮤직 포인트와 현재 사진 끝나는 시간과의 갭
@@ -178,11 +180,11 @@ public class   TimeLine{
 				if temp.type == TLPHAsset.AssetType.photo{
 					if let mapimage = LocalImageDIc[temp.clusterGroup]{
 						//	지도 이미지추가
-						myTimes.append(ImageTime(timeStart: startTime, timePlayEnd: CMTimeAdd(startTime, CMTimeAdd(nextDelay, gap)), asset:mapimage ,faces:temp.faceFeatureFilter, locationGroup:temp.clusterGroup))
+						myTimes.append(ImageTime(timeStart: startTime, timePlayEnd: CMTimeAdd(startTime, CMTimeAdd(nextDelay, gap)), phAsset: nil, asset:mapimage ,faces:temp.faceFeatureFilter, locationGroup:temp.clusterGroup))
 						startTime = CMTimeAdd(startTime, CMTimeAdd(nextDelay, gap))
 						latestVideo.timeDelayEnd = startTime
 					}
-					myTimes.append(ImageTime(timeStart: startTime, timePlayEnd: CMTimeAdd(startTime, CMTimeAdd(nextDelay, gap)), asset: temp.fullResolutionImage!,faces:temp.faceFeatureFilter, locationGroup:temp.clusterGroup))
+					myTimes.append(ImageTime(timeStart: startTime, timePlayEnd: CMTimeAdd(startTime, CMTimeAdd(nextDelay, gap)), phAsset: temp.phAsset, asset: nil,faces:temp.faceFeatureFilter, locationGroup:temp.clusterGroup))
 					debugPrint("TDphoto start", startTime,"\n")
 					startTime = CMTimeAdd(startTime, CMTimeAdd(nextDelay, gap))
 					latestVideo.timeDelayEnd = startTime

@@ -12,6 +12,7 @@ import UIKit
 
 class ShowBoxViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource{
 	@IBOutlet var preViewCollectionView: UICollectionView!
+	let myPhotoLib = TLPhotoLibrary()
 	fileprivate var searches:[UIImage] = []
 	//1
 	func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -61,17 +62,25 @@ class ShowBoxViewController: UIViewController,UICollectionViewDelegate,UICollect
 						//	비디오 타입
 						for timeScope in Int(tempAsset.timeStart.seconds)..<Int(tempAsset.timePlayEnd.seconds){
 							do {
-								thumbnail = try imageGenerator.copyCGImage(at: CMTimeMakeWithSeconds(Float64(timeScope)+0.5, 1000), actualTime: &actualTime)
-								self.searches.append(UIImage(cgImage: thumbnail!))
+							thumbnail = try imageGenerator.copyCGImage(at: CMTimeMakeWithSeconds(Float64(timeScope)+0.5, 1000), actualTime: &actualTime)
+							//	self.searches.append(UIImage(cgImage: thumbnail!))
 							}
 							catch let error as NSError {
-								print(error.localizedDescription)
+								print("video preview",error.localizedDescription)
 							}
 						}
 					}
 					else {
 						//포토 타입
-						self.searches.append(tempAsset.passet!)
+						()
+						if let phAsset = tempAsset.phAsset{
+							self.myPhotoLib.getThumbnailAsset(asset:phAsset, completionBlock: { (uiimage) in
+								self.searches.append(uiimage)
+						})
+						}
+						else{
+							self.searches.append(tempAsset.passet!)
+						}
 					}
 				}
 			}
