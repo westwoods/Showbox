@@ -59,7 +59,8 @@ public class AudioViewController: UITableViewController,FDWaveformViewDelegate {
 		
 		cell.musicName.text = music.musicName
 		cell.musicImage.image = music.coverImage
-		let waveform:FDWaveformView = 	cell.waveform
+		let waveform:FDWaveformView = cell.waveform
+		
 		waveform.delegate = self
 		waveform.alpha = 0.7
 		waveform.audioURL = music.url

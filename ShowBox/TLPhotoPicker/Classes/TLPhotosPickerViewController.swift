@@ -185,7 +185,11 @@ open class TLPhotosPickerViewController: UIViewController {
 		if isBeingPresented {
 			//     initPhotoLibrary()
 		}
-		initPhotoLibrary()
+		if initDatePicker == nil{
+			initPhotoLibrary() //처음에만 다시로드
+		}
+		else{
+		}
 	}
 }
 
