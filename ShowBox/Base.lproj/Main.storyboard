@@ -68,10 +68,10 @@
                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </pickerView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bxy-ID-8u5">
-                                <rect key="frame" x="307" y="607" width="45" height="40"/>
+                                <rect key="frame" x="307" y="599" width="45" height="48"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="45" id="3oY-Af-JQ2"/>
-                                    <constraint firstAttribute="height" constant="40" id="mqI-RF-HPs"/>
+                                    <constraint firstAttribute="height" constant="48" id="mqI-RF-HPs"/>
                                 </constraints>
                                 <state key="normal" title="완료" image="make.png"/>
                                 <connections>
@@ -79,10 +79,10 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u5S-nG-mAe">
-                                <rect key="frame" x="16" y="607" width="45" height="41"/>
+                                <rect key="frame" x="16" y="599" width="45" height="54"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="45" id="E5A-PC-vS9"/>
-                                    <constraint firstAttribute="height" constant="41" id="GNa-FA-Pv5"/>
+                                    <constraint firstAttribute="height" constant="54" id="GNa-FA-Pv5"/>
                                 </constraints>
                                 <state key="normal" title="음악선택♪" image="music.png"/>
                                 <connections>
@@ -105,7 +105,7 @@
                             <constraint firstAttribute="bottom" secondItem="2ly-Rp-RCk" secondAttribute="bottom" constant="81" id="SGI-xP-Z82"/>
                             <constraint firstItem="nk2-LD-5lE" firstAttribute="leading" secondItem="t3O-Yf-XHb" secondAttribute="leading" id="Sh6-o9-hKt"/>
                             <constraint firstItem="pPl-Fv-sss" firstAttribute="top" secondItem="nk2-LD-5lE" secondAttribute="bottom" constant="-54" id="TvW-Ti-rru"/>
-                            <constraint firstItem="u5S-nG-mAe" firstAttribute="bottom" secondItem="x6U-eT-npl" secondAttribute="top" constant="-19" id="WI1-Tx-VgB"/>
+                            <constraint firstItem="u5S-nG-mAe" firstAttribute="bottom" secondItem="x6U-eT-npl" secondAttribute="top" constant="-14" id="WI1-Tx-VgB"/>
                             <constraint firstAttribute="trailing" secondItem="2ly-Rp-RCk" secondAttribute="trailing" id="Wc0-0h-Zhg"/>
                             <constraint firstItem="2ly-Rp-RCk" firstAttribute="top" secondItem="ubV-xy-i5c" secondAttribute="bottom" constant="23" id="Zi6-oR-PmN"/>
                             <constraint firstItem="nk2-LD-5lE" firstAttribute="leading" secondItem="t3O-Yf-XHb" secondAttribute="leading" id="fbm-LW-Ps4"/>
