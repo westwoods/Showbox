@@ -11,7 +11,7 @@ import UIKit
 import KDCircularProgress
 
 
-class ShowBoxViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource,UIScrollViewDelegate{
+class ShowBoxViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource,UIScrollViewDelegate,UICollectionViewDelegateFlowLayout{
 	@IBOutlet var preViewCollectionView: UICollectionView!
 	let myPhotoLib = TLPhotoLibrary()
 	let player = AVPlayer()
@@ -19,12 +19,12 @@ class ShowBoxViewController: UIViewController,UICollectionViewDelegate,UICollect
 	fileprivate var searches:[UIImage] = []
 	private var timeObserverToken: Any?
 	
-	var currentTime: Double {
+	var currentTime: CMTime {
 		get {
-			return CMTimeGetSeconds(player.currentTime())
+			return player.currentTime()
 		}
 		set {
-			let newTime = CMTimeMakeWithSeconds(newValue, 1)
+			let newTime = newValue
 			player.seek(to: newTime, toleranceBefore: kCMTimeZero, toleranceAfter: kCMTimeZero)
 		}
 	}
@@ -51,20 +51,23 @@ class ShowBoxViewController: UIViewController,UICollectionViewDelegate,UICollect
 		player.pause()
 		
 	}
-	
-	//1
 	func numberOfSections(in collectionView: UICollectionView) -> Int {
 		return searches.count
 	}
 	
-	//2
 	func collectionView(_ collectionView: UICollectionView,
 	                    numberOfItemsInSection section: Int) -> Int {
 		return 1
 	}
-	
-	//3
- func collectionView(_ collectionView: UICollectionView,cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+		var timeduration = 1.0
+		if indexPath.section>=2 && indexPath.section < (selectedAsset?.getTimes().count)!-3{
+			timeduration = CMTimeSubtract((self.selectedAsset?.getTimes()[indexPath.section-2].timePlayEnd)!,(selectedAsset?.getTimes()[indexPath.section-2].timeStart)! ).seconds
+			print ("타이머",timeduration)
+		}
+		return CGSize(width: 35*timeduration, height: 76);
+	}
+	 func collectionView(_ collectionView: UICollectionView,cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 	let cellIdentifier = "PreViewCollectionViewCell"
 	
 	guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as? PreViewCollectionViewCell  else {
@@ -79,6 +82,7 @@ class ShowBoxViewController: UIViewController,UICollectionViewDelegate,UICollect
 	@IBOutlet var pauseButton: UIButton!
 	@IBAction func pauseButtonTapped(_ sender: UIButton) {
 		player.play()
+		currentTime = kCMTimeZero
 		pauseflag = false
 		pauseButton.isHidden = true
 	}
@@ -167,7 +171,7 @@ class ShowBoxViewController: UIViewController,UICollectionViewDelegate,UICollect
 	
 	func timerActionTest(){
 		DispatchQueue.main.async {
-			print ("valval타이머",VideoWriter.session?.progress ?? "없어댜")
+		//	print ("타이머",VideoWriter.session?.progress ?? "")
 			self.exportprogress?.angle = Double((VideoWriter.session?.progress ?? 0 )*360)
 			self.exportprogress?.isHidden = false
 		}
@@ -241,6 +245,7 @@ class ShowBoxViewController: UIViewController,UICollectionViewDelegate,UICollect
 					}
 				}
 			}
+			
 		}
 	}
 	
