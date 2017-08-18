@@ -11,7 +11,7 @@ import Photos
 import Foundation
 public class TimeAsset{
 	public enum AssetType {
-		case photo,video,livePhoto,music,unknown
+		case photo,video,livePhoto,music,map,unknown
 	}
 	public enum SelectedHighLight {
 		case selected, highLighted, none
@@ -107,7 +107,6 @@ public class   TimeLine{
 		let music = MusicTime.init(timeStart: kCMTimeZero, timePlay: CMTimeAdd(kCMTimeZero, CMTime(seconds: 154.749, preferredTimescale: 44100)), timeEnd: CMTimeAdd(kCMTimeZero, CMTime(seconds: 154.749, preferredTimescale: 44100)), musicAsset: splashign_Around, musicName: "Aplashing_Around", coverImage: #imageLiteral(resourceName: "Atlanta.jpeg"),url: url)
 		myBGM = music
 		defaultBGM = music
-		//TODO
 	}
 	
 	public func makeTimeLine(selectedAssets:[TLPHAsset],complete:@escaping (()->()) ){
@@ -151,7 +150,7 @@ public class   TimeLine{
 			}
 			
 			/*************************************************************************************************************/
-
+			
 			if temp.type == TLPHAsset.AssetType.video{
 				let options = PHVideoRequestOptions()
 				imageManager.requestAVAsset(forVideo: temp.phAsset!, options: options, resultHandler: { (AVAsset, AVAudioMix, info) in
@@ -182,10 +181,12 @@ public class   TimeLine{
 					if let mapimage = LocalImageDIc[temp.clusterGroup]  {
 						if (temp.clusterGroup != nowGroup){ //최근 한번만 추가.
 							nowGroup = temp.clusterGroup
-						//	지도 이미지추가
-						myTimes.append(ImageTime(timeStart: startTime, timePlayEnd: CMTimeAdd(startTime, CMTimeAdd(nextDelay, gap)), phAsset: nil, asset:mapimage ,faces:temp.faceFeatureFilter, locationGroup:temp.clusterGroup))
-						startTime = CMTimeAdd(startTime, CMTimeAdd(nextDelay, gap))
-						latestVideo.timeDelayEnd = startTime
+							//	지도 이미지추가
+							let mapimage = ImageTime(timeStart: startTime, timePlayEnd: CMTimeAdd(startTime, CMTimeAdd(nextDelay, gap)), phAsset: nil, asset:mapimage ,faces:temp.faceFeatureFilter, locationGroup:temp.clusterGroup)
+							mapimage.type = TimeAsset.AssetType.map
+							myTimes.append(mapimage)
+							startTime = CMTimeAdd(startTime, CMTimeAdd(nextDelay, gap))
+							latestVideo.timeDelayEnd = startTime
 						}
 					}
 					myTimes.append(ImageTime(timeStart: startTime, timePlayEnd: CMTimeAdd(startTime, CMTimeAdd(nextDelay, gap)), phAsset: temp.phAsset, asset: nil,faces:temp.faceFeatureFilter, locationGroup:temp.clusterGroup))

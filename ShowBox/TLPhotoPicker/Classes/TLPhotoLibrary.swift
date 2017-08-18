@@ -77,7 +77,7 @@ class TLPhotoLibrary {
 			options?.isSynchronous = true //섬네일 순서 바뀌면 안됨.
 			options?.deliveryMode = .highQualityFormat
 			options?.isNetworkAccessAllowed = false
-			//options?.resizeMode = .none
+			options?.resizeMode = .fast
 		}
 		let requestId = self.imageManager.requestImage(for: asset, targetSize: size, contentMode: .aspectFill, options: options) { image, info in
 			if let image = image {

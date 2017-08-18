@@ -3,21 +3,10 @@
    version = "1.0">
    <ContextStates>
       <ContextState
-         contextName = "ViewController.fromDateChanged(UIDatePicker) -&gt; ():ViewController.swift">
+         contextName = "static VideoWriter.startTimer() -&gt; ():VideoWriter.swift">
          <PersistentStrings>
             <PersistentString
-               value = "toDateRow">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "getMapImage(lat : Double, long : Double) -&gt; UIImage?:LocalDic.swift">
-      </ContextState>
-      <ContextState
-         contextName = "(convertToAddressWith(key : Int, coordinate : CLLocation) -&gt; ()).(closure #1):LocalDic.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "LocalImageDIc">
+               value = "timer">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -30,13 +19,10 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "TimeLine.makeTimeLine(selectedAssets : [TLPHAsset], complete : () -&gt; ()) -&gt; ():TimeLine.swift">
+         contextName = "(convertToAddressWith(key : Int, coordinate : CLLocation) -&gt; ()).(closure #1):LocalDic.swift">
          <PersistentStrings>
             <PersistentString
                value = "LocalImageDIc">
-            </PersistentString>
-            <PersistentString
-               value = "LocalImageDIc[temp.clusterGroup]">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -48,6 +34,28 @@
             </PersistentString>
             <PersistentString
                value = "staticMapUrl">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "ViewController.fromDateChanged(UIDatePicker) -&gt; ():ViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "toDateRow">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "getMapImage(lat : Double, long : Double) -&gt; UIImage?:LocalDic.swift">
+      </ContextState>
+      <ContextState
+         contextName = "TimeLine.makeTimeLine(selectedAssets : [TLPHAsset], complete : () -&gt; ()) -&gt; ():TimeLine.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "LocalImageDIc">
+            </PersistentString>
+            <PersistentString
+               value = "LocalImageDIc[temp.clusterGroup]">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

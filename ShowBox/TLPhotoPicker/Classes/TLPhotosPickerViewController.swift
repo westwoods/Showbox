@@ -38,8 +38,8 @@ public struct TLPhotosPickerConfigure {
 	public var mediaType: PHAssetMediaType? = nil
 	public var numberOfColumn = 3
 	public var maxSelectedAssets: Int? = nil
-	public var selectedColor = UIColor(red: 88/255, green: 144/255, blue: 255/255, alpha: 1.0)
-	public var hilightedColor = UIColor(red: 255/255, green: 44/255, blue: 88/255, alpha: 1.0)
+	public var selectedColor = UIColor(red: 88/255, green: 144/255, blue: 255/255, alpha: 0.9)
+	public var hilightedColor = UIColor(red: 255/255, green: 44/255, blue: 88/255, alpha: 0.9)
 	
 	public var smileColor = UIColor(red: 225/255, green: 225/255, blue: 33/255, alpha: 1.0)
 	public var cameraBgColor = UIColor(red: 221/255, green: 223/255, blue: 226/255, alpha: 1)

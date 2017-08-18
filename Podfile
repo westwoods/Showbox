@@ -3,4 +3,5 @@ use_frameworks!
 
 target ‘ShowBox’ do
     pod 'FDWaveformView'
+    pod 'KDCircularProgress'
 end

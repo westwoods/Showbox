@@ -7,19 +7,30 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5A4926FE9ACDE0CC79303423A5EEE821 /* Pods-ShowBox-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 188743E8C7297D10D805A92350D48C01 /* Pods-ShowBox-dummy.m */; };
-		696186D90C35C3255BA06C42A59B32AF /* FDAudioContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D0CB3BD6A917FDDEB26F4960A9209C /* FDAudioContext.swift */; };
+		2304160A0F5372E51543D9BDBF4E594E /* Pods-ShowBox-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 575574B4AE89EF343322D17F0DF240B7 /* Pods-ShowBox-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		696186D90C35C3255BA06C42A59B32AF /* FDAudioContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB11716A7AB9030BF47B68F5683C8F1 /* FDAudioContext.swift */; };
 		74CC4C8A22647F05330EAEF1C88FE83D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
-		A3B5770ACCA9235EFEEDABF352EE3372 /* FDWaveformView-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E607CB09D1A8978A39006076AB06880 /* FDWaveformView-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		BAEB447736040006122A324985377E6D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
-		BC8E9F89C31280986DD8FBE772672EFF /* FDWaveformView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4480A0F024BBD573E2609E08DC82676D /* FDWaveformView.swift */; };
-		CCB81841D0AE2BA51F851BBB8B40C81B /* FDWaveformView-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F3AA546A9134690034E27B9C1672FA24 /* FDWaveformView-dummy.m */; };
-		EA7E4630CDE6B121ADE6BE630D5A003D /* FDWaveformRenderOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15651771559B49803B0A1A28DD1179F9 /* FDWaveformRenderOperation.swift */; };
-		F40D83D456BC73089EE5658D07219DBF /* Pods-ShowBox-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 575574B4AE89EF343322D17F0DF240B7 /* Pods-ShowBox-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7D4767AEF850FCB5D60036E059488F43 /* KDCircularProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FC49342A578DD06A659DE9604D620D3 /* KDCircularProgress.swift */; };
+		8CA245C85C9839116766B4E1D6B04E53 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
+		9AEC64FA01ACF92A6F4FF95FB44B4810 /* KDCircularProgress-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A0CD5046E889F2D8C300121F38DCAB0 /* KDCircularProgress-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A3B5770ACCA9235EFEEDABF352EE3372 /* FDWaveformView-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 63B5007AD48447671E33FF661CC82BB8 /* FDWaveformView-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BC8E9F89C31280986DD8FBE772672EFF /* FDWaveformView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A275406DD9D95C78817EF8E58CFCED3C /* FDWaveformView.swift */; };
+		CCB81841D0AE2BA51F851BBB8B40C81B /* FDWaveformView-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A49F1CB3BE789CF2D24A27BC2FACA18 /* FDWaveformView-dummy.m */; };
+		D7360E28AA04F37AFD30777C02EF49C3 /* KDCircularProgress-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C7224B859DF3306C0C777A08A435F926 /* KDCircularProgress-dummy.m */; };
+		D9129CC5AC7C73C09C16227E985260C2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
+		EA0BC7DF23B51CDBD0DDC5410A576F7A /* Pods-ShowBox-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 188743E8C7297D10D805A92350D48C01 /* Pods-ShowBox-dummy.m */; };
+		EA7E4630CDE6B121ADE6BE630D5A003D /* FDWaveformRenderOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D313588224FD65ACBEC6B12166AAE69E /* FDWaveformRenderOperation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		BAABA20E82D4BE6D45A239DC28BCDEF9 /* PBXContainerItemProxy */ = {
+		A0C02C55A0A551D890865FCE0A285C3E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 322428ECC8C5EC71F14C92233787C7AC;
+			remoteInfo = KDCircularProgress;
+		};
+		F10F05C8DBF725AC6AA524FD579DC300 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
@@ -29,37 +40,53 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		055D3E3D3434C1CC827729E51F4CC770 /* Pods_ShowBox.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_ShowBox.framework; path = "Pods-ShowBox.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		15651771559B49803B0A1A28DD1179F9 /* FDWaveformRenderOperation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FDWaveformRenderOperation.swift; path = Source/FDWaveformRenderOperation.swift; sourceTree = "<group>"; };
 		188743E8C7297D10D805A92350D48C01 /* Pods-ShowBox-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-ShowBox-dummy.m"; sourceTree = "<group>"; };
+		1A0CD5046E889F2D8C300121F38DCAB0 /* KDCircularProgress-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "KDCircularProgress-umbrella.h"; sourceTree = "<group>"; };
 		20DB0AB730B5D81CECED268098FFE26D /* Pods-ShowBox-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ShowBox-resources.sh"; sourceTree = "<group>"; };
+		21225C0646CB9A76A4D2D55072D16F21 /* KDCircularProgress-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "KDCircularProgress-prefix.pch"; sourceTree = "<group>"; };
+		2A49F1CB3BE789CF2D24A27BC2FACA18 /* FDWaveformView-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "FDWaveformView-dummy.m"; sourceTree = "<group>"; };
+		2E3F86C199EFF94C4ACDE2CBF312AD14 /* FDWaveformView.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = FDWaveformView.xcconfig; sourceTree = "<group>"; };
 		2F49D4CF7C23A7AA2938B88737A7AD58 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		32DAFD9FB9D753D67B957F9FB7F866CB /* FDWaveformView.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = FDWaveformView.xcconfig; sourceTree = "<group>"; };
 		3926FA6CCCC7C6916C887E84F52F3D22 /* Pods-ShowBox.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-ShowBox.modulemap"; sourceTree = "<group>"; };
-		4480A0F024BBD573E2609E08DC82676D /* FDWaveformView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FDWaveformView.swift; path = Source/FDWaveformView.swift; sourceTree = "<group>"; };
 		50E0F0E9BF4C33258FB986BDAC198F12 /* Pods-ShowBox-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ShowBox-acknowledgements.plist"; sourceTree = "<group>"; };
+		51B0BD0B0C3D3049D617AD919C4E0CB8 /* Pods_ShowBox.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_ShowBox.framework; path = "Pods-ShowBox.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		575574B4AE89EF343322D17F0DF240B7 /* Pods-ShowBox-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-ShowBox-umbrella.h"; sourceTree = "<group>"; };
-		5E607CB09D1A8978A39006076AB06880 /* FDWaveformView-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FDWaveformView-umbrella.h"; sourceTree = "<group>"; };
+		63702F1BD1B54AA8EACF2CA0BDB000B8 /* FDWaveformView-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FDWaveformView-prefix.pch"; sourceTree = "<group>"; };
+		63B5007AD48447671E33FF661CC82BB8 /* FDWaveformView-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FDWaveformView-umbrella.h"; sourceTree = "<group>"; };
 		6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		6EF5F0C44F55BC8D7B6564960B2C25A0 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		666E371FD91E5BD6018BA8D8A2FE590E /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7DB11716A7AB9030BF47B68F5683C8F1 /* FDAudioContext.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FDAudioContext.swift; path = Source/FDAudioContext.swift; sourceTree = "<group>"; };
+		844AB0F8192972891CD52DA9DA0A421C /* KDCircularProgress.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = KDCircularProgress.modulemap; sourceTree = "<group>"; };
 		86F17F412BC23B8CF5FE636EF1FE90C6 /* Pods-ShowBox-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-ShowBox-acknowledgements.markdown"; sourceTree = "<group>"; };
+		8AA2D31C5A4E5C2D98EC7B993AB5D956 /* KDCircularProgress.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = KDCircularProgress.xcconfig; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		94947BD74ED5DEE04BC9705EE04205A1 /* FDWaveformView.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = FDWaveformView.modulemap; sourceTree = "<group>"; };
-		AF31FA7F20EBE354A15FE270F293DDA1 /* FDWaveformView-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FDWaveformView-prefix.pch"; sourceTree = "<group>"; };
+		9A470CCAF30054CF4A0415E90E834A63 /* KDCircularProgress.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = KDCircularProgress.framework; path = KDCircularProgress.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9FC49342A578DD06A659DE9604D620D3 /* KDCircularProgress.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = KDCircularProgress.swift; path = KDCircularProgress/KDCircularProgress.swift; sourceTree = "<group>"; };
+		A275406DD9D95C78817EF8E58CFCED3C /* FDWaveformView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FDWaveformView.swift; path = Source/FDWaveformView.swift; sourceTree = "<group>"; };
+		A44FBC46232CC7B657715FE368CDF921 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B90230EF2F290FCB5BD452731937C6BA /* Pods-ShowBox-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ShowBox-frameworks.sh"; sourceTree = "<group>"; };
-		E4D0CB3BD6A917FDDEB26F4960A9209C /* FDAudioContext.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FDAudioContext.swift; path = Source/FDAudioContext.swift; sourceTree = "<group>"; };
-		F3AA546A9134690034E27B9C1672FA24 /* FDWaveformView-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "FDWaveformView-dummy.m"; sourceTree = "<group>"; };
+		C7224B859DF3306C0C777A08A435F926 /* KDCircularProgress-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "KDCircularProgress-dummy.m"; sourceTree = "<group>"; };
+		C8ECF769B7854D953C7C7D6D27046591 /* FDWaveformView.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = FDWaveformView.modulemap; sourceTree = "<group>"; };
+		D313588224FD65ACBEC6B12166AAE69E /* FDWaveformRenderOperation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FDWaveformRenderOperation.swift; path = Source/FDWaveformRenderOperation.swift; sourceTree = "<group>"; };
+		D99135AAB7123F737C19137947A7542B /* FDWaveformView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = FDWaveformView.framework; path = FDWaveformView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F896629C130A9098E79078BD25E56CFD /* Pods-ShowBox.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ShowBox.debug.xcconfig"; sourceTree = "<group>"; };
 		FE5CD6AA5713FDF3B8FFF718EB42E668 /* Pods-ShowBox.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ShowBox.release.xcconfig"; sourceTree = "<group>"; };
-		FE9FDFF9B7543C85B10915AAB5049A54 /* FDWaveformView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = FDWaveformView.framework; path = FDWaveformView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		3FE87E6D1A15DDE9A54B32DE936E572C /* Frameworks */ = {
+		444D49E17C8519E3ED22669F891F34C2 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BAEB447736040006122A324985377E6D /* Foundation.framework in Frameworks */,
+				D9129CC5AC7C73C09C16227E985260C2 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5051666B08234B1CB7B970385440ED51 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8CA245C85C9839116766B4E1D6B04E53 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,18 +101,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		35B3349C6C093CB091A0742AECE59D9C /* Support Files */ = {
+		088F92AC2B8A61662DC3D92BD48ACF2A /* FDWaveformView */ = {
 			isa = PBXGroup;
 			children = (
-				94947BD74ED5DEE04BC9705EE04205A1 /* FDWaveformView.modulemap */,
-				32DAFD9FB9D753D67B957F9FB7F866CB /* FDWaveformView.xcconfig */,
-				F3AA546A9134690034E27B9C1672FA24 /* FDWaveformView-dummy.m */,
-				AF31FA7F20EBE354A15FE270F293DDA1 /* FDWaveformView-prefix.pch */,
-				5E607CB09D1A8978A39006076AB06880 /* FDWaveformView-umbrella.h */,
-				6EF5F0C44F55BC8D7B6564960B2C25A0 /* Info.plist */,
+				7DB11716A7AB9030BF47B68F5683C8F1 /* FDAudioContext.swift */,
+				D313588224FD65ACBEC6B12166AAE69E /* FDWaveformRenderOperation.swift */,
+				A275406DD9D95C78817EF8E58CFCED3C /* FDWaveformView.swift */,
+				FBCD2FC749DDFB66050D3816CE93D0F6 /* Support Files */,
+			);
+			name = FDWaveformView;
+			path = FDWaveformView;
+			sourceTree = "<group>";
+		};
+		3AE22BAB9A33A17FCFB11701DBF2A193 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				666E371FD91E5BD6018BA8D8A2FE590E /* Info.plist */,
+				844AB0F8192972891CD52DA9DA0A421C /* KDCircularProgress.modulemap */,
+				8AA2D31C5A4E5C2D98EC7B993AB5D956 /* KDCircularProgress.xcconfig */,
+				C7224B859DF3306C0C777A08A435F926 /* KDCircularProgress-dummy.m */,
+				21225C0646CB9A76A4D2D55072D16F21 /* KDCircularProgress-prefix.pch */,
+				1A0CD5046E889F2D8C300121F38DCAB0 /* KDCircularProgress-umbrella.h */,
 			);
 			name = "Support Files";
-			path = "../Target Support Files/FDWaveformView";
+			path = "../Target Support Files/KDCircularProgress";
 			sourceTree = "<group>";
 		};
 		3B300BED19B05B6C347519A2509E43AE /* Pods-ShowBox */ = {
@@ -106,33 +145,13 @@
 			path = "Target Support Files/Pods-ShowBox";
 			sourceTree = "<group>";
 		};
-		473DE3D6E240B8BA9E675A9595FFA3D1 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				7B5E82EDE7C685A02D44ADD5A4E1623B /* FDWaveformView */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		7B5E82EDE7C685A02D44ADD5A4E1623B /* FDWaveformView */ = {
-			isa = PBXGroup;
-			children = (
-				E4D0CB3BD6A917FDDEB26F4960A9209C /* FDAudioContext.swift */,
-				15651771559B49803B0A1A28DD1179F9 /* FDWaveformRenderOperation.swift */,
-				4480A0F024BBD573E2609E08DC82676D /* FDWaveformView.swift */,
-				35B3349C6C093CB091A0742AECE59D9C /* Support Files */,
-			);
-			name = FDWaveformView;
-			path = FDWaveformView;
-			sourceTree = "<group>";
-		};
 		7DB346D0F39D3F0E887471402A8071AB = {
 			isa = PBXGroup;
 			children = (
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
 				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
-				473DE3D6E240B8BA9E675A9595FFA3D1 /* Pods */,
-				CD39C0A857C41AE3DF106CAA8750F065 /* Products */,
+				E9D2C2B51BBD0D2C03E5882079FE1809 /* Pods */,
+				F08852C464891ED6C0CAFCD928FC191C /* Products */,
 				9C493A8076FEC22242F58CAB3877F474 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
@@ -153,13 +172,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		CD39C0A857C41AE3DF106CAA8750F065 /* Products */ = {
+		C4845330A73489CBB31A6BAFE18447C6 /* KDCircularProgress */ = {
 			isa = PBXGroup;
 			children = (
-				FE9FDFF9B7543C85B10915AAB5049A54 /* FDWaveformView.framework */,
-				055D3E3D3434C1CC827729E51F4CC770 /* Pods_ShowBox.framework */,
+				9FC49342A578DD06A659DE9604D620D3 /* KDCircularProgress.swift */,
+				3AE22BAB9A33A17FCFB11701DBF2A193 /* Support Files */,
 			);
-			name = Products;
+			name = KDCircularProgress;
+			path = KDCircularProgress;
 			sourceTree = "<group>";
 		};
 		D35AF013A5F0BAD4F32504907A52519E /* iOS */ = {
@@ -170,14 +190,55 @@
 			name = iOS;
 			sourceTree = "<group>";
 		};
+		E9D2C2B51BBD0D2C03E5882079FE1809 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				088F92AC2B8A61662DC3D92BD48ACF2A /* FDWaveformView */,
+				C4845330A73489CBB31A6BAFE18447C6 /* KDCircularProgress */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		F08852C464891ED6C0CAFCD928FC191C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D99135AAB7123F737C19137947A7542B /* FDWaveformView.framework */,
+				9A470CCAF30054CF4A0415E90E834A63 /* KDCircularProgress.framework */,
+				51B0BD0B0C3D3049D617AD919C4E0CB8 /* Pods_ShowBox.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FBCD2FC749DDFB66050D3816CE93D0F6 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				C8ECF769B7854D953C7C7D6D27046591 /* FDWaveformView.modulemap */,
+				2E3F86C199EFF94C4ACDE2CBF312AD14 /* FDWaveformView.xcconfig */,
+				2A49F1CB3BE789CF2D24A27BC2FACA18 /* FDWaveformView-dummy.m */,
+				63702F1BD1B54AA8EACF2CA0BDB000B8 /* FDWaveformView-prefix.pch */,
+				63B5007AD48447671E33FF661CC82BB8 /* FDWaveformView-umbrella.h */,
+				A44FBC46232CC7B657715FE368CDF921 /* Info.plist */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/FDWaveformView";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		552CFF99F4D4FB44C856F0F45E4F8C99 /* Headers */ = {
+		0E8AC6E03F829426C24DF64DCF32DCF8 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F40D83D456BC73089EE5658D07219DBF /* Pods-ShowBox-umbrella.h in Headers */,
+				9AEC64FA01ACF92A6F4FF95FB44B4810 /* KDCircularProgress-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A31F7253AB1AD482A05127C416B28443 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2304160A0F5372E51543D9BDBF4E594E /* Pods-ShowBox-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -206,25 +267,43 @@
 			);
 			name = FDWaveformView;
 			productName = FDWaveformView;
-			productReference = FE9FDFF9B7543C85B10915AAB5049A54 /* FDWaveformView.framework */;
+			productReference = D99135AAB7123F737C19137947A7542B /* FDWaveformView.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		6BB3BB144F348020914FDDF3C80835D7 /* Pods-ShowBox */ = {
+		322428ECC8C5EC71F14C92233787C7AC /* KDCircularProgress */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C24C0B329FA12D478F8FFCFA977C97D6 /* Build configuration list for PBXNativeTarget "Pods-ShowBox" */;
+			buildConfigurationList = EED799CDD43572E789600907A1A31B04 /* Build configuration list for PBXNativeTarget "KDCircularProgress" */;
 			buildPhases = (
-				C335E249510C4D48C6BDE46FE1D8C617 /* Sources */,
-				3FE87E6D1A15DDE9A54B32DE936E572C /* Frameworks */,
-				552CFF99F4D4FB44C856F0F45E4F8C99 /* Headers */,
+				BED555344BFE268CDAC391F083BF1D17 /* Sources */,
+				444D49E17C8519E3ED22669F891F34C2 /* Frameworks */,
+				0E8AC6E03F829426C24DF64DCF32DCF8 /* Headers */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				679CAA4EE8E0B2C1FFB00DE2DAB65BE4 /* PBXTargetDependency */,
+			);
+			name = KDCircularProgress;
+			productName = KDCircularProgress;
+			productReference = 9A470CCAF30054CF4A0415E90E834A63 /* KDCircularProgress.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		80D2CBD0466CF9EE6BDA1233208D419B /* Pods-ShowBox */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3C23BAF424F0A626F614ABCAD867BB9D /* Build configuration list for PBXNativeTarget "Pods-ShowBox" */;
+			buildPhases = (
+				F99C51EC5B67089816219160CEAD468E /* Sources */,
+				5051666B08234B1CB7B970385440ED51 /* Frameworks */,
+				A31F7253AB1AD482A05127C416B28443 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A9CC6719B2BFE4197F027B889771C537 /* PBXTargetDependency */,
+				52350F09B71949A9E870E8BCCFADB6B1 /* PBXTargetDependency */,
 			);
 			name = "Pods-ShowBox";
 			productName = "Pods-ShowBox";
-			productReference = 055D3E3D3434C1CC827729E51F4CC770 /* Pods_ShowBox.framework */;
+			productReference = 51B0BD0B0C3D3049D617AD919C4E0CB8 /* Pods_ShowBox.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -244,12 +323,13 @@
 				en,
 			);
 			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
-			productRefGroup = CD39C0A857C41AE3DF106CAA8750F065 /* Products */;
+			productRefGroup = F08852C464891ED6C0CAFCD928FC191C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				100EAFCCC6E91DEC79D9911111EC3E1D /* FDWaveformView */,
-				6BB3BB144F348020914FDDF3C80835D7 /* Pods-ShowBox */,
+				322428ECC8C5EC71F14C92233787C7AC /* KDCircularProgress */,
+				80D2CBD0466CF9EE6BDA1233208D419B /* Pods-ShowBox */,
 			);
 		};
 /* End PBXProject section */
@@ -266,29 +346,44 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C335E249510C4D48C6BDE46FE1D8C617 /* Sources */ = {
+		BED555344BFE268CDAC391F083BF1D17 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5A4926FE9ACDE0CC79303423A5EEE821 /* Pods-ShowBox-dummy.m in Sources */,
+				D7360E28AA04F37AFD30777C02EF49C3 /* KDCircularProgress-dummy.m in Sources */,
+				7D4767AEF850FCB5D60036E059488F43 /* KDCircularProgress.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F99C51EC5B67089816219160CEAD468E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EA0BC7DF23B51CDBD0DDC5410A576F7A /* Pods-ShowBox-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		679CAA4EE8E0B2C1FFB00DE2DAB65BE4 /* PBXTargetDependency */ = {
+		52350F09B71949A9E870E8BCCFADB6B1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = KDCircularProgress;
+			target = 322428ECC8C5EC71F14C92233787C7AC /* KDCircularProgress */;
+			targetProxy = A0C02C55A0A551D890865FCE0A285C3E /* PBXContainerItemProxy */;
+		};
+		A9CC6719B2BFE4197F027B889771C537 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = FDWaveformView;
 			target = 100EAFCCC6E91DEC79D9911111EC3E1D /* FDWaveformView */;
-			targetProxy = BAABA20E82D4BE6D45A239DC28BCDEF9 /* PBXContainerItemProxy */;
+			targetProxy = F10F05C8DBF725AC6AA524FD579DC300 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		062A86B4ACB679A92614FBB9A79290A7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 32DAFD9FB9D753D67B957F9FB7F866CB /* FDWaveformView.xcconfig */;
+			baseConfigurationReference = 2E3F86C199EFF94C4ACDE2CBF312AD14 /* FDWaveformView.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -365,9 +460,9 @@
 			};
 			name = Release;
 		};
-		14EB1DF3356B6A029E46C37D0E895E85 /* Debug */ = {
+		27B74B88F4D575AD3FFC1955853C5269 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F896629C130A9098E79078BD25E56CFD /* Pods-ShowBox.debug.xcconfig */;
+			baseConfigurationReference = 8AA2D31C5A4E5C2D98EC7B993AB5D956 /* KDCircularProgress.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -381,18 +476,14 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods-ShowBox/Info.plist";
+				GCC_PREFIX_HEADER = "Target Support Files/KDCircularProgress/KDCircularProgress-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/KDCircularProgress/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-ShowBox/Pods-ShowBox.modulemap";
+				MODULEMAP_FILE = "Target Support Files/KDCircularProgress/KDCircularProgress.modulemap";
 				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_ShowBox;
+				PRODUCT_NAME = KDCircularProgress;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
@@ -404,7 +495,7 @@
 			};
 			name = Debug;
 		};
-		71F1A1A938F22EF5B266F328687A4CD7 /* Release */ = {
+		5438E5D051BC76DF9629FF3748DB356D /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = FE5CD6AA5713FDF3B8FFF718EB42E668 /* Pods-ShowBox.release.xcconfig */;
 			buildSettings = {
@@ -442,9 +533,43 @@
 			};
 			name = Release;
 		};
+		70CB89E962178C29C09B95ED621FA938 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8AA2D31C5A4E5C2D98EC7B993AB5D956 /* KDCircularProgress.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/KDCircularProgress/KDCircularProgress-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/KDCircularProgress/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/KDCircularProgress/KDCircularProgress.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = KDCircularProgress;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		7362F540D4F843C79C032FAA150C6428 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 32DAFD9FB9D753D67B957F9FB7F866CB /* FDWaveformView.xcconfig */;
+			baseConfigurationReference = 2E3F86C199EFF94C4ACDE2CBF312AD14 /* FDWaveformView.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -475,6 +600,45 @@
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
+		};
+		B733F27AE321D9B143C88EBCC0C97A4E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F896629C130A9098E79078BD25E56CFD /* Pods-ShowBox.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-ShowBox/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-ShowBox/Pods-ShowBox.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_ShowBox;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
 		};
 		EF2D8301FF834DFF974266BAE40AE54F /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -536,6 +700,15 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		3C23BAF424F0A626F614ABCAD867BB9D /* Build configuration list for PBXNativeTarget "Pods-ShowBox" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B733F27AE321D9B143C88EBCC0C97A4E /* Debug */,
+				5438E5D051BC76DF9629FF3748DB356D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		AAD3C6FE14020D073295F248D5491671 /* Build configuration list for PBXNativeTarget "FDWaveformView" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -545,11 +718,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C24C0B329FA12D478F8FFCFA977C97D6 /* Build configuration list for PBXNativeTarget "Pods-ShowBox" */ = {
+		EED799CDD43572E789600907A1A31B04 /* Build configuration list for PBXNativeTarget "KDCircularProgress" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				14EB1DF3356B6A029E46C37D0E895E85 /* Debug */,
-				71F1A1A938F22EF5B266F328687A4CD7 /* Release */,
+				27B74B88F4D575AD3FFC1955853C5269 /* Debug */,
+				70CB89E962178C29C09B95ED621FA938 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

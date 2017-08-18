@@ -1,12 +1,15 @@
 PODS:
   - FDWaveformView (2.2.1)
+  - KDCircularProgress (1.5.2)
 
 DEPENDENCIES:
   - FDWaveformView
+  - KDCircularProgress
 
 SPEC CHECKSUMS:
   FDWaveformView: 0f2e966d4bf242ab1e747c3a87b2ca10ed9c46b8
+  KDCircularProgress: 12f677b2deb02409ab48c6cae1898d146b8ad549
 
-PODFILE CHECKSUM: ca1ee0de5129f3798750e98c7061640c9c3c2ade
+PODFILE CHECKSUM: 7577e5117341a95644132d4edbcaceeaf0fde14b
 
 COCOAPODS: 1.2.1

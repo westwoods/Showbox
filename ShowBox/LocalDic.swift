@@ -25,7 +25,11 @@ func convertToAddressWith(key:Int,coordinate: CLLocation) {
 			let addrList = placemark.addressDictionary?["FormattedAddressLines"] as? [String] else {
 				return
 		}
-		let address = addrList.joined(separator: " ")
+		var address = addrList.joined(separator: " ")
+		address = address.replacingOccurrences(of: placemark.subThoroughfare ?? "", with: "")
+		address = address.replacingOccurrences(of: placemark.postalCode ?? "", with: "")
+		
+		address = address.replacingOccurrences(of: placemark.subAdministrativeArea ?? "", with: "")
 		LocalDic[key] = address
 		print (address)
 		//	return address
