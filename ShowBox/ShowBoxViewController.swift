@@ -61,21 +61,26 @@ class ShowBoxViewController: UIViewController,UICollectionViewDelegate,UICollect
 	}
 	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 		var timeduration = 1.0
-		if indexPath.section>=2 && indexPath.section < (selectedAsset?.getTimes().count)!-3{
+		if indexPath.section>=3 && indexPath.section < (selectedAsset?.getTimes().count)!+2{
 			timeduration = CMTimeSubtract((self.selectedAsset?.getTimes()[indexPath.section-2].timePlayEnd)!,(selectedAsset?.getTimes()[indexPath.section-2].timeStart)! ).seconds
 			print ("타이머",timeduration)
 		}
 		return CGSize(width: 35*timeduration, height: 76);
 	}
-	 func collectionView(_ collectionView: UICollectionView,cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-	let cellIdentifier = "PreViewCollectionViewCell"
-	
-	guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as? PreViewCollectionViewCell  else {
-		fatalError("The dequeued cell is not an instance of MusicTableViewCell.")
-	}
-	//print(indexPath.section)
-	cell.preViewImage.image = searches[indexPath.section]
-	return cell
+	func collectionView(_ collectionView: UICollectionView,cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+		let cellIdentifier = "PreViewCollectionViewCell"
+		
+		guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as? PreViewCollectionViewCell  else {
+			fatalError("The dequeued cell is not an instance of MusicTableViewCell.")
+		}
+		//print(indexPath.section)
+		cell.preViewImage.image = searches[indexPath.section]
+		if (indexPath.section>=3 && indexPath.section < (selectedAsset?.getTimes().count)!+2){
+		cell.layer.borderWidth = 1.0
+		let myColor = UIColor(red: 255/255, green: 44/255, blue: 88/255, alpha: 0.5)
+		cell.layer.borderColor = myColor.cgColor
+		}
+		return cell
 	}
 	
 	@IBOutlet var ShowBox: UIView!
@@ -171,7 +176,7 @@ class ShowBoxViewController: UIViewController,UICollectionViewDelegate,UICollect
 	
 	func timerActionTest(){
 		DispatchQueue.main.async {
-		//	print ("타이머",VideoWriter.session?.progress ?? "")
+			//	print ("타이머",VideoWriter.session?.progress ?? "")
 			self.exportprogress?.angle = Double((VideoWriter.session?.progress ?? 0 )*360)
 			self.exportprogress?.isHidden = false
 		}
