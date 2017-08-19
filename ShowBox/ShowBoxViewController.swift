@@ -78,6 +78,15 @@ class ShowBoxViewController: UIViewController,UICollectionViewDelegate,UICollect
 	                    numberOfItemsInSection section: Int) -> Int {
 		return 1
 	}
+	//시간에 따라 셀크기 맞추는 함수
+	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+		var timeduration = 3.0
+		if indexPath.section>=3 && indexPath.section < (selectedAsset?.getTimes().count)!+2{
+			timeduration = CMTimeSubtract((self.selectedAsset?.getTimes()[indexPath.section-2].timePlayEnd)!,(selectedAsset?.getTimes()[indexPath.section-2].timeStart)! ).seconds/2
+			print ("타이머",timeduration)
+		}
+		return CGSize(width: 35*timeduration, height: 76);
+	}
 
 	func collectionView(_ collectionView: UICollectionView,cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 		let cellIdentifier = "PreViewCollectionViewCell"
@@ -99,8 +108,6 @@ class ShowBoxViewController: UIViewController,UICollectionViewDelegate,UICollect
 	@IBOutlet var pauseButton: UIButton!
 	@IBAction func pauseButtonTapped(_ sender: UIButton) {
 		player.play()
-		preViewCollectionView.reloadData()
-		preViewCollectionView.layoutIfNeeded()
 		if let centerCellIndexPath: IndexPath  = preViewCollectionView.centerCellIndexPath {
 			currentTime = (selectedAsset?.getTimes()[centerCellIndexPath.section>=3 ? centerCellIndexPath.section:0].timeStart)! //TODO
 		}
@@ -171,11 +178,11 @@ class ShowBoxViewController: UIViewController,UICollectionViewDelegate,UICollect
 		self.selectedAsset?.removeAll()
 	}
 	
-	var timerTest : Timer?
+	var SaveProgressCheckTimer : Timer?
 	func startTimer () {
 		
-  if timerTest == nil {
-	timerTest =  Timer.scheduledTimer(
+  if SaveProgressCheckTimer == nil {
+	SaveProgressCheckTimer =  Timer.scheduledTimer(
 		timeInterval: TimeInterval(2.0),
 		target      : self,
 		selector    : #selector(self.timerAction),
@@ -184,9 +191,9 @@ class ShowBoxViewController: UIViewController,UICollectionViewDelegate,UICollect
 		}
 	}
 	func stopTimer() {
-		if timerTest != nil {
-			timerTest!.invalidate()
-			timerTest = nil
+		if SaveProgressCheckTimer != nil {
+			SaveProgressCheckTimer!.invalidate()
+			SaveProgressCheckTimer = nil
 		}
 	}
 	

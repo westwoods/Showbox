@@ -135,7 +135,7 @@ class VideoWriter {
 		{
 			session.outputURL = exportURL
 			session.outputFileType = AVFileTypeQuickTimeMovie
-			//session.shouldOptimizeForNetworkUse = true
+			//session.shouldOptimizeForNetworkUse = true //스트리밍을 위한 영상 옵션
 			session.videoComposition = mutableVideoCompositon
 
 			session.exportAsynchronously(completionHandler: {
@@ -248,20 +248,11 @@ class VideoWriter {
 				transition.subtype = transitionType[3]//Int(arc4random_uniform(4))]
 				transition.duration = (tempPhoto.timePlayEnd.seconds - tempPhoto.timeStart.seconds)/2
 				transition.beginTime =  AVCoreAnimationBeginTimeAtZero + tempPhoto.timeStart.seconds
-				transition.autoreverses = false
+				transition.autoreverses = true
 				transition.isRemovedOnCompletion = false //애니메이션이 종료되어도 애니메이션을 지우지않는다.
 				transition.fillMode = kCAFillModeForwards //애니메이션이 종료된뒤 계속해서 상태를 유지한다.
 				imglayer.add(transition, forKey: "transition")
-				let transition2 = CATransition()
-				transition2.type = kcAtra
-				transition2.subtype = transitionType[3]//Int(arc4random_uniform(4))]
-				transition2.duration = (tempPhoto.timePlayEnd.seconds - tempPhoto.timeStart.seconds)/2
-				transition2.beginTime =  AVCoreAnimationBeginTimeAtZero + tempPhoto.timeStart.seconds +(tempPhoto.timePlayEnd.seconds - tempPhoto.timeStart.seconds)/2
-				transition2.autoreverses = true
-				transition2.isRemovedOnCompletion = false //애니메이션이 종료되어도 애니메이션을 지우지않는다.
-				transition2.fillMode = kCAFillModeForwards //애니메이션이 종료된뒤 계속해서 상태를 유지한다.
-				imglayer.add(transition2, forKey: "transition")
-				
+		
 				parentlayer.addSublayer(imglayer)
 				
 				
