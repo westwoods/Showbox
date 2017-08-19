@@ -182,14 +182,14 @@ public class   TimeLine{
 						if (temp.clusterGroup != nowGroup){ //최근 한번만 추가.
 							nowGroup = temp.clusterGroup
 							//	지도 이미지추가
-							let mapimage = ImageTime(timeStart: startTime, timePlayEnd: CMTimeAdd(startTime, CMTimeAdd(nextDelay, gap)), phAsset: nil, asset:mapimage ,faces:temp.faceFeatureFilter, locationGroup:temp.clusterGroup)
+							let mapimage = ImageTime(timeStart: startTime, timePlayEnd: CMTimeAdd(startTime, CMTimeAdd(CMTimeAdd(nextDelay,nextDelay), gap)), phAsset: nil, asset:mapimage ,faces:temp.faceFeatureFilter, locationGroup:temp.clusterGroup)
 							mapimage.type = TimeAsset.AssetType.map
 							myTimes.append(mapimage)
 							startTime = CMTimeAdd(startTime, CMTimeAdd(nextDelay, gap))
 							latestVideo.timeDelayEnd = startTime
 						}
 					}
-					myTimes.append(ImageTime(timeStart: startTime, timePlayEnd: CMTimeAdd(startTime, CMTimeAdd(nextDelay, gap)), phAsset: temp.phAsset, asset: nil,faces:temp.faceFeatureFilter, locationGroup:temp.clusterGroup))
+					myTimes.append(ImageTime(timeStart: startTime, timePlayEnd: CMTimeAdd(startTime, CMTimeAdd(CMTimeAdd(nextDelay,nextDelay), gap)), phAsset: temp.phAsset, asset: nil,faces:temp.faceFeatureFilter, locationGroup:temp.clusterGroup))
 					debugPrint("TDphoto start", startTime,"\n")
 					startTime = CMTimeAdd(startTime, CMTimeAdd(nextDelay, gap))
 					latestVideo.timeDelayEnd = startTime

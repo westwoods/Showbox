@@ -9,7 +9,26 @@ import AVKit
 import AVFoundation
 import UIKit
 import KDCircularProgress
-
+extension UICollectionView {
+	
+	var centerPoint : CGPoint {
+		
+		get {//
+			print("위치",CGPoint(x: self.center.x + self.contentOffset.x, y:  self.contentOffset.y), self.contentOffset.y,  self.contentOffset.x )
+			return CGPoint(x: self.center.x+self.contentOffset.x, y:  self.contentOffset.y) //center y값을빼니까 정상작동하네
+		}
+	}
+	
+	var centerCellIndexPath: IndexPath? {
+		print("위치 센터 포인트",self.centerPoint)
+		print("위치 이건 왜 닐이야",self.indexPathsForVisibleItems)
+		print("위치 테스트", self.indexPathForItem(at: self.centerPoint))
+		if let centerIndexPath = self.indexPathForItem(at: self.centerPoint) {
+			return centerIndexPath
+		}
+		return nil
+	}
+}
 
 class ShowBoxViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource,UIScrollViewDelegate,UICollectionViewDelegateFlowLayout{
 	@IBOutlet var preViewCollectionView: UICollectionView!
@@ -25,7 +44,7 @@ class ShowBoxViewController: UIViewController,UICollectionViewDelegate,UICollect
 		}
 		set {
 			let newTime = newValue
-			player.seek(to: newTime, toleranceBefore: kCMTimeZero, toleranceAfter: kCMTimeZero)
+			player.seek(to: newTime, toleranceBefore: kCMTimeZero, toleranceAfter: kCMTimeZero)// before와 after가 0이면 정확한 시간 decoding이 더 필요함. 여분시간을 줄경우 좀더 빨리 찾아지나봄!    
 		}
 	}
 	
@@ -59,14 +78,7 @@ class ShowBoxViewController: UIViewController,UICollectionViewDelegate,UICollect
 	                    numberOfItemsInSection section: Int) -> Int {
 		return 1
 	}
-	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-		var timeduration = 1.0
-		if indexPath.section>=3 && indexPath.section < (selectedAsset?.getTimes().count)!+2{
-			timeduration = CMTimeSubtract((self.selectedAsset?.getTimes()[indexPath.section-2].timePlayEnd)!,(selectedAsset?.getTimes()[indexPath.section-2].timeStart)! ).seconds
-			print ("타이머",timeduration)
-		}
-		return CGSize(width: 35*timeduration, height: 76);
-	}
+
 	func collectionView(_ collectionView: UICollectionView,cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 		let cellIdentifier = "PreViewCollectionViewCell"
 		
@@ -87,7 +99,11 @@ class ShowBoxViewController: UIViewController,UICollectionViewDelegate,UICollect
 	@IBOutlet var pauseButton: UIButton!
 	@IBAction func pauseButtonTapped(_ sender: UIButton) {
 		player.play()
-		currentTime = kCMTimeZero
+		preViewCollectionView.reloadData()
+		preViewCollectionView.layoutIfNeeded()
+		if let centerCellIndexPath: IndexPath  = preViewCollectionView.centerCellIndexPath {
+			currentTime = (selectedAsset?.getTimes()[centerCellIndexPath.section>=3 ? centerCellIndexPath.section:0].timeStart)! //TODO
+		}
 		pauseflag = false
 		pauseButton.isHidden = true
 	}
@@ -146,7 +162,7 @@ class ShowBoxViewController: UIViewController,UICollectionViewDelegate,UICollect
 	override func viewDidDisappear(_ animated: Bool) {
 		super.viewDidDisappear(animated)
 		VideoWriter.stop()
-		stopTimerTest()
+		stopTimer()
 		if let timeObserverToken = timeObserverToken {
 			player.removeTimeObserver(timeObserverToken)
 			self.timeObserverToken = nil
@@ -162,19 +178,19 @@ class ShowBoxViewController: UIViewController,UICollectionViewDelegate,UICollect
 	timerTest =  Timer.scheduledTimer(
 		timeInterval: TimeInterval(2.0),
 		target      : self,
-		selector    : #selector(self.timerActionTest),
+		selector    : #selector(self.timerAction),
 		userInfo    : nil,
 		repeats     : true)
 		}
 	}
-	func stopTimerTest() {
+	func stopTimer() {
 		if timerTest != nil {
 			timerTest!.invalidate()
 			timerTest = nil
 		}
 	}
 	
-	func timerActionTest(){
+	func timerAction(){
 		DispatchQueue.main.async {
 			//	print ("타이머",VideoWriter.session?.progress ?? "")
 			self.exportprogress?.angle = Double((VideoWriter.session?.progress ?? 0 )*360)
