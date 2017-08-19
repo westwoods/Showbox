@@ -187,7 +187,7 @@ class VideoWriter {
 		{
 			progressCheck += 180/Double(photosToOverlay.count)
 			let tempPhoto = photosToOverlay[i]
-			if tempPhoto.type == TimeAsset.AssetType.photo{
+			if tempPhoto.type == TimeAsset.AssetType.photo || tempPhoto.type == TimeAsset.AssetType.map{
 				var imglogo:UIImage? = nil
 				if tempPhoto.phAsset  == nil{
 					imglogo = tempPhoto.passet

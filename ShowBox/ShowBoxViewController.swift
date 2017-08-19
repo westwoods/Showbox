@@ -35,8 +35,15 @@ class ShowBoxViewController: UIViewController,UICollectionViewDelegate,UICollect
 	let myPhotoLib = TLPhotoLibrary()
 	let player = AVPlayer()
 	var pauseflag = false
-	fileprivate var searches:[UIImage] = []
-	private var timeObserverToken: Any?
+	var searches:[UIImage] = []
+	var timeObserverToken: Any?
+	
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+		
+		// Make sure we don't have a strong reference cycle by only capturing self as weak.
+		
+	}
 	
 	var currentTime: CMTime {
 		get {
@@ -82,7 +89,7 @@ class ShowBoxViewController: UIViewController,UICollectionViewDelegate,UICollect
 	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 		var timeduration = 3.0
 		if indexPath.section>=3 && indexPath.section < (selectedAsset?.getTimes().count)!+2{
-			timeduration = CMTimeSubtract((self.selectedAsset?.getTimes()[indexPath.section-2].timePlayEnd)!,(selectedAsset?.getTimes()[indexPath.section-2].timeStart)! ).seconds/2
+			timeduration = CMTimeSubtract((self.selectedAsset?.getTimes()[indexPath.section-2].timePlayEnd)!,(selectedAsset?.getTimes()[indexPath.section-2].timeStart)! ).seconds
 			print ("타이머",timeduration)
 		}
 		return CGSize(width: 35*timeduration, height: 76);
@@ -90,7 +97,6 @@ class ShowBoxViewController: UIViewController,UICollectionViewDelegate,UICollect
 
 	func collectionView(_ collectionView: UICollectionView,cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 		let cellIdentifier = "PreViewCollectionViewCell"
-		
 		guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as? PreViewCollectionViewCell  else {
 			fatalError("The dequeued cell is not an instance of MusicTableViewCell.")
 		}
@@ -101,16 +107,20 @@ class ShowBoxViewController: UIViewController,UICollectionViewDelegate,UICollect
 		let myColor = UIColor(red: 255/255, green: 44/255, blue: 88/255, alpha: 0.5)
 		cell.layer.borderColor = myColor.cgColor
 		}
+		else{
+			cell.layer.borderWidth = 1.0
+			let myColor = UIColor(red: 22/255, green: 44/255, blue: 255/255, alpha: 0.02)
+			cell.layer.borderColor = myColor.cgColor
+		}
 		return cell
 	}
 	
 	@IBOutlet var ShowBox: UIView!
 	@IBOutlet var pauseButton: UIButton!
 	@IBAction func pauseButtonTapped(_ sender: UIButton) {
+		currentTime = CMTime(seconds: (Double(preViewCollectionView.centerPoint.x)-35*8.0+1)/35.0, preferredTimescale: 1)//TODO
+		
 		player.play()
-		if let centerCellIndexPath: IndexPath  = preViewCollectionView.centerCellIndexPath {
-			currentTime = (selectedAsset?.getTimes()[centerCellIndexPath.section>=3 ? centerCellIndexPath.section:0].timeStart)! //TODO
-		}
 		pauseflag = false
 		pauseButton.isHidden = true
 	}
@@ -119,12 +129,6 @@ class ShowBoxViewController: UIViewController,UICollectionViewDelegate,UICollect
 	}
 	var exportprogress :KDCircularProgress?
 	var selectedAsset:TimeLine? = nil //세그로 세팅됨
-	override func viewWillAppear(_ animated: Bool) {
-		super.viewWillAppear(animated)
-		
-		// Make sure we don't have a strong reference cycle by only capturing self as weak.
-		
-	}
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -196,7 +200,6 @@ class ShowBoxViewController: UIViewController,UICollectionViewDelegate,UICollect
 			SaveProgressCheckTimer = nil
 		}
 	}
-	
 	func timerAction(){
 		DispatchQueue.main.async {
 			//	print ("타이머",VideoWriter.session?.progress ?? "")
@@ -258,17 +261,19 @@ class ShowBoxViewController: UIViewController,UICollectionViewDelegate,UICollect
 			
 			DispatchQueue.main.async {
 				self.preViewCollectionView.reloadData()
-				let interval = CMTimeMake(1, 2)
+				let interval = CMTimeMake(1, 10)
 				self.timeObserverToken = self.player.addPeriodicTimeObserver(forInterval: interval, queue: DispatchQueue.main) { [unowned self] time in
 					if !self.pauseflag{
 						let times = self.selectedAsset?.getTimes()
-						for i in 1..<(times?.count ?? 0) //0번 더미영상  1번부터 시작
-						{
-							if (times?[i].timeStart)! < time && ((times?[i].timePlayEnd)! > time){
-								self.preViewCollectionView.scrollToItem(at: IndexPath.init(row: 0, section: i+2), at: UICollectionViewScrollPosition.centeredHorizontally , animated: true)
-								break
-							}
-						}
+//						for i in 1..<(times?.count ?? 0) //0번 더미영상  1번부터 시작
+//						{
+//							if (times?[i].timeStart)! < time && ((times?[i].timePlayEnd)! > time){
+//							//	self.preViewCollectionView.scrollToItem(at: IndexPath.init(row: 0, section: i+2), at: UICollectionViewScrollPosition.centeredHorizontally , animated: true)
+//								break
+//							}
+//						}
+						
+						self.preViewCollectionView.setContentOffset(CGPoint.init(x: (self.player.currentTime().seconds-1)*35+9*35-187.5, y: 0.0), animated: false)
 						print(time)
 					}
 				}
