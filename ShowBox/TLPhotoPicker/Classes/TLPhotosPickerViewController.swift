@@ -718,7 +718,7 @@ extension TLPhotosPickerViewController: UICollectionViewDelegate,UICollectionVie
 						cell?.imageView?.image = image
 						if  (asset.faces == nil)
 						{()
-							asset.faces =  FaceDetector.detect(uiImage:image )
+							//asset.faces =  FaceDetector.detect(uiImage:image )
 						}
 						cell?.faces = asset.faces
 						if self.allowedVideo {

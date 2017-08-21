@@ -10,31 +10,16 @@ import Foundation
 import Photos
 import AVFoundation
 import AssetsLibrary
-import KDCircularProgress
 
 class VideoWriter {
-	static var progressCheck = 0.0{
-		didSet{
-			DispatchQueue.main.async {
-				progress?.angle = Double(progressCheck)
-				if(progressCheck > 359){
-					progress?.isHidden = true
-				}
-				else{
-					progress?.isHidden = false
-				}
-			}
-		}
-	}
+	
 	
 	// if appropriate, make sure to stop your timer in `deinit`
 	
-	static var progress:KDCircularProgress? = nil
-	static var myPhLib = TLPhotoLibrary()
 	static var exportURL:URL? = nil
 	static var session:AVAssetExportSession? = nil
 	class func mergeVideo(_ myTimeLine:TimeLine, previewSize:CGRect,complete:((AVComposition,AVMutableVideoComposition,CALayer)->())){
-		progressCheck = 0.0
+		
 		let myMutableComposition:AVMutableComposition = AVMutableComposition()
 		//*************************************트랙생성
 		let videoCompositionTrack:AVMutableCompositionTrack
@@ -137,7 +122,7 @@ class VideoWriter {
 			session.outputFileType = AVFileTypeQuickTimeMovie
 			//session.shouldOptimizeForNetworkUse = true //스트리밍을 위한 영상 옵션
 			session.videoComposition = mutableVideoCompositon
-
+			
 			session.exportAsynchronously(completionHandler: {
 				print("Output File Type: \(session.outputFileType ?? "FILE TYPE MIA")")
 				print("Output URL: \(session.outputURL?.absoluteString ?? "URL MIA")")
@@ -154,20 +139,21 @@ class VideoWriter {
 				else{
 					print("Export Cancelled")
 				}
-
-
+				
+				
 			})
 		}
 	}
 	
 	class func saveToCameraRollAlbum(){
 		if let exportURL = exportURL{
-			print("저장 준비완료")
-			PHPhotoLibrary.shared().performChanges({
-				PHAssetChangeRequest.creationRequestForAssetFromVideo(atFileURL: exportURL)
-			}) { saved, error in
-				if saved { print("Saved")}
-				else{ print(error as Any)}
+			if session?.status == AVAssetExportSessionStatus.completed{
+				PHPhotoLibrary.shared().performChanges({
+					PHAssetChangeRequest.creationRequestForAssetFromVideo(atFileURL: exportURL)
+				}) { saved, error in
+					if saved { print("Saved")}
+					else{ print(error as Any)}
+				}
 			}
 		}
 		else{
@@ -185,17 +171,12 @@ class VideoWriter {
 		
 		for i in 0..<photosToOverlay.count
 		{
-			progressCheck += 180/Double(photosToOverlay.count)
 			let tempPhoto = photosToOverlay[i]
 			if tempPhoto.type == TimeAsset.AssetType.photo || tempPhoto.type == TimeAsset.AssetType.map{
 				var imglogo:UIImage? = nil
-				if tempPhoto.phAsset  == nil{
-					imglogo = tempPhoto.passet
-				}else{
-					myPhLib.getThumbnailAsset(asset: tempPhoto.phAsset!, size: CGSize(width:(tempPhoto.phAsset?.pixelWidth)!/4, height:(tempPhoto.phAsset?.pixelHeight)!/4)){ uiimage in
-						imglogo = uiimage
-					}
-				}
+				imglogo = tempPhoto.iAsset
+				
+				
 				struct resolutionRate{
 					static let width:CGFloat = 4.0
 					static let height:CGFloat = 3.0
@@ -252,7 +233,7 @@ class VideoWriter {
 				transition.isRemovedOnCompletion = false //애니메이션이 종료되어도 애니메이션을 지우지않는다.
 				transition.fillMode = kCAFillModeForwards //애니메이션이 종료된뒤 계속해서 상태를 유지한다.
 				imglayer.add(transition, forKey: "transition")
-		
+				
 				parentlayer.addSublayer(imglayer)
 				
 				

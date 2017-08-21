@@ -51,7 +51,7 @@ class ShowBoxViewController: UIViewController,UICollectionViewDelegate,UICollect
 		}
 		set {
 			let newTime = newValue
-			player.seek(to: newTime, toleranceBefore: kCMTimeZero, toleranceAfter: kCMTimeZero)// before와 after가 0이면 정확한 시간 decoding이 더 필요함. 여분시간을 줄경우 좀더 빨리 찾아지나봄!    
+			player.seek(to: newTime, toleranceBefore: kCMTimeZero, toleranceAfter: kCMTimeZero)// before와 after가 0이면 정확한 시간 decoding이 더 필요함. 여분시간을 줄경우 좀더 빨리 찾아지나봄!
 		}
 	}
 	
@@ -87,14 +87,14 @@ class ShowBoxViewController: UIViewController,UICollectionViewDelegate,UICollect
 	}
 	//시간에 따라 셀크기 맞추는 함수
 	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-		var timeduration = 3.0
-		if indexPath.section>=3 && indexPath.section < (selectedAsset?.getTimes().count)!+2{
-			timeduration = CMTimeSubtract((self.selectedAsset?.getTimes()[indexPath.section-2].timePlayEnd)!,(selectedAsset?.getTimes()[indexPath.section-2].timeStart)! ).seconds
+		var timeduration = 9.0
+		if indexPath.section>=1 && indexPath.section < (selectedAsset?.getTimes().count)!{
+			timeduration = CMTimeSubtract((self.selectedAsset?.getTimes()[indexPath.section].timePlayEnd)!,(selectedAsset?.getTimes()[indexPath.section].timeStart)! ).seconds
 			print ("타이머",timeduration)
 		}
 		return CGSize(width: 35*timeduration, height: 76);
 	}
-
+	
 	func collectionView(_ collectionView: UICollectionView,cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 		let cellIdentifier = "PreViewCollectionViewCell"
 		guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as? PreViewCollectionViewCell  else {
@@ -102,14 +102,14 @@ class ShowBoxViewController: UIViewController,UICollectionViewDelegate,UICollect
 		}
 		//print(indexPath.section)
 		cell.preViewImage.image = searches[indexPath.section]
-		if (indexPath.section>=3 && indexPath.section < (selectedAsset?.getTimes().count)!+2){
-		cell.layer.borderWidth = 1.0
-		let myColor = UIColor(red: 255/255, green: 44/255, blue: 88/255, alpha: 0.5)
-		cell.layer.borderColor = myColor.cgColor
+		if (indexPath.section>=1 && indexPath.section < (selectedAsset?.getTimes().count)!){
+			cell.layer.borderWidth = 1.0
+			let myColor = UIColor(red: 255/255, green: 44/255, blue: 88/255, alpha: 0.5)
+			cell.layer.borderColor = myColor.cgColor
 		}
 		else{
 			cell.layer.borderWidth = 1.0
-			let myColor = UIColor(red: 22/255, green: 44/255, blue: 255/255, alpha: 0.02)
+			let myColor = UIColor(red: 22/255, green: 44/255, blue: 255/255, alpha: 0.22)
 			cell.layer.borderColor = myColor.cgColor
 		}
 		return cell
@@ -118,34 +118,36 @@ class ShowBoxViewController: UIViewController,UICollectionViewDelegate,UICollect
 	@IBOutlet var ShowBox: UIView!
 	@IBOutlet var pauseButton: UIButton!
 	@IBAction func pauseButtonTapped(_ sender: UIButton) {
-		currentTime = CMTime(seconds: (Double(preViewCollectionView.centerPoint.x)-35*8.0+1)/35.0, preferredTimescale: 1)//TODO
+		currentTime = CMTime(seconds: (Double(preViewCollectionView.centerPoint.x)-35*8.0)/35.0, preferredTimescale: 1)//TODO
 		
 		player.play()
 		pauseflag = false
 		pauseButton.isHidden = true
 	}
 	@IBAction func savetoAlbum(_ sender: UIButton) {
+		if VideoWriter.session?.status == AVAssetExportSessionStatus.completed{
+		let alert = UIAlertController(title: "저장", message: "저장되었습니다.", preferredStyle: UIAlertControllerStyle.alert)
+		alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+//		alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.default, handler: {    (action:UIAlertAction!) in
+//			print("you have pressed the Cancel button")
+//		}))
+		self.present(alert, animated: true, completion: nil)
 		VideoWriter.saveToCameraRollAlbum()
+		}
+		else{
+			let alert = UIAlertController(title: "에러", message: "영상이 아직 완성되지 않았어요 ㅠ.ㅠ", preferredStyle: UIAlertControllerStyle.alert)
+			alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+			//		alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.default, handler: {    (action:UIAlertAction!) in
+			//			print("you have pressed the Cancel button")
+			//		}))
+			self.present(alert, animated: true, completion: nil)
+		}
 	}
 	var exportprogress :KDCircularProgress?
 	var selectedAsset:TimeLine? = nil //세그로 세팅됨
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		let progress = KDCircularProgress(frame: CGRect(x: 0, y: 0, width: 200, height: 200))
-		progress.startAngle = -90
-		progress.progressThickness = 0.2
-		progress.trackThickness = 0.3
-		progress.clockwise = true
-		progress.gradientRotateSpeed = 2
-		progress.roundedCorners = false
-		progress.glowMode = .constant
-		progress.glowAmount = 0.2
-		progress.set(colors: UIColor.lightGray, UIColor.darkGray, UIColor.black, UIColor.darkGray)
-		progress.trackColor = UIColor.white
-		progress.center = CGPoint(x: view.center.x, y: view.center.y - 35)
-		progress.isHidden = true
-		
 		exportprogress = KDCircularProgress(frame: CGRect(x: 0, y: 0, width: 90, height: 90))
 		if let exportprogress = exportprogress{
 			exportprogress.startAngle = -90
@@ -162,18 +164,15 @@ class ShowBoxViewController: UIViewController,UICollectionViewDelegate,UICollect
 			exportprogress.isHidden = false
 			view.addSubview(exportprogress)
 		}
-		view.addSubview(progress)
-		VideoWriter.progress = progress
 		DispatchQueue.global().async {
 			VideoWriter.mergeVideo((self.selectedAsset)!,previewSize:self.ShowBox.bounds, complete:self.videoout)
+			
 		}
-		startTimer()
 	}
 	@IBOutlet var saveButton: UIButton!
 	override func viewDidDisappear(_ animated: Bool) {
 		super.viewDidDisappear(animated)
 		VideoWriter.stop()
-		stopTimer()
 		if let timeObserverToken = timeObserverToken {
 			player.removeTimeObserver(timeObserverToken)
 			self.timeObserverToken = nil
@@ -182,31 +181,7 @@ class ShowBoxViewController: UIViewController,UICollectionViewDelegate,UICollect
 		self.selectedAsset?.removeAll()
 	}
 	
-	var SaveProgressCheckTimer : Timer?
-	func startTimer () {
-		
-  if SaveProgressCheckTimer == nil {
-	SaveProgressCheckTimer =  Timer.scheduledTimer(
-		timeInterval: TimeInterval(2.0),
-		target      : self,
-		selector    : #selector(self.timerAction),
-		userInfo    : nil,
-		repeats     : true)
-		}
-	}
-	func stopTimer() {
-		if SaveProgressCheckTimer != nil {
-			SaveProgressCheckTimer!.invalidate()
-			SaveProgressCheckTimer = nil
-		}
-	}
-	func timerAction(){
-		DispatchQueue.main.async {
-			//	print ("타이머",VideoWriter.session?.progress ?? "")
-			self.exportprogress?.angle = Double((VideoWriter.session?.progress ?? 0 )*360)
-			self.exportprogress?.isHidden = false
-		}
-	}
+
 	func preViewGenerator(composition:AVComposition,mutableVideoCom:AVMutableVideoComposition){
 		DispatchQueue.global().async {
 			
@@ -216,9 +191,6 @@ class ShowBoxViewController: UIViewController,UICollectionViewDelegate,UICollect
 			var thumbnail : CGImage?
 			print ("영상 길이는 ",Float((self.selectedAsset?.getTimes().last?.timePlayEnd.seconds)!),"초 입니다.")
 			
-			self.searches.append(UIImage())
-			
-			self.searches.append(UIImage())
 			
 			self.searches.append(UIImage())
 			
@@ -238,50 +210,35 @@ class ShowBoxViewController: UIViewController,UICollectionViewDelegate,UICollect
 							}
 							//}
 						}
-						else {
+						else	if tempAsset.type == TimeAsset.AssetType.photo || tempAsset.type == TimeAsset.AssetType.map{
 							//포토 타입
-							()
-							if let phAsset = tempAsset.phAsset{
-								self.myPhotoLib.getThumbnailAsset(asset:phAsset, completionBlock: { (uiimage) in
-									self.searches.append(uiimage)
-								})
-							}
-							else{
-								self.searches.append(tempAsset.passet!)
-							}
+							self.searches.append(tempAsset.iAsset!)
+							
 						}
 					}
 				}
 			}
 			self.searches.append(UIImage())
 			
-			self.searches.append(UIImage())
-			
-			self.searches.append(UIImage())
-			
 			DispatchQueue.main.async {
 				self.preViewCollectionView.reloadData()
-				let interval = CMTimeMake(1, 10)
+				let interval = CMTimeMake(1, 30)
 				self.timeObserverToken = self.player.addPeriodicTimeObserver(forInterval: interval, queue: DispatchQueue.main) { [unowned self] time in
 					if !self.pauseflag{
-						let times = self.selectedAsset?.getTimes()
-//						for i in 1..<(times?.count ?? 0) //0번 더미영상  1번부터 시작
-//						{
-//							if (times?[i].timeStart)! < time && ((times?[i].timePlayEnd)! > time){
-//							//	self.preViewCollectionView.scrollToItem(at: IndexPath.init(row: 0, section: i+2), at: UICollectionViewScrollPosition.centeredHorizontally , animated: true)
-//								break
-//							}
-//						}
+						
+						DispatchQueue.main.async {
+							//	print ("타이머",VideoWriter.session?.progress ?? "")
+							self.exportprogress?.angle = Double((VideoWriter.session?.progress ?? 0 )*360)
+							self.exportprogress?.isHidden = false
+						}
 						
 						self.preViewCollectionView.setContentOffset(CGPoint.init(x: (self.player.currentTime().seconds-1)*35+9*35-187.5, y: 0.0), animated: false)
 						print(time)
 					}
 				}
 			}
-			
 		}
 	}
-	
 	
 	func videoout(composition:AVComposition,mutableVideoCom:AVMutableVideoComposition,layer:CALayer){
 		DispatchQueue.main.async {
@@ -297,6 +254,7 @@ class ShowBoxViewController: UIViewController,UICollectionViewDelegate,UICollect
 			playerLayer.addSublayer(synclayer)
 			self.ShowBox.layer.addSublayer(playerLayer)
 			self.player.play()
+			self.pauseButton.isHidden = true
 			self.player.rate = 1.0
 			self.preViewGenerator(composition:composition,mutableVideoCom: mutableVideoCom)
 		}

@@ -9,6 +9,7 @@
 import AVFoundation
 import Photos
 import Foundation
+import KDCircularProgress
 public class TimeAsset{
 	public enum AssetType {
 		case photo,video,livePhoto,music,map,unknown
@@ -19,7 +20,7 @@ public class TimeAsset{
 	public enum FaceFeatures {
 		case none , eye, smile, many
 	}
-	var passet:UIImage?
+	var iAsset:UIImage?
 	let aAsset:AVAudioMix?
 	let musicAsset:AVAsset?
 	var vAsset:AVAsset?
@@ -33,11 +34,11 @@ public class TimeAsset{
 	public var selectedHighLight: SelectedHighLight = .none  //0 nomal 1 selected 2 highlighted
 	public var faces:[FaceFeatures] = []
 	
-	init (timeStart : CMTime,  timePlayEnd : CMTime, timeDelayEnd : CMTime,	phAsset:PHAsset? = nil	,passet :UIImage? = nil, vAsset:AVAsset? = nil, musicAsset:AVAsset? = nil, aAsset:AVAudioMix? = nil, type:AssetType = AssetType.unknown){
+	init (timeStart : CMTime,  timePlayEnd : CMTime, timeDelayEnd : CMTime,	phAsset:PHAsset? = nil	,iAsset :UIImage? = nil, vAsset:AVAsset? = nil, musicAsset:AVAsset? = nil, aAsset:AVAudioMix? = nil, type:AssetType = AssetType.unknown){
 		self.timeStart = timeStart
 		self.timePlayEnd = timePlayEnd
 		self.timeDelayEnd = timeDelayEnd
-		self.passet = passet
+		self.iAsset = iAsset
 		self.aAsset = aAsset
 		self.vAsset = vAsset
 		self.musicAsset = musicAsset
@@ -68,11 +69,11 @@ public class MusicTime:TimeAsset{
 }
 
 class ImageTime:TimeAsset{
-	init (timeStart: CMTime, timePlayEnd: CMTime,phAsset:PHAsset?, asset: UIImage?, faces:[FaceFeatures], locationGroup:Int?)
+	init (timeStart: CMTime, timePlayEnd: CMTime,phAsset:PHAsset?, iAsset: UIImage?, faces:[FaceFeatures], locationGroup:Int?)
 	{
 		super.init(timeStart: timeStart, timePlayEnd: timePlayEnd, timeDelayEnd: kCMTimeInvalid,phAsset: phAsset)
 		self.type = AssetType.photo
-		self.passet = asset
+		self.iAsset = iAsset
 		self.faces = faces
 		self.locationGroup = locationGroup
 	}
@@ -83,7 +84,8 @@ public class   TimeLine{
 	public func getTimes()->[TimeAsset]{
 		return myTimes
 	}
-	
+	var progress:KDCircularProgress? = nil
+
 	lazy var imageManager = {
 		return PHCachingImageManager()
 	}()
@@ -98,7 +100,7 @@ public class   TimeLine{
 	//초기딜레이가 시작한시간~ // 영상이 시작한 시간 // 영상이 끝난시간 // 후기딜레이가 끝난시간 == 다음영상의 초기딜레이 시작
 	
 	
-	init()
+	init(sprogress:KDCircularProgress)
 	{
 		
 		let thisBundle = Bundle(for: type(of: self))
@@ -107,10 +109,10 @@ public class   TimeLine{
 		let music = MusicTime.init(timeStart: kCMTimeZero, timePlay: CMTimeAdd(kCMTimeZero, CMTime(seconds: 154.749, preferredTimescale: 44100)), timeEnd: CMTimeAdd(kCMTimeZero, CMTime(seconds: 154.749, preferredTimescale: 44100)), musicAsset: splashign_Around, musicName: "Aplashing_Around", coverImage: #imageLiteral(resourceName: "Atlanta.jpeg"),url: url)
 		myBGM = music
 		defaultBGM = music
+		progress = sprogress
 	}
 	
 	public func makeTimeLine(selectedAssets:[TLPHAsset],complete:@escaping (()->()) ){
-		
 		let nextDelayTime:TimeInterval = 2
 		var startTime:CMTime = kCMTimeZero
 		let nextDelay:CMTime = CMTimeMakeWithSeconds(nextDelayTime, 1);
@@ -124,10 +126,19 @@ public class   TimeLine{
 		var latestVideo:VideoTime = intro
 		startTime = CMTimeAdd(startTime, introAsset.duration)
 		var musicpoint:Int = 0
-		
-		var nowGroup = -1
+		let myPhLib = TLPhotoLibrary()
+			var nowGroup = -1
 		for i in 0..<selectedAssets.count
 		{
+			DispatchQueue.main.async {
+				self.progress?.angle += (360/Double(selectedAssets.count))
+				if((self.progress?.angle ?? 0)>359.0){
+										self.progress?.isHidden = true
+									}
+									else{
+										self.progress?.isHidden = false
+									}
+			}
 			let temp = selectedAssets[i]
 			//음악과 맞추는것,,, 어떻게 할까
 			/***************************************************************************************************************/
@@ -155,41 +166,39 @@ public class   TimeLine{
 				let options = PHVideoRequestOptions()
 				imageManager.requestAVAsset(forVideo: temp.phAsset!, options: options, resultHandler: { (AVAsset, AVAudioMix, info) in
 					latestVideo.timeDelayEnd = startTime // 이전 영상이 다음 영상의 시작 시간까지 담당.
-					//
-					//					debugPrint("TD Lvideo start", latestVideo.timeStart,"\n")
-					//					debugPrint("TD Lvideo pend", latestVideo.timePlayEnd,"\n")
-					//					debugPrint("TD Lvideo dend", latestVideo.timeDelayEnd,"\n")
-					
 					let nextVideo = VideoTime(timeStart: startTime, timePlayEnd:CMTimeAdd(startTime, (AVAsset?.duration)!), timeDelayEnd: kCMTimeInvalid, vAsset: AVAsset)
 					self.myTimes.append(	nextVideo )
-					//
-					//					debugPrint("TD Nvideo start", nextVideo.timeStart,"\n")
-					//					debugPrint("TD Nvideo pend", nextVideo.timePlayEnd,"\n")
-					//					debugPrint("TD Nvideo dend", nextVideo.timeDelayEnd,"\n")
 					latestVideo = nextVideo
 					startTime = CMTimeAdd(startTime, (AVAsset?.duration)!)
 					if( i == selectedAssets.count-1)
 					{
 						latestVideo.timeDelayEnd = CMTimeAdd(latestVideo.timePlayEnd  , gap)//영상으로 끝이 날때는!
 					}
+					
 					self.semaphore.signal()
 				})
 				semaphore.wait()
 			}
 			else{
+				
+
 				if temp.type == TLPHAsset.AssetType.photo{
 					if let mapimage = LocalImageDIc[temp.clusterGroup]  {
 						if (temp.clusterGroup != nowGroup){ //최근 한번만 추가.
 							nowGroup = temp.clusterGroup
 							//	지도 이미지추가
-							let mapimage = ImageTime(timeStart: startTime, timePlayEnd: CMTimeAdd(startTime, CMTimeAdd(nextDelay, gap)), phAsset: nil, asset:mapimage ,faces:temp.faceFeatureFilter, locationGroup:temp.clusterGroup)
+							let mapimage = ImageTime(timeStart: startTime, timePlayEnd: CMTimeAdd(startTime, CMTimeAdd(nextDelay, gap)), phAsset: nil, iAsset:mapimage ,faces:temp.faceFeatureFilter, locationGroup:temp.clusterGroup)
 							mapimage.type = TimeAsset.AssetType.map
 							myTimes.append(mapimage)
 							startTime = CMTimeAdd(startTime, CMTimeAdd(nextDelay, gap))
 							latestVideo.timeDelayEnd = startTime
 						}
 					}
-					myTimes.append(ImageTime(timeStart: startTime, timePlayEnd: CMTimeAdd(startTime, CMTimeAdd(nextDelay, gap)), phAsset: temp.phAsset, asset: nil,faces:temp.faceFeatureFilter, locationGroup:temp.clusterGroup))
+					//얼굴인식 처리
+					myPhLib.getThumbnailAsset(asset: temp.phAsset!, size: CGSize(width:(temp.phAsset?.pixelWidth)!/4, height:(temp.phAsset?.pixelHeight)!/4)){[unowned self]  uiimage in
+						self.myTimes.append(ImageTime(timeStart: startTime, timePlayEnd: CMTimeAdd(startTime, CMTimeAdd(nextDelay, gap)), phAsset: temp.phAsset, iAsset: uiimage,faces:temp.faceFeatureFilter, locationGroup:temp.clusterGroup))
+						
+					}
 					debugPrint("TDphoto start", startTime,"\n")
 					startTime = CMTimeAdd(startTime, CMTimeAdd(nextDelay, gap))
 					latestVideo.timeDelayEnd = startTime
@@ -199,6 +208,7 @@ public class   TimeLine{
 					print("라이브 포토는 이미지와 영상이 합쳐진 형태임.")
 				}
 			}
+			
 		}
 		//
 		//		debugPrint("TD Lvideo start", latestVideo.timeStart,"\n")

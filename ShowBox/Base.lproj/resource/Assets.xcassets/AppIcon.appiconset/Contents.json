@@ -1,8 +1,9 @@
 {
   "images" : [
     {
-      "idiom" : "iphone",
       "size" : "20x20",
+      "idiom" : "iphone",
+      "filename" : "icon3.png",
       "scale" : "2x"
     },
     {
@@ -119,16 +120,6 @@
       "idiom" : "ipad",
       "size" : "83.5x83.5",
       "scale" : "2x"
-    },
-    {
-      "idiom" : "car",
-      "size" : "60x60",
-      "scale" : "2x"
-    },
-    {
-      "idiom" : "car",
-      "size" : "60x60",
-      "scale" : "3x"
     }
   ],
   "info" : {

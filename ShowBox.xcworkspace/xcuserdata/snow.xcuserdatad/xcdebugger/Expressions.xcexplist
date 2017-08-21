@@ -11,6 +11,20 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "TimeLine.progressCheck.didset:TimeLine.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.progress?.angle">
+            </PersistentString>
+            <PersistentString
+               value = "self.progressCheck">
+            </PersistentString>
+            <PersistentString
+               value = "self.progress">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "static VideoWriter.preViewOverlay(CGRect, layercomposition : AVMutableVideoComposition, photosToOverlay : [TimeAsset]) -&gt; CALayer:VideoWriter.swift">
          <PersistentStrings>
             <PersistentString
@@ -25,6 +39,9 @@
                value = "LocalImageDIc">
             </PersistentString>
          </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "TimeLine.(progressCheck.didset).(closure #1):TimeLine.swift">
       </ContextState>
       <ContextState
          contextName = "(convertToAddressWith(key : Int, coordinate : CLLocation) -&gt; ()).(closure #2):LocalDic.swift">
@@ -46,18 +63,21 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "getMapImage(lat : Double, long : Double) -&gt; UIImage?:LocalDic.swift">
-      </ContextState>
-      <ContextState
          contextName = "TimeLine.makeTimeLine(selectedAssets : [TLPHAsset], complete : () -&gt; ()) -&gt; ():TimeLine.swift">
          <PersistentStrings>
             <PersistentString
                value = "LocalImageDIc">
             </PersistentString>
             <PersistentString
+               value = "progressCheck">
+            </PersistentString>
+            <PersistentString
                value = "LocalImageDIc[temp.clusterGroup]">
             </PersistentString>
          </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "getMapImage(lat : Double, long : Double) -&gt; UIImage?:LocalDic.swift">
       </ContextState>
    </ContextStates>
 </VariablesViewState>

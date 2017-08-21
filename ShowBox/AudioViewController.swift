@@ -102,8 +102,8 @@ public class AudioViewController: UITableViewController,FDWaveformViewDelegate {
 	}
 	override public func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 			if segue.identifier == "MusicSelect" {
-			let VC = (segue.destination as! ViewController)
-			VC.mySelectedAsset.myBGM = selectedMusic!
+			let VC = (segue.destination as! MainViewController)
+			VC.mySelectedAsset?.myBGM = selectedMusic!
 		}
 		
 	}
