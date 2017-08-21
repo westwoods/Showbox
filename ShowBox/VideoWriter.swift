@@ -236,19 +236,20 @@ class VideoWriter {
 				
 				parentlayer.addSublayer(imglayer)
 				
-				
-				if let location = LocalDic[tempPhoto.locationGroup!]{
-					let titleLayer = CATextLayer()
-					titleLayer.backgroundColor = UIColor.clear.cgColor
-					titleLayer.string = location
-					titleLayer.font = UIFont(name: "HelveticaNeue-Bold", size: 40)
-					titleLayer.fontSize = 15
-					titleLayer.foregroundColor = UIColor.black.cgColor
-					titleLayer.shadowOpacity = 0.0
-					titleLayer.alignmentMode = kCAAlignmentCenter
-					titleLayer.frame = size
-					
-					imglayer.addSublayer(titleLayer)
+				if tempPhoto.type == TimeAsset.AssetType.map{
+					if let location = LocalDic[tempPhoto.locationGroup!]{
+						let titleLayer = CATextLayer()
+						titleLayer.backgroundColor = UIColor.clear.cgColor
+						titleLayer.string = location
+						titleLayer.font = UIFont(name: "HelveticaNeue-Bold", size: 40)
+						titleLayer.fontSize = 15
+						titleLayer.foregroundColor = UIColor.white.cgColor
+						titleLayer.shadowOpacity = 0.0
+						titleLayer.alignmentMode = kCAAlignmentCenter
+						titleLayer.frame = size
+						
+						imglayer.addSublayer(titleLayer)
+					}
 				}
 			}
 			CATransaction.commit()

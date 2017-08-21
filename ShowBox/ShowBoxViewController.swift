@@ -210,10 +210,9 @@ class ShowBoxViewController: UIViewController,UICollectionViewDelegate,UICollect
 							}
 							//}
 						}
-						else	if tempAsset.type == TimeAsset.AssetType.photo || tempAsset.type == TimeAsset.AssetType.map{
+						else	if tempAsset.type == TimeAsset.AssetType.photo ||  tempAsset.type == TimeAsset.AssetType.map{
 							//포토 타입
 							self.searches.append(tempAsset.iAsset!)
-							
 						}
 					}
 				}

@@ -18,6 +18,7 @@ class MusicTimeTable{
 	                                        CMTime(seconds: 24.007, preferredTimescale: 1),
 	                                        CMTime(seconds: 33.707, preferredTimescale: 1),
 	                                        CMTime(seconds: 40.451, preferredTimescale: 1),
+	                                        CMTime(seconds: 154.749, preferredTimescale: 1),
 	                                        CMTime(seconds: 340.451, preferredTimescale: 1),
 	                                        CMTime(seconds: 340.451, preferredTimescale: 1),
 	                                        CMTime(seconds: 340.451, preferredTimescale: 1),

@@ -67,6 +67,9 @@ public class TLPHAsset {
 				}
 			}
 		}
+		else{
+			faceFeatureFilter.append(.none)
+		}
 		}
 	}
 	init(asset: PHAsset?) {

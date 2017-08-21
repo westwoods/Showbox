@@ -23,6 +23,9 @@ class TLPhotoLibrary {
 		return PHCachingImageManager()
 	}()
 	
+	lazy var imageManager2: PHImageManager = {
+		return PHImageManager()
+	}()
 	deinit {
 		//print("deinit TLPhotoLibrary")
 	}
@@ -61,7 +64,7 @@ class TLPhotoLibrary {
 			options?.deliveryMode = .highQualityFormat
 			options?.isNetworkAccessAllowed = false
 		}
-		let requestId = self.imageManager.requestImage(for: asset, targetSize: size, contentMode: .aspectFill, options: options) { image, info in
+		let requestId = self.imageManager2.requestImage(for: asset, targetSize: size, contentMode: .aspectFill, options: options) { image, info in
 			if let image = image {
 				completionBlock(image)
 			}

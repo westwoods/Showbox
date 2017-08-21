@@ -4,7 +4,7 @@ import UIKit
 
 open class FaceDetector{
 	
-	class func imageOrientationToExif(image: UIImage) -> uint {
+	func imageOrientationToExif(image: UIImage) -> uint {
 		switch image.imageOrientation {
 		case UIImageOrientation.up:
 			return 1;
@@ -27,19 +27,14 @@ open class FaceDetector{
 	static let accuracy = [CIDetectorAccuracy: CIDetectorAccuracyLow]
 	static let faceDetector = CIDetector(ofType: CIDetectorTypeFace, context: nil, options: accuracy)
 	
-	class  func detect(uiImage: UIImage)  -> [CIFeature]? {
+	func detect(uiImage: UIImage)  -> [CIFeature]? {
+		var faces:[CIFeature]? = nil
 		//TODO 이미지 방향이나 해상도에 관련한 이슈가 있음. 가로모드 세로모드에 따라 인식에 차이가있음.
-		let sourceOrientation = imageOrientationToExif(image: uiImage)
+		let sourceOrientation = self.imageOrientationToExif(image: uiImage)
 		let imageOptions:[String:Any] = [CIDetectorSmile : true ,CIDetectorEyeBlink: true, CIDetectorImageOrientation: sourceOrientation]
 		//	print(sourceOrientation)
-		let personciImage = CIImage(cgImage: uiImage.cgImage!)
-		let faces = faceDetector?.features(in: personciImage, options: imageOptions )
-		
-		if  ((faces?.first) != nil) {
-			return faces
-		} else {
-			return nil
-		}
+		var personciImage:CIImage? = CIImage.init(image: uiImage)
+		faces = FaceDetector.faceDetector?.features(in: personciImage!, options: imageOptions)
+		return faces
 	}
-	
 }

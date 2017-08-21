@@ -114,11 +114,13 @@ class MainViewController: UIViewController, TLPhotosPickerViewControllerDelegate
 	
 	//TLPhotosPickerViewControllerDelegate
 	func dismissPhotoPicker(withTLPHAssets: [TLPHAsset]) {
+		
 		// use selected order, fullresolution image
 		self.selectedAssets = withTLPHAssets
 		self.selectedAssets = self.selectedAssets.sorted(by: { ($0.phAsset?.creationDate)! < ($1.phAsset?.creationDate)!}) // 받아온 이미지들을 시간순으로 정렬
 		
 	//	print ("얼굴인식 갯수 \(a)개")
+		
 		DispatchQueue.global().async {
 		self.mySelectedAsset?.makeTimeLine(selectedAssets: self.selectedAssets, complete: self.allFileReadyHeadler)
 		}

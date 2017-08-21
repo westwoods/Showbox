@@ -85,7 +85,7 @@ public class   TimeLine{
 		return myTimes
 	}
 	var progress:KDCircularProgress? = nil
-
+	
 	lazy var imageManager = {
 		return PHCachingImageManager()
 	}()
@@ -127,19 +127,20 @@ public class   TimeLine{
 		startTime = CMTimeAdd(startTime, introAsset.duration)
 		var musicpoint:Int = 0
 		let myPhLib = TLPhotoLibrary()
-			var nowGroup = -1
+		var nowGroup = -1
 		self.progress?.angle = 0
+		let faceDetector = FaceDetector()
 		for i in 0..<selectedAssets.count
-		{
+		{ autoreleasepool{
 			DispatchQueue.main.async {
 				self.progress?.angle += (360/Double(selectedAssets.count))
 				if((self.progress?.angle ?? 0)>359.0){
-										self.progress?.isHidden = true
-
-									}
-									else{
-										self.progress?.isHidden = false
-									}
+					self.progress?.isHidden = true
+					
+				}
+				else{
+					self.progress?.isHidden = false
+				}
 			}
 			let temp = selectedAssets[i]
 			//음악과 맞추는것,,, 어떻게 할까
@@ -183,12 +184,24 @@ public class   TimeLine{
 			}
 			else{
 				
-
+				
 				if temp.type == TLPHAsset.AssetType.photo{
 					if let mapimage = LocalImageDIc[temp.clusterGroup]  {
 						if (temp.clusterGroup != nowGroup){ //최근 한번만 추가.
 							nowGroup = temp.clusterGroup
 							//	지도 이미지추가
+							for j in i..<selectedAssets.count
+							{
+								if (selectedAssets[j].type == TLPHAsset.AssetType.photo)
+								{
+									if  selectedAssets[j].clusterGroup != -1  {
+										if (selectedAssets[j].clusterGroup != nowGroup){
+											print("여기야 여기", nowGroup,selectedAssets[j].clusterGroup ,"i",i,"j:",j )
+											break
+										}
+									}
+								}
+							}
 							let mapimage = ImageTime(timeStart: startTime, timePlayEnd: CMTimeAdd(startTime, CMTimeAdd(nextDelay, gap)), phAsset: nil, iAsset:mapimage ,faces:temp.faceFeatureFilter, locationGroup:temp.clusterGroup)
 							mapimage.type = TimeAsset.AssetType.map
 							myTimes.append(mapimage)
@@ -197,21 +210,28 @@ public class   TimeLine{
 						}
 					}
 					//얼굴인식 처리
-					myPhLib.getThumbnailAsset(asset: temp.phAsset!, size: CGSize(width:(temp.phAsset?.pixelWidth)!/4, height:(temp.phAsset?.pixelHeight)!/4)){[unowned self]  uiimage in
-						temp.faces = FaceDetector.detect(uiImage: uiimage)
-						self.myTimes.append(ImageTime(timeStart: startTime, timePlayEnd: CMTimeAdd(startTime, CMTimeAdd(nextDelay, gap)), phAsset: temp.phAsset, iAsset: uiimage,faces:temp.faceFeatureFilter, locationGroup:temp.clusterGroup))
-						
+					myPhLib.getThumbnailAsset(asset: temp.phAsset!, size: CGSize(width:(temp.phAsset?.pixelWidth)!/4, height:(temp.phAsset?.pixelHeight)!/4)){[unowned self]uiimage in
+						//temp.faces =
+						temp.faces = faceDetector.detect(uiImage: uiimage)
+						print ("웃는 사진",temp.faceFeatureFilter.index(of: TimeAsset.FaceFeatures.smile), i)
+						if temp.faceFeatureFilter.index(of: TimeAsset.FaceFeatures.smile) != nil ||
+							temp.faceFeatureFilter.index(of: TimeAsset.FaceFeatures.eye) != nil ||
+							temp.faceFeatureFilter.index(of: TimeAsset.FaceFeatures.many) != nil
+						{ //얼굴이있음.
+							self.myTimes.append(ImageTime(timeStart: startTime, timePlayEnd: CMTimeAdd(startTime, CMTimeAdd(nextDelay, gap)), phAsset: temp.phAsset, iAsset: uiimage,faces:temp.faceFeatureFilter, locationGroup:temp.clusterGroup))
+							debugPrint("TDphoto start", startTime,"\n")
+							startTime = CMTimeAdd(startTime, CMTimeAdd(nextDelay, gap))
+							latestVideo.timeDelayEnd = startTime
+							debugPrint("TDphoto end",startTime,"\n")
+						}
 					}
-					debugPrint("TDphoto start", startTime,"\n")
-					startTime = CMTimeAdd(startTime, CMTimeAdd(nextDelay, gap))
-					latestVideo.timeDelayEnd = startTime
-					debugPrint("TDphoto end",startTime,"\n")
 				}
 				else if(temp.type == TLPHAsset.AssetType.livePhoto){
 					print("라이브 포토는 이미지와 영상이 합쳐진 형태임.")
 				}
+				
 			}
-			
+			}
 		}
 		//
 		//		debugPrint("TD Lvideo start", latestVideo.timeStart,"\n")
