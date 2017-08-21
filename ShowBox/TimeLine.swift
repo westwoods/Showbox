@@ -128,12 +128,14 @@ public class   TimeLine{
 		var musicpoint:Int = 0
 		let myPhLib = TLPhotoLibrary()
 			var nowGroup = -1
+		self.progress?.angle = 0
 		for i in 0..<selectedAssets.count
 		{
 			DispatchQueue.main.async {
 				self.progress?.angle += (360/Double(selectedAssets.count))
 				if((self.progress?.angle ?? 0)>359.0){
 										self.progress?.isHidden = true
+
 									}
 									else{
 										self.progress?.isHidden = false
@@ -196,6 +198,7 @@ public class   TimeLine{
 					}
 					//얼굴인식 처리
 					myPhLib.getThumbnailAsset(asset: temp.phAsset!, size: CGSize(width:(temp.phAsset?.pixelWidth)!/4, height:(temp.phAsset?.pixelHeight)!/4)){[unowned self]  uiimage in
+						temp.faces = FaceDetector.detect(uiImage: uiimage)
 						self.myTimes.append(ImageTime(timeStart: startTime, timePlayEnd: CMTimeAdd(startTime, CMTimeAdd(nextDelay, gap)), phAsset: temp.phAsset, iAsset: uiimage,faces:temp.faceFeatureFilter, locationGroup:temp.clusterGroup))
 						
 					}
