@@ -128,6 +128,7 @@ public class   TimeLine{
 		var musicpoint:Int = 0
 		let myPhLib = TLPhotoLibrary()
 		var nowGroup = -1
+		var gap = kCMTimeZero
 		self.progress?.angle = 0
 		let faceDetector = FaceDetector()
 		for i in 0..<selectedAssets.count
@@ -158,7 +159,7 @@ public class   TimeLine{
 				musicpoint+=1
 			}
 			let musicgap = CMTimeSubtract(MusicTimeTable.splashing_Around[musicpoint],CMTimeAdd(startTime, nextDelay)) //뮤직 포인트와 현재 사진 끝나는 시간과의 갭
-			var gap = kCMTimeZero
+
 			if( musicgap <  nextDelay ||  i == selectedAssets.count-1){
 				gap = musicgap
 			}
@@ -173,10 +174,7 @@ public class   TimeLine{
 					self.myTimes.append(	nextVideo )
 					latestVideo = nextVideo
 					startTime = CMTimeAdd(startTime, (AVAsset?.duration)!)
-					if( i == selectedAssets.count-1)
-					{
-						latestVideo.timeDelayEnd = CMTimeAdd(latestVideo.timePlayEnd  , gap)//영상으로 끝이 날때는!
-					}
+		
 					
 					self.semaphore.signal()
 				})
@@ -236,6 +234,12 @@ public class   TimeLine{
 		//
 		//		debugPrint("TD Lvideo start", latestVideo.timeStart,"\n")
 		//		debugPrint("TD Lvideo dend", latestVideo.timeDelayEnd,"\n")
+		if myTimes.last?.type == TimeAsset.AssetType.video{
+			latestVideo.timeDelayEnd = CMTimeAdd(latestVideo.timePlayEnd  , gap)
+			latestVideo.timePlayEnd = latestVideo.timeDelayEnd
+		//영상으로 끝이 날때는!
+		}
+		
 		self.timecut = latestVideo.timeDelayEnd
 		//세마포 걸어야될수도잇음.
 		if myBGM != nil{
