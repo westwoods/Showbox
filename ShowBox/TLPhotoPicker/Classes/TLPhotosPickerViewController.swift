@@ -714,9 +714,9 @@ extension TLPhotosPickerViewController: UICollectionViewDelegate,UICollectionVie
 				options.deliveryMode = .opportunistic
 				options.isNetworkAccessAllowed = true
 				self.photoLibrary.imageAsset(asset: phAsset, size: self.thumbnailSize, options: options) { [weak cell] image in
+					cell?.imageView?.image = image
 					if asset.faces == nil{
 						asset.faces =  self.faceDetector.detect(uiImage:image )
-						cell?.imageView?.image = image
 						cell?.faceFeatureFilter = asset.faceFeatureFilter
 						cell?.faces = asset.faces
 						if asset.faceFeatureFilter.index(of: TimeAsset.FaceFeatures.none) == nil{
@@ -725,14 +725,17 @@ extension TLPhotosPickerViewController: UICollectionViewDelegate,UICollectionVie
 							}
 						}
 					}
+					else{
+						cell?.faceFeatureFilter = asset.faceFeatureFilter
+						cell?.faces = asset.faces
+					}
 				}
 			}else {
 				queue.async { [weak self, weak cell] _ in
 					guard let `self` = self else { return }
 					let requestId = self.photoLibrary.imageAsset(asset: phAsset, size: self.thumbnailSize, completionBlock: { image in
 						cell?.imageView?.image = image
-						if  (asset.faces == nil)
-						{
+						if  (asset.faces == nil){
 							asset.faces =  self.faceDetector.detect(uiImage:image )
 							cell?.faceFeatureFilter = asset.faceFeatureFilter
 							cell?.faces = asset.faces
@@ -741,6 +744,10 @@ extension TLPhotosPickerViewController: UICollectionViewDelegate,UICollectionVie
 									self.selectedAssets.append(asset)
 								}
 							}
+						}
+						else{
+							cell?.faceFeatureFilter = asset.faceFeatureFilter
+							cell?.faces = asset.faces
 						}
 						if self.allowedVideo {
 							cell?.durationView?.isHidden = asset.type != .video
