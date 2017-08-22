@@ -202,7 +202,7 @@ extension TLPhotoLibrary {
 							if let tempPoint = group.points.first
 							{
 								let tempPoint = tempPoint as! CPoint
-								let remainder = (tempPoint.myindex-startindex)/12+1
+								let remainder = (tempPoint.myindex-startindex)/5+1
 								for indexforadd in startindex..<tempPoint.myindex{
 									if indexforadd%remainder == 0{
 										assetsCollection.getTLAsset(at: indexforadd)?.selectedHighLight = 1
@@ -212,7 +212,7 @@ extension TLPhotoLibrary {
 								startindex = tempPoint.myindex
 							}
 						}
-						let remainder = (assetsCollection.count-startindex)/12+1
+						let remainder = (assetsCollection.count-startindex)/5+1
 						for indexforadd in startindex..<assetsCollection.count{
 							if indexforadd%remainder == 0{
 								assetsCollection.getTLAsset(at: indexforadd)?.selectedHighLight = 1
