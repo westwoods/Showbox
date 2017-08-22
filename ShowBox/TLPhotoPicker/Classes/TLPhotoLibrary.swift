@@ -191,13 +191,35 @@ extension TLPhotoLibrary {
 								print ("myindex = ",point.myindex, "group= ", group)
 								assetsCollection.getTLAsset(at: point.myindex)?.clusterGroup = group
 							}
-							/************지역 자동 추가**************/
-							
-							/************지역 자동 추가**************/
 							convertToAddressWith(key:group,coordinate: (assetsCollection.getAsset(at: (points.first?.myindex)!)?.location)!)
 							
 							
 						}
+						var startindex = 0
+						for group in sampleArray{
+							/************지역으로 자동 추가**************/
+							
+							if let tempPoint = group.points.first
+							{
+								let tempPoint = tempPoint as! CPoint
+								let remainder = (tempPoint.myindex-startindex)/12+1
+								for indexforadd in startindex..<tempPoint.myindex{
+									if indexforadd%remainder == 0{
+										assetsCollection.getTLAsset(at: indexforadd)?.selectedHighLight = 1
+										print("아아 마이크 테스트 마이크 테스트start", indexforadd)
+									}
+								}
+								startindex = tempPoint.myindex
+							}
+						}
+						let remainder = (assetsCollection.count-startindex)/12+1
+						for indexforadd in startindex..<assetsCollection.count{
+							if indexforadd%remainder == 0{
+								assetsCollection.getTLAsset(at: indexforadd)?.selectedHighLight = 1
+								print("아아 마이크 테스트 마이크 테스트start", indexforadd)
+							}
+						}
+						/************지역으로 자동 추가**************/
 					}
 					/**********지역 클러스터링 끝**************/
 					result.append(assetsCollection)

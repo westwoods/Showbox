@@ -159,7 +159,7 @@ public class   TimeLine{
 				musicpoint+=1
 			}
 			let musicgap = CMTimeSubtract(MusicTimeTable.splashing_Around[musicpoint],CMTimeAdd(startTime, nextDelay)) //뮤직 포인트와 현재 사진 끝나는 시간과의 갭
-
+			
 			if( musicgap <  nextDelay ||  i == selectedAssets.count-1){
 				gap = musicgap
 			}
@@ -174,7 +174,7 @@ public class   TimeLine{
 					self.myTimes.append(	nextVideo )
 					latestVideo = nextVideo
 					startTime = CMTimeAdd(startTime, (AVAsset?.duration)!)
-		
+					
 					
 					self.semaphore.signal()
 				})
@@ -208,20 +208,23 @@ public class   TimeLine{
 						}
 					}
 					//얼굴인식 처리
+					//					myPhLib.getThumbnailAsset(asset: temp.phAsset!, size: CGSize(width:(temp.phAsset?.pixelWidth)!/4, height:(temp.phAsset?.pixelHeight)!/4)){[unowned self]uiimage in
+					//						//temp.faces =
+					//						temp.faces = faceDetector.detect(uiImage: uiimage)
+					//						print ("웃는 사진",temp.faceFeatureFilter.index(of: TimeAsset.FaceFeatures.smile), i)
+					//						if temp.faceFeatureFilter.index(of: TimeAsset.FaceFeatures.smile) != nil ||
+					//							temp.faceFeatureFilter.index(of: TimeAsset.FaceFeatures.eye) != nil ||
+					//							temp.faceFeatureFilter.index(of: TimeAsset.FaceFeatures.many) != nil
+					//						{ //얼굴이있음.
+					//						}
+					//					}
+					//
 					myPhLib.getThumbnailAsset(asset: temp.phAsset!, size: CGSize(width:(temp.phAsset?.pixelWidth)!/4, height:(temp.phAsset?.pixelHeight)!/4)){[unowned self]uiimage in
-						//temp.faces =
-						temp.faces = faceDetector.detect(uiImage: uiimage)
-						print ("웃는 사진",temp.faceFeatureFilter.index(of: TimeAsset.FaceFeatures.smile), i)
-						if temp.faceFeatureFilter.index(of: TimeAsset.FaceFeatures.smile) != nil ||
-							temp.faceFeatureFilter.index(of: TimeAsset.FaceFeatures.eye) != nil ||
-							temp.faceFeatureFilter.index(of: TimeAsset.FaceFeatures.many) != nil
-						{ //얼굴이있음.
-							self.myTimes.append(ImageTime(timeStart: startTime, timePlayEnd: CMTimeAdd(startTime, CMTimeAdd(nextDelay, gap)), phAsset: temp.phAsset, iAsset: uiimage,faces:temp.faceFeatureFilter, locationGroup:temp.clusterGroup))
-							debugPrint("TDphoto start", startTime,"\n")
-							startTime = CMTimeAdd(startTime, CMTimeAdd(nextDelay, gap))
-							latestVideo.timeDelayEnd = startTime
-							debugPrint("TDphoto end",startTime,"\n")
-						}
+						self.myTimes.append(ImageTime(timeStart: startTime, timePlayEnd: CMTimeAdd(startTime, CMTimeAdd(nextDelay, gap)), phAsset: temp.phAsset, iAsset: uiimage,faces:temp.faceFeatureFilter, locationGroup:temp.clusterGroup))
+						debugPrint("TDphoto start", startTime,"\n")
+						startTime = CMTimeAdd(startTime, CMTimeAdd(nextDelay, gap))
+						latestVideo.timeDelayEnd = startTime
+						debugPrint("TDphoto end",startTime,"\n")
 					}
 				}
 				else if(temp.type == TLPHAsset.AssetType.livePhoto){
@@ -237,7 +240,7 @@ public class   TimeLine{
 		if myTimes.last?.type == TimeAsset.AssetType.video{
 			latestVideo.timeDelayEnd = CMTimeAdd(latestVideo.timePlayEnd  , gap)
 			latestVideo.timePlayEnd = latestVideo.timeDelayEnd
-		//영상으로 끝이 날때는!
+			//영상으로 끝이 날때는!
 		}
 		
 		self.timecut = latestVideo.timeDelayEnd

@@ -427,9 +427,12 @@ extension TLPhotosPickerViewController: TLPhotoLibraryDelegate {
 		self.selectedAssets = []
 		for i in 0..<collection.count{
 			if let tempTLAsset = collection.getTLAsset(at: i){
-				//tempTLAsset.selectedOrder = i+1
-				//tempTLAsset.selectedHighLight = 1
-				//self.selectedAssets.append( tempTLAsset)
+				//
+				if tempTLAsset.selectedHighLight == 1{
+					tempTLAsset.selectedOrder = -1
+					self.selectedAssets.append( tempTLAsset)
+				}
+				//여기서 변수로 추가해주면 되겠다.
 			}
 		}
 		if self.initDatePicker == nil{
@@ -603,7 +606,7 @@ extension TLPhotosPickerViewController: UICollectionViewDelegate,UICollectionVie
 			guard let cell = self.collectionView.cellForItem(at: indexPath) as? TLPhotoCollectionViewCell else { continue }
 			guard let asset = self.focusedCollection?.getTLAsset(at: indexPath.row) else { continue }
 			if let selectedAsset = getSelectedAssets(asset) {
-				cell.orderLabel?.text = "\(selectedAsset.selectedOrder)"
+				cell.orderLabel?.text = asset.selectedOrder == -1 ? "A":"\(asset.selectedOrder)"
 				if (selectedAsset.selectedOrder > 1000){
 					print("카운트 대체 왜넘어가는지 모르겠네")
 				}//
@@ -659,7 +662,7 @@ extension TLPhotosPickerViewController: UICollectionViewDelegate,UICollectionVie
 			asset.selectedOrder = self.selectedAssets.count + 1
 			//requestCloudDownload(asset: asset, indexPath: indexPath)
 			cell.selectedAsset = 1
-			cell.orderLabel?.text = "\(asset.selectedOrder)"
+			cell.orderLabel?.text = asset.selectedOrder == -1 ? "A":"\(asset.selectedOrder)"
 			asset.selectedHighLight = cell.selectedAsset
 			
 			self.selectedAssets.append(asset)
@@ -693,7 +696,7 @@ extension TLPhotosPickerViewController: UICollectionViewDelegate,UICollectionVie
 		}
 		guard let asset = collection.getTLAsset(at: indexPath.row) else { return cell }
 		if let selectedAsset = getSelectedAssets(asset) {
-			cell.orderLabel?.text = "\(selectedAsset.selectedOrder)"
+			cell.orderLabel?.text = asset.selectedOrder == -1 ? "A":"\(asset.selectedOrder)"
 			cell.selectedAsset = selectedAsset.selectedHighLight
 		}else{
 			cell.selectedAsset = 0
@@ -715,6 +718,9 @@ extension TLPhotosPickerViewController: UICollectionViewDelegate,UICollectionVie
 					cell?.imageView?.image = image
 					cell?.faceFeatureFilter = asset.faceFeatureFilter
 					cell?.faces = asset.faces
+					if asset.faceFeatureFilter.index(of: TimeAsset.FaceFeatures.none) == nil{
+						self.selectedAssets.append(asset)
+					}
 				}
 			}else {
 				queue.async { [weak self, weak cell] _ in
@@ -727,6 +733,9 @@ extension TLPhotosPickerViewController: UICollectionViewDelegate,UICollectionVie
 						}
 						cell?.faceFeatureFilter = asset.faceFeatureFilter
 						cell?.faces = asset.faces
+						if asset.faceFeatureFilter.index(of: TimeAsset.FaceFeatures.none) == nil{
+							self.selectedAssets.append(asset)
+						}
 						if self.allowedVideo {
 							cell?.durationView?.isHidden = asset.type != .video
 							cell?.duration = asset.type == .video ? phAsset.duration : nil
