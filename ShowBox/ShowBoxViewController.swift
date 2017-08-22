@@ -223,16 +223,15 @@ class ShowBoxViewController: UIViewController,UICollectionViewDelegate,UICollect
 				self.preViewCollectionView.reloadData()
 				let interval = CMTimeMake(1, 30)
 				self.timeObserverToken = self.player.addPeriodicTimeObserver(forInterval: interval, queue: DispatchQueue.main) { [unowned self] time in
+						//	print ("타이머",VideoWriter.session?.progress ?? "")
+						self.exportprogress?.angle = Double((VideoWriter.session?.progress ?? 0 )*360)
+						self.exportprogress?.isHidden = false
 					if !self.pauseflag{
 						
-						DispatchQueue.main.async {
-							//	print ("타이머",VideoWriter.session?.progress ?? "")
-							self.exportprogress?.angle = Double((VideoWriter.session?.progress ?? 0 )*360)
-							self.exportprogress?.isHidden = false
-						}
+			
 						
 						self.preViewCollectionView.setContentOffset(CGPoint.init(x: (self.player.currentTime().seconds-1)*35+9*35-187.5, y: 0.0), animated: false)
-						print(time)
+						//print(time)
 					}
 				}
 			}
