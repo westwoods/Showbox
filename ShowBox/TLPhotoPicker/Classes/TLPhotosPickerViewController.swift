@@ -634,7 +634,7 @@ extension TLPhotosPickerViewController: UICollectionViewDelegate,UICollectionVie
 		guard let asset = collection.getTLAsset(at: indexPath.row), let cell = self.collectionView.cellForItem(at: indexPath) as? TLPhotoCollectionViewCell else { return }
 		cell.popScaleAnim()
 		let index = self.selectedAssets.index(where: { $0.phAsset == asset.phAsset })
-		if (index != nil){
+		if (index != nil){ //선택된것일때.
 			
 			if(cell.selectedAsset == 2) {
 				//deselect
@@ -732,9 +732,8 @@ extension TLPhotosPickerViewController: UICollectionViewDelegate,UICollectionVie
 					let requestId = self.photoLibrary.imageAsset(asset: phAsset, size: self.thumbnailSize, completionBlock: { image in
 						cell?.imageView?.image = image
 						if  (asset.faces == nil)
-						{()
+						{
 							asset.faces =  self.faceDetector.detect(uiImage:image )
-							
 							cell?.faceFeatureFilter = asset.faceFeatureFilter
 							cell?.faces = asset.faces
 							if asset.faceFeatureFilter.index(of: TimeAsset.FaceFeatures.none) == nil{

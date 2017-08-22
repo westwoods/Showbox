@@ -35,6 +35,11 @@ open class FaceDetector{
 		//	print(sourceOrientation)
 		var personciImage:CIImage? = CIImage.init(image: uiImage)
 		faces = FaceDetector.faceDetector?.features(in: personciImage!, options: imageOptions)
-		return faces
+		if faces?.count == 0{
+			return nil
+		}
+		else{
+			return faces
+		}
 	}
 }
