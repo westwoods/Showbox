@@ -146,7 +146,7 @@ func date( year:Int, month:Int,  day:Int) -> Date? {
 //MARK: - Load Collection
 extension TLPhotoLibrary {
 	
-	func fetchCollection(allowedVideo: Bool = true, useCameraButton: Bool = true, mediaType: PHAssetMediaType? = nil, predicateOption:NSPredicate? = nil) {
+	func fetchCollection(allowedVideo: Bool = true, useCameraButton: Bool = true, mediaType: PHAssetMediaType? = nil, predicateOption:NSPredicate? = nil,localClustering:Bool = false) {
 		let options = PHFetchOptions()
 		let sortOrder = [NSSortDescriptor(key: "creationDate", ascending: true), ]
 		options.sortDescriptors = sortOrder
@@ -160,37 +160,44 @@ extension TLPhotoLibrary {
 				if assetsCollection.count > 0 {
 					assetsCollection.startDate = assetsCollection.getAsset(at: 0)?.creationDate
 					assetsCollection.endDate = assetsCollection.getAsset(at:  assetsCollection.count-1)?.creationDate
-					var myarray:[ CPoint ] = []
-					print("asset cont1 ", assetsCollection.count)
-					for i in 0..<assetsCollection.count{
-						if let location = assetsCollection.getAsset(at: i)?.location{
-							//  convertToAddressWith(coordinate: location)
-							let mycode:CPoint = CPoint.init()
-							mycode.addCoordinate(Float(location.coordinate.latitude))
-							mycode.addCoordinate(Float(location.coordinate.longitude))
-							mycode.add(i)
-							myarray.append(mycode)
+					
+					/*************지역 클러스터링 ***********/
+					if localClustering{
+						var myarray:[ CPoint ] = []
+						
+						print("asset cont1 ", assetsCollection.count)
+						for i in 0..<assetsCollection.count{
+							if let location = assetsCollection.getAsset(at: i)?.location{
+								//  convertToAddressWith(coordinate: location)
+								let mycode:CPoint = CPoint.init()
+								mycode.addCoordinate(Float(location.coordinate.latitude))
+								mycode.addCoordinate(Float(location.coordinate.longitude))
+								mycode.add(i)
+								myarray.append(mycode)
+								
+							}
+							else {
+								()
+								//		myarray.append([-1.0,-1.0])//+Float(i)*0.00001,-1.0+Float(i)*0.00001])
+							}
+						}
+						
+						print("local cont1 ", myarray.count)
+						let sampleArray = DBclustring.clustring(myarray, 0, 0.004)  as! [Cluster]
+						for group in 0..<sampleArray.count{
+							let points = sampleArray[group].points as! [CPoint]
+							for j in 0..<points.count{
+								let point = points[j]
+								print ("myindex = ",point.myindex, "group= ", group)
+								assetsCollection.getTLAsset(at: point.myindex)?.clusterGroup = group
+							}
+							/************지역 자동 추가**************/
+							
+							/************지역 자동 추가**************/
+							convertToAddressWith(key:group,coordinate: (assetsCollection.getAsset(at: (points.first?.myindex)!)?.location)!)
+							
 							
 						}
-						else {
-							()
-					//		myarray.append([-1.0,-1.0])//+Float(i)*0.00001,-1.0+Float(i)*0.00001])
-						}
-					}
-					
-					print("local cont1 ", myarray.count)
-					/*************지역 클러스터링 ***********/
-					let sampleArray = DBclustring.clustring(myarray, 0, 0.004)  as! [Cluster]
-					for group in 0..<sampleArray.count{
-						let points = sampleArray[group].points as! [CPoint]
-						for j in 0..<points.count{
-							let point = points[j]
-							print ("myindex = ",point.myindex, "group= ", group)
-							assetsCollection.getTLAsset(at: point.myindex)?.clusterGroup = group
-						}
-						convertToAddressWith(key:group,coordinate: (assetsCollection.getAsset(at: (points.first?.myindex)!)?.location)!)
-					
-						
 					}
 					/**********지역 클러스터링 끝**************/
 					result.append(assetsCollection)

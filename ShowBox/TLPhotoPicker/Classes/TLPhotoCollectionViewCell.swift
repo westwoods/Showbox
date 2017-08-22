@@ -52,7 +52,7 @@ open class TLPhotoCollectionViewCell: UICollectionViewCell {
     }
     
     open var isCameraCell = false
-    
+	
     open var duration: TimeInterval? {
         didSet {
             guard let duration = self.duration else { return }
@@ -78,6 +78,7 @@ open class TLPhotoCollectionViewCell: UICollectionViewCell {
             }
         }
     }
+	open var faceFeatureFilter:[TimeAsset.FaceFeatures] = []
     open var faces:[CIFeature]? = nil{
         didSet(oldValue){
             
@@ -89,25 +90,35 @@ open class TLPhotoCollectionViewCell: UICollectionViewCell {
             let ciImageSize = personciImage.extent.size
             
             transform = transform.translatedBy(x: 0, y: -(ciImageSize.height))
-            if let faces = faces{
+			if faceFeatureFilter.index(of: TimeAsset.FaceFeatures.smile) != nil {
+				self.durationView?.backgroundColor =  self.configure.smileColor
+				self.selectedView?.layer.borderColor = self.configure.smileColor.cgColor
+				self.orderBgView?.backgroundColor = self.configure.smileColor
+				self.orderLabel?.text = (self.orderLabel?.text)! + ((self.orderLabel?.text)!.contains("S") ?  " ":  "S")
+				self.selectedView?.isHidden = false
+
+			}
+			if	faceFeatureFilter.index(of: TimeAsset.FaceFeatures.eye) != nil {
+				self.durationView?.backgroundColor =  self.configure.smileColor
+				self.selectedView?.layer.borderColor = self.configure.smileColor.cgColor
+				self.orderBgView?.backgroundColor = self.configure.smileColor
+				self.orderLabel?.text = (self.orderLabel?.text)! + ((self.orderLabel?.text)!.contains("E") ?  " ":  "E")
+				self.selectedView?.isHidden = false
+
+			}
+			if	faceFeatureFilter.index(of: TimeAsset.FaceFeatures.many) != nil{
+					self.durationView?.backgroundColor =  self.configure.smileColor
+					self.selectedView?.layer.borderColor = self.configure.smileColor.cgColor
+					self.orderBgView?.backgroundColor = self.configure.smileColor
+					self.orderLabel?.text = (self.orderLabel?.text)! + ((self.orderLabel?.text)!.contains("M") ?  " ":  "M")
+					self.selectedView?.isHidden = false
+
+			}
+            if let faces = faces{ //얼굴 그리기
+				
                 for face in faces{
                     if let face = face as? CIFaceFeature{
                         
-                        if !face.rightEyeClosed && !face.leftEyeClosed {
-                            self.durationView?.backgroundColor =  self.configure.smileColor
-                            self.selectedView?.layer.borderColor = self.configure.smileColor.cgColor
-                            self.orderBgView?.backgroundColor = self.configure.smileColor
-                            self.orderLabel?.text = (self.orderLabel?.text)! + ((self.orderLabel?.text)!.contains("E") ?  " ":  "E")
-                            self.selectedView?.isHidden = false
-                        }
-                        
-                        if face.hasSmile {
-                            self.durationView?.backgroundColor =  self.configure.smileColor
-                            self.selectedView?.layer.borderColor = self.configure.smileColor.cgColor
-                            self.orderBgView?.backgroundColor = self.configure.smileColor
-                            self.orderLabel?.text = (self.orderLabel?.text)! + ((self.orderLabel?.text)!.contains("S") ?  " ":  "S")
-                            self.selectedView?.isHidden = false
-                        }                        // Apply the transform to convert the coordinates
                         var faceViewBounds = face.bounds.applying(transform)
                     
                         // Calculate the actual position and size of the rectangle in the image view
@@ -129,7 +140,6 @@ open class TLPhotoCollectionViewCell: UICollectionViewCell {
                             faceBox.tag = 222
                             imageView?.addSubview(faceBox)
                         }
-                        
                     }
                 }
             }

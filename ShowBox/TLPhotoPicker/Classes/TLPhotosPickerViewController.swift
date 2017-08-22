@@ -123,6 +123,7 @@ open class TLPhotosPickerViewController: UIViewController {
 	fileprivate var placeholderThumbnail: UIImage? = nil
 	fileprivate var cameraImage: UIImage? = nil
 	fileprivate var initDatePicker: ()? = nil
+	let faceDetector:FaceDetector = FaceDetector()
 	deinit {
 		//print("deinit TLPhotosPickerViewController")
 	}
@@ -199,7 +200,7 @@ extension TLPhotosPickerViewController {
 		
 		if PHPhotoLibrary.authorizationStatus() == .authorized {
 			let predicateOption = NSPredicate(format: "creationDate >= %@ && creationDate =< %@", fromDate as NSDate , toDate as NSDate)
-			self.photoLibrary.fetchCollection(allowedVideo: self.allowedVideo, useCameraButton: self.usedCameraButton, mediaType: self.configure.mediaType, predicateOption: predicateOption)
+			self.photoLibrary.fetchCollection(allowedVideo: self.allowedVideo, useCameraButton: self.usedCameraButton, mediaType: self.configure.mediaType, predicateOption: predicateOption, localClustering: true)
 		}else{
 			//self.dismiss(animated: true, completion: nil)
 		}
@@ -223,8 +224,8 @@ extension TLPhotosPickerViewController {
 		guard let layout = self.collectionView.collectionViewLayout as? UICollectionViewFlowLayout else { return }
 		let count = CGFloat(self.configure.numberOfColumn)
 		let width = (self.view.frame.size.width-(5*(count-1)))/count
-		self.thumbnailSize = CGSize(width: width, height: width)
-		layout.itemSize = self.thumbnailSize
+		self.thumbnailSize = CGSize(width: width*2, height: width*2)
+		layout.itemSize = self.thumbnailSize.applying(CGAffineTransform.init(scaleX: 0.5, y: 0.5))
 		self.collectionView.collectionViewLayout = layout
 		self.placeholderThumbnail = centerAtRect(image: self.configure.placeholderIcon, rect: CGRect(x: 0, y: 0, width: width, height: width))
 		self.cameraImage = centerAtRect(image: self.configure.cameraIcon, rect: CGRect(x: 0, y: 0, width: width, height: width), bgColor: self.configure.cameraBgColor)
@@ -426,9 +427,9 @@ extension TLPhotosPickerViewController: TLPhotoLibraryDelegate {
 		self.selectedAssets = []
 		for i in 0..<collection.count{
 			if let tempTLAsset = collection.getTLAsset(at: i){
-				tempTLAsset.selectedOrder = i+1
-				tempTLAsset.selectedHighLight = 1
-				self.selectedAssets.append( tempTLAsset)
+				//tempTLAsset.selectedOrder = i+1
+				//tempTLAsset.selectedHighLight = 1
+				//self.selectedAssets.append( tempTLAsset)
 			}
 		}
 		if self.initDatePicker == nil{
@@ -610,6 +611,7 @@ extension TLPhotosPickerViewController: UICollectionViewDelegate,UICollectionVie
 			}else {
 				cell.selectedAsset = 0
 			}
+			cell.faceFeatureFilter = asset.faceFeatureFilter
 			cell.faces = asset.faces
 		}
 	}
@@ -709,7 +711,10 @@ extension TLPhotosPickerViewController: UICollectionViewDelegate,UICollectionVie
 				options.deliveryMode = .opportunistic
 				options.isNetworkAccessAllowed = true
 				self.photoLibrary.imageAsset(asset: phAsset, size: self.thumbnailSize, options: options) { [weak cell] image in
+					asset.faces =  self.faceDetector.detect(uiImage:image )
 					cell?.imageView?.image = image
+					cell?.faceFeatureFilter = asset.faceFeatureFilter
+					cell?.faces = asset.faces
 				}
 			}else {
 				queue.async { [weak self, weak cell] _ in
@@ -718,8 +723,9 @@ extension TLPhotosPickerViewController: UICollectionViewDelegate,UICollectionVie
 						cell?.imageView?.image = image
 						if  (asset.faces == nil)
 						{()
-							//asset.faces =  FaceDetector.detect(uiImage:image )
+							asset.faces =  self.faceDetector.detect(uiImage:image )
 						}
+						cell?.faceFeatureFilter = asset.faceFeatureFilter
 						cell?.faces = asset.faces
 						if self.allowedVideo {
 							cell?.durationView?.isHidden = asset.type != .video
