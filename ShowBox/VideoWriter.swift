@@ -260,14 +260,10 @@ class VideoWriter {
 	class func preViewOverlay(_ size:CGRect,layercomposition:AVMutableVideoComposition,photosToOverlay:[TimeAsset])->CALayer{
 		let size = size
 		print(photosToOverlay.count)
-		
-		// create text Layer
 		return addAnimationLayer(size,  photosToOverlay: photosToOverlay).1
 	}
 	
-	
 	class func exportOverlay(_ size:CGRect,layercomposition:AVMutableVideoComposition,photosToOverlay:[TimeAsset]){
-		
 		let videoandparentLayer = addAnimationLayer(size, photosToOverlay: photosToOverlay)
 		let layercomposition = layercomposition
 		layercomposition.animationTool = AVVideoCompositionCoreAnimationTool(postProcessingAsVideoLayer: videoandparentLayer.0, in: videoandparentLayer.1)

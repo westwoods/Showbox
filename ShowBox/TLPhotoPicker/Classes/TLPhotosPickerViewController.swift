@@ -641,7 +641,7 @@ extension TLPhotosPickerViewController: UICollectionViewDelegate,UICollectionVie
 				self.selectedAssets.remove(at: index!)
 				self.selectedAssets = self.selectedAssets.enumerated().flatMap({ (offset,asset) -> TLPHAsset? in
 					let asset = asset
-					asset.selectedOrder = offset + 1
+					asset.selectedOrder =  asset.selectedOrder == -1 ? -1:offset + 1
 					print("카운트 오프셋",offset, selectedAssets.count)
 					return asset
 				})

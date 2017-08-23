@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -22,16 +21,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loading 복사본.png" translatesAutoresizingMaskIntoConstraints="NO" id="Yv2-o7-1Sl">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loading_n.png" translatesAutoresizingMaskIntoConstraints="NO" id="QXB-lg-zxw">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="Yv2-o7-1Sl" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" id="3zR-lL-Jh9"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Yv2-o7-1Sl" secondAttribute="trailing" constant="-16" id="6Bt-HC-WU0"/>
-                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="Yv2-o7-1Sl" secondAttribute="bottom" id="gPV-ML-25G"/>
-                            <constraint firstItem="Yv2-o7-1Sl" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="-16" id="hO5-4E-DiZ"/>
+                            <constraint firstItem="QXB-lg-zxw" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="7dU-9q-rk4"/>
+                            <constraint firstAttribute="trailing" secondItem="QXB-lg-zxw" secondAttribute="trailing" id="Z5g-2L-3qK"/>
+                            <constraint firstItem="QXB-lg-zxw" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="heO-Ti-NtX"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="QXB-lg-zxw" secondAttribute="bottom" id="oYy-ad-FhH"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -41,6 +40,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="loading 복사본.png" width="566" height="973"/>
+        <image name="loading_n.png" width="585" height="972"/>
     </resources>
 </document>

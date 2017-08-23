@@ -10,8 +10,8 @@
 		1990E55655B651D32B6AD379 /* Pods_ShowBox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FDF0FEB0DDBA99D78C8BBB0 /* Pods_ShowBox.framework */; };
 		80001E351F341743007FB318 /* TLCollectionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 800B289F1F34126200FD5810 /* TLCollectionTableViewCell.xib */; };
 		80001E3A1F341743007FB318 /* TLPhotosPickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 800B28A41F34126200FD5810 /* TLPhotosPickerViewController.xib */; };
+		8007959F1F4D0EBE005DC49A /* loading_n.png in Resources */ = {isa = PBXBuildFile; fileRef = 8007959E1F4D0EBE005DC49A /* loading_n.png */; };
 		801372CB1F4844C00082380E /* iconbox.png in Resources */ = {isa = PBXBuildFile; fileRef = 801372CA1F4844C00082380E /* iconbox.png */; };
-		801372CD1F4845580082380E /* iconbox 복사본.png in Resources */ = {isa = PBXBuildFile; fileRef = 801372CC1F4845580082380E /* iconbox 복사본.png */; };
 		801372CF1F4845A00082380E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 801372CE1F4845A00082380E /* Assets.xcassets */; };
 		801372D11F4846A60082380E /* icon3.png in Resources */ = {isa = PBXBuildFile; fileRef = 801372D01F4846A60082380E /* icon3.png */; };
 		801676551F446D680019F81F /* airplane.png in Resources */ = {isa = PBXBuildFile; fileRef = 8016764B1F446D680019F81F /* airplane.png */; };
@@ -80,6 +80,7 @@
 /* Begin PBXFileReference section */
 		0186020DAD962199B8C083A1 /* Pods-ShowBox.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShowBox.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ShowBox/Pods-ShowBox.debug.xcconfig"; sourceTree = "<group>"; };
 		10D0AF15126352DCF64BB343 /* Pods-ShowBox.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShowBox.release.xcconfig"; path = "Pods/Target Support Files/Pods-ShowBox/Pods-ShowBox.release.xcconfig"; sourceTree = "<group>"; };
+		8007959E1F4D0EBE005DC49A /* loading_n.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loading_n.png; sourceTree = "<group>"; };
 		800B289B1F34126200FD5810 /* TLAlbumPopView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TLAlbumPopView.swift; sourceTree = "<group>"; };
 		800B289C1F34126200FD5810 /* TLAssetsCollection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TLAssetsCollection.swift; sourceTree = "<group>"; };
 		800B289D1F34126200FD5810 /* TLBundle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TLBundle.swift; sourceTree = "<group>"; };
@@ -92,7 +93,6 @@
 		800B28A41F34126200FD5810 /* TLPhotosPickerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TLPhotosPickerViewController.xib; sourceTree = "<group>"; };
 		800B28A51F34126200FD5810 /* TLPhotoPickerController.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = TLPhotoPickerController.bundle; sourceTree = "<group>"; };
 		801372CA1F4844C00082380E /* iconbox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iconbox.png; sourceTree = "<group>"; };
-		801372CC1F4845580082380E /* iconbox 복사본.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iconbox 복사본.png"; sourceTree = "<group>"; };
 		801372CE1F4845A00082380E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		801372D01F4846A60082380E /* icon3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon3.png; sourceTree = "<group>"; };
 		8016764B1F446D680019F81F /* airplane.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = airplane.png; sourceTree = "<group>"; };
@@ -235,7 +235,7 @@
 			isa = PBXGroup;
 			children = (
 				801372D01F4846A60082380E /* icon3.png */,
-				801372CC1F4845580082380E /* iconbox 복사본.png */,
+				8007959E1F4D0EBE005DC49A /* loading_n.png */,
 				801372CA1F4844C00082380E /* iconbox.png */,
 				807DC4371F45E024002FC6A1 /* IMG_0242.JPG */,
 				807DC4351F45DF2E002FC6A1 /* images.jpeg */,
@@ -497,6 +497,7 @@
 				80206AF71F341D9C0089B868 /* Main.storyboard in Resources */,
 				80B2AAFD1F3861A900627204 /* There_You_Go.mp3 in Resources */,
 				80CA68001F3C2F5400F21FEA /* intro.MOV in Resources */,
+				8007959F1F4D0EBE005DC49A /* loading_n.png in Resources */,
 				80206AF61F341D9C0089B868 /* LaunchScreen.storyboard in Resources */,
 				80001E3A1F341743007FB318 /* TLPhotosPickerViewController.xib in Resources */,
 				80B2AAFF1F3861DF00627204 /* File in Resources */,
@@ -512,7 +513,6 @@
 				807DC4301F45A14D002FC6A1 /* filmborder 복사본.png in Resources */,
 				801372D11F4846A60082380E /* icon3.png in Resources */,
 				801372CF1F4845A00082380E /* Assets.xcassets in Resources */,
-				801372CD1F4845580082380E /* iconbox 복사본.png in Resources */,
 				801372CB1F4844C00082380E /* iconbox.png in Resources */,
 				8016765D1F446D680019F81F /* save.png in Resources */,
 				803F12CF1F3982E4006C36B3 /* Splashing_Around.jpg in Resources */,

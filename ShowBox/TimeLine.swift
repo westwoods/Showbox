@@ -163,7 +163,10 @@ public class   TimeLine{
 			if( musicgap <  nextDelay ||  i == selectedAssets.count-1){
 				gap = musicgap
 			}
-			
+			else{
+				gap = kCMTimeZero
+			}
+			print("테스트", gap.seconds,musicgap.seconds,CMTimeAdd(startTime, nextDelay).seconds,MusicTimeTable.splashing_Around[musicpoint].seconds)
 			/*************************************************************************************************************/
 			
 			if temp.type == TLPHAsset.AssetType.video{
