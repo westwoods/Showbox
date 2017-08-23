@@ -77,6 +77,14 @@ class ShowBoxViewController: UIViewController,UICollectionViewDelegate,UICollect
 		player.pause()
 		
 	}
+	func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool){
+		if !decelerate{//즉시 멈춘경우
+		updatetimeLable()
+		}
+	}
+	func scrollViewDidEndDecelerating(_ scrollView: UIScrollView){
+		updatetimeLable()
+	}
 	func numberOfSections(in collectionView: UICollectionView) -> Int {
 		return searches.count
 	}
@@ -114,25 +122,34 @@ class ShowBoxViewController: UIViewController,UICollectionViewDelegate,UICollect
 		}
 		return cell
 	}
+	func updatetimeLable()
+	{
+		DispatchQueue.main.async {
+		let time:Double = (Double(self.preViewCollectionView.centerPoint.x)-35*8.0)/35.0
+		let mins:Int = Int(time) / 60 //In this case it would be 1
+		let secs:Int = Int(time - Double(mins * 60)) //And this would be 10
+		let milisec:Int = Int((time - Double(mins * 60) - Double(secs))*100)
+		self.timeLabel.text = String.init(format: "%02d:", mins)+String.init(format: "%02d", secs)+String.init(format: ".%02d", milisec)
+		}
+	}
 	
 	@IBOutlet var ShowBox: UIView!
 	@IBOutlet var pauseButton: UIButton!
 	@IBAction func pauseButtonTapped(_ sender: UIButton) {
-		currentTime = CMTime(seconds: (Double(preViewCollectionView.centerPoint.x)-35*8.0)/35.0, preferredTimescale: 1)//TODO
-		
+		currentTime = CMTime(seconds: (Double(preViewCollectionView.centerPoint.x)-35*8.0)/35.0, preferredTimescale: 100)//TODO
 		player.play()
 		pauseflag = false
 		pauseButton.isHidden = true
 	}
 	@IBAction func savetoAlbum(_ sender: UIButton) {
 		if VideoWriter.session?.status == AVAssetExportSessionStatus.completed{
-		let alert = UIAlertController(title: "저장", message: "저장되었습니다.", preferredStyle: UIAlertControllerStyle.alert)
-		alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
-//		alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.default, handler: {    (action:UIAlertAction!) in
-//			print("you have pressed the Cancel button")
-//		}))
-		self.present(alert, animated: true, completion: nil)
-		VideoWriter.saveToCameraRollAlbum()
+			let alert = UIAlertController(title: "저장", message: "저장되었습니다.", preferredStyle: UIAlertControllerStyle.alert)
+			alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+			//		alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.default, handler: {    (action:UIAlertAction!) in
+			//			print("you have pressed the Cancel button")
+			//		}))
+			self.present(alert, animated: true, completion: nil)
+			VideoWriter.saveToCameraRollAlbum()
 		}
 		else{
 			let alert = UIAlertController(title: "에러", message: "영상이 아직 완성되지 않았어요 ㅠ.ㅠ", preferredStyle: UIAlertControllerStyle.alert)
@@ -181,7 +198,8 @@ class ShowBoxViewController: UIViewController,UICollectionViewDelegate,UICollect
 		self.selectedAsset?.removeAll()
 	}
 	
-
+	@IBOutlet var timeLabel: UILabel!
+	
 	func preViewGenerator(composition:AVComposition,mutableVideoCom:AVMutableVideoComposition){
 		DispatchQueue.global().async {
 			
@@ -223,15 +241,18 @@ class ShowBoxViewController: UIViewController,UICollectionViewDelegate,UICollect
 				self.preViewCollectionView.reloadData()
 				let interval = CMTimeMake(1, 30)
 				self.timeObserverToken = self.player.addPeriodicTimeObserver(forInterval: interval, queue: DispatchQueue.main) { [unowned self] time in
-						//	print ("타이머",VideoWriter.session?.progress ?? "")
-						self.exportprogress?.angle = Double((VideoWriter.session?.progress ?? 0 )*360)
-						self.exportprogress?.isHidden = false
+					//	print ("타이머",VideoWriter.session?.progress ?? "")
+					self.exportprogress?.angle = Double((VideoWriter.session?.progress ?? 0 )*360)
+					self.exportprogress?.isHidden = false
 					if !self.pauseflag{
-						
-			
 						
 						self.preViewCollectionView.setContentOffset(CGPoint.init(x: (self.player.currentTime().seconds-1)*35+9*35-187.5, y: 0.0), animated: false)
 						//print(time)
+						let time:Double = self.player.currentTime().seconds //This can be any value
+						let mins:Int = Int(time) / 60 //In this case it would be 1
+						let secs:Int = Int(time - Double(mins * 60)) //And this would be 10
+						let milisec:Int = Int((time - Double(mins * 60) - Double(secs))*100)
+						self.timeLabel.text = String.init(format: "%02d:", mins)+String.init(format: "%02d", secs)+String.init(format: ".%02d", milisec)
 					}
 				}
 			}
