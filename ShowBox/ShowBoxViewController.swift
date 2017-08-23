@@ -20,9 +20,6 @@ extension UICollectionView {
 	}
 	
 	var centerCellIndexPath: IndexPath? {
-		print("위치 센터 포인트",self.centerPoint)
-		print("위치 이건 왜 닐이야",self.indexPathsForVisibleItems)
-		print("위치 테스트", self.indexPathForItem(at: self.centerPoint))
 		if let centerIndexPath = self.indexPathForItem(at: self.centerPoint) {
 			return centerIndexPath
 		}

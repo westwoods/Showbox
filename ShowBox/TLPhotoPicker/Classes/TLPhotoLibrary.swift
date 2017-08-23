@@ -206,7 +206,6 @@ extension TLPhotoLibrary {
 								for indexforadd in startindex..<tempPoint.myindex{
 									if indexforadd%remainder == 0{
 										assetsCollection.getTLAsset(at: indexforadd)?.selectedHighLight = 1
-										print("아아 마이크 테스트 마이크 테스트start", indexforadd)
 									}
 								}
 								startindex = tempPoint.myindex
@@ -216,7 +215,6 @@ extension TLPhotoLibrary {
 						for indexforadd in startindex..<assetsCollection.count{
 							if indexforadd%remainder == 0{
 								assetsCollection.getTLAsset(at: indexforadd)?.selectedHighLight = 1
-								print("아아 마이크 테스트 마이크 테스트start", indexforadd)
 							}
 						}
 						/************지역으로 자동 추가**************/

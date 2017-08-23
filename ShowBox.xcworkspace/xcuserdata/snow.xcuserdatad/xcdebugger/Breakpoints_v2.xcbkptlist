@@ -250,11 +250,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ShowBox/ShowBoxViewController.swift"
-            timestampString = "525172877.555211"
+            timestampString = "525175050.40191"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "136"
-            endingLineNumber = "136"
+            startingLineNumber = "133"
+            endingLineNumber = "133"
             landmarkName = "ShowBoxViewController"
             landmarkType = "3">
          </BreakpointContent>
@@ -282,11 +282,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ShowBox/ShowBoxViewController.swift"
-            timestampString = "524818879.310913"
+            timestampString = "525175050.40191"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "32"
-            endingLineNumber = "32"
+            startingLineNumber = "29"
+            endingLineNumber = "29"
             landmarkName = "ShowBoxViewController"
             landmarkType = "3">
             <Locations>
@@ -375,11 +375,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ShowBox/ShowBoxViewController.swift"
-            timestampString = "525172877.555211"
+            timestampString = "525175050.40191"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "264"
-            endingLineNumber = "264"
+            startingLineNumber = "261"
+            endingLineNumber = "261"
             landmarkName = "videoout(composition:mutableVideoCom:layer:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -455,11 +455,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ShowBox/TimeLine.swift"
-            timestampString = "524981574.242602"
+            timestampString = "525174962.208002"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "118"
-            endingLineNumber = "118"
+            startingLineNumber = "119"
+            endingLineNumber = "119"
             landmarkName = "makeTimeLine(selectedAssets:complete:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -471,23 +471,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ShowBox/TimeLine.swift"
-            timestampString = "524981574.242602"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "123"
-            endingLineNumber = "123"
-            landmarkName = "makeTimeLine(selectedAssets:complete:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ShowBox/TimeLine.swift"
-            timestampString = "524981574.242602"
+            timestampString = "525174962.208002"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "125"
@@ -503,7 +487,23 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ShowBox/TimeLine.swift"
-            timestampString = "525153514.350399"
+            timestampString = "525174962.208002"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "127"
+            endingLineNumber = "127"
+            landmarkName = "makeTimeLine(selectedAssets:complete:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ShowBox/TimeLine.swift"
+            timestampString = "525175050.40191"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "181"
@@ -519,11 +519,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ShowBox/VideoWriter.swift"
-            timestampString = "524996528.213717"
+            timestampString = "525176681.297515"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "260"
-            endingLineNumber = "260"
+            startingLineNumber = "316"
+            endingLineNumber = "316"
             landmarkName = "preViewOverlay(_:layercomposition:photosToOverlay:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -756,7 +756,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ShowBox/TimeLine.swift"
-            timestampString = "525153514.350399"
+            timestampString = "525175050.40191"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "177"
@@ -820,11 +820,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ShowBox/ShowBoxViewController.swift"
-            timestampString = "524818879.310913"
+            timestampString = "525175050.40191"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "33"
-            endingLineNumber = "33"
+            startingLineNumber = "30"
+            endingLineNumber = "30"
             landmarkName = "ShowBoxViewController"
             landmarkType = "3">
          </BreakpointContent>
@@ -836,11 +836,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ShowBox/ShowBoxViewController.swift"
-            timestampString = "525172877.555211"
+            timestampString = "525175050.40191"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "112"
-            endingLineNumber = "112"
+            startingLineNumber = "109"
+            endingLineNumber = "109"
             landmarkName = "collectionView(_:cellForItemAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -884,28 +884,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ShowBox/TimeLine.swift"
-            timestampString = "525153514.350399"
+            timestampString = "525175050.40191"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "209"
             endingLineNumber = "209"
             landmarkName = "makeTimeLine(selectedAssets:complete:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ShowBox/VideoWriter.swift"
-            timestampString = "524983852.232834"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "229"
-            endingLineNumber = "229"
-            landmarkName = "addAnimationLayer(_:photosToOverlay:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -932,7 +916,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ShowBox/TimeLine.swift"
-            timestampString = "525153514.350399"
+            timestampString = "525175050.40191"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "192"
@@ -1204,11 +1188,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ShowBox/VideoWriter.swift"
-            timestampString = "525169502.976414"
+            timestampString = "525176681.297515"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "263"
-            endingLineNumber = "263"
+            startingLineNumber = "319"
+            endingLineNumber = "319"
             landmarkName = "preViewOverlay(_:layercomposition:photosToOverlay:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1220,11 +1204,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ShowBox/VideoWriter.swift"
-            timestampString = "524983852.232834"
+            timestampString = "525176681.297515"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "237"
-            endingLineNumber = "237"
+            startingLineNumber = "312"
+            endingLineNumber = "312"
             landmarkName = "addAnimationLayer(_:photosToOverlay:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1236,27 +1220,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ShowBox/VideoWriter.swift"
-            timestampString = "524996528.213717"
+            timestampString = "525176681.297515"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "256"
-            endingLineNumber = "256"
-            landmarkName = "addAnimationLayer(_:photosToOverlay:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ShowBox/VideoWriter.swift"
-            timestampString = "525169502.976414"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "269"
-            endingLineNumber = "269"
+            startingLineNumber = "325"
+            endingLineNumber = "325"
             landmarkName = "exportOverlay(_:layercomposition:photosToOverlay:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1268,11 +1236,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ShowBox/ShowBoxViewController.swift"
-            timestampString = "525172877.555211"
+            timestampString = "525175050.40191"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "204"
-            endingLineNumber = "204"
+            startingLineNumber = "201"
+            endingLineNumber = "201"
             landmarkName = "preViewGenerator(composition:mutableVideoCom:)"
             landmarkType = "7">
             <Locations>
@@ -1316,11 +1284,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ShowBox/ShowBoxViewController.swift"
-            timestampString = "525172877.555211"
+            timestampString = "525175050.40191"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "206"
-            endingLineNumber = "206"
+            startingLineNumber = "203"
+            endingLineNumber = "203"
             landmarkName = "preViewGenerator(composition:mutableVideoCom:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1332,11 +1300,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ShowBox/ShowBoxViewController.swift"
-            timestampString = "525172877.555211"
+            timestampString = "525175050.40191"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "207"
-            endingLineNumber = "207"
+            startingLineNumber = "204"
+            endingLineNumber = "204"
             landmarkName = "preViewGenerator(composition:mutableVideoCom:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1364,7 +1332,39 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ShowBox/ShowBoxViewController.swift"
-            timestampString = "525172877.555211"
+            timestampString = "525175050.40191"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "269"
+            endingLineNumber = "269"
+            landmarkName = "videoout(composition:mutableVideoCom:layer:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ShowBox/ShowBoxViewController.swift"
+            timestampString = "525175050.40191"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "265"
+            endingLineNumber = "265"
+            landmarkName = "videoout(composition:mutableVideoCom:layer:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ShowBox/ShowBoxViewController.swift"
+            timestampString = "525175050.40191"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "272"
@@ -1380,43 +1380,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ShowBox/ShowBoxViewController.swift"
-            timestampString = "525172877.555211"
+            timestampString = "525175050.40191"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "268"
-            endingLineNumber = "268"
-            landmarkName = "videoout(composition:mutableVideoCom:layer:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ShowBox/ShowBoxViewController.swift"
-            timestampString = "525172877.555211"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "275"
-            endingLineNumber = "275"
-            landmarkName = "videoout(composition:mutableVideoCom:layer:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ShowBox/ShowBoxViewController.swift"
-            timestampString = "525172877.555211"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "277"
-            endingLineNumber = "277"
+            startingLineNumber = "274"
+            endingLineNumber = "274"
             landmarkName = "videoout(composition:mutableVideoCom:layer:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1444,11 +1412,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ShowBox/ShowBoxViewController.swift"
-            timestampString = "525172877.555211"
+            timestampString = "525175050.40191"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "186"
-            endingLineNumber = "186"
+            startingLineNumber = "183"
+            endingLineNumber = "183"
             landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1476,11 +1444,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ShowBox/ShowBoxViewController.swift"
-            timestampString = "525172877.555211"
+            timestampString = "525175050.40191"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "115"
-            endingLineNumber = "115"
+            startingLineNumber = "112"
+            endingLineNumber = "112"
             landmarkName = "collectionView(_:cellForItemAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1492,11 +1460,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ShowBox/ShowBoxViewController.swift"
-            timestampString = "524818879.310913"
+            timestampString = "525175050.40191"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "26"
-            endingLineNumber = "26"
+            startingLineNumber = "23"
+            endingLineNumber = "23"
             landmarkName = "centerCellIndexPath"
             landmarkType = "24">
          </BreakpointContent>
@@ -1524,11 +1492,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ShowBox/ShowBoxViewController.swift"
-            timestampString = "525172877.555211"
+            timestampString = "525175050.40191"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "232"
-            endingLineNumber = "232"
+            startingLineNumber = "229"
+            endingLineNumber = "229"
             landmarkName = "preViewGenerator(composition:mutableVideoCom:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1540,7 +1508,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ShowBox/TimeLine.swift"
-            timestampString = "525153514.350399"
+            timestampString = "525175050.40191"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "185"
@@ -1716,11 +1684,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ShowBox/TimeLine.swift"
-            timestampString = "525151194.185164"
+            timestampString = "525174962.208002"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "161"
-            endingLineNumber = "161"
+            startingLineNumber = "162"
+            endingLineNumber = "162"
             landmarkName = "makeTimeLine(selectedAssets:complete:)"
             landmarkType = "7">
          </BreakpointContent>

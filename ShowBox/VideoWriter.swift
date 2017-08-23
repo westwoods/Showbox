@@ -193,50 +193,50 @@ class VideoWriter {
 				CATransaction.setCompletionBlock {
 					//	imglayer.removeFromSuperlayer()
 				}
-				imglayer.contents = imglogo?.cgImage
-				imglayer.frame = CGRect(origin: CGPoint(x:0,y:0), size: CGSize(width: ((imglogo?.size.width)!*resizefactor), height: ((imglogo?.size.height)!*resizefactor)))
-				imglayer.position = CGPoint(x:parentlayer.bounds.midX , y:parentlayer.bounds.midY)
-				imglayer.masksToBounds = true
-				imglayer.opacity = 0.0
-				imglayer.backgroundColor = UIColor.blue.cgColor
 				
-				let myanimation:CABasicAnimation = CABasicAnimation(keyPath: "opacity")
-				myanimation.fromValue = imglayer.opacity
-				myanimation.toValue = 1
-				myanimation.duration = (tempPhoto.timePlayEnd.seconds - tempPhoto.timeStart.seconds)/2
-				myanimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
-				myanimation.autoreverses  = true
-				myanimation.beginTime = AVCoreAnimationBeginTimeAtZero + tempPhoto.timeStart.seconds
-				myanimation.isRemovedOnCompletion = false //애니메이션이 종료되어도 애니메이션을 지우지않는다.
-				myanimation.fillMode = kCAFillModeForwards //애니메이션이 종료된뒤 계속해서 상태를 유지한다.
-				imglayer.add(myanimation, forKey: "opacity")
-				
-				let sizeanimation:CABasicAnimation = CABasicAnimation(keyPath: "transform.scale")
-				
-				sizeanimation.fromValue =  1
-				sizeanimation.toValue = 2
-				sizeanimation.duration = (tempPhoto.timePlayEnd.seconds - tempPhoto.timeStart.seconds)/2
-				sizeanimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
-				sizeanimation.autoreverses  = true
-				sizeanimation.beginTime = AVCoreAnimationBeginTimeAtZero + tempPhoto.timeStart.seconds
-				
-				//sizeanimation.isRemovedOnCompletion = false //애니메이션이 종료되어도 애니메이션을 지우지않는다.
-				//sizeanimation.fillMode = kCAFillModeForwards //애니메이션이 종료된뒤 계속해서 상태를 유지한다.
-				imglayer.add(sizeanimation, forKey: "scale")
-				let transitionType = [kCATransitionFromTop,kCATransitionFromBottom,kCATransitionFromLeft,kCATransitionFromRight]
-				let transition = CATransition()
-				transition.type = kCATransitionPush
-				transition.subtype = transitionType[3]//Int(arc4random_uniform(4))]
-				transition.duration = (tempPhoto.timePlayEnd.seconds - tempPhoto.timeStart.seconds)/2
-				transition.beginTime =  AVCoreAnimationBeginTimeAtZero + tempPhoto.timeStart.seconds
-				transition.autoreverses = true
-				transition.isRemovedOnCompletion = false //애니메이션이 종료되어도 애니메이션을 지우지않는다.
-				transition.fillMode = kCAFillModeForwards //애니메이션이 종료된뒤 계속해서 상태를 유지한다.
-				imglayer.add(transition, forKey: "transition")
-				
-				parentlayer.addSublayer(imglayer)
 				
 				if tempPhoto.type == TimeAsset.AssetType.map{
+					imglayer.contents = imglogo?.cgImage
+					imglayer.frame = CGRect(origin: CGPoint(x:0,y:0), size: CGSize(width: ((imglogo?.size.width)!*resizefactor), height: ((imglogo?.size.height)!*resizefactor)))
+					imglayer.position = CGPoint(x:parentlayer.bounds.midX , y:parentlayer.bounds.midY)
+					imglayer.masksToBounds = true
+					imglayer.opacity = 0
+					imglayer.backgroundColor = UIColor.blue.cgColor
+					
+					let myanimation:CABasicAnimation = CABasicAnimation(keyPath: "opacity")
+					myanimation.fromValue = 0
+					myanimation.toValue = 1
+					myanimation.duration = 1
+					myanimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
+					myanimation.autoreverses  = false
+					myanimation.beginTime = AVCoreAnimationBeginTimeAtZero + tempPhoto.timeStart.seconds+0.5
+					myanimation.isRemovedOnCompletion = false //애니메이션이 종료되어도 애니메이션을 지우지않는다.
+					myanimation.fillMode = kCAFillModeForwards //애니메이션이 종료된뒤 계속해서 상태를 유지한다.
+					imglayer.add(myanimation, forKey: "opacity")
+					
+					let opanimation:CABasicAnimation = CABasicAnimation(keyPath: "opacity")
+					opanimation.fromValue = 1
+					opanimation.toValue = 0
+					opanimation.duration = 1
+					opanimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
+					opanimation.autoreverses  = false
+					opanimation.beginTime = AVCoreAnimationBeginTimeAtZero + tempPhoto.timePlayEnd.seconds
+					opanimation.isRemovedOnCompletion = false //애니메이션이 종료되어도 애니메이션을 지우지않는다.
+					opanimation.fillMode = kCAFillModeForwards //애니메이션이 종료된뒤 계속해서 상태를 유지한다.
+					imglayer.add(opanimation, forKey: "opacity2")
+					
+					let sizeanimation:CASpringAnimation = CASpringAnimation(keyPath: "transform.scale")
+					sizeanimation.damping = 10
+					sizeanimation.fromValue =  1
+					sizeanimation.toValue = 3
+					sizeanimation.duration = (tempPhoto.timePlayEnd.seconds - tempPhoto.timeStart.seconds)
+					sizeanimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionDefault)
+					//sizeanimation.autoreverses  = true
+					sizeanimation.beginTime = AVCoreAnimationBeginTimeAtZero + tempPhoto.timeStart.seconds+2
+					sizeanimation.isRemovedOnCompletion = false //애니메이션이 종료되어도 애니메이션을 지우지않는다.
+					sizeanimation.fillMode = kCAFillModeForwards //애니메이션이 종료된뒤 계속해서 상태를 유지한다.
+					imglayer.add(sizeanimation, forKey: "scale")
+					parentlayer.addSublayer(imglayer)
 					if let location = LocalDic[tempPhoto.locationGroup!]{
 						let titleLayer = CATextLayer()
 						titleLayer.backgroundColor = UIColor.clear.cgColor
@@ -244,12 +244,68 @@ class VideoWriter {
 						titleLayer.font = UIFont(name: "HelveticaNeue-Bold", size: 40)
 						titleLayer.fontSize = 15
 						titleLayer.foregroundColor = UIColor.white.cgColor
-						titleLayer.shadowOpacity = 0.0
-						titleLayer.alignmentMode = kCAAlignmentCenter
+						titleLayer.shadowOpacity = 0.5
+						titleLayer.alignmentMode = kCAAlignmentLeft
 						titleLayer.frame = size
-						
 						imglayer.addSublayer(titleLayer)
 					}
+				}
+				else{ //일반 사진
+					imglayer.contents = imglogo?.cgImage
+					imglayer.frame = CGRect(origin: CGPoint(x:0,y:0), size: CGSize(width: ((imglogo?.size.width)!*resizefactor), height: ((imglogo?.size.height)!*resizefactor)))
+					imglayer.position = CGPoint(x:parentlayer.bounds.midX , y:parentlayer.bounds.midY)
+					imglayer.masksToBounds = true
+					imglayer.opacity = 0
+					imglayer.backgroundColor = UIColor.blue.cgColor
+					
+					let myanimation:CABasicAnimation = CABasicAnimation(keyPath: "opacity")
+					myanimation.fromValue = 0
+					myanimation.toValue = 1
+					myanimation.duration = 1
+					myanimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
+					myanimation.autoreverses  = false
+					myanimation.beginTime = AVCoreAnimationBeginTimeAtZero + tempPhoto.timeStart.seconds
+					myanimation.isRemovedOnCompletion = false //애니메이션이 종료되어도 애니메이션을 지우지않는다.
+					myanimation.fillMode = kCAFillModeForwards //애니메이션이 종료된뒤 계속해서 상태를 유지한다.
+					imglayer.add(myanimation, forKey: "opacity")
+					
+					let opanimation:CABasicAnimation = CABasicAnimation(keyPath: "opacity")
+					opanimation.fromValue = 1
+					opanimation.toValue = 0
+					opanimation.duration = 1
+					opanimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
+					opanimation.autoreverses  = false
+					opanimation.beginTime = AVCoreAnimationBeginTimeAtZero + tempPhoto.timePlayEnd.seconds
+					opanimation.isRemovedOnCompletion = false //애니메이션이 종료되어도 애니메이션을 지우지않는다.
+					opanimation.fillMode = kCAFillModeForwards //애니메이션이 종료된뒤 계속해서 상태를 유지한다.
+					imglayer.add(opanimation, forKey: "opacity2")
+					if Int(arc4random_uniform(2))==1{
+						if resizefactor<1 {
+							let sizeanimation:CABasicAnimation = CABasicAnimation(keyPath: "transform.scale")
+							sizeanimation.fromValue =  1
+							sizeanimation.toValue = 1.5
+							sizeanimation.duration = (tempPhoto.timePlayEnd.seconds - tempPhoto.timeStart.seconds)/2+1
+							sizeanimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
+							sizeanimation.autoreverses  = true
+							sizeanimation.beginTime = AVCoreAnimationBeginTimeAtZero + tempPhoto.timeStart.seconds-1
+							sizeanimation.isRemovedOnCompletion = false //애니메이션이 종료되어도 애니메이션을 지우지않는다.
+							sizeanimation.fillMode = kCAFillModeForwards //애니메이션이 종료된뒤 계속해서 상태를 유지한다.
+							imglayer.add(sizeanimation, forKey: "scale")
+						}
+					}
+					else{
+						let transitionType = [kCATransitionFromTop,kCATransitionFromBottom,kCATransitionFromLeft,kCATransitionFromRight]
+						let transition = CATransition()
+						transition.type = kCATransitionPush
+						transition.subtype = transitionType[Int(arc4random_uniform(4))]
+						transition.duration = (tempPhoto.timePlayEnd.seconds - tempPhoto.timeStart.seconds)/2+1
+						transition.beginTime =  AVCoreAnimationBeginTimeAtZero + tempPhoto.timeStart.seconds-0.5
+						transition.autoreverses = true
+						transition.isRemovedOnCompletion = false //애니메이션이 종료되어도 애니메이션을 지우지않는다.
+						transition.fillMode = kCAFillModeForwards //애니메이션이 종료된뒤 계속해서 상태를 유지한다.
+						imglayer.add(transition, forKey: "transition")
+					}
+					parentlayer.addSublayer(imglayer)
 				}
 			}
 			CATransaction.commit()

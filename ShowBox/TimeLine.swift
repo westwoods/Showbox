@@ -114,8 +114,10 @@ public class   TimeLine{
 	
 	public func makeTimeLine(selectedAssets:[TLPHAsset],complete:@escaping (()->()) ){
 		let nextDelayTime:TimeInterval = 2
+		let mapDelayTime:TimeInterval = 4
 		var startTime:CMTime = kCMTimeZero
-		let nextDelay:CMTime = CMTimeMakeWithSeconds(nextDelayTime, 1);
+		let nextDelay:CMTime = CMTimeMakeWithSeconds(nextDelayTime, 100)
+		let mapDelay:CMTime = CMTimeMakeWithSeconds(mapDelayTime, 100)
 		semaphore = DispatchSemaphore(value: 0)
 		self.selectedAssets = selectedAssets
 		self.complete = complete
@@ -130,7 +132,6 @@ public class   TimeLine{
 		var nowGroup = -1
 		var gap = kCMTimeZero
 		self.progress?.angle = 0
-		let faceDetector = FaceDetector()
 		for i in 0..<selectedAssets.count
 		{ autoreleasepool{
 			DispatchQueue.main.async {
@@ -166,7 +167,6 @@ public class   TimeLine{
 			else{
 				gap = kCMTimeZero
 			}
-			print("테스트", gap.seconds,musicgap.seconds,CMTimeAdd(startTime, nextDelay).seconds,MusicTimeTable.splashing_Around[musicpoint].seconds)
 			/*************************************************************************************************************/
 			
 			if temp.type == TLPHAsset.AssetType.video{
@@ -203,25 +203,13 @@ public class   TimeLine{
 									}
 								}
 							}
-							let mapimage = ImageTime(timeStart: startTime, timePlayEnd: CMTimeAdd(startTime, CMTimeAdd(nextDelay, gap)), phAsset: nil, iAsset:mapimage ,faces:temp.faceFeatureFilter, locationGroup:temp.clusterGroup)
+							let mapimage = ImageTime(timeStart: startTime, timePlayEnd: CMTimeAdd(startTime, CMTimeAdd(mapDelay, gap)), phAsset: nil, iAsset:mapimage ,faces:temp.faceFeatureFilter, locationGroup:temp.clusterGroup)
 							mapimage.type = TimeAsset.AssetType.map
 							myTimes.append(mapimage)
-							startTime = CMTimeAdd(startTime, CMTimeAdd(nextDelay, gap))
+							startTime = CMTimeAdd(startTime, CMTimeAdd(mapDelay, gap))
 							latestVideo.timeDelayEnd = startTime
 						}
 					}
-					//얼굴인식 처리
-					//					myPhLib.getThumbnailAsset(asset: temp.phAsset!, size: CGSize(width:(temp.phAsset?.pixelWidth)!/4, height:(temp.phAsset?.pixelHeight)!/4)){[unowned self]uiimage in
-					//						//temp.faces =
-					//						temp.faces = faceDetector.detect(uiImage: uiimage)
-					//						print ("웃는 사진",temp.faceFeatureFilter.index(of: TimeAsset.FaceFeatures.smile), i)
-					//						if temp.faceFeatureFilter.index(of: TimeAsset.FaceFeatures.smile) != nil ||
-					//							temp.faceFeatureFilter.index(of: TimeAsset.FaceFeatures.eye) != nil ||
-					//							temp.faceFeatureFilter.index(of: TimeAsset.FaceFeatures.many) != nil
-					//						{ //얼굴이있음.
-					//						}
-					//					}
-					//
 					myPhLib.getThumbnailAsset(asset: temp.phAsset!, size: CGSize(width:(temp.phAsset?.pixelWidth)!/4, height:(temp.phAsset?.pixelHeight)!/4)){[unowned self]uiimage in
 						self.myTimes.append(ImageTime(timeStart: startTime, timePlayEnd: CMTimeAdd(startTime, CMTimeAdd(nextDelay, gap)), phAsset: temp.phAsset, iAsset: uiimage,faces:temp.faceFeatureFilter, locationGroup:temp.clusterGroup))
 						debugPrint("TDphoto start", startTime,"\n")
