@@ -122,7 +122,11 @@ class MainViewController: UIViewController, TLPhotosPickerViewControllerDelegate
 	//	print ("얼굴인식 갯수 \(a)개")
 		
 		DispatchQueue.global().async {
-		self.mySelectedAsset?.makeTimeLine(selectedAssets: self.selectedAssets, complete: self.allFileReadyHeadler)
+			
+			let dateFormatter = DateFormatter()
+			dateFormatter.dateFormat = "yyyy년M월dd일 출발한"
+			print (dateFormatter.string(from:self.fromDatePicker.date))
+			self.mySelectedAsset?.makeTimeLine(selectedAssets: self.selectedAssets, complete: self.allFileReadyHeadler,title1:dateFormatter.string(from:self.fromDatePicker.date),title2:self.pickerData[self.toDateRow]+"의 추억")
 		}
 	}
 	

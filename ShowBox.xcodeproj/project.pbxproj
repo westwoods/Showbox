@@ -11,6 +11,7 @@
 		80001E351F341743007FB318 /* TLCollectionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 800B289F1F34126200FD5810 /* TLCollectionTableViewCell.xib */; };
 		80001E3A1F341743007FB318 /* TLPhotosPickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 800B28A41F34126200FD5810 /* TLPhotosPickerViewController.xib */; };
 		8007959F1F4D0EBE005DC49A /* loading_n.png in Resources */ = {isa = PBXBuildFile; fileRef = 8007959E1F4D0EBE005DC49A /* loading_n.png */; };
+		800795A11F4DA09B005DC49A /* SDMiSaeng.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 800795A01F4DA09B005DC49A /* SDMiSaeng.ttf */; };
 		801372CB1F4844C00082380E /* iconbox.png in Resources */ = {isa = PBXBuildFile; fileRef = 801372CA1F4844C00082380E /* iconbox.png */; };
 		801372CF1F4845A00082380E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 801372CE1F4845A00082380E /* Assets.xcassets */; };
 		801372D11F4846A60082380E /* icon3.png in Resources */ = {isa = PBXBuildFile; fileRef = 801372D01F4846A60082380E /* icon3.png */; };
@@ -81,6 +82,7 @@
 		0186020DAD962199B8C083A1 /* Pods-ShowBox.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShowBox.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ShowBox/Pods-ShowBox.debug.xcconfig"; sourceTree = "<group>"; };
 		10D0AF15126352DCF64BB343 /* Pods-ShowBox.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShowBox.release.xcconfig"; path = "Pods/Target Support Files/Pods-ShowBox/Pods-ShowBox.release.xcconfig"; sourceTree = "<group>"; };
 		8007959E1F4D0EBE005DC49A /* loading_n.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loading_n.png; sourceTree = "<group>"; };
+		800795A01F4DA09B005DC49A /* SDMiSaeng.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SDMiSaeng.ttf; sourceTree = "<group>"; };
 		800B289B1F34126200FD5810 /* TLAlbumPopView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TLAlbumPopView.swift; sourceTree = "<group>"; };
 		800B289C1F34126200FD5810 /* TLAssetsCollection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TLAssetsCollection.swift; sourceTree = "<group>"; };
 		800B289D1F34126200FD5810 /* TLBundle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TLBundle.swift; sourceTree = "<group>"; };
@@ -234,6 +236,7 @@
 		8016764A1F446D680019F81F /* resource */ = {
 			isa = PBXGroup;
 			children = (
+				800795A01F4DA09B005DC49A /* SDMiSaeng.ttf */,
 				801372D01F4846A60082380E /* icon3.png */,
 				8007959E1F4D0EBE005DC49A /* loading_n.png */,
 				801372CA1F4844C00082380E /* iconbox.png */,
@@ -502,6 +505,7 @@
 				80001E3A1F341743007FB318 /* TLPhotosPickerViewController.xib in Resources */,
 				80B2AAFF1F3861DF00627204 /* File in Resources */,
 				803F12CE1F3982E4006C36B3 /* Atlanta.jpeg in Resources */,
+				800795A11F4DA09B005DC49A /* SDMiSaeng.ttf in Resources */,
 				80B2AAFB1F3861A900627204 /* Hackbeat.mp3 in Resources */,
 				801676561F446D680019F81F /* back.png in Resources */,
 				807DC4361F45DF2E002FC6A1 /* images.jpeg in Resources */,

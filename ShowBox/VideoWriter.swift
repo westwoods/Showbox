@@ -18,8 +18,12 @@ class VideoWriter {
 	
 	static var exportURL:URL? = nil
 	static var session:AVAssetExportSession? = nil
+	static var title1:String = ""
+	static var title2:String = ""
+	
 	class func mergeVideo(_ myTimeLine:TimeLine, previewSize:CGRect,complete:((AVComposition,AVMutableVideoComposition,CALayer)->())){
-		
+		title1 = myTimeLine.title1
+		title2 = myTimeLine.title2
 		let myMutableComposition:AVMutableComposition = AVMutableComposition()
 		//*************************************트랙생성
 		let videoCompositionTrack:AVMutableCompositionTrack
@@ -29,7 +33,7 @@ class VideoWriter {
 		let BGMCompositionTrack:AVMutableCompositionTrack =
 			myMutableComposition.addMutableTrack(withMediaType: AVMediaTypeAudio, preferredTrackID:  kCMPersistentTrackID_Invalid)
 		//************************************트랙생성 끝
-		
+
 		let renderSize:CGSize = CGSize(width: 1024, height: 768)
 		let mutableVideoCompositon = AVMutableVideoComposition.init()
 		var VideoCompositionInsturction:AVMutableVideoCompositionInstruction? = nil
@@ -169,6 +173,48 @@ class VideoWriter {
 		parentlayer.masksToBounds = true
 		parentlayer.addSublayer(videolayer)
 		
+		let transition = CATransition()
+		transition.type = kCATransitionPush
+		transition.subtype = kCATransitionFromLeft
+		transition.duration = 3
+		transition.beginTime =  AVCoreAnimationBeginTimeAtZero
+		transition.autoreverses = true
+		transition.isRemovedOnCompletion = false //애니메이션이 종료되어도 애니메이션을 지우지않는다.
+		transition.fillMode = kCAFillModeForwards //애니메이션이 종료된뒤 계속해서 상태를 유지한다.
+		
+		let transition2 = CATransition()
+		transition2.type = kCATransitionPush
+		transition2.subtype = kCATransitionFromRight
+		transition2.duration = 3
+		transition2.beginTime =  AVCoreAnimationBeginTimeAtZero
+		transition2.autoreverses = true
+		transition2.isRemovedOnCompletion = false //애니메이션이 종료되어도 애니메이션을 지우지않는다.
+		transition2.fillMode = kCAFillModeForwards //애니메이션이 종료된뒤 계속해서 상태를 유지한다.
+		
+		let titleLayer = CATextLayer()
+		titleLayer.backgroundColor = UIColor.clear.cgColor
+		titleLayer.string = title1
+		print(title1)
+		titleLayer.font =  UIFont(name: "SDMiSaeng", size: 10)
+		titleLayer.fontSize = 40*size.width/300
+		titleLayer.foregroundColor = UIColor.white.cgColor
+		titleLayer.shadowOpacity = 0.5
+		titleLayer.alignmentMode = kCAAlignmentRight
+		titleLayer.frame = CGRect(x: 0, y: 0, width: size.width, height: size.height)
+		titleLayer.add(transition, forKey: "transition")
+		let title2Layer = CATextLayer()
+		title2Layer.backgroundColor = UIColor.clear.cgColor
+		title2Layer.string = title2
+		title2Layer.font = UIFont(name: "SDMiSaeng", size: 10)
+		title2Layer.fontSize = 40*size.width/300
+		title2Layer.foregroundColor = UIColor.white.cgColor
+		title2Layer.shadowOpacity = 0.5
+		title2Layer.alignmentMode = kCAAlignmentLeft
+		var y:CGFloat=0.0
+		if (size.height/2>300){ y = CGFloat(-size.height/2)}else {y = CGFloat(size.height/2)}
+		title2Layer.frame = CGRect(x: size.width/3, y: y, width: size.width, height: size.height)
+		title2Layer.add(transition2, forKey: "transition")
+
 		for i in 0..<photosToOverlay.count
 		{
 			let tempPhoto = photosToOverlay[i]
@@ -241,8 +287,8 @@ class VideoWriter {
 						let titleLayer = CATextLayer()
 						titleLayer.backgroundColor = UIColor.clear.cgColor
 						titleLayer.string = location
-						titleLayer.font = UIFont(name: "HelveticaNeue-Bold", size: 40)
-						titleLayer.fontSize = 15
+						titleLayer.font = UIFont(name: "SDMiSaeng", size: 40)
+						titleLayer.fontSize = 25*size.width/300
 						titleLayer.foregroundColor = UIColor.white.cgColor
 						titleLayer.shadowOpacity = 0.5
 						titleLayer.alignmentMode = kCAAlignmentLeft
@@ -279,8 +325,7 @@ class VideoWriter {
 					opanimation.isRemovedOnCompletion = false //애니메이션이 종료되어도 애니메이션을 지우지않는다.
 					opanimation.fillMode = kCAFillModeForwards //애니메이션이 종료된뒤 계속해서 상태를 유지한다.
 					imglayer.add(opanimation, forKey: "opacity2")
-					if Int(arc4random_uniform(2))==1{
-						if resizefactor<1 {
+					if (Int(arc4random_uniform(2))==1 || i < 3){
 							let sizeanimation:CABasicAnimation = CABasicAnimation(keyPath: "transform.scale")
 							sizeanimation.fromValue =  1
 							sizeanimation.toValue = 1.5
@@ -291,7 +336,6 @@ class VideoWriter {
 							sizeanimation.isRemovedOnCompletion = false //애니메이션이 종료되어도 애니메이션을 지우지않는다.
 							sizeanimation.fillMode = kCAFillModeForwards //애니메이션이 종료된뒤 계속해서 상태를 유지한다.
 							imglayer.add(sizeanimation, forKey: "scale")
-						}
 					}
 					else{
 						let transitionType = [kCATransitionFromTop,kCATransitionFromBottom,kCATransitionFromLeft,kCATransitionFromRight]
@@ -310,6 +354,9 @@ class VideoWriter {
 			}
 			CATransaction.commit()
 		}
+		parentlayer.addSublayer(titleLayer)
+		parentlayer.addSublayer(title2Layer)
+		
 		return (videolayer,parentlayer)
 	}
 	

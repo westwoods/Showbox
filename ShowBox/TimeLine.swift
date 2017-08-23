@@ -92,6 +92,10 @@ public class   TimeLine{
 	var myTimes:[TimeAsset] = []
 	var	selectedAssets:[TLPHAsset] = []
 	var complete:(()->())? = nil
+	
+	var title1:String = ""
+	var title2:String = ""
+
 	public var timecut:CMTime = kCMTimeInvalid
 	public var myBGM:MusicTime?
 	
@@ -112,7 +116,9 @@ public class   TimeLine{
 		progress = sprogress
 	}
 	
-	public func makeTimeLine(selectedAssets:[TLPHAsset],complete:@escaping (()->()) ){
+	public func makeTimeLine(selectedAssets:[TLPHAsset],complete:@escaping (()->()),title1:String,title2:String ){
+		self.title1 = title1
+		self.title2 = title2
 		let nextDelayTime:TimeInterval = 2
 		let mapDelayTime:TimeInterval = 4
 		var startTime:CMTime = kCMTimeZero
